@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http;
-
+use App\Features\Admin\Middleware\AdminMiddleware;
+use App\Features\Admin\Middleware\CheckRole;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -63,5 +64,8 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'type.admin' => AdminMiddleware::class,
+        'check.role'=> CheckRole::class,
+
     ];
 }

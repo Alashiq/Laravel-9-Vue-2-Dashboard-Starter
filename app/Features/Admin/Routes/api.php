@@ -7,13 +7,31 @@ use Illuminate\Validation\ValidationException;
 use App\Features\Admin\Controllers\AuthController;
 
 
+# # # # # # # # # # # # # # # Admin Not Auth # # # # # # # # # # # # # # # 
+Route::controller(AuthController::class)->group(function () {
+    Route::post('/login', 'login');
+    Route::post('/signup', 'store');
+});
 
-// Route::prefix('app')->group(function () {
+Route::middleware(['auth:sanctum', 'type.admin'])->group(function () {
 
-    Route::get('/', [AuthController::class, 'index']);
-    
-    // Route::get('/', function (Request $request) {
-    //     return response()->json(["success" => false, "message" => "انت لم تسجل دخولك أو انتهت الجلسة الخاصة بك"], 401);
-    // });
+    # # # # # # # # # # # # # # # Admin Auth # # # # # # # # # # # # # # # 
+    Route::group(
+        ['prefix' => 'auth'],
+        function () {
+            Route::get('/auth', [AuthController::class, 'auth']);
+            Route::get('/logout', [AuthController::class, 'logout']);
+        }
+    );
+    # # # # # # # # # # # # # # # End Admin Auth # # # # # # # # # # # # # # # 
 
-// });
+        # # # # # # # # # # # # # # # Admin Auth # # # # # # # # # # # # # # # 
+        Route::group(
+            ['prefix' => 'hello'],
+            function () {
+                Route::get('/', [AuthController::class, 'hello'])->middleware('check.role:ReadMessage');
+            }
+        );
+        # # # # # # # # # # # # # # # End Admin Auth # # # # # # # # # # # # # # # 
+
+});

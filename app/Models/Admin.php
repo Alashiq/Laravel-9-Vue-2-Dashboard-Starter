@@ -30,9 +30,9 @@ class Admin extends Model
     ];
     
 
-    // public function role()
-    // {
-    //     return $this->belongsTo(related: Permission::class, foreignKey: 'role_id');
-    // }
+    public function role()
+    {
+        return $this->belongsTo(related: Permission::class, foreignKey: 'role_id');
+    }
 
 }
