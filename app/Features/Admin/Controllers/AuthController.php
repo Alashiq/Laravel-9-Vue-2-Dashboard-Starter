@@ -43,7 +43,7 @@ class AuthController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'تم تسجيل الدخول بنجاح',
-            'user' => new AdminResource($request->user()),
+            'admin' => new AdminResource($request->user()),
         ]);
     }
 
@@ -75,10 +75,17 @@ class AuthController extends Controller
         return response()->json(["success" => true, "message" => "تم تسجيل الخروج بنجاح"]);
     }
 
-        // Test Role
-        public function hello(Request $request)
-        {
-            return response()->json(["success" => true, "message" => "تجربة الصلاحيات"]);
-        }
+    // Test Role
+    public function hello(Request $request)
+    {
+        return response()->json(["success" => true, "message" => "تجربة الصلاحيات"]);
+    }
+
+
+    // -- TODO : Add Change Passowrd
+    
+    // -- TODO : Add Change Name
+
+    // -- TODO : Add Change Photo
 
 }

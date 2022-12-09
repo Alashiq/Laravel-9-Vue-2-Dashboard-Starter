@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+// Route::get('/admin/{any}', function () {
+//     return view('admin.admin');
+// })->where('any', '.*');
+
+Route::view('/','admin.admin');
+Route::view('/{a?}/{b?}/{c?}/{d?}/{e?}','admin.admin');
