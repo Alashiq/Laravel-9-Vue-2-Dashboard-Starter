@@ -10,8 +10,11 @@ export default {
     Logout() {
         return axios.get("/admin/api/logout");
     },
-    ChangeNameOrPassword(formData) {
-        return axios.put("/api/admin", formData);
+    ChangeName(formData) {
+        return axios.post("/admin/api/auth/editName", formData);
+    },
+    ChangePassword(formData) {
+        return axios.post("/admin/api/auth/editPassword", formData);
     },
     ChangePhoto(data, config) {
         return axios.post("/api/admin/photo", data, config);

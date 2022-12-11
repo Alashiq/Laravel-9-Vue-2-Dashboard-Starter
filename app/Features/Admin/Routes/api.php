@@ -21,6 +21,8 @@ Route::middleware(['auth:sanctum', 'type.admin'])->group(function () {
         function () {
             Route::get('/auth', [AuthController::class, 'auth']);
             Route::get('/logout', [AuthController::class, 'logout']);
+            Route::post('/editName', [AuthController::class, 'editName']);
+            Route::post('/editPassword', [AuthController::class, 'editPassword']);
         }
     );
     # # # # # # # # # # # # # # # End Admin Auth # # # # # # # # # # # # # # # 

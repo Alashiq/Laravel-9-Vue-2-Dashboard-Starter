@@ -83,9 +83,42 @@ class AuthController extends Controller
 
 
     // -- TODO : Add Change Passowrd
-    
-    // -- TODO : Add Change Name
+    public function editPassword(Request $request)
+    {
+        if ($request->old_password && $request->new_password) {
+            if (!Hash::check($request->old_password, $request->user()->password)) {
+                return response()->json(['success' => false, 'message' => 'كلمة المرور القديمة غير صحيحة'], 400);
+            }
+            $request->user()->password = Hash::make($request->new_password);
+            $request->user()->save();
+            return response()->json(["success" => true, "message" => "تم تغيير كلمة المرور بنجاح"], 200);
+        } else {
+            return response()->json(["success" => false, "message" => "لم تقم بإرسال اي حقول لتعديلها"], 400);
+        }
+    }
 
-    // -- TODO : Add Change Photo
+    // -- TODO : Add Change Name
+    public function editName(Request $request)
+    {
+        if ($request->first_name && $request->last_name) {
+            $request->user()->update($request->only(
+                "first_name",
+                "last_name",
+            )
+            );
+            return response()->json([
+                "success" => true,
+                "message" => "تم تحديث الإسم بنجاح",
+                "user" => [
+                    "first_name" => $request->user()->first_name,
+                    "last_name" => $request->user()->last_name,
+                ]
+            ]);
+        } else {
+            return response()->json(["success" => false, "message" => "لم تقم بإدخال الاسم واللقب"], 400);
+        }
+    }
+
+// -- TODO : Add Change Photo
 
 }

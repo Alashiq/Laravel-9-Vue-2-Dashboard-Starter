@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div>
-                <div class="text-lg w-40 font-medium">{{ user.name }}</div>
+                <div class="text-lg w-40 font-medium">{{ user.first_name }} {{ user.last_name }}</div>
                 <div class="flex items-center justify-center py-3 text-gray-700">
                     <div @click="logout"
                         class="bg-white h-10 w-10 rounded-full shadow-1 mx-2 flex items-center justify-center cursor-pointer hover:text-red-400">
@@ -42,7 +42,7 @@
         <div v-for="item in pageList" :key="item.id"
             v-show="$parent.checkPermission(item.role) == true"
             class="w-auto px-2 flex flex-wrap items-center justify-start cairo" style="color:#7a7a7a;">
-            <div v-if="item.active" class="my-1 layout-btn w-full rounded px-4" @click="closeSideItem(item.id)">
+            <div v-if="item.open" class="my-1 layout-btn w-full rounded px-4" @click="closeSideItem(item.id)">
                 <div class="flex items-center h-12 my-1 justify-between">
 
                     <div class="flex items-center">
@@ -70,8 +70,8 @@
 
 
             <!-- Sub -->
-            <div v-if="item.active" class="w-full" style="color:#8a8a8a;">
-                <router-link v-for="subItem in item.list" :key="item.id" :to="item.path">
+            <div v-if="item.open" class="w-full" style="color:#8a8a8a;">
+                <router-link v-for="subItem in item.list" :key="subItem.id" :to="subItem.path">
 
                     <div v-if="subItem.active" class="my-1  w-full px-6 text-red-400">
                         <div class="flex items-center h-9 my-1 hover:text-red-400 ">

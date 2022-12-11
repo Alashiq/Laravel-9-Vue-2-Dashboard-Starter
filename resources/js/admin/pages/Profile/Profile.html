@@ -51,31 +51,50 @@
                 </div>
                 <div class="mt-4 lg:h-16 lg:flex items-center">
                     <div class="md:w-48 h-8 text-lg text-gray-600">
-                        إسم المستخدم
+                        الإسم
                     </div>
                     <div class="16">
                         <input
                             type="text"
                             class="border rounded h-12 lg:w-96 w-full px-4 text-lg text-gray-700"
-                            v-on:change="validateName"
-                            v-model="formData.name"
+                            v-on:change="validateFirstName"
+                            v-model="formData.first_name"
                         />
                         <div
                             class="h-6 text-sm text-red-400 mr-2 flex items-center"
                         >
-                            {{ formValidate.name }}
+                            {{ formValidate.first_name }}
                         </div>
                     </div>
                 </div>
 
                 <div class="mt-4 lg:h-16 lg:flex items-center">
                     <div class="md:w-48 h-8 text-lg text-gray-600">
-                        إسم الدخول
+                        اللقب
+                    </div>
+                    <div class="16">
+                        <input
+                            type="text"
+                            class="border rounded h-12 lg:w-96 w-full px-4 text-lg text-gray-700"
+                            v-on:change="validateLastName"
+                            v-model="formData.last_name"
+                        />
+                        <div
+                            class="h-6 text-sm text-red-400 mr-2 flex items-center"
+                        >
+                            {{ formValidate.last_name }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 lg:h-16 lg:flex items-center">
+                    <div class="md:w-48 h-8 text-lg text-gray-600">
+                    رقم الهاتف
                     </div>
                     <div
                         class="border rounded h-12 lg:w-96 w-full px-4 text-lg text-gray-700 flex items-center bg-gray-100"
                     >
-                        {{ user.username }}
+                        {{ user.phone }}
                     </div>
                 </div>
 
@@ -115,12 +134,12 @@
                             type="password"
                             class="border rounded h-12 lg:w-96 w-full px-4 text-lg text-gray-700"
                             v-on:change="validateOldPassword"
-                            v-model="formData.oldPassword"
+                            v-model="formData.old_password"
                         />
                         <div
                             class="h-6 text-sm text-red-400 mr-2 flex items-center"
                         >
-                            {{ formValidate.oldPassword }}
+                            {{ formValidate.old_password }}
                         </div>
                     </div>
                 </div>
@@ -134,12 +153,12 @@
                             type="password"
                             class="border rounded h-12 lg:w-96 w-full px-4 text-lg text-gray-700"
                             v-on:change="validateNewPassword"
-                            v-model="formData.newPassword"
+                            v-model="formData.new_password"
                         />
                         <div
                             class="h-6 text-sm text-red-400 mr-2 flex items-center"
                         >
-                            {{ formValidate.newPassword }}
+                            {{ formValidate.new_password }}
                         </div>
                     </div>
                 </div>
@@ -153,12 +172,12 @@
                             type="password"
                             class="border rounded h-12 lg:w-96 w-full px-4 text-lg text-gray-700"
                             v-on:change="validateConfirmPassword"
-                            v-model="formData.confirmPassword"
+                            v-model="formData.confirm_password"
                         />
                         <div
                             class="h-6 text-sm text-red-400 mr-2 flex items-center"
                         >
-                            {{ formValidate.confirmPassword }}
+                            {{ formValidate.confirm_password }}
                         </div>
                     </div>
                 </div>

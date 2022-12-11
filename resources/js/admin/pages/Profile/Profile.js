@@ -4,16 +4,18 @@ export default {
         return {
             formData: {
                 file: "",
-                name: "",
-                oldPassword: "",
-                newPassword: "",
-                confirmPassword: ""
+                first_name: "س",
+                last_name: "ي",
+                old_password: "",
+                new_password: "",
+                confirm_password: ""
             },
             formValidate: {
-                name: "",
-                oldPassword: "",
-                newPassword: "",
-                confirmPassword: ""
+                first_name: "",
+                last_name: "",
+                old_password: "",
+                new_password: "",
+                confirm_password: ""
             }
         };
     },
@@ -43,22 +45,24 @@ export default {
                 });
         },
         changeName: function() {
-            if (this.user.name == this.formData.name.trim()) {
+            if (this.user.first_name == this.formData.first_name.trim() && this.user.last_name == this.formData.last_name.trim()) {
                 this.formValidate.name = "لم تقم بإدخال اي اسم جديد";
                 return 0;
             }
-            this.validateName();
-            if (this.formValidate.name != "") return 0;
+            this.validateFirstName();
+            if (this.formValidate.first_name != "") return 0;
 
             this.$loading.Start();
             this.$http
-                .ChangeNameOrPassword({
-                    name: this.formData.name
+                .ChangeName({
+                    first_name: this.formData.first_name,
+                    last_name: this.formData.last_name
                 })
                 .then(response => {
                     this.$loading.Stop();
                     this.$alert.Success(response.data.message);
-                    this.$store.commit("updateName", this.formData.name);
+                    this.$store.commit("updateName",this.formData);
+
                 })
                 .catch(error => {
                     this.$loading.Stop();
@@ -69,77 +73,93 @@ export default {
             this.validateOldPassword();
             this.validateNewPassword();
             this.validateConfirmPassword();
-            if (this.formValidate.oldPassword != "") return 0;
-            if (this.formValidate.newPassword != "") return 0;
-            if (this.formValidate.confirmPassword != "") return 0;
+            if (this.formValidate.old_password != "") return 0;
+            if (this.formValidate.new_password != "") return 0;
+            if (this.formValidate.confirm_password != "") return 0;
 
             this.$loading.Start();
             this.$http
-                .ChangeNameOrPassword({
-                    oldPassword: this.formData.oldPassword,
-                    newPassword: this.formData.newPassword
+                .ChangePassword({
+                    old_password: this.formData.old_password,
+                    new_password: this.formData.new_password
                 })
                 .then(response => {
                     this.$loading.Stop();
                     this.$alert.Success(response.data.message);
-                    this.formData.oldPassword = "";
-                    this.formData.newPassword = "";
-                    this.formData.confirmPassword = "";
+                    this.formData.old_password = "";
+                    this.formData.new_password = "";
+                    this.formData.confirm_password = "";
                 })
                 .catch(error => {
                     this.$loading.Stop();
                     this.$alert.BadRequest(error.response);
                 });
         },
-        validateName: function() {
-            this.formValidate.name = "";
-            if (this.formData.name.trim() == "") {
-                this.formValidate.name = "لا يمكن ترك هذا الحقل فارغ";
+        validateFirstName: function() {
+            this.formValidate.first_name = "";
+            if (this.formData.first_name.trim() == "") {
+                this.formValidate.first_name = "لا يمكن ترك هذا الحقل فارغ";
                 return 1;
             }
-            if (this.formData.name.trim().length < 5) {
-                this.formValidate.name =
+            if (this.formData.first_name.trim().length < 5) {
+                this.formValidate.first_name =
                     "يجب ان يكون الإسم اكثر 5 أحرف أو اكثر";
                 return 1;
             }
-            if (this.formData.name.trim().length > 16) {
-                this.formValidate.name = "يجب ان يكون الإسم أقل من 16";
+            if (this.formData.first_name.trim().length > 16) {
+                this.formValidate.first_name = "يجب ان يكون الإسم أقل من 16";
+                return 1;
+            }
+        },
+        validateLastName: function() {
+            this.formValidate.last_name = "";
+            if (this.formData.last_name.trim() == "") {
+                this.formValidate.last_name = "لا يمكن ترك هذا الحقل فارغ";
+                return 1;
+            }
+            if (this.formData.last_name.trim().length < 5) {
+                this.formValidate.last_name =
+                    "يجب ان يكون الإسم اكثر 5 أحرف أو اكثر";
+                return 1;
+            }
+            if (this.formData.last_name.trim().length > 16) {
+                this.formValidate.last_name = "يجب ان يكون الإسم أقل من 16";
                 return 1;
             }
         },
         validateOldPassword: function() {
-            this.formValidate.oldPassword = "";
-            if (this.formData.oldPassword.trim() == "") {
-                this.formValidate.oldPassword = "لا يمكن ترك هذا الحقل فارغ";
+            this.formValidate.old_password = "";
+            if (this.formData.old_password.trim() == "") {
+                this.formValidate.old_password = "لا يمكن ترك هذا الحقل فارغ";
                 return 1;
             }
-            if (this.formData.oldPassword.trim().length < 6) {
-                this.formValidate.oldPassword =
+            if (this.formData.old_password.trim().length < 6) {
+                this.formValidate.old_password =
                     "يجب ان تكون كلمة المرور أكثر من 6 أرقام ورموز";
                 return 1;
             }
         },
         validateNewPassword: function() {
-            this.formValidate.newPassword = "";
-            if (this.formData.newPassword.trim() == "") {
-                this.formValidate.newPassword = "لا يمكن ترك هذا الحقل فارغ";
+            this.formValidate.new_password = "";
+            if (this.formData.new_password.trim() == "") {
+                this.formValidate.new_password = "لا يمكن ترك هذا الحقل فارغ";
                 return 1;
             }
-            if (this.formData.newPassword.trim().length < 6) {
-                this.formValidate.newPassword =
+            if (this.formData.new_password.trim().length < 6) {
+                this.formValidate.new_password =
                     "يجب ان تكون كلمة المرور أكثر من 6 أرقام ورموز";
                 return 1;
             }
         },
         validateConfirmPassword: function() {
-            this.formValidate.confirmPassword = "";
-            if (this.formData.confirmPassword.trim() == "") {
-                this.formValidate.confirmPassword =
+            this.formValidate.confirm_password = "";
+            if (this.formData.confirm_password.trim() == "") {
+                this.formValidate.confirm_password =
                     "لا يمكن ترك هذا الحقل فارغ";
                 return 1;
             }
-            if (this.formData.confirmPassword != this.formData.newPassword) {
-                this.formValidate.confirmPassword =
+            if (this.formData.confirm_password != this.formData.new_password) {
+                this.formValidate.confirm_password =
                     "يجب ان يتطابق كلمة المرور الجديدة مع تأكيد كلمة المرور";
                 return 1;
             }
@@ -147,7 +167,8 @@ export default {
     },
     mounted() {
         this.$store.commit("activePage", 0);
-        this.formData.name = this.user.name;
+        this.formData.first_name = this.user.first_name;
+        this.formData.last_name = this.user.last_name;
     },
     computed: {
         user() {

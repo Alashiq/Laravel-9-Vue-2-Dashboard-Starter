@@ -15,7 +15,7 @@ export default {
                 id: 1,
                 name: "الرئيسية",
                 role: "HomeChart",
-                active: true,
+                open: true,
                 path: "/admin",
                 icon: "fas fa-home",
                 list: [
@@ -41,7 +41,7 @@ export default {
                 id: 2,
                 name: "الرسائل",
                 role: "ReadMessage",
-                active: false,
+                open: false,
                 path: "/admin/message",
                 icon: "fas fa-comment-dots",
                 list: [
@@ -68,7 +68,7 @@ export default {
                 id: 3,
                 name: "المشرفين",
                 role: "ReadAdmin",
-                active: false,
+                open: false,
                 path: "/admin/admin",
                 icon: "fas fa-users",
                 list: []
@@ -77,7 +77,7 @@ export default {
                 id: 4,
                 name: "أدوار المشرفين",
                 role: "ReadRole",
-                active: false,
+                open: false,
                 path: "/admin/role",
                 icon: "fas fa-user-shield",
                 list: [
@@ -126,18 +126,20 @@ export default {
             state.auth = false;
             state.loadAuth = false;
         },
-        updateName(state, name) {
-            state.user.name = name;
+        updateName(state,data) {
+            state.user.first_name = data.first_name;
+            state.user.last_name = data.last_name;
+            state.user.name=data.first_name+" "+data.last_name;
         },
         updatePhoto(state, photo) {
             state.user.photo = photo;
         },
         activePage(state, pageNumber) {
             for (var i = 0; i < state.pageList.length; i++) {
-                state.pageList[i].active = false;
+                state.pageList[i].open = false;
                 for (var j = 0; j < state.pageList[i].list.length; j++) {
                     if (state.pageList[i].list[j].id == pageNumber) {
-                        state.pageList[i].active = true;
+                        state.pageList[i].open = true;
                         state.pageList[i].list[j].active = true;
                     }
                     else {
@@ -150,14 +152,14 @@ export default {
         openPageList(state, pageNumber) {
             for (var i = 0; i < state.pageList.length; i++) {
                 if (state.pageList[i].id == pageNumber) {
-                    state.pageList[i].active = true;
+                    state.pageList[i].open = true;
                 }
             }
         },
         closePageList(state, pageNumber) {
             for (var i = 0; i < state.pageList.length; i++) {
                 if (state.pageList[i].id == pageNumber) {
-                    state.pageList[i].active = false;
+                    state.pageList[i].open = false;
                 }
             }
         },
