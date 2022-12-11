@@ -20,7 +20,13 @@ export default {
                     this.$loading.Stop();
                     this.$alert.BadRequest(error.response);
                 });
-        }
+        },
+        openSideItem:function(id){
+        this.$store.commit("openPageList", id);
+        },
+        closeSideItem:function(id){
+        this.$store.commit("closePageList", id);
+        },
     },
     computed: {
         pageList() {

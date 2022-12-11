@@ -7,7 +7,7 @@ export default {
             name: "",
             phone: "",
             photo: "",
-            role:""
+            role: ""
         },
         permissions: [],
         pageList: [
@@ -17,16 +17,51 @@ export default {
                 role: "HomeChart",
                 active: true,
                 path: "/admin",
-                icon: "fas fa-home"
+                icon: "fas fa-home",
+                list: [
+                    {
+                        id: 1,
+                        name: "الرئيسية",
+                        role: "HomeChart",
+                        active: true,
+                        path: "/admin",
+                        icon: "fas fa-home"
+                    },
+                    {
+                        id: 2,
+                        name: "الإحصائيات",
+                        role: "HomeChart",
+                        active: false,
+                        path: "/admin",
+                        icon: "fas fa-home"
+                    },
+                ]
             },
-
             {
                 id: 2,
                 name: "الرسائل",
                 role: "ReadMessage",
                 active: false,
                 path: "/admin/message",
-                icon: "fas fa-comment-dots"
+                icon: "fas fa-comment-dots",
+                list: [
+                    {
+                        id: 3,
+                        name: "كل الرسائل",
+                        role: "HomeChart",
+                        active: false,
+                        path: "/admin",
+                        icon: "fas fa-home"
+                    },
+                    {
+                        id: 4,
+                        name: "اضف رسالة",
+                        role: "HomeChart",
+                        active: false,
+                        path: "/admin",
+                        icon: "fas fa-home"
+                    },
+                ]
             },
 
             {
@@ -35,7 +70,8 @@ export default {
                 role: "ReadAdmin",
                 active: false,
                 path: "/admin/admin",
-                icon: "fas fa-users"
+                icon: "fas fa-users",
+                list: []
             },
             {
                 id: 4,
@@ -43,16 +79,35 @@ export default {
                 role: "ReadRole",
                 active: false,
                 path: "/admin/role",
-                icon: "fas fa-user-shield"
+                icon: "fas fa-user-shield",
+                list: [
+                    {
+                        id: 5,
+                        name: "قائمة المشرفين",
+                        role: "ReadRole",
+                        active: false,
+                        path: "/admin/role",
+                        icon: "fas fa-user-shield",
+                    },
+                    {
+                        id: 6,
+                        name: "أضف مشرف",
+                        role: "ReadRole",
+                        active: false,
+                        path: "/admin/role",
+                        icon: "fas fa-user-shield",
+                    },
+                ]
             }
         ],
         menu: false,
-        loading:false
+        loading: false
     }),
 
     mutations: {
         setUser(state, data) {
             state.user = data;
+            state.user.name = data.first_name + " " + data.last_name
             state.auth = true;
         },
         setPermissions(state, data) {
@@ -79,9 +134,31 @@ export default {
         },
         activePage(state, pageNumber) {
             for (var i = 0; i < state.pageList.length; i++) {
-                if (state.pageList[i].id == pageNumber)
+                state.pageList[i].active = false;
+                for (var j = 0; j < state.pageList[i].list.length; j++) {
+                    if (state.pageList[i].list[j].id == pageNumber) {
+                        state.pageList[i].active = true;
+                        state.pageList[i].list[j].active = true;
+                    }
+                    else {
+                        state.pageList[i].list[j].active = false;
+                    }
+                }
+
+            }
+        },
+        openPageList(state, pageNumber) {
+            for (var i = 0; i < state.pageList.length; i++) {
+                if (state.pageList[i].id == pageNumber) {
                     state.pageList[i].active = true;
-                else state.pageList[i].active = false;
+                }
+            }
+        },
+        closePageList(state, pageNumber) {
+            for (var i = 0; i < state.pageList.length; i++) {
+                if (state.pageList[i].id == pageNumber) {
+                    state.pageList[i].active = false;
+                }
             }
         },
         toggleMenu(state) {

@@ -2909,7 +2909,7 @@ var render = function render() {
     }
   }, [_c("div", {
     staticClass: "h-20 items-center w-full flex justify-center text-xl border-b font-medium orange-color"
-  }, [_vm._v("\n                لوحة التحكم\n            ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n            لوحة التحكم\n        ")]), _vm._v(" "), _c("div", {
     staticClass: "h-32 w-full flex items-center px-3 justify-between border-b mb-4"
   }, [_c("div", {
     staticClass: "h-24 w-16"
@@ -2939,7 +2939,7 @@ var render = function render() {
   })]), _vm._v(" "), _c("div", {
     staticClass: "h-10 w-6"
   })], 1)])]), _vm._v(" "), _vm._l(_vm.pageList, function (item) {
-    return _c("router-link", {
+    return _c("div", {
       directives: [{
         name: "show",
         rawName: "v-show",
@@ -2947,23 +2947,65 @@ var render = function render() {
         expression: "$parent.checkPermission(item.role) == true"
       }],
       key: item.id,
-      staticClass: "w-auto px-4 flex items-center justify-start text-gray-500 cairo",
-      attrs: {
-        to: item.path
+      staticClass: "w-auto px-2 flex flex-wrap items-center justify-start cairo",
+      staticStyle: {
+        color: "#7a7a7a"
       }
     }, [item.active ? _c("div", {
-      staticClass: "my-1 layout-btn w-full rounded px-4"
+      staticClass: "my-1 layout-btn w-full rounded px-4",
+      on: {
+        click: function click($event) {
+          return _vm.closeSideItem(item.id);
+        }
+      }
     }, [_c("div", {
-      staticClass: "flex items-center h-12 my-1"
+      staticClass: "flex items-center h-12 my-1 justify-between"
+    }, [_c("div", {
+      staticClass: "flex items-center"
     }, [_c("i", {
       "class": item.icon + " ml-6 text-lg"
-    }), _vm._v("\n                        " + _vm._s(item.name) + "\n                    ")])]) : _c("div", {
-      staticClass: "my-1 w-full px-4"
+    }), _vm._v("\n                        " + _vm._s(item.name) + "\n                    ")]), _vm._v(" "), _c("i", {
+      staticClass: "fas fa-chevron-up text-lg"
+    })])]) : _c("div", {
+      staticClass: "my-1 w-full px-4",
+      on: {
+        click: function click($event) {
+          return _vm.openSideItem(item.id);
+        }
+      }
     }, [_c("div", {
-      staticClass: "flex items-center h-12 my-1 hover:text-red-400"
+      staticClass: "flex items-center h-12 my-1 hover:text-red-400 justify-between"
+    }, [_c("div", {
+      staticClass: "flex items-center"
     }, [_c("i", {
       "class": item.icon + " ml-6 text-lg"
-    }), _vm._v("\n                        " + _vm._s(item.name) + "\n                    ")])])]);
+    }), _vm._v("\n                        " + _vm._s(item.name) + "\n                    ")]), _vm._v(" "), _c("i", {
+      staticClass: "fas fa-chevron-down text-lg"
+    })])]), _vm._v(" "), item.active ? _c("div", {
+      staticClass: "w-full",
+      staticStyle: {
+        color: "#8a8a8a"
+      }
+    }, _vm._l(item.list, function (subItem) {
+      return _c("router-link", {
+        key: item.id,
+        attrs: {
+          to: item.path
+        }
+      }, [subItem.active ? _c("div", {
+        staticClass: "my-1 w-full px-6 text-red-400"
+      }, [_c("div", {
+        staticClass: "flex items-center h-9 my-1 hover:text-red-400"
+      }, [_c("i", {
+        "class": subItem.icon + " ml-6 text-lg"
+      }), _vm._v("\n                                " + _vm._s(subItem.name) + "\n                        ")])]) : _c("div", {
+        staticClass: "my-1 w-full px-6"
+      }, [_c("div", {
+        staticClass: "flex items-center h-9 my-1 hover:text-red-400"
+      }, [_c("i", {
+        "class": subItem.icon + " ml-6 text-lg"
+      }), _vm._v("\n                                " + _vm._s(subItem.name) + "\n                        ")])])]);
+    }), 1) : _vm._e()]);
   })], 2)]);
 };
 var staticRenderFns = [function () {
@@ -4654,6 +4696,12 @@ __webpack_require__.r(__webpack_exports__);
         _this.$loading.Stop();
         _this.$alert.BadRequest(error.response);
       });
+    },
+    openSideItem: function openSideItem(id) {
+      this.$store.commit("openPageList", id);
+    },
+    closeSideItem: function closeSideItem(id) {
+      this.$store.commit("closePageList", id);
     }
   },
   computed: {
@@ -5048,7 +5096,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this3 = this;
-    this.$store.commit("activePage", 2);
+    this.$store.commit("activePage", 3);
     this.$loading.Start();
     this.$http.GetAllMessages().then(function (response) {
       _this3.$loading.Stop();
@@ -5911,28 +5959,74 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         role: "HomeChart",
         active: true,
         path: "/admin",
-        icon: "fas fa-home"
+        icon: "fas fa-home",
+        list: [{
+          id: 1,
+          name: "الرئيسية",
+          role: "HomeChart",
+          active: true,
+          path: "/admin",
+          icon: "fas fa-home"
+        }, {
+          id: 2,
+          name: "الإحصائيات",
+          role: "HomeChart",
+          active: false,
+          path: "/admin",
+          icon: "fas fa-home"
+        }]
       }, {
         id: 2,
         name: "الرسائل",
         role: "ReadMessage",
         active: false,
         path: "/admin/message",
-        icon: "fas fa-comment-dots"
+        icon: "fas fa-comment-dots",
+        list: [{
+          id: 3,
+          name: "كل الرسائل",
+          role: "HomeChart",
+          active: false,
+          path: "/admin",
+          icon: "fas fa-home"
+        }, {
+          id: 4,
+          name: "اضف رسالة",
+          role: "HomeChart",
+          active: false,
+          path: "/admin",
+          icon: "fas fa-home"
+        }]
       }, {
         id: 3,
         name: "المشرفين",
         role: "ReadAdmin",
         active: false,
         path: "/admin/admin",
-        icon: "fas fa-users"
+        icon: "fas fa-users",
+        list: []
       }, {
         id: 4,
         name: "أدوار المشرفين",
         role: "ReadRole",
         active: false,
         path: "/admin/role",
-        icon: "fas fa-user-shield"
+        icon: "fas fa-user-shield",
+        list: [{
+          id: 5,
+          name: "قائمة المشرفين",
+          role: "ReadRole",
+          active: false,
+          path: "/admin/role",
+          icon: "fas fa-user-shield"
+        }, {
+          id: 6,
+          name: "أضف مشرف",
+          role: "ReadRole",
+          active: false,
+          path: "/admin/role",
+          icon: "fas fa-user-shield"
+        }]
       }],
       menu: false,
       loading: false
@@ -5941,6 +6035,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   mutations: {
     setUser: function setUser(state, data) {
       state.user = data;
+      state.user.name = data.first_name + " " + data.last_name;
       state.auth = true;
     },
     setPermissions: function setPermissions(state, data) {
@@ -5967,7 +6062,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     activePage: function activePage(state, pageNumber) {
       for (var i = 0; i < state.pageList.length; i++) {
-        if (state.pageList[i].id == pageNumber) state.pageList[i].active = true;else state.pageList[i].active = false;
+        state.pageList[i].active = false;
+        for (var j = 0; j < state.pageList[i].list.length; j++) {
+          if (state.pageList[i].list[j].id == pageNumber) {
+            state.pageList[i].active = true;
+            state.pageList[i].list[j].active = true;
+          } else {
+            state.pageList[i].list[j].active = false;
+          }
+        }
+      }
+    },
+    openPageList: function openPageList(state, pageNumber) {
+      for (var i = 0; i < state.pageList.length; i++) {
+        if (state.pageList[i].id == pageNumber) {
+          state.pageList[i].active = true;
+        }
+      }
+    },
+    closePageList: function closePageList(state, pageNumber) {
+      for (var i = 0; i < state.pageList.length; i++) {
+        if (state.pageList[i].id == pageNumber) {
+          state.pageList[i].active = false;
+        }
       }
     },
     toggleMenu: function toggleMenu(state) {

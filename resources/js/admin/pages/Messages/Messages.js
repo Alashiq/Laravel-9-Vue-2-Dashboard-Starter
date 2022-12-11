@@ -83,7 +83,7 @@ export default {
         }
     },
     mounted() {
-        this.$store.commit("activePage", 2);
+        this.$store.commit("activePage", 3);
         this.$loading.Start();
         this.$http
             .GetAllMessages()
