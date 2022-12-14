@@ -20,7 +20,7 @@ class AuthController extends Controller
 
         if (!$admin || !Hash::check($request->password, $admin->password)) {
 
-            return response()->json(['success' => false, 'message' => 'إسم المستخدم أو كلمة المرور غير صحيحة'], 401);
+            return response()->json(['success' => false, 'message' => 'إسم المستخدم أو كلمة المرور غير صحيحة'], 400);
         }
 
         if ($admin->state == 0) {
@@ -82,7 +82,7 @@ class AuthController extends Controller
     }
 
 
-    // -- TODO : Add Change Passowrd
+    // Add Change Passowrd
     public function editPassword(Request $request)
     {
         if ($request->old_password && $request->new_password) {
@@ -97,14 +97,15 @@ class AuthController extends Controller
         }
     }
 
-    // -- TODO : Add Change Name
+    // Add Change Name
     public function editName(Request $request)
     {
         if ($request->first_name && $request->last_name) {
-            $request->user()->update($request->only(
-                "first_name",
-                "last_name",
-            )
+            $request->user()->update(
+                $request->only(
+                    "first_name",
+                    "last_name",
+                )
             );
             return response()->json([
                 "success" => true,
@@ -119,6 +120,41 @@ class AuthController extends Controller
         }
     }
 
-// -- TODO : Add Change Photo
+    // -- TODO : Add Change Photo
+    public function editPhoto(Request $request)
+    {
+        if (
+            Validator::make($request->all(), [
+                'file' => 'required',
+            ])->fails()
+        ) {
+            return response()->json(["success" => false, "message" => "يجب عليك إختيار صورة ليتم رفعها"], 400);
+        }
+
+
+        if (
+            Validator::make($request->all(), [
+                'file' => 'mimes:jpg,jpeg,png,webp',
+            ])->fails()
+        ) {
+            return response()->json(["success" => false, "message" => "الملف الذي اخترته ليس صورة"], 400);
+        }
+
+
+        // $file_name = time() . '_' . $request->file->getClientOriginalName();
+        $file_name = time() . '_' .  date('Y_m_d') . '.' . $request->file->extension();
+        $file_path = $request->file('file')->storeAs('admin_photo', $file_name, 'public');
+
+
+
+        $request->user()->photo = '/storage/' . $file_path;
+        $request->user()->save();
+
+        return response()->json([
+            "success" => true,
+            "message" => "تم تحديث صورة المستخدم بنجاح",
+            "photo" => '/storage/' . $file_path
+        ]);
+    }
 
 }

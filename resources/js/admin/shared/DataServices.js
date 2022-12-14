@@ -17,7 +17,7 @@ export default {
         return axios.post("/admin/api/auth/editPassword", formData);
     },
     ChangePhoto(data, config) {
-        return axios.post("/api/admin/photo", data, config);
+        return axios.post("/admin/api/auth/editPhoto", data, config);
     },
     // ============== Home Part =======================
     GetHome() {
@@ -39,8 +39,8 @@ export default {
     },
     
     // ============== Admin Part =======================
-    GetAllAdmins() {
-        return axios.get("/api/admin/admin");
+    GetAllAdmins(page,countPerPage,tag) {
+        return axios.get("/admin/api/admin?page=" + page + "&count=" + countPerPage + "&state=" + tag);
     },
     ActiveAdmin(admin) {
         return axios.put("/api/admin/admin/" + admin + "/active");

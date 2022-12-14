@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->integer('role_id');
-            $table->string('photo')->default('/storage/assets/avatar.png');
+            $table->string('photo')->default('/storage/assets/avatar.webp');
             $table->integer('state')->default(0); //1 => Active , 0 =>Not Active , 2=>Banned , 9=>deleted
             $table->rememberToken();
             $table->timestamps();

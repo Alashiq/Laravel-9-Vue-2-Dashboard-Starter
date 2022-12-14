@@ -1,7 +1,7 @@
 <div class="w-auto md:p-8 p-4">
     <div
         class="w-full grid xl:grid-cols-3"
-        v-if="loaded && data.length != 0"
+        v-if="loaded == 200"
     >
         <div
             class="h-40 bg-white shadow-3 mx-3 mb-8 px-6 rounded-lg flex items-center"
@@ -126,7 +126,7 @@
 
     <div
         class="w-auto mx-4 bg-white shadow-3 mt-8 rounded-lg px-6"
-        v-if="loaded && data.length != 0"
+        v-if="loaded == 200"
     >
         <div
             class="h-20 w-full flex items-center text-2xl bg-blu font-semibold cairo text-gray-600 border-b"
@@ -137,5 +137,5 @@
         <div class="h-96 w-full"></div>
     </div>
 
-    <Empty-Box v-if="loaded && data.length == 0"></Empty-Box>
+    <Empty-Box v-if="loaded == 204"></Empty-Box>
 </div>

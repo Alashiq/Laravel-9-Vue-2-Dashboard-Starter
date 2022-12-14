@@ -2320,7 +2320,7 @@ var render = function render() {
     staticClass: "flex justify-between w-full h-16 items-center"
   }, [_c("div", {
     staticClass: "text-2xl font-semibold cairo text-gray-600"
-  }, [_vm._v("\n                مشرفي الموقع\n            ")]), _vm._v(" "), _c("router-link", {
+  }, [_vm._v("\n            مشرفي الموقع\n        ")]), _vm._v(" "), _c("router-link", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -2335,29 +2335,53 @@ var render = function render() {
     staticClass: "h-12 flex items-center"
   }, [_c("i", {
     staticClass: "fas fa-plus ml-4 text-lg"
-  }), _vm._v("\n                    أضف مشرف\n                ")])])], 1), _vm._v(" "), _c("div", {
+  }), _vm._v("\n                أضف مشرف\n            ")])])], 1), _vm._v(" "), _c("div", {
     staticClass: "flex justify-between my-8"
   }, [_c("div", {
     staticClass: "border rounded font-semibold cairo flex bg-center text-gray-700"
-  }, _vm._l(_vm.filter, function (item, index) {
-    return _c("div", {
-      key: index,
-      "class": {
-        "h-12 px-4 flex cursor-pointer items-center ": 1 == 1,
-        "bg-white ": item.link == _vm.activeFilter,
-        "rounded-r ": index == 0,
-        " rounded-l border-l-0 ": index == _vm.filter.length - 1,
-        "border-l ": index != _vm.filter.length - 1
-      },
-      on: {
-        click: function click($event) {
-          return _vm.changeFilter(item.link);
-        }
+  }, [_c("div", {
+    "class": {
+      "h-12 px-4 flex cursor-pointer items-center rounded-r border-l ": 1 == 1,
+      "bg-white ": _vm.tagId == null
+    },
+    on: {
+      click: function click($event) {
+        return _vm.changeTag(null);
       }
-    }, [_vm._v("\n                    " + _vm._s(item.name) + "\n                ")]);
-  }), 0)]), _vm._v(" "), _vm.loaded && _vm.filterAdmin.length != 0 ? _c("table", {
+    }
+  }, [_vm._v("الكل")]), _vm._v(" "), _c("div", {
+    "class": {
+      "h-12 px-4 flex cursor-pointer items-center border-l  ": 1 == 1,
+      "bg-white ": _vm.tagId == 1
+    },
+    on: {
+      click: function click($event) {
+        return _vm.changeTag(1);
+      }
+    }
+  }, [_vm._v("نشط")]), _vm._v(" "), _c("div", {
+    "class": {
+      "h-12 px-4 flex cursor-pointer items-center border-l  ": 1 == 1,
+      "bg-white ": _vm.tagId == 0
+    },
+    on: {
+      click: function click($event) {
+        return _vm.changeTag(0);
+      }
+    }
+  }, [_vm._v("غير نشط")]), _vm._v(" "), _c("div", {
+    "class": {
+      "h-12 px-4 flex cursor-pointer items-center rounded-l ": 1 == 1,
+      "bg-white ": _vm.tagId == 2
+    },
+    on: {
+      click: function click($event) {
+        return _vm.changeTag(2);
+      }
+    }
+  }, [_vm._v("محظور")])])]), _vm._v(" "), _vm.loaded == 200 ? _c("div", [_c("table", {
     staticClass: "w-full"
-  }, [_vm._m(0), _vm._v(" "), _vm._l(_vm.filterAdmin, function (item, index) {
+  }, [_vm._m(0), _vm._v(" "), _vm._l(_vm.admins, function (item, index) {
     return _c("tr", {
       key: index,
       staticClass: "h-24 bg-white shadow-2 rounded-lg text-lg text-gray-600 font-medium hover:bg-gray-50"
@@ -2373,17 +2397,17 @@ var render = function render() {
       }
     })]), _vm._v(" "), _c("td", {
       staticClass: "lg:table-cell hidden"
-    }, [_vm._v("\n                    " + _vm._s(item.name.substring(0, 10)) + "\n                ")]), _vm._v(" "), _c("td", [_vm._v(_vm._s(item.username))]), _vm._v(" "), _c("td", {
+    }, [_vm._v("\n                " + _vm._s(item.first_name) + "\n            ")]), _vm._v(" "), _c("td", [_vm._v(_vm._s(item.username))]), _vm._v(" "), _c("td", {
       staticClass: "xl:table-cell hidden"
     }, [item.state == 1 ? _c("div", {
       staticClass: "bg-green-100 flex items-center justify-center rounded shadowa h-10 w-24 text-green-700 text-base"
-    }, [_vm._v("\n                        نشط\n                    ")]) : item.state == 0 ? _c("div", {
+    }, [_vm._v("\n                    نشط\n                ")]) : item.state == 0 ? _c("div", {
       staticClass: "bg-yellow-100 flex items-center justify-center rounded shadows h-10 w-24 text-yellow-700 text-base"
-    }, [_vm._v("\n                        غير نشط\n                    ")]) : _c("div", {
+    }, [_vm._v("\n                    غير نشط\n                ")]) : _c("div", {
       staticClass: "bg-red-100 flex items-center justify-center rounded shadow1d h-10 w-24 text-red-700 text-base"
-    }, [_vm._v("\n                        محظور\n                    ")])]), _vm._v(" "), _c("td", {
+    }, [_vm._v("\n                    محظور\n                ")])]), _vm._v(" "), _c("td", {
       staticClass: "xl:table-cell hidden"
-    }, [_vm._v("\n                    " + _vm._s(item.created_at.substring(0, 10)) + "\n                ")]), _vm._v(" "), _c("td", {
+    }, [_vm._v("\n                " + _vm._s(item.created_at.substring(0, 10)) + "\n            ")]), _vm._v(" "), _c("td", {
       staticClass: "rounded-l-lg h-20"
     }, [_c("router-link", {
       attrs: {
@@ -2458,7 +2482,72 @@ var render = function render() {
         title: "تعديل دور ا لمشرف"
       }
     })])], 1)]);
-  })], 2) : _vm._e(), _vm._v(" "), _vm.loaded && _vm.filterAdmin.length == 0 ? _c("Empty-Box") : _vm._e()], 1);
+  })], 2), _vm._v(" "), _c("div", {
+    staticClass: "h-14 flex items-center justify-start px-6 shadow-2 rounded-lg bg-white cairo"
+  }, [_c("div", {
+    staticClass: "flex items-center text-sm text-gray-600"
+  }, [_c("div", {
+    staticClass: "text-gray-500"
+  }, [_vm._v("عددالصفوف")]), _vm._v(" "), _c("select", {
+    staticClass: "mr-2",
+    on: {
+      change: function change($event) {
+        return _vm.changePerPage($event);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      value: "5"
+    }
+  }, [_vm._v("5")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "10"
+    }
+  }, [_vm._v("10")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "20"
+    }
+  }, [_vm._v("20")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "50"
+    }
+  }, [_vm._v("50")])]), _vm._v(" "), _c("div", {
+    staticClass: "mr-4"
+  }, [_vm._v(_vm._s(_vm.itemTo) + "-" + _vm._s(_vm.itemFrom))]), _vm._v(" "), _c("div", {
+    staticClass: "mr-2 ml-1 text-gray-500"
+  }, [_vm._v("من")]), _vm._v(" "), _c("div", [_vm._v(_vm._s(_vm.totalRows))]), _vm._v(" "), _c("div", {
+    staticClass: "text-gray-500"
+  }, [_vm._v("سجل ")])]), _vm._v(" "), _c("div", {
+    staticClass: "flex text-sm items-center mr-10"
+  }, [_vm.pageId > 1 ? _c("div", {
+    staticClass: "ml-5 text-gray-600",
+    on: {
+      click: function click($event) {
+        return _vm.moveToPrevius();
+      }
+    }
+  }, [_c("i", {
+    staticClass: "fas fa-chevron-right ml-1"
+  }), _vm._v("\n                السابق\n            ")]) : _c("div", {
+    staticClass: "text-gray-400 ml-5"
+  }, [_c("i", {
+    staticClass: "fas fa-chevron-right ml-1"
+  }), _vm._v("\n                السابق")]), _vm._v(" "), _c("div", {
+    staticClass: "text-base font-medium"
+  }, [_vm._v(_vm._s(_vm.pageId))]), _vm._v(" "), _vm.pageId < _vm.lastPage ? _c("div", {
+    staticClass: "mr-5 text-gray-600",
+    on: {
+      click: function click($event) {
+        return _vm.moveToNext();
+      }
+    }
+  }, [_vm._v("التالي\n                "), _c("i", {
+    staticClass: "fas fa-chevron-left mr-1"
+  })]) : _c("div", {
+    staticClass: "text-gray-400 mr-5"
+  }, [_vm._v("التالي\n                "), _c("i", {
+    staticClass: "fas fa-chevron-left mr-1"
+  })])])])]) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box") : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("div", [_vm._v("\n        حدث خطأ ما\n    ")]) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("div", [_vm._v("\n        تحقق من اتصالك بالانترنت\n    ")]) : _vm._e()], 1);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -2770,7 +2859,7 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "w-auto md:p-8 p-4"
-  }, [_vm.loaded && _vm.data.length != 0 ? _c("div", {
+  }, [_vm.loaded == 200 ? _c("div", {
     staticClass: "w-full grid xl:grid-cols-3"
   }, [_c("div", {
     staticClass: "h-40 bg-white shadow-3 mx-3 mb-8 px-6 rounded-lg flex items-center"
@@ -2820,13 +2909,13 @@ var render = function render() {
     staticClass: "text-3xl text-gray-700 font-semibold h-20 flex items-center"
   }, [_vm._v("\n                    " + _vm._s(_vm.data.sloveMessage) + " رسالة\n                ")]), _vm._v(" "), _c("div", {
     staticClass: "text-gray-500 flex items-center h-4"
-  }, [_vm._v("\n                    الرسائل المحلولة\n                ")])])])]) : _vm._e(), _vm._v(" "), _vm.loaded && _vm.data.length != 0 ? _c("div", {
+  }, [_vm._v("\n                    الرسائل المحلولة\n                ")])])])]) : _vm._e(), _vm._v(" "), _vm.loaded == 200 ? _c("div", {
     staticClass: "w-auto mx-4 bg-white shadow-3 mt-8 rounded-lg px-6"
   }, [_c("div", {
     staticClass: "h-20 w-full flex items-center text-2xl bg-blu font-semibold cairo text-gray-600 border-b"
   }, [_vm._v("\n            مخطط الزيارات\n        ")]), _vm._v(" "), _c("div", {
     staticClass: "h-96 w-full"
-  })]) : _vm._e(), _vm._v(" "), _vm.loaded && _vm.data.length == 0 ? _c("Empty-Box") : _vm._e()], 1);
+  })]) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box") : _vm._e()], 1);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -4281,30 +4370,61 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       admins: [],
-      loaded: false,
-      filter: [{
-        link: "all",
-        name: "الكل",
-        active: true
-      }, {
-        link: "active",
-        name: "المفعلين",
-        active: false
-      }, {
-        link: "notActive",
-        name: "الغير مفعل",
-        active: true
-      }, {
-        link: "banned",
-        name: "المحظورين",
-        active: true
-      }],
-      activeFilter: "all"
+      loaded: 0,
+      // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+      tagId: null,
+      //null =>All ,  1 => Active , 0 =>Not Active , 2=>Banned 
+      pageId: 1,
+      countPerPage: 5,
+      lastPage: 0,
+      totalRows: 0,
+      itemFrom: 0,
+      itemTo: 0
     };
   },
   methods: {
-    activeAdmin: function activeAdmin(id, index) {
+    loadData: function loadData(page) {
       var _this = this;
+      this.pageId = page;
+      this.$loading.Start();
+      this.$http.GetAllAdmins(this.pageId, this.countPerPage, this.tagId).then(function (response) {
+        _this.$loading.Stop();
+        if (response.status == 200) {
+          _this.admins = response.data.data.data;
+          _this.lastPage = response.data.data.last_page;
+          _this.totalRows = response.data.data.total;
+          _this.itemFrom = response.data.data.from;
+          _this.itemTo = response.data.data.to;
+          _this.$alert.Success(response.data.message);
+          _this.loaded = 200;
+        } else if (response.status == 204) {
+          _this.loaded = 204;
+          _this.$alert.Empty("تنبيه لا يوجد اي مشرفين");
+        } else {
+          _this.loaded = 400;
+          alert("400");
+        }
+      })["catch"](function (error) {
+        _this.loaded = 404;
+        _this.$loading.Stop();
+        _this.$alert.BadRequest(error.response);
+      });
+    },
+    changePerPage: function changePerPage(event) {
+      this.countPerPage = event.target.value;
+      this.pageId = 1;
+      this.loadData(this.pageId);
+    },
+    moveToNext: function moveToNext() {
+      this.pageId++;
+      this.loadData(this.pageId);
+    },
+    moveToPrevius: function moveToPrevius() {
+      this.pageId--;
+      this.loadData(this.pageId);
+    },
+    activeAdmin: function activeAdmin(id, index) {
+      var _this2 = this;
       sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
         title: "هل أنت متأكد",
         text: "هل أنت متأكد من أنك تريد تفعيل هذا الحساب !",
@@ -4316,44 +4436,13 @@ __webpack_require__.r(__webpack_exports__);
         cancelButtonText: "إلغاء"
       }).then(function (result) {
         if (result.isConfirmed) {
-          _this.$loading.Start();
-          _this.$http.ActiveAdmin(id).then(function (response) {
-            _this.$loading.Stop();
-            if (response.status == 200) {
-              _this.admins[_this.admins.findIndex(function (m) {
-                return m.id === id;
-              })].state = 1;
-              _this.$alert.Success(response.data.message);
-            } else if (response.status == 204) {
-              _this.$alert.Empty("لم يعد هذا الحساب متوفرة, قد يكون شخص أخر قام بحذفه");
-            }
-          })["catch"](function (error) {
-            _this.$loading.Stop();
-            _this.$alert.BadRequest(error.response);
-          });
-        }
-      });
-    },
-    disActiveAdmin: function disActiveAdmin(id, index) {
-      var _this2 = this;
-      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
-        title: "هل أنت متأكد",
-        text: "هل أنت متأكد من أنك تريد الغاء تفعيل هذا الحساب !",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#16a085",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "نعم إلغاء التفعيل",
-        cancelButtonText: "إلغاء"
-      }).then(function (result) {
-        if (result.isConfirmed) {
           _this2.$loading.Start();
-          _this2.$http.DisActiveAdmin(id).then(function (response) {
+          _this2.$http.ActiveAdmin(id).then(function (response) {
             _this2.$loading.Stop();
             if (response.status == 200) {
               _this2.admins[_this2.admins.findIndex(function (m) {
                 return m.id === id;
-              })].state = 0;
+              })].state = 1;
               _this2.$alert.Success(response.data.message);
             } else if (response.status == 204) {
               _this2.$alert.Empty("لم يعد هذا الحساب متوفرة, قد يكون شخص أخر قام بحذفه");
@@ -4365,26 +4454,26 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
-    bannedAdmin: function bannedAdmin(id, index) {
+    disActiveAdmin: function disActiveAdmin(id, index) {
       var _this3 = this;
       sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
         title: "هل أنت متأكد",
-        text: "هل أنت متأكد من أنك تريد حظر هذا الحساب ؟ إذا قمت بحظر الحساب فلا يمكنك استخدامه مجددا",
+        text: "هل أنت متأكد من أنك تريد الغاء تفعيل هذا الحساب !",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#16a085",
         cancelButtonColor: "#d33",
-        confirmButtonText: "نعم حظر الحساب",
+        confirmButtonText: "نعم إلغاء التفعيل",
         cancelButtonText: "إلغاء"
       }).then(function (result) {
         if (result.isConfirmed) {
           _this3.$loading.Start();
-          _this3.$http.BannedAdmin(id).then(function (response) {
+          _this3.$http.DisActiveAdmin(id).then(function (response) {
             _this3.$loading.Stop();
             if (response.status == 200) {
               _this3.admins[_this3.admins.findIndex(function (m) {
                 return m.id === id;
-              })].state = 2;
+              })].state = 0;
               _this3.$alert.Success(response.data.message);
             } else if (response.status == 204) {
               _this3.$alert.Empty("لم يعد هذا الحساب متوفرة, قد يكون شخص أخر قام بحذفه");
@@ -4396,50 +4485,49 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
-    changeFilter: function changeFilter(filterName) {
-      this.activeFilter = filterName;
+    bannedAdmin: function bannedAdmin(id, index) {
+      var _this4 = this;
+      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+        title: "هل أنت متأكد",
+        text: "هل أنت متأكد من أنك تريد حظر هذا الحساب ؟ إذا قمت بحظر الحساب فلا يمكنك استخدامه مجددا",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#16a085",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "نعم حظر الحساب",
+        cancelButtonText: "إلغاء"
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          _this4.$loading.Start();
+          _this4.$http.BannedAdmin(id).then(function (response) {
+            _this4.$loading.Stop();
+            if (response.status == 200) {
+              _this4.admins[_this4.admins.findIndex(function (m) {
+                return m.id === id;
+              })].state = 2;
+              _this4.$alert.Success(response.data.message);
+            } else if (response.status == 204) {
+              _this4.$alert.Empty("لم يعد هذا الحساب متوفرة, قد يكون شخص أخر قام بحذفه");
+            }
+          })["catch"](function (error) {
+            _this4.$loading.Stop();
+            _this4.$alert.BadRequest(error.response);
+          });
+        }
+      });
+    },
+    changeTag: function changeTag(tag) {
+      this.tagId = tag;
+      this.pageId = 1;
+      this.loadData(1);
     }
   },
   mounted: function mounted() {
-    var _this4 = this;
     this.$store.commit("activePage", 3);
     this.$loading.Start();
-    this.$http.GetAllAdmins().then(function (response) {
-      _this4.$loading.Stop();
-      _this4.loaded = true;
-      if (response.status == 200) {
-        _this4.admins = response.data.data;
-        _this4.$alert.Success(response.data.message);
-      } else if (response.status == 204) {
-        _this4.$alert.Empty("تنبيه لا يوجد اي مشرفين");
-      }
-    })["catch"](function (error) {
-      _this4.loaded = true;
-      _this4.$loading.Stop();
-      _this4.$alert.BadRequest(error.response);
-    });
+    this.loadData(this.pageId);
   },
-  computed: {
-    filterAdmin: function filterAdmin() {
-      var list = [];
-      if (this.activeFilter == "all") {
-        list = this.admins;
-      } else if (this.activeFilter == "active") {
-        for (var i = 0; i < this.admins.length; i++) {
-          if (this.admins[i].state == 1) list.push(this.admins[i]);
-        }
-      } else if (this.activeFilter == "notActive") {
-        for (var i = 0; i < this.admins.length; i++) {
-          if (this.admins[i].state == 0) list.push(this.admins[i]);
-        }
-      } else if (this.activeFilter == "banned") {
-        for (var i = 0; i < this.admins.length; i++) {
-          if (this.admins[i].state == 2) list.push(this.admins[i]);
-        }
-      }
-      return list;
-    }
-  },
+  computed: {},
   created: function created() {}
 });
 
@@ -4665,30 +4753,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      data: [],
-      loaded: false
+      data: {
+        todayVisitor: 0,
+        weekVisitor: 0,
+        monthVisitor: 0,
+        todayMessage: 0,
+        notSloveMessage: 0,
+        sloveMessage: 0
+      },
+      loaded: 204 // 0 not load - 200 done - 204 empty 
     };
   },
+
   methods: {},
   mounted: function mounted() {
-    var _this = this;
     this.$store.commit("activePage", 1);
-    this.$loading.Start();
-    this.$http.GetHome().then(function (response) {
-      _this.$loading.Stop();
-      _this.loaded = true;
-      if (response.status == 200) {
-        _this.data = response.data.data;
-        _this.$alert.Success(response.data.message);
-      } else if (response.status == 204) {
-        _this.$alert.Empty("لم نتمكن من جلب البيانات");
-      }
-    })["catch"](function (error) {
-      _this.$loading.Stop();
-      _this.loaded = true;
-      _this.$alert.BadRequest(error.response);
-    });
+    // this.$loading.Start();
+    // this.$http
+    //     .GetHome()
+    //     .then(response => {
+    //         this.$loading.Stop();
+    //         this.loaded = true;
+    //         if (response.status == 200) {
+    //             this.data = response.data.data;
+    //             this.$alert.Success(response.data.message);
+    //         } else if (response.status == 204) {
+    //             this.$alert.Empty("لم نتمكن من جلب البيانات");
+    //         }
+    //     })
+    //     .catch(error => {
+    //         this.$loading.Stop();
+    //         this.loaded = true;
+    //         this.$alert.BadRequest(error.response);
+    //     });
   },
+
   computed: {},
   created: function created() {}
 });
@@ -5884,7 +5983,7 @@ __webpack_require__.r(__webpack_exports__);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().post("/admin/api/auth/editPassword", formData);
   },
   ChangePhoto: function ChangePhoto(data, config) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/admin/photo", data, config);
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().post("/admin/api/auth/editPhoto", data, config);
   },
   // ============== Home Part =======================
   GetHome: function GetHome() {
@@ -5904,8 +6003,8 @@ __webpack_require__.r(__webpack_exports__);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/admin/message/" + message);
   },
   // ============== Admin Part =======================
-  GetAllAdmins: function GetAllAdmins() {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/admin/admin");
+  GetAllAdmins: function GetAllAdmins(page, countPerPage, tag) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/admin/api/admin?page=" + page + "&count=" + countPerPage + "&state=" + tag);
   },
   ActiveAdmin: function ActiveAdmin(admin) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default().put("/api/admin/admin/" + admin + "/active");
@@ -6077,6 +6176,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           active: false,
           path: "/admin/role",
           icon: "fas fa-user-shield"
+        }]
+      }, {
+        id: 5,
+        name: "إدارة المشرفين",
+        role: "HomeChart",
+        open: true,
+        path: "/admin",
+        icon: "fas fa-home",
+        list: [{
+          id: 7,
+          name: "المشرفين",
+          role: "HomeChart",
+          active: true,
+          path: "/admin/admin",
+          icon: "fas fa-home"
+        }, {
+          id: 8,
+          name: "الصلاحيات",
+          role: "HomeChart",
+          active: false,
+          path: "/admin/role",
+          icon: "fas fa-home"
         }]
       }],
       menu: false,

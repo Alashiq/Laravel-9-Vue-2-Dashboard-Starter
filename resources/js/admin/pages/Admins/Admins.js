@@ -4,33 +4,59 @@ export default {
     data() {
         return {
             admins: [],
-            loaded: false,
-            filter: [
-                {
-                    link: "all",
-                    name: "الكل",
-                    active: true
-                },
-                {
-                    link: "active",
-                    name: "المفعلين",
-                    active: false
-                },
-                {
-                    link: "notActive",
-                    name: "الغير مفعل",
-                    active: true
-                },
-                {
-                    link: "banned",
-                    name: "المحظورين",
-                    active: true
-                }
-            ],
-            activeFilter: "all"
+            loaded: 0, // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+            tagId: null, //null =>All ,  1 => Active , 0 =>Not Active , 2=>Banned 
+            pageId:1,
+            countPerPage:5, 
+            lastPage:0,
+            totalRows:0,
+            itemFrom:0,
+            itemTo:0,
         };
     },
     methods: {
+        loadData: function(page) {
+            this.pageId=page;
+            this.$loading.Start();
+            this.$http
+                .GetAllAdmins(this.pageId,this.countPerPage,this.tagId)
+                .then(response => {
+                    this.$loading.Stop();
+                    if (response.status == 200) {
+                        this.admins = response.data.data.data;
+                        this.lastPage = response.data.data.last_page;
+                        this.totalRows = response.data.data.total;
+                        this.itemFrom = response.data.data.from;
+                        this.itemTo = response.data.data.to;
+                        this.$alert.Success(response.data.message);
+                        this.loaded=200;
+                    } else if (response.status == 204) {
+                        this.loaded=204;
+                        this.$alert.Empty("تنبيه لا يوجد اي مشرفين");
+                    }else{
+                    this.loaded=400;
+                    alert("400");
+                    }
+                })
+                .catch(error => {
+                    this.loaded=404;
+                    this.$loading.Stop();
+                    this.$alert.BadRequest(error.response);
+                });
+        },
+        changePerPage: function(event){
+            this.countPerPage=event.target.value;
+            this.pageId=1;
+            this.loadData(this.pageId);
+        },
+        moveToNext: function(){
+            this.pageId++;
+            this.loadData(this.pageId);
+        },
+        moveToPrevius: function(){
+            this.pageId--
+            this.loadData(this.pageId);
+        },
         activeAdmin: function(id, index) {
             Swal.fire({
                 title: "هل أنت متأكد",
@@ -131,48 +157,18 @@ export default {
                 }
             });
         },
-        changeFilter(filterName) {
-            this.activeFilter = filterName;
+        changeTag(tag) {
+            this.tagId = tag;
+            this.pageId=1;
+            this.loadData(1);
         }
     },
     mounted() {
         this.$store.commit("activePage", 3);
         this.$loading.Start();
-        this.$http
-            .GetAllAdmins()
-            .then(response => {
-                this.$loading.Stop();
-                this.loaded = true;
-                if (response.status == 200) {
-                    this.admins = response.data.data;
-                    this.$alert.Success(response.data.message);
-                } else if (response.status == 204) {
-                    this.$alert.Empty("تنبيه لا يوجد اي مشرفين");
-                }
-            })
-            .catch(error => {
-                this.loaded = true;
-                this.$loading.Stop();
-                this.$alert.BadRequest(error.response);
-            });
+        this.loadData(this.pageId);
     },
     computed: {
-        filterAdmin() {
-            var list = [];
-            if (this.activeFilter == "all") {
-                list = this.admins;
-            } else if (this.activeFilter == "active") {
-                for (var i = 0; i < this.admins.length; i++)
-                    if (this.admins[i].state == 1) list.push(this.admins[i]);
-            } else if (this.activeFilter == "notActive") {
-                for (var i = 0; i < this.admins.length; i++)
-                    if (this.admins[i].state == 0) list.push(this.admins[i]);
-            } else if (this.activeFilter == "banned") {
-                for (var i = 0; i < this.admins.length; i++)
-                    if (this.admins[i].state == 2) list.push(this.admins[i]);
-            }
-            return list;
-        }
     },
     created() {}
 };

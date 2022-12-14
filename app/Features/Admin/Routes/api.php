@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use App\Features\Admin\Controllers\AuthController;
+use App\Features\Admin\Controllers\AdminController;
 
 
 # # # # # # # # # # # # # # # Admin Not Auth # # # # # # # # # # # # # # # 
@@ -23,17 +24,28 @@ Route::middleware(['auth:sanctum', 'type.admin'])->group(function () {
             Route::get('/logout', [AuthController::class, 'logout']);
             Route::post('/editName', [AuthController::class, 'editName']);
             Route::post('/editPassword', [AuthController::class, 'editPassword']);
+            Route::post('/editPhoto', [AuthController::class, 'editPhoto']);
         }
     );
     # # # # # # # # # # # # # # # End Admin Auth # # # # # # # # # # # # # # # 
 
-        # # # # # # # # # # # # # # # Admin Auth # # # # # # # # # # # # # # # 
-        Route::group(
-            ['prefix' => 'hello'],
-            function () {
-                Route::get('/', [AuthController::class, 'hello'])->middleware('check.role:ReadMessage');
-            }
-        );
-        # # # # # # # # # # # # # # # End Admin Auth # # # # # # # # # # # # # # # 
+
+    # # # # # # # # # # # # # # # # #  Admin  # # # # # # # # # # # # # # # # #
+    Route::controller(AdminController::class)->prefix('admin')->group(
+        function () {
+            Route::get('/', [AdminController::class, 'index'])->middleware('check.role:ReadAdmin');
+        }
+    );
+    # # # # # # # # # # # # # # # # # End Admin  # # # # # # # # # # # # # # # 
+
+
+    # # # # # # # # # # # # # # # Admin Auth # # # # # # # # # # # # # # # 
+    Route::group(
+        ['prefix' => 'hello'],
+        function () {
+            Route::get('/', [AuthController::class, 'hello'])->middleware('check.role:ReadMessage');
+        }
+    );
+    # # # # # # # # # # # # # # # End Admin Auth # # # # # # # # # # # # # # # 
 
 });

@@ -98,7 +98,33 @@ export default {
                         icon: "fas fa-user-shield",
                     },
                 ]
-            }
+            },
+            {
+                id: 5,
+                name: "إدارة المشرفين",
+                role: "HomeChart",
+                open: true,
+                path: "/admin",
+                icon: "fas fa-home",
+                list: [
+                    {
+                        id: 7,
+                        name: "المشرفين",
+                        role: "HomeChart",
+                        active: true,
+                        path: "/admin/admin",
+                        icon: "fas fa-home"
+                    },
+                    {
+                        id: 8,
+                        name: "الصلاحيات",
+                        role: "HomeChart",
+                        active: false,
+                        path: "/admin/role",
+                        icon: "fas fa-home"
+                    },
+                ]
+            },
         ],
         menu: false,
         loading: false
