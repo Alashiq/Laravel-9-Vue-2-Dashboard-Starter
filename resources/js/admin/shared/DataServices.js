@@ -39,8 +39,8 @@ export default {
     },
     
     // ============== Admin Part =======================
-    GetAllAdmins(page,countPerPage,tag) {
-        return axios.get("/admin/api/admin?page=" + page + "&count=" + countPerPage + "&state=" + tag);
+    GetAllAdmins(page,countPerPage,tag,phone,firstName,lastName) {
+        return axios.get("/admin/api/admin?page=" + page + "&count=" + countPerPage + "&state=" + tag + "&phone=" + phone + "&first_name=" + firstName + "&last_name=" + lastName);
     },
     ActiveAdmin(admin) {
         return axios.put("/api/admin/admin/" + admin + "/active");

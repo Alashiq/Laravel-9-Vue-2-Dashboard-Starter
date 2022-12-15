@@ -2379,9 +2379,102 @@ var render = function render() {
         return _vm.changeTag(2);
       }
     }
-  }, [_vm._v("محظور")])])]), _vm._v(" "), _vm.loaded == 200 ? _c("div", [_c("table", {
+  }, [_vm._v("محظور")])])]), _vm._v(" "), _c("div", {
+    staticClass: "flex flex-wrap pb-5 px-4 bg-white border rounded"
+  }, [_c("div", {
+    staticClass: "w-1/4 px-2 mt-4"
+  }, [_c("div", {
+    staticClass: "text-gray-400 text-sm cairo h-8 flex items-center mr-2"
+  }, [_vm._v("رقم الهاتف")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.phoneSrh,
+      expression: "phoneSrh"
+    }],
+    staticClass: "w-full h-12 border border-gray-300 rounded outline-green-600 cairo placeholder:text-sm px-4",
+    attrs: {
+      type: "text",
+      placeholder: "رقم الهاتف"
+    },
+    domProps: {
+      value: _vm.phoneSrh
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.phoneSrh = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "w-1/4 px-2 mt-4"
+  }, [_c("div", {
+    staticClass: "text-gray-400 text-sm cairo h-8 flex items-center mr-2"
+  }, [_vm._v("الإسم")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.firstNameSrh,
+      expression: "firstNameSrh"
+    }],
+    staticClass: "w-full h-12 border border-gray-300 rounded outline-green-600 cairo placeholder:text-sm px-4",
+    attrs: {
+      type: "text",
+      placeholder: "الإسم"
+    },
+    domProps: {
+      value: _vm.firstNameSrh
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.firstNameSrh = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "w-1/4 px-2 mt-4"
+  }, [_c("div", {
+    staticClass: "text-gray-400 text-sm cairo h-8 flex items-center mr-2"
+  }, [_vm._v("اللقب")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.lastNameSrh,
+      expression: "lastNameSrh"
+    }],
+    staticClass: "w-full h-12 border border-gray-300 rounded outline-green-600 cairo placeholder:text-sm px-4",
+    attrs: {
+      type: "text",
+      placeholder: "اللقب"
+    },
+    domProps: {
+      value: _vm.lastNameSrh
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.lastNameSrh = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("div", {
+    staticClass: "w-1/4 px-2 mt-4 flex items-center justify-center"
+  }, [_c("div", {
+    staticClass: "h-12 mt-8 shadow rounded w-32 bg-green-500 flex items-center justify-center text-white cairo",
+    on: {
+      click: function click($event) {
+        return _vm.loadData(1);
+      }
+    }
+  }, [_vm._v("\n                        بحث\n                    ")]), _vm._v(" "), _c("div", {
+    staticClass: "h-12 mt-8 shadow-lg rounded w-28 bg-gray-400 mr-3 text-white cairo flex items-center justify-center",
+    on: {
+      click: function click($event) {
+        return _vm.clearSearch();
+      }
+    }
+  }, [_vm._v("\n                        تصفير\n                    ")])])]), _vm._v(" "), _vm.loaded == 200 ? _c("div", [_c("table", {
     staticClass: "w-full"
-  }, [_vm._m(0), _vm._v(" "), _vm._l(_vm.admins, function (item, index) {
+  }, [_vm._m(3), _vm._v(" "), _vm._l(_vm.admins, function (item, index) {
     return _c("tr", {
       key: index,
       staticClass: "h-24 bg-white shadow-2 rounded-lg text-lg text-gray-600 font-medium hover:bg-gray-50"
@@ -2397,17 +2490,17 @@ var render = function render() {
       }
     })]), _vm._v(" "), _c("td", {
       staticClass: "lg:table-cell hidden"
-    }, [_vm._v("\n                " + _vm._s(item.first_name) + "\n            ")]), _vm._v(" "), _c("td", [_vm._v(_vm._s(item.username))]), _vm._v(" "), _c("td", {
+    }, [_vm._v("\n                    " + _vm._s(item.phone) + "\n                ")]), _vm._v(" "), _c("td", [_vm._v(_vm._s(item.first_name) + " " + _vm._s(item.last_name))]), _vm._v(" "), _c("td", {
       staticClass: "xl:table-cell hidden"
     }, [item.state == 1 ? _c("div", {
       staticClass: "bg-green-100 flex items-center justify-center rounded shadowa h-10 w-24 text-green-700 text-base"
-    }, [_vm._v("\n                    نشط\n                ")]) : item.state == 0 ? _c("div", {
+    }, [_vm._v("\n                        نشط\n                    ")]) : item.state == 0 ? _c("div", {
       staticClass: "bg-yellow-100 flex items-center justify-center rounded shadows h-10 w-24 text-yellow-700 text-base"
-    }, [_vm._v("\n                    غير نشط\n                ")]) : _c("div", {
+    }, [_vm._v("\n                        غير نشط\n                    ")]) : _c("div", {
       staticClass: "bg-red-100 flex items-center justify-center rounded shadow1d h-10 w-24 text-red-700 text-base"
-    }, [_vm._v("\n                    محظور\n                ")])]), _vm._v(" "), _c("td", {
+    }, [_vm._v("\n                        محظور\n                    ")])]), _vm._v(" "), _c("td", {
       staticClass: "xl:table-cell hidden"
-    }, [_vm._v("\n                " + _vm._s(item.created_at.substring(0, 10)) + "\n            ")]), _vm._v(" "), _c("td", {
+    }, [_vm._v("\n                    " + _vm._s(item.created_at.substring(0, 10)) + "\n                ")]), _vm._v(" "), _c("td", {
       staticClass: "rounded-l-lg h-20"
     }, [_c("router-link", {
       attrs: {
@@ -2516,8 +2609,8 @@ var render = function render() {
   }, [_vm._v(_vm._s(_vm.itemTo) + "-" + _vm._s(_vm.itemFrom))]), _vm._v(" "), _c("div", {
     staticClass: "mr-2 ml-1 text-gray-500"
   }, [_vm._v("من")]), _vm._v(" "), _c("div", [_vm._v(_vm._s(_vm.totalRows))]), _vm._v(" "), _c("div", {
-    staticClass: "text-gray-500"
-  }, [_vm._v("سجل ")])]), _vm._v(" "), _c("div", {
+    staticClass: "text-gray-500 mr-1"
+  }, [_vm._v("سجل")])]), _vm._v(" "), _c("div", {
     staticClass: "flex text-sm items-center mr-10"
   }, [_vm.pageId > 1 ? _c("div", {
     staticClass: "ml-5 text-gray-600",
@@ -2528,11 +2621,11 @@ var render = function render() {
     }
   }, [_c("i", {
     staticClass: "fas fa-chevron-right ml-1"
-  }), _vm._v("\n                السابق\n            ")]) : _c("div", {
+  }), _vm._v("\n                    السابق\n                ")]) : _c("div", {
     staticClass: "text-gray-400 ml-5"
   }, [_c("i", {
     staticClass: "fas fa-chevron-right ml-1"
-  }), _vm._v("\n                السابق")]), _vm._v(" "), _c("div", {
+  }), _vm._v("\n                    السابق\n                ")]), _vm._v(" "), _c("div", {
     staticClass: "text-base font-medium"
   }, [_vm._v(_vm._s(_vm.pageId))]), _vm._v(" "), _vm.pageId < _vm.lastPage ? _c("div", {
     staticClass: "mr-5 text-gray-600",
@@ -2541,15 +2634,57 @@ var render = function render() {
         return _vm.moveToNext();
       }
     }
-  }, [_vm._v("التالي\n                "), _c("i", {
+  }, [_vm._v("التالي\n                    "), _c("i", {
     staticClass: "fas fa-chevron-left mr-1"
   })]) : _c("div", {
     staticClass: "text-gray-400 mr-5"
-  }, [_vm._v("التالي\n                "), _c("i", {
+  }, [_vm._v("التالي\n                    "), _c("i", {
     staticClass: "fas fa-chevron-left mr-1"
   })])])])]) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box") : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("div", [_vm._v("\n        حدث خطأ ما\n    ")]) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("div", [_vm._v("\n        تحقق من اتصالك بالانترنت\n    ")]) : _vm._e()], 1);
 };
 var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "w-1/4 px-2 mt-4"
+  }, [_c("div", {
+    staticClass: "text-gray-400 text-sm cairo h-8 flex items-center mr-2"
+  }, [_vm._v("الإسم")]), _vm._v(" "), _c("input", {
+    staticClass: "w-full h-12 border border-gray-300 rounded outline-green-600 cairo placeholder:text-sm px-4",
+    attrs: {
+      type: "text",
+      placeholder: "الإسم"
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "w-1/4 px-2 mt-4"
+  }, [_c("div", {
+    staticClass: "text-gray-400 text-sm cairo h-8 flex items-center mr-2"
+  }, [_vm._v("الإسم")]), _vm._v(" "), _c("input", {
+    staticClass: "w-full h-12 border border-gray-300 rounded outline-green-600 cairo placeholder:text-sm px-4",
+    attrs: {
+      type: "text",
+      placeholder: "الإسم"
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "w-1/4 px-2 mt-4"
+  }, [_c("div", {
+    staticClass: "text-gray-400 text-sm cairo h-8 flex items-center mr-2"
+  }, [_vm._v("الإسم")]), _vm._v(" "), _c("input", {
+    staticClass: "w-full h-12 border border-gray-300 rounded outline-green-600 cairo placeholder:text-sm px-4",
+    attrs: {
+      type: "text",
+      placeholder: "الإسم"
+    }
+  })]);
+}, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("tr", {
@@ -2560,7 +2695,7 @@ var staticRenderFns = [function () {
     staticClass: "sm:table-cell hidden"
   }, [_vm._v("الصورة")]), _vm._v(" "), _c("td", {
     staticClass: "lg:table-cell hidden"
-  }, [_vm._v("الإسم")]), _vm._v(" "), _c("td", {}, [_vm._v("إسم الدخول")]), _vm._v(" "), _c("td", {
+  }, [_vm._v("الهاتف")]), _vm._v(" "), _c("td", {}, [_vm._v("الإسم")]), _vm._v(" "), _c("td", {
     staticClass: "xl:table-cell hidden"
   }, [_vm._v("الحالة")]), _vm._v(" "), _c("td", {
     staticClass: "xl:table-cell hidden"
@@ -4379,7 +4514,11 @@ __webpack_require__.r(__webpack_exports__);
       lastPage: 0,
       totalRows: 0,
       itemFrom: 0,
-      itemTo: 0
+      itemTo: 0,
+      // Search 
+      phoneSrh: "",
+      firstNameSrh: "",
+      lastNameSrh: ""
     };
   },
   methods: {
@@ -4387,7 +4526,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
       this.pageId = page;
       this.$loading.Start();
-      this.$http.GetAllAdmins(this.pageId, this.countPerPage, this.tagId).then(function (response) {
+      this.$http.GetAllAdmins(this.pageId, this.countPerPage, this.tagId, this.phoneSrh, this.firstNameSrh, this.lastNameSrh).then(function (response) {
         _this.$loading.Stop();
         if (response.status == 200) {
           _this.admins = response.data.data.data;
@@ -4410,9 +4549,20 @@ __webpack_require__.r(__webpack_exports__);
         _this.$alert.BadRequest(error.response);
       });
     },
+    changeTag: function changeTag(tag) {
+      this.tagId = tag;
+      this.pageId = 1;
+      this.loadData(1);
+    },
     changePerPage: function changePerPage(event) {
       this.countPerPage = event.target.value;
       this.pageId = 1;
+      this.loadData(this.pageId);
+    },
+    clearSearch: function clearSearch() {
+      this.phoneSrh = "";
+      this.firstNameSrh = "";
+      this.lastNameSrh = "";
       this.loadData(this.pageId);
     },
     moveToNext: function moveToNext() {
@@ -4515,11 +4665,6 @@ __webpack_require__.r(__webpack_exports__);
           });
         }
       });
-    },
-    changeTag: function changeTag(tag) {
-      this.tagId = tag;
-      this.pageId = 1;
-      this.loadData(1);
     }
   },
   mounted: function mounted() {
@@ -6003,8 +6148,8 @@ __webpack_require__.r(__webpack_exports__);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/admin/message/" + message);
   },
   // ============== Admin Part =======================
-  GetAllAdmins: function GetAllAdmins(page, countPerPage, tag) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/admin/api/admin?page=" + page + "&count=" + countPerPage + "&state=" + tag);
+  GetAllAdmins: function GetAllAdmins(page, countPerPage, tag, phone, firstName, lastName) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/admin/api/admin?page=" + page + "&count=" + countPerPage + "&state=" + tag + "&phone=" + phone + "&first_name=" + firstName + "&last_name=" + lastName);
   },
   ActiveAdmin: function ActiveAdmin(admin) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default().put("/api/admin/admin/" + admin + "/active");

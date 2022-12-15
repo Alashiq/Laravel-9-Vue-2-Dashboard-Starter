@@ -12,6 +12,10 @@ export default {
             totalRows:0,
             itemFrom:0,
             itemTo:0,
+            // Search 
+            phoneSrh:"",
+            firstNameSrh:"",
+            lastNameSrh:"",
         };
     },
     methods: {
@@ -19,7 +23,7 @@ export default {
             this.pageId=page;
             this.$loading.Start();
             this.$http
-                .GetAllAdmins(this.pageId,this.countPerPage,this.tagId)
+                .GetAllAdmins(this.pageId,this.countPerPage,this.tagId,this.phoneSrh,this.firstNameSrh,this.lastNameSrh)
                 .then(response => {
                     this.$loading.Stop();
                     if (response.status == 200) {
@@ -44,9 +48,20 @@ export default {
                     this.$alert.BadRequest(error.response);
                 });
         },
+        changeTag(tag) {
+            this.tagId = tag;
+            this.pageId=1;
+            this.loadData(1);
+        },
         changePerPage: function(event){
             this.countPerPage=event.target.value;
             this.pageId=1;
+            this.loadData(this.pageId);
+        },
+        clearSearch:function(){
+            this.phoneSrh="";
+            this.firstNameSrh="";
+            this.lastNameSrh="";
             this.loadData(this.pageId);
         },
         moveToNext: function(){
@@ -157,11 +172,7 @@ export default {
                 }
             });
         },
-        changeTag(tag) {
-            this.tagId = tag;
-            this.pageId=1;
-            this.loadData(1);
-        }
+
     },
     mounted() {
         this.$store.commit("activePage", 3);

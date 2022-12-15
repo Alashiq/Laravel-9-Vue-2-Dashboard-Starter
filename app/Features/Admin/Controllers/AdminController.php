@@ -25,11 +25,24 @@ class AdminController extends Controller
             $count = $request->count;
         else
             $count = 10;
-        
-        if($request->state!="null")
-        $admins = Admin::latest()->where('id', '<>', $request->user()->id)->where('state','<>',9)->where('state',$request->state)->paginate($count);
-        else
-        $admins = Admin::latest()->where('id', '<>', $request->user()->id)->where('state','<>',9)->paginate($count);
+
+        if ($request->state != "null") {
+            $admins = Admin::latest()
+            ->where('id', '<>', $request->user()->id)->where('state', '<>', 9)
+            ->where('state', $request->state)
+            ->where('phone', 'like', '%'.$request->phone.'%')
+            ->where('first_name', 'like', '%'.$request->first_name.'%')
+            ->where('last_name', 'like', '%'.$request->last_name.'%')
+            ->paginate($count);
+        } else {
+            $admins = Admin::latest()
+            ->where('id', '<>', $request->user()->id)
+            ->where('state', '<>', 9)
+            ->where('phone', 'like', '%'.$request->phone.'%')
+            ->where('first_name', 'like', '%'.$request->first_name.'%')
+            ->where('last_name', 'like', '%'.$request->last_name.'%')
+            ->paginate($count);
+        }
         if ($admins->isEmpty())
             return response()->json(['success' => false, 'message' => 'لا يوجد اي مشرفين في الموقع', 'data' => $admins], 204);
         return response()->json(['success' => true, 'message' => 'تم جلب  المشرفين بنجاح', 'data' => $admins], 200);
