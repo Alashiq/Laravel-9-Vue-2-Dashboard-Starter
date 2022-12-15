@@ -2315,7 +2315,15 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "w-auto md:p-8 p-4"
+    staticClass: "w-auto md:p-8 p-4",
+    attrs: {
+      id: "0"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.openOptions($event);
+      }
+    }
   }, [_c("div", {
     staticClass: "flex justify-between w-full h-16 items-center"
   }, [_c("div", {
@@ -2382,7 +2390,7 @@ var render = function render() {
   }, [_vm._v("محظور")])])]), _vm._v(" "), _c("div", {
     staticClass: "flex flex-wrap pb-5 px-4 bg-white border rounded"
   }, [_c("div", {
-    staticClass: "w-1/4 px-2 mt-4"
+    staticClass: "xl:w-1/4 lg:w-1/3 md:w-1/2 w-full px-2 mt-4"
   }, [_c("div", {
     staticClass: "text-gray-400 text-sm cairo h-8 flex items-center mr-2"
   }, [_vm._v("رقم الهاتف")]), _vm._v(" "), _c("input", {
@@ -2407,7 +2415,7 @@ var render = function render() {
       }
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "w-1/4 px-2 mt-4"
+    staticClass: "xl:w-1/4 lg:w-1/3 md:w-1/2 w-full px-2 mt-4"
   }, [_c("div", {
     staticClass: "text-gray-400 text-sm cairo h-8 flex items-center mr-2"
   }, [_vm._v("الإسم")]), _vm._v(" "), _c("input", {
@@ -2432,7 +2440,7 @@ var render = function render() {
       }
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "w-1/4 px-2 mt-4"
+    staticClass: "xl:w-1/4 lg:w-1/3 md:w-1/2 w-full px-2 mt-4"
   }, [_c("div", {
     staticClass: "text-gray-400 text-sm cairo h-8 flex items-center mr-2"
   }, [_vm._v("اللقب")]), _vm._v(" "), _c("input", {
@@ -2457,24 +2465,24 @@ var render = function render() {
       }
     }
   })]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("div", {
-    staticClass: "w-1/4 px-2 mt-4 flex items-center justify-center"
+    staticClass: "xl:w-1/4 lg:w-1/3 md:w-1/2 px-2 mt-4 flex items-center justify-center"
   }, [_c("div", {
-    staticClass: "h-12 mt-8 shadow rounded w-32 bg-green-500 flex items-center justify-center text-white cairo",
+    staticClass: "h-12 mt-8 shadow rounded w-28 bg-green-500 flex items-center justify-center text-white cairo",
     on: {
       click: function click($event) {
         return _vm.loadData(1);
       }
     }
-  }, [_vm._v("\n                        بحث\n                    ")]), _vm._v(" "), _c("div", {
-    staticClass: "h-12 mt-8 shadow-lg rounded w-28 bg-gray-400 mr-3 text-white cairo flex items-center justify-center",
+  }, [_vm._v("\n                بحث\n            ")]), _vm._v(" "), _c("div", {
+    staticClass: "h-12 mt-8 shadow-lg rounded w-24 bg-gray-400 mr-3 text-white cairo flex items-center justify-center",
     on: {
       click: function click($event) {
         return _vm.clearSearch();
       }
     }
-  }, [_vm._v("\n                        تصفير\n                    ")])])]), _vm._v(" "), _vm.loaded == 200 ? _c("div", [_c("table", {
+  }, [_vm._v("\n                تصفير\n            ")])])]), _vm._v(" "), _vm.loaded == 200 ? _c("div", [_c("table", {
     staticClass: "w-full"
-  }, [_vm._m(3), _vm._v(" "), _vm._l(_vm.admins, function (item, index) {
+  }, [_vm._m(3), _vm._v(" "), _vm._l(_vm.mainList, function (item, index) {
     return _c("tr", {
       key: index,
       staticClass: "h-24 bg-white shadow-2 rounded-lg text-lg text-gray-600 font-medium hover:bg-gray-50"
@@ -2501,80 +2509,115 @@ var render = function render() {
     }, [_vm._v("\n                        محظور\n                    ")])]), _vm._v(" "), _c("td", {
       staticClass: "xl:table-cell hidden"
     }, [_vm._v("\n                    " + _vm._s(item.created_at.substring(0, 10)) + "\n                ")]), _vm._v(" "), _c("td", {
-      staticClass: "rounded-l-lg h-20"
+      staticClass: "rounded-l-lg h-20 flex items-center justify-center"
+    }, [_c("div", {
+      staticClass: "flex items-start justify-center mx-auto"
+    }, [_c("i", {
+      staticClass: "fas fa-ellipsis-v text-gray-500 text-2xl",
+      attrs: {
+        id: item.id
+      },
+      on: {
+        click: function click($event) {
+          return _vm.openOptions($event);
+        }
+      }
+    }), _vm._v(" "), item.id == _vm.optionId ? _c("div", {
+      staticClass: "py-2 px-2 w-32 bg-white rounded-lg absolute text-gray-600 text-sm cairo",
+      staticStyle: {
+        "box-shadow": "rgb(145 158 171 / 24%) 0px 0px 2px 0px, rgb(145 158 171 / 24%) -20px 20px 40px -4px"
+      }
     }, [_c("router-link", {
       attrs: {
         to: "/admin/admin/" + item.id
       }
+    }, [_c("div", {
+      staticClass: "h-8 w-auto px-2 rounded-lg hover:bg-gray-100 flex items-center justify-start"
     }, [_c("i", {
-      staticClass: "fas fa-eye px-4 py-2 see-btn rounded ml-2",
-      attrs: {
-        title: "عرض بيانات المشرف"
-      }
-    })]), _vm._v(" "), item.state != 2 ? _c("i", {
+      staticClass: "fas fa-eye"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "mr-2"
+    }, [_vm._v("\n                                        عرض\n                                    ")]), _vm._v(" "), _c("div")])]), _vm._v(" "), _c("router-link", {
       directives: [{
         name: "show",
         rawName: "v-show",
-        value: _vm.$parent.checkPermission("BannedAdmin") == true,
-        expression: "$parent.checkPermission('BannedAdmin') == true"
+        value: _vm.$parent.checkPermission("EditRoleAdmin") == true,
+        expression: "$parent.checkPermission('EditRoleAdmin') == true"
       }],
-      staticClass: "fas fa-ban px-4 py-2 delete-btn rounded ml-2",
       attrs: {
-        title: "حظر المشرف"
-      },
-      on: {
-        click: function click($event) {
-          return _vm.bannedAdmin(item.id, index);
-        }
+        to: "/admin/admin/" + item.id + "/edit"
       }
-    }) : _vm._e(), _vm._v(" "), item.state == 0 ? _c("i", {
+    }, [_c("div", {
+      staticClass: "h-8 w-auto px-2 rounded-lg hover:bg-gray-100 flex items-center justify-start"
+    }, [_c("i", {
+      staticClass: "fas fa-edit"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "mr-2"
+    }, [_vm._v("\n                                        تعديل\n                                    ")]), _vm._v(" "), _c("div")])]), _vm._v(" "), item.state == 0 ? _c("div", {
       directives: [{
         name: "show",
         rawName: "v-show",
         value: _vm.$parent.checkPermission("ActiveAdmin") == true,
         expression: "$parent.checkPermission('ActiveAdmin') == true"
       }],
-      staticClass: "fas fa-lock-open px-4 py-2 green-btn rounded ml-2",
-      attrs: {
-        title: "تفعيل المشرف"
-      },
+      staticClass: "h-8 w-auto px-2 rounded-lg hover:bg-gray-100 flex items-center justify-start",
       on: {
         click: function click($event) {
           return _vm.activeAdmin(item.id, index);
         }
       }
-    }) : item.state == 1 ? _c("i", {
+    }, [_c("i", {
+      staticClass: "fas fa-lock-open text-green-500"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "mr-2"
+    }, [_vm._v("\n                                    تفعيل\n                                ")]), _vm._v(" "), _c("div")]) : _vm._e(), _vm._v(" "), item.state == 1 ? _c("div", {
       directives: [{
         name: "show",
         rawName: "v-show",
         value: _vm.$parent.checkPermission("DisActiveAdmin") == true,
-        expression: "\n                            $parent.checkPermission('DisActiveAdmin') == true\n                        "
+        expression: "$parent.checkPermission('DisActiveAdmin') == true"
       }],
-      staticClass: "fas fa-lock px-4 py-2 yellow-btn rounded ml-2",
-      attrs: {
-        title: "إلغاء تفعيل المشرف"
-      },
+      staticClass: "h-8 w-auto px-2 rounded-lg hover:bg-gray-100 flex items-center justify-start",
       on: {
         click: function click($event) {
           return _vm.disActiveAdmin(item.id, index);
         }
       }
-    }) : _vm._e(), _vm._v(" "), _c("router-link", {
-      attrs: {
-        to: "/admin/admin/" + item.id + "/edit"
-      }
     }, [_c("i", {
+      staticClass: "fas fa-lock text-yellow-500"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "mr-2"
+    }, [_vm._v("\n                                    إلغاء التفعيل\n                                ")]), _vm._v(" "), _c("div")]) : _vm._e(), _vm._v(" "), item.state != 2 ? _c("div", {
       directives: [{
         name: "show",
         rawName: "v-show",
-        value: _vm.$parent.checkPermission("EditRoleAdmin") == true,
-        expression: "\n                                $parent.checkPermission('EditRoleAdmin') == true\n                            "
+        value: _vm.$parent.checkPermission("BannedAdmin") == true,
+        expression: "$parent.checkPermission('BannedAdmin') == true"
       }],
-      staticClass: "fas fa-user-shield px-4 py-2 pink-btn rounded",
-      attrs: {
-        title: "تعديل دور ا لمشرف"
+      staticClass: "h-8 w-auto px-2 rounded-lg hover:bg-gray-100 flex items-center justify-start",
+      on: {
+        click: function click($event) {
+          return _vm.bannedAdmin(item.id, index);
+        }
       }
-    })])], 1)]);
+    }, [_c("i", {
+      staticClass: "fas fa-ban text-red-500"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "mr-2"
+    }, [_vm._v("\n                                    حظر الحساب\n                                ")]), _vm._v(" "), _c("div")]) : _vm._e(), _vm._v(" "), _c("div", {
+      staticClass: "h-px border border-dashed border-gray-200 w-full my-1"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "h-8 w-auto px-2 rounded-lg hover:bg-gray-100 flex items-center justify-start text-red-500",
+      on: {
+        click: function click($event) {
+          return _vm.deleteAdmin(item.id);
+        }
+      }
+    }, [_c("i", {
+      staticClass: "far fa-trash-alt"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "mr-2"
+    }, [_vm._v("\n                                    حذف\n                                ")]), _vm._v(" "), _c("div")])], 1) : _vm._e()])])]);
   })], 2), _vm._v(" "), _c("div", {
     staticClass: "h-14 flex items-center justify-start px-6 shadow-2 rounded-lg bg-white cairo"
   }, [_c("div", {
@@ -2646,7 +2689,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "w-1/4 px-2 mt-4"
+    staticClass: "xl:w-1/4 lg:w-1/3 md:w-1/2 w-full px-2 mt-4"
   }, [_c("div", {
     staticClass: "text-gray-400 text-sm cairo h-8 flex items-center mr-2"
   }, [_vm._v("الإسم")]), _vm._v(" "), _c("input", {
@@ -2660,7 +2703,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "w-1/4 px-2 mt-4"
+    staticClass: "xl:w-1/4 lg:w-1/3 md:w-1/2 w-full px-2 mt-4"
   }, [_c("div", {
     staticClass: "text-gray-400 text-sm cairo h-8 flex items-center mr-2"
   }, [_vm._v("الإسم")]), _vm._v(" "), _c("input", {
@@ -2674,7 +2717,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "w-1/4 px-2 mt-4"
+    staticClass: "xl:w-1/4 lg:w-1/3 md:w-1/2 w-full px-2 mt-4"
   }, [_c("div", {
     staticClass: "text-gray-400 text-sm cairo h-8 flex items-center mr-2"
   }, [_vm._v("الإسم")]), _vm._v(" "), _c("input", {
@@ -4504,7 +4547,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      admins: [],
+      mainList: [],
       loaded: 0,
       // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
       tagId: null,
@@ -4518,7 +4561,9 @@ __webpack_require__.r(__webpack_exports__);
       // Search 
       phoneSrh: "",
       firstNameSrh: "",
-      lastNameSrh: ""
+      lastNameSrh: "",
+      // UI
+      optionId: 0
     };
   },
   methods: {
@@ -4529,7 +4574,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$http.GetAllAdmins(this.pageId, this.countPerPage, this.tagId, this.phoneSrh, this.firstNameSrh, this.lastNameSrh).then(function (response) {
         _this.$loading.Stop();
         if (response.status == 200) {
-          _this.admins = response.data.data.data;
+          _this.mainList = response.data.data.data;
           _this.lastPage = response.data.data.last_page;
           _this.totalRows = response.data.data.total;
           _this.itemFrom = response.data.data.from;
@@ -4573,6 +4618,15 @@ __webpack_require__.r(__webpack_exports__);
       this.pageId--;
       this.loadData(this.pageId);
     },
+    openOptions: function openOptions(event) {
+      if (event.target.id == 0) {
+        this.optionId = 0;
+        console.log(event.target.id);
+      } else {
+        this.optionId = event.target.id;
+        console.log(event.target.id);
+      }
+    },
     activeAdmin: function activeAdmin(id, index) {
       var _this2 = this;
       sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
@@ -4590,7 +4644,7 @@ __webpack_require__.r(__webpack_exports__);
           _this2.$http.ActiveAdmin(id).then(function (response) {
             _this2.$loading.Stop();
             if (response.status == 200) {
-              _this2.admins[_this2.admins.findIndex(function (m) {
+              _this2.mainList[_this2.mainList.findIndex(function (m) {
                 return m.id === id;
               })].state = 1;
               _this2.$alert.Success(response.data.message);
@@ -4621,7 +4675,7 @@ __webpack_require__.r(__webpack_exports__);
           _this3.$http.DisActiveAdmin(id).then(function (response) {
             _this3.$loading.Stop();
             if (response.status == 200) {
-              _this3.admins[_this3.admins.findIndex(function (m) {
+              _this3.mainList[_this3.mainList.findIndex(function (m) {
                 return m.id === id;
               })].state = 0;
               _this3.$alert.Success(response.data.message);
@@ -4635,8 +4689,42 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
-    bannedAdmin: function bannedAdmin(id, index) {
+    deleteAdmin: function deleteAdmin(id) {
       var _this4 = this;
+      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+        title: "هل أنت متأكد",
+        text: "هل أنت متأكد من أنك تريد حذف هذا الحساب !",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#16a085",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "نعم حذف",
+        cancelButtonText: "إلغاء"
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          _this4.$loading.Start();
+          _this4.$http.DeleteAdmin(id).then(function (response) {
+            _this4.$loading.Stop();
+            if (response.status == 200) {
+              _this4.mainList.splice(_this4.mainList.findIndex(function (m) {
+                return m.id === id;
+              }), 1);
+              _this4.$alert.Success(response.data.message);
+            } else if (response.status == 204) {
+              _this4.mainList.splice(_this4.mainList.findIndex(function (m) {
+                return m.id === id;
+              }), 1);
+              _this4.$alert.Empty("لم يعد هذا الحساب متوفرة, قد يكون شخص أخر قام بحذفه");
+            }
+          })["catch"](function (error) {
+            _this4.$loading.Stop();
+            _this4.$alert.BadRequest(error.response);
+          });
+        }
+      });
+    },
+    bannedAdmin: function bannedAdmin(id, index) {
+      var _this5 = this;
       sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
         title: "هل أنت متأكد",
         text: "هل أنت متأكد من أنك تريد حظر هذا الحساب ؟ إذا قمت بحظر الحساب فلا يمكنك استخدامه مجددا",
@@ -4648,20 +4736,20 @@ __webpack_require__.r(__webpack_exports__);
         cancelButtonText: "إلغاء"
       }).then(function (result) {
         if (result.isConfirmed) {
-          _this4.$loading.Start();
-          _this4.$http.BannedAdmin(id).then(function (response) {
-            _this4.$loading.Stop();
+          _this5.$loading.Start();
+          _this5.$http.BannedAdmin(id).then(function (response) {
+            _this5.$loading.Stop();
             if (response.status == 200) {
-              _this4.admins[_this4.admins.findIndex(function (m) {
+              _this5.mainList[_this5.mainList.findIndex(function (m) {
                 return m.id === id;
               })].state = 2;
-              _this4.$alert.Success(response.data.message);
+              _this5.$alert.Success(response.data.message);
             } else if (response.status == 204) {
-              _this4.$alert.Empty("لم يعد هذا الحساب متوفرة, قد يكون شخص أخر قام بحذفه");
+              _this5.$alert.Empty("لم يعد هذا الحساب متوفرة, قد يكون شخص أخر قام بحذفه");
             }
           })["catch"](function (error) {
-            _this4.$loading.Stop();
-            _this4.$alert.BadRequest(error.response);
+            _this5.$loading.Stop();
+            _this5.$alert.BadRequest(error.response);
           });
         }
       });
@@ -6152,13 +6240,16 @@ __webpack_require__.r(__webpack_exports__);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/admin/api/admin?page=" + page + "&count=" + countPerPage + "&state=" + tag + "&phone=" + phone + "&first_name=" + firstName + "&last_name=" + lastName);
   },
   ActiveAdmin: function ActiveAdmin(admin) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default().put("/api/admin/admin/" + admin + "/active");
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().put("/admin/api/admin/" + admin + "/active");
   },
   DisActiveAdmin: function DisActiveAdmin(admin) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default().put("/api/admin/admin/" + admin + "/disActive");
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().put("/admin/api/admin/" + admin + "/disActive");
+  },
+  DeleteAdmin: function DeleteAdmin(admin) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]("/admin/api/admin/" + admin);
   },
   BannedAdmin: function BannedAdmin(admin) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default().put("/api/admin/admin/" + admin + "/banned");
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().put("/admin/api/admin/" + admin + "/banned");
   },
   ResetAdminPassword: function ResetAdminPassword(admin) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default().put("/api/admin/admin/" + admin + "/reset");

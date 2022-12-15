@@ -34,6 +34,10 @@ Route::middleware(['auth:sanctum', 'type.admin'])->group(function () {
     Route::controller(AdminController::class)->prefix('admin')->group(
         function () {
             Route::get('/', [AdminController::class, 'index'])->middleware('check.role:ReadAdmin');
+            Route::put('/{admin}/active', [AdminController::class, 'active'])->middleware('check.role:ActiveAdmin');
+            Route::put('/{admin}/disActive', [AdminController::class, 'disActive'])->middleware('check.role:DisActiveAdmin');
+            Route::delete('/{admin}', [AdminController::class, 'delete'])->middleware('check.role:DeleteAdmin');
+            Route::put('/{admin}/banned', [AdminController::class, 'banned'])->middleware('check.role:BannedAdmin');
         }
     );
     # # # # # # # # # # # # # # # # # End Admin  # # # # # # # # # # # # # # # 

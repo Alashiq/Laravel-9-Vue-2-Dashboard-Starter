@@ -43,13 +43,16 @@ export default {
         return axios.get("/admin/api/admin?page=" + page + "&count=" + countPerPage + "&state=" + tag + "&phone=" + phone + "&first_name=" + firstName + "&last_name=" + lastName);
     },
     ActiveAdmin(admin) {
-        return axios.put("/api/admin/admin/" + admin + "/active");
+        return axios.put("/admin/api/admin/" + admin + "/active");
     },
     DisActiveAdmin(admin) {
-        return axios.put("/api/admin/admin/" + admin + "/disActive");
+        return axios.put("/admin/api/admin/" + admin + "/disActive");
+    },
+    DeleteAdmin(admin) {
+        return axios.delete("/admin/api/admin/" + admin);
     },
     BannedAdmin(admin) {
-        return axios.put("/api/admin/admin/" + admin + "/banned");
+        return axios.put("/admin/api/admin/" + admin + "/banned");
     },
     ResetAdminPassword(admin) {
         return axios.put("/api/admin/admin/" + admin + "/reset");

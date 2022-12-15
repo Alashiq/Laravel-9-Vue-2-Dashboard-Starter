@@ -28,20 +28,20 @@ class AdminController extends Controller
 
         if ($request->state != "null") {
             $admins = Admin::latest()
-            ->where('id', '<>', $request->user()->id)->where('state', '<>', 9)
-            ->where('state', $request->state)
-            ->where('phone', 'like', '%'.$request->phone.'%')
-            ->where('first_name', 'like', '%'.$request->first_name.'%')
-            ->where('last_name', 'like', '%'.$request->last_name.'%')
-            ->paginate($count);
+                ->where('id', '<>', $request->user()->id)->where('state', '<>', 9)
+                ->where('state', $request->state)
+                ->where('phone', 'like', '%' . $request->phone . '%')
+                ->where('first_name', 'like', '%' . $request->first_name . '%')
+                ->where('last_name', 'like', '%' . $request->last_name . '%')
+                ->paginate($count);
         } else {
             $admins = Admin::latest()
-            ->where('id', '<>', $request->user()->id)
-            ->where('state', '<>', 9)
-            ->where('phone', 'like', '%'.$request->phone.'%')
-            ->where('first_name', 'like', '%'.$request->first_name.'%')
-            ->where('last_name', 'like', '%'.$request->last_name.'%')
-            ->paginate($count);
+                ->where('id', '<>', $request->user()->id)
+                ->where('state', '<>', 9)
+                ->where('phone', 'like', '%' . $request->phone . '%')
+                ->where('first_name', 'like', '%' . $request->first_name . '%')
+                ->where('last_name', 'like', '%' . $request->last_name . '%')
+                ->paginate($count);
         }
         if ($admins->isEmpty())
             return response()->json(['success' => false, 'message' => 'لا يوجد اي مشرفين في الموقع', 'data' => $admins], 204);
@@ -49,5 +49,78 @@ class AdminController extends Controller
     }
 
 
+    // Activate Admin
+    public function active($admin)
+    {
+        $admin = Admin::where('id', $admin)->where('state', '<>', 9)->first();
+        if (!$admin)
+            return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 204);
+
+        if ($admin->state == 1)
+            return response()->json(['success' => false, 'message' => 'هذا الحساب مفعل مسبقا'], 400);
+
+        if ($admin->state == 2)
+            return response()->json(['success' => false, 'message' => 'هذا الحساب محظور ولا يمكن تفعيله'], 400);
+        $admin->state = 1;
+        $edit = $admin->save();
+        if ($edit)
+            return response()->json(['success' => true, 'message' => 'تم تفعيل هذا الحساب'], 200);
+        return response()->json(['success' => true, 'message' => 'حدث خطأ ما'], 400);
+    }
+
+
+    // DisActivate Admin
+    public function disActive($admin)
+    {
+        $admin = Admin::where('id', $admin)->where('state', '<>', 9)->first();
+        if (!$admin)
+            return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 204);
+
+        if ($admin->state == 0)
+            return response()->json(['success' => false, 'message' => 'هذا الحساب غير مفعل مسبقا'], 400);
+
+        if ($admin->state == 2)
+            return response()->json(['success' => false, 'message' => 'هذا الحساب محظور ولا يمكن تفعيله'], 400);
+
+        $admin->state = 0;
+        $edit = $admin->save();
+        if ($edit)
+            return response()->json(['success' => true, 'message' => 'تم إلغاء تفعيل هذا الحساب'], 200);
+        return response()->json(['success' => true, 'message' => 'حدث خطأ ما'], 400);
+    }
+
+
+        // Banned Admin
+        public function banned($admin)
+        {
+            $admin = Admin::where('id', $admin)->where('state', '<>', 9)->first();
+            if (!$admin)
+                return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 204);
+    
+            if ($admin->state == 2)
+                return response()->json(['success' => false, 'message' => 'هذا الحساب محظور مسبقا'], 400);
+    
+            $admin->state = 2;
+            $edit = $admin->save();
+            if ($edit)
+                return response()->json(['success' => true, 'message' => 'تم حظر هذا الحساب ولا يمكنم استخدامه مجددا'], 200);
+            return response()->json(['success' => true, 'message' => 'حدث خطأ ما'], 400);
+        }
+
+
+    // Delete Admin
+    public function delete($admin)
+    {
+        $admin = Admin::where('id', $admin)->where('state', '<>', 9)->first();
+        if (!$admin)
+            return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 204);
+
+
+        $admin->state = 9;
+        $edit = $admin->save();
+        if ($edit)
+            return response()->json(['success' => true, 'message' => 'تم حذف هذا الحساب بنجاح'], 200);
+        return response()->json(['success' => true, 'message' => 'حدث خطأ ما'], 400);
+    }
 
 }

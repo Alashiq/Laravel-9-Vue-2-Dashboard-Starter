@@ -10,6 +10,7 @@ return [
         'EditMessage'=>'تعديل حالة الرسالة',
         // Admin Permission
         'ReadAdmin'=>'مشاهدة المشرفين',
+        'DeleteAdmin'=>'مشاهدة المشرفين',
         'CreateAdmin'=>'إضافة مشرف',
         'ActiveAdmin'=>'تفعيل مشرف',
         'DisActiveAdmin'=>'إلغاء تفعيل مشرف',

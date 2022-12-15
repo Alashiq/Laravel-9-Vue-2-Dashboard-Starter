@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 export default {
     data() {
         return {
-            admins: [],
+            mainList: [],
             loaded: 0, // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
             tagId: null, //null =>All ,  1 => Active , 0 =>Not Active , 2=>Banned 
             pageId:1,
@@ -16,6 +16,8 @@ export default {
             phoneSrh:"",
             firstNameSrh:"",
             lastNameSrh:"",
+            // UI
+            optionId:0,
         };
     },
     methods: {
@@ -27,7 +29,7 @@ export default {
                 .then(response => {
                     this.$loading.Stop();
                     if (response.status == 200) {
-                        this.admins = response.data.data.data;
+                        this.mainList = response.data.data.data;
                         this.lastPage = response.data.data.last_page;
                         this.totalRows = response.data.data.total;
                         this.itemFrom = response.data.data.from;
@@ -72,6 +74,16 @@ export default {
             this.pageId--
             this.loadData(this.pageId);
         },
+        openOptions: function(event){
+            if(event.target.id==0){
+                this.optionId=0;
+            console.log(event.target.id);
+            }else{
+                this.optionId=event.target.id;
+            console.log(event.target.id);
+            }
+
+        },
         activeAdmin: function(id, index) {
             Swal.fire({
                 title: "هل أنت متأكد",
@@ -90,7 +102,7 @@ export default {
                         .then(response => {
                             this.$loading.Stop();
                             if (response.status == 200) {
-                                this.admins[this.admins.findIndex(m => m.id === id)].state = 1;
+                                this.mainList[this.mainList.findIndex(m => m.id === id)].state = 1;
                                 this.$alert.Success(response.data.message);
                             } else if (response.status == 204) {
                                 this.$alert.Empty(
@@ -123,9 +135,43 @@ export default {
                         .then(response => {
                             this.$loading.Stop();
                             if (response.status == 200) {
-                                this.admins[this.admins.findIndex(m => m.id === id)].state = 0;
+                                this.mainList[this.mainList.findIndex(m => m.id === id)].state = 0;
                                 this.$alert.Success(response.data.message);
                             } else if (response.status == 204) {
+                                this.$alert.Empty(
+                                    "لم يعد هذا الحساب متوفرة, قد يكون شخص أخر قام بحذفه"
+                                );
+                            }
+                        })
+                        .catch(error => {
+                            this.$loading.Stop();
+                            this.$alert.BadRequest(error.response);
+                        });
+                }
+            });
+        },
+        deleteAdmin: function(id) {
+            Swal.fire({
+                title: "هل أنت متأكد",
+                text: "هل أنت متأكد من أنك تريد حذف هذا الحساب !",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#16a085",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "نعم حذف",
+                cancelButtonText: "إلغاء"
+            }).then(result => {
+                if (result.isConfirmed) {
+                    this.$loading.Start();
+                    this.$http
+                        .DeleteAdmin(id)
+                        .then(response => {
+                            this.$loading.Stop();
+                            if (response.status == 200) {
+                                this.mainList.splice(this.mainList.findIndex(m => m.id === id), 1);
+                                this.$alert.Success(response.data.message);
+                            } else if (response.status == 204) {
+                                this.mainList.splice(this.mainList.findIndex(m => m.id === id), 1);
                                 this.$alert.Empty(
                                     "لم يعد هذا الحساب متوفرة, قد يكون شخص أخر قام بحذفه"
                                 );
@@ -157,7 +203,7 @@ export default {
                         .then(response => {
                             this.$loading.Stop();
                             if (response.status == 200) {
-                                this.admins[this.admins.findIndex(m => m.id === id)].state = 2;
+                                this.mainList[this.mainList.findIndex(m => m.id === id)].state = 2;
                                 this.$alert.Success(response.data.message);
                             } else if (response.status == 204) {
                                 this.$alert.Empty(
