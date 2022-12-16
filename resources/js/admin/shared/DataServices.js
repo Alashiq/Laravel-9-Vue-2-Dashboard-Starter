@@ -55,19 +55,22 @@ export default {
         return axios.put("/admin/api/admin/" + admin + "/banned");
     },
     ResetAdminPassword(admin) {
-        return axios.put("/api/admin/admin/" + admin + "/reset");
+        return axios.put("/admin/api/admin/" + admin + "/reset");
     },
     GetAdminById(admin) {
-        return axios.get("/api/admin/admin/" + admin);
+        return axios.get("/admin/api/admin/" + admin);
+    },
+    GetAdminByIdWithPermissions(admin) {
+        return axios.get("/admin/api/admin/" + admin + "/withPermissions");
     },
     GetAdminRolesForNewAdmin() {
-        return axios.get("/api/admin/admin/role");
+        return axios.get("/admin/api/admin/role");
     },
     PostNewAdmin(admin) {
         return axios.post("/api/admin/admin/", admin);
     },
     UpdateAdminRole(admin, formData) {
-        return axios.put("/api/admin/admin/" + admin + "/role", formData);
+        return axios.put("/admin/api/admin/" + admin + "/role", formData);
     },
 
     // ============== Role Part =======================

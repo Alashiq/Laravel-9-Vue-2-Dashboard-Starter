@@ -73,38 +73,14 @@
         </div>
         <!-- End Item -->
 
-        <!-- Item -->
-        <div class="xl:w-1/4 lg:w-1/3 md:w-1/2 w-full px-2 mt-4">
-            <div class="text-gray-400 text-sm cairo h-8 flex items-center mr-2">الإسم</div>
-            <input type="text" placeholder="الإسم"
-                class="w-full h-12 border border-gray-300 rounded outline-green-600 cairo placeholder:text-sm px-4">
-        </div>
-        <!-- End Item -->
-
-        <!-- Item -->
-        <div class="xl:w-1/4 lg:w-1/3 md:w-1/2 w-full px-2 mt-4">
-            <div class="text-gray-400 text-sm cairo h-8 flex items-center mr-2">الإسم</div>
-            <input type="text" placeholder="الإسم"
-                class="w-full h-12 border border-gray-300 rounded outline-green-600 cairo placeholder:text-sm px-4">
-        </div>
-        <!-- End Item -->
-
-
-        <!-- Item -->
-        <div class="xl:w-1/4 lg:w-1/3 md:w-1/2 w-full px-2 mt-4">
-            <div class="text-gray-400 text-sm cairo h-8 flex items-center mr-2">الإسم</div>
-            <input type="text" placeholder="الإسم"
-                class="w-full h-12 border border-gray-300 rounded outline-green-600 cairo placeholder:text-sm px-4">
-        </div>
-        <!-- End Item -->
 
         <!-- Search BTN -->
         <div class="xl:w-1/4 lg:w-1/3 md:w-1/2 px-2 mt-4 flex items-center justify-center">
-            <div class="h-12 mt-8 shadow rounded w-28 bg-green-500 flex items-center justify-center text-white cairo"
+            <div class="h-10 mt-8 shadow rounded w-28 bg-green-500 flex items-center justify-center text-white cairo"
                 @click="loadData(1)">
                 بحث
             </div>
-            <div class="h-12 mt-8 shadow-lg rounded w-24 bg-gray-400 mr-3 text-white cairo flex items-center justify-center"
+            <div class="h-10 mt-8 shadow-lg rounded w-24 bg-gray-400 mr-3 text-white cairo flex items-center justify-center"
                 @click="clearSearch()">
                 تصفير
             </div>
@@ -138,17 +114,17 @@
                     {{ item.phone }}
                 </td>
                 <td>{{ item.first_name }} {{item.last_name}}</td>
-                <td class="xl:table-cell hidden">
+                <td class="xl:table-cell hidden cairo">
                     <div v-if="item.state == 1"
-                        class="bg-green-100 flex items-center justify-center rounded shadowa h-10 w-24 text-green-700 text-base">
+                        class="bg-green-100 flex items-center justify-center rounded shadowa h-10 w-24 text-green-700 text-sm">
                         نشط
                     </div>
                     <div v-else-if="item.state == 0"
-                        class="bg-yellow-100 flex items-center justify-center rounded shadows h-10 w-24 text-yellow-700 text-base">
+                        class="bg-yellow-100 flex items-center justify-center rounded shadows h-10 w-24 text-yellow-700 text-sm">
                         غير نشط
                     </div>
                     <div v-else
-                        class="bg-red-100 flex items-center justify-center rounded shadow1d h-10 w-24 text-red-700 text-base">
+                        class="bg-red-100 flex items-center justify-center rounded shadow1d h-10 w-24 text-red-700 text-sm">
                         محظور
                     </div>
                 </td>
@@ -158,7 +134,7 @@
                 <td class="rounded-l-lg h-20 flex items-center justify-center">
 
                     <div class="flex items-start justify-center mx-auto">
-                        <i class="fas fa-ellipsis-v text-gray-500 text-2xl" @click="openOptions($event)"
+                        <i class="fas fa-ellipsis-v text-gray-500 text-xl w-8 flex pt-2 justify-center" @click="openOptions($event)"
                             :id="item.id"></i>
                         <div v-if="item.id==optionId"
                             class=" py-2 px-2 w-32 bg-white rounded-lg absolute text-gray-600 text-sm cairo"

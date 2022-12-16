@@ -4,7 +4,7 @@ namespace App\Features\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
-use App\Models\Role;
+use App\Models\Permission;
 use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -48,6 +48,14 @@ class AdminController extends Controller
         return response()->json(['success' => true, 'message' => 'تم جلب  المشرفين بنجاح', 'data' => $admins], 200);
     }
 
+    // Get Admin By Id
+    public function show($admin)
+    {
+        $admin = Admin::with('role:id,name')->where('id', $admin)->where('state', '<>', 9)->first();
+        if (!$admin)
+        return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 204);
+        return response()->json(['success' => true, 'message' => 'تم جلب المشرف بنجاح', 'data' => $admin], 200);
+    }
 
     // Activate Admin
     public function active($admin)
@@ -90,22 +98,22 @@ class AdminController extends Controller
     }
 
 
-        // Banned Admin
-        public function banned($admin)
-        {
-            $admin = Admin::where('id', $admin)->where('state', '<>', 9)->first();
-            if (!$admin)
-                return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 204);
-    
-            if ($admin->state == 2)
-                return response()->json(['success' => false, 'message' => 'هذا الحساب محظور مسبقا'], 400);
-    
-            $admin->state = 2;
-            $edit = $admin->save();
-            if ($edit)
-                return response()->json(['success' => true, 'message' => 'تم حظر هذا الحساب ولا يمكنم استخدامه مجددا'], 200);
-            return response()->json(['success' => true, 'message' => 'حدث خطأ ما'], 400);
-        }
+    // Banned Admin
+    public function banned($admin)
+    {
+        $admin = Admin::where('id', $admin)->where('state', '<>', 9)->first();
+        if (!$admin)
+            return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 204);
+
+        if ($admin->state == 2)
+            return response()->json(['success' => false, 'message' => 'هذا الحساب محظور مسبقا'], 400);
+
+        $admin->state = 2;
+        $edit = $admin->save();
+        if ($edit)
+            return response()->json(['success' => true, 'message' => 'تم حظر هذا الحساب ولا يمكنم استخدامه مجددا'], 200);
+        return response()->json(['success' => true, 'message' => 'حدث خطأ ما'], 400);
+    }
 
 
     // Delete Admin
@@ -122,5 +130,65 @@ class AdminController extends Controller
             return response()->json(['success' => true, 'message' => 'تم حذف هذا الحساب بنجاح'], 200);
         return response()->json(['success' => true, 'message' => 'حدث خطأ ما'], 400);
     }
+
+
+        // Banned Admin
+        public function resetPassword($admin)
+        {
+            $admin = Admin::where('id', $admin)->where('state', '<>', 9)->first();
+            if (!$admin)
+                return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 204);
+    
+            if ($admin->state == 2)
+                return response()->json(['success' => false, 'message' => 'هذا الحساب محظور'], 400);
+    
+            $admin->password =  Hash::make("123456");
+            $edit = $admin->save();
+            if ($edit)
+                return response()->json(['success' => true, 'message' => 'تم تغيير كلمة المرور إلى 123456 , يجب عليك تغيير كلمة المرور بمجرد تسجيل دخول إلى الحساب'], 200);
+            return response()->json(['success' => true, 'message' => 'حدث خطأ ما'], 400);
+        }
+
+
+            // Get Admin By Id With Permseeions
+    public function showWithPermissions($admin)
+    {
+        $admin = Admin::with('role:id,name')->where('id', $admin)->where('state', '<>', 9)->first();
+        if (!$admin)
+        return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 204);
+
+
+        $roles = Permission::select('id', 'name')->where('state', '<>', 9)->get();
+        if (count($roles) == 0)
+            return response()->json([], 204);
+
+
+        return response()->json(['success' => true, 'message' => 'تم جلب المشرف بنجاح', 'data' => $admin,'roles'=>$roles], 200);
+    }
+
+
+        //  Change Admin Role
+        public function changeAdminRole($admin, Request $request)
+        {
+            $admin = Admin::with('role:id,name')->where('id', $admin)->where('state', '<>', 9)->first();
+            if (!$admin)
+                return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 400);
+    
+            if (Validator::make($request->all(), [
+                'role_id' => 'required',
+            ])->fails()) {
+                return response()->json(["success" => false, "message" => "يجب عليك إرسال رقم الدور"], 400);
+            }
+    
+            $role = Permission::where('id', $request['role_id'])->where('state', '<>', 9)->first();
+            if (!$role)
+                return response()->json(['success' => false, 'message' => 'هذا الدور لم يعد متاح قم بإختيار دور اخر'], 400);
+    
+            $admin->role_id = $request['role_id'];
+            $edit = $admin->save();
+            if ($edit)
+                return response()->json(['success' => true, 'message' => 'تم تحديث دور الحساب بنجاح'], 200);
+            return response()->json(['success' => true, 'message' => 'حدث خطأ ما'], 400);
+        }
 
 }

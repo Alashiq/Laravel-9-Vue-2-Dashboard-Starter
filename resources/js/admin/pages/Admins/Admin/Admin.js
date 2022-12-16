@@ -3,8 +3,8 @@ import Swal from "sweetalert2";
 export default {
     data() {
         return {
-            admin: [],
-            loaded: false
+            mainItem: [],
+            loaded: 0, // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
         };
     },
     methods: {
@@ -26,10 +26,11 @@ export default {
                         .then(response => {
                             this.$loading.Stop();
                             if (response.status == 200) {
-                                this.admin.state = 1;
+                                this.mainItem.state = 1;
                                 this.$alert.Success(response.data.message);
                             } else if (response.status == 204) {
-                                this.admin = [];
+                                this.loaded=204;
+                                this.mainItem = [];
                                 this.$alert.Empty(
                                     "لم يعد هذا الحساب متوفرة, قد يكون شخص أخر قام بحذفه"
                                 );
@@ -60,10 +61,11 @@ export default {
                         .then(response => {
                             this.$loading.Stop();
                             if (response.status == 200) {
-                                this.admin.state = 0;
+                                this.mainItem.state = 0;
                                 this.$alert.Success(response.data.message);
                             } else if (response.status == 204) {
-                                this.admin = [];
+                                this.loaded=204;
+                                this.mainItem = [];
                                 this.$alert.Empty(
                                     "لم يعد هذا الحساب متوفرة, قد يكون شخص أخر قام بحذفه"
                                 );
@@ -95,10 +97,11 @@ export default {
                         .then(response => {
                             this.$loading.Stop();
                             if (response.status == 200) {
-                                this.admin.state = 2;
+                                this.mainItem.state = 2;
                                 this.$alert.Success(response.data.message);
                             } else if (response.status == 204) {
-                                this.admin = [];
+                                this.loaded=204;
+                                this.mainItem = [];
                                 this.$alert.Empty(
                                     "لم يعد هذا الحساب متوفرة, قد يكون شخص أخر قام بحذفه"
                                 );
@@ -131,7 +134,8 @@ export default {
                             if (response.status == 200) {
                                 this.$alert.Success(response.data.message);
                             } else if (response.status == 204) {
-                                this.admin = [];
+                                this.loaded=204;
+                                this.mainItem = [];
                                 this.$alert.Empty(
                                     "لم يعد هذا الحساب متوفرة, قد يكون شخص أخر قام بحذفه"
                                 );
@@ -143,11 +147,46 @@ export default {
                         });
                 }
             });
-        }
+        },
+        deleteAdmin: function(id) {
+            Swal.fire({
+                title: "هل أنت متأكد",
+                text: "هل أنت متأكد من أنك تريد حذف هذا الحساب !",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#16a085",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "نعم حذف",
+                cancelButtonText: "إلغاء"
+            }).then(result => {
+                if (result.isConfirmed) {
+                    this.$loading.Start();
+                    this.$http
+                        .DeleteAdmin(this.$route.params.id)
+                        .then(response => {
+                            this.$loading.Stop();
+                            if (response.status == 200) {
+                                this.mainItem = [];
+                                this.loaded=204;
+                                this.$alert.Success(response.data.message);
+                            } else if (response.status == 204) {
+                                this.mainItem = [];
+                                this.loaded=204;
+                                this.$alert.Empty(
+                                    "لم يعد هذا الحساب متوفرة, قد يكون شخص أخر قام بحذفه"
+                                );
+                            }
+                        })
+                        .catch(error => {
+                            this.$loading.Stop();
+                            this.$alert.BadRequest(error.response);
+                        });
+                }
+            });
+        },
     },
     mounted() {
         this.$store.commit("activePage", 3);
-
         this.$loading.Start();
         this.$http
             .GetAdminById(this.$route.params.id)
@@ -155,14 +194,17 @@ export default {
                 this.$loading.Stop();
                 this.loaded = true;
                 if (response.status == 200) {
-                    this.admin = response.data.data;
+                    this.mainItem = response.data.data;
+                    this.loaded=200;
                     this.$alert.Success(response.data.message);
                 } else if (response.status == 204) {
+                    this.loaded=204;
                     this.$alert.Empty("هذه الرسالة غير متوفرة");
                 }
             })
             .catch(error => {
                 this.$loading.Stop();
+                this.loaded=404;
                 this.loaded = true;
                 this.$alert.BadRequest(error.response);
             });
