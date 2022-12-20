@@ -13,4 +13,9 @@ class Permission extends Model
         'name',
         'permissions',
     ];
+
+    public function admins()
+    {
+       return $this->hasMany(Admin::class,'role_id');
+    }
 }

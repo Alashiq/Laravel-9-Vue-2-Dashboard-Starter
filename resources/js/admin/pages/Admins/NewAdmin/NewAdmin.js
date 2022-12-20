@@ -3,30 +3,34 @@ export default {
         return {
             roleList: [],
             formData: {
-                name: "",
-                username: "",
+                first_name: "",
+                last_name: "",
+                phone: "",
                 password: "",
                 role_id: null,
                 confirmPassword: ""
             },
             formValidate: {
-                name: "",
-                username: "",
+                firstName: "",
+                lastName: "",
+                phone: "",
                 password: "",
                 confirmPassword: ""
             },
-            loaded: false
+            loaded: 0,
         };
     },
     methods: {
         addAdmin: function() {
-            this.validateName();
-            this.validateUsername();
+            this.validateFirstName();
+            this.validateLastName();
+            this.validatePhone();
             this.validateRole();
             this.validatePassword();
             this.validateConfirmPassword();
-            if (this.formValidate.name != "") return 0;
-            if (this.formValidate.username != "") return 0;
+            if (this.formValidate.firstName != "") return 0;
+            if (this.formValidate.lastName != "") return 0;
+            if (this.formValidate.phone != "") return 0;
             if (this.formValidate.role != "") return 0;
             if (this.formValidate.password != "") return 0;
             if (this.formValidate.confirmPassword != "") return 0;
@@ -36,12 +40,12 @@ export default {
             .PostNewAdmin(this.formData)
             .then(response => {
                 this.$loading.Stop();
-                this.loaded = true;
                     this.$alert.Success(response.data.message);
-                    this.formData.name = "";
-                    this.formData.username = "";
-                    this.formData.password = "";
+                    this.formData.first_name = "";
+                    this.formData.last_name = "";
+                    this.formData.phone = "";
                     this.formData.role_id = null;
+                    this.formData.password = "";
                     this.formData.confirmPassword = "";
             })
             .catch(error => {
@@ -49,34 +53,49 @@ export default {
                 this.$alert.BadRequest(error.response);
             });
         },
-        validateName: function() {
-            this.formValidate.name = "";
-            if (this.formData.name.trim() == "") {
-                this.formValidate.name = "لا يمكن ترك هذا الحقل فارغ";
+        validateFirstName: function() {
+            this.formValidate.firstName = "";
+            if (this.formData.first_name.trim() == "") {
+                this.formValidate.firstName = "لا يمكن ترك هذا الحقل فارغ";
                 return 1;
             }
-            if (this.formData.name.trim().length < 5) {
-                this.formValidate.name = "يجب ان يكون الإسم 5 أحرف أو اكثر";
+            if (this.formData.first_name.trim().length < 5) {
+                this.formValidate.firstName = "يجب ان يكون الإسم 5 أحرف أو اكثر";
                 return 1;
             }
-            if (this.formData.name.trim().length > 16) {
-                this.formValidate.name = "يجب ان يكون الإسم أقل من 16 حرف";
+            if (this.formData.first_name.trim().length > 16) {
+                this.formValidate.firstName = "يجب ان يكون الإسم أقل من 16 حرف";
                 return 1;
             }
         },
-        validateUsername: function() {
-            this.formValidate.username = "";
-            if (this.formData.username.trim() == "") {
-                this.formValidate.username = "لا يمكن ترك هذا الحقل فارغ";
+        validateLastName: function() {
+            this.formValidate.lastName = "";
+            if (this.formData.last_name.trim() == "") {
+                this.formValidate.lastName = "لا يمكن ترك هذا الحقل فارغ";
                 return 1;
             }
-            if (this.formData.username.trim().length < 5) {
-                this.formValidate.username =
+            if (this.formData.last_name.trim().length < 5) {
+                this.formValidate.lastName = "يجب ان يكون الإسم 5 أحرف أو اكثر";
+                return 1;
+            }
+            if (this.formData.last_name.trim().length > 16) {
+                this.formValidate.lastName = "يجب ان يكون الإسم أقل من 16 حرف";
+                return 1;
+            }
+        },
+        validatePhone: function() {
+            this.formValidate.phone = "";
+            if (this.formData.phone.trim() == "") {
+                this.formValidate.phone = "لا يمكن ترك هذا الحقل فارغ";
+                return 1;
+            }
+            if (this.formData.phone.trim().length < 5) {
+                this.formValidate.phone =
                     "يجب ان يكون إسم الدخول 5 أحرف أو اكثر";
                 return 1;
             }
-            if (this.formData.username.trim().length > 16) {
-                this.formValidate.username =
+            if (this.formData.phone.trim().length > 16) {
+                this.formValidate.phone =
                     "يجب ان يكون إسم الدخول أقل من 16 حرف";
                 return 1;
             }
@@ -124,18 +143,21 @@ export default {
 
         this.$loading.Start();
         this.$http
-            .GetAdminRolesForNewAdmin()
+            .GetAllRoles()
             .then(response => {
                 this.$loading.Stop();
                 this.loaded = true;
                 if (response.status == 200) {
-                    this.roleList = response.data.roleList;
+                    this.loaded=200;
+                    this.roleList = response.data.data.data;
                     this.$alert.Success(response.data.message);
                 } else if (response.status == 204) {
+                    this.loaded=204;
                     this.$alert.Empty("تنبيه لا يوجد اي أدوار");
                 }
             })
             .catch(error => {
+                this.loaded=404;
                 this.$loading.Stop();
                 this.$alert.BadRequest(error.response);
             });

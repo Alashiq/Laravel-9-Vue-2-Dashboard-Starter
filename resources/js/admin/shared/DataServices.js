@@ -67,7 +67,7 @@ export default {
         return axios.get("/admin/api/admin/role");
     },
     PostNewAdmin(admin) {
-        return axios.post("/api/admin/admin/", admin);
+        return axios.post("/admin/api/admin", admin);
     },
     UpdateAdminRole(admin, formData) {
         return axios.put("/admin/api/admin/" + admin + "/role", formData);
@@ -75,7 +75,7 @@ export default {
 
     // ============== Role Part =======================
     GetAllRoles() {
-        return axios.get("/api/admin/role");
+        return axios.get("/admin/api/permission?page=1&count=10");
     },
     GetRoleById(role) {
         return axios.get("/api/admin/role/" + role);

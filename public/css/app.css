@@ -1413,9 +1413,9 @@ body{
   background-color: rgb(234 179 8 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-red-500:hover {
+.hover\:bg-orange-500:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+  background-color: rgb(249 115 22 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-gray-500:hover {
@@ -1423,9 +1423,9 @@ body{
   background-color: rgb(107 114 128 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-orange-500:hover {
+.hover\:bg-red-500:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(249 115 22 / var(--tw-bg-opacity));
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
 .hover\:text-red-500:hover {

@@ -2831,70 +2831,94 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "w-auto md:p-8 p-4"
-  }, [_vm.loaded && _vm.roleList.length != 0 ? _c("div", {
+  }, [_vm.loaded == 200 ? _c("div", {
     staticClass: "w-full md:px-4 px-0 pb-8 pt-2 bg-white shadow-2 rounded-lg text-lg text-gray-600 font-medium"
   }, [_c("div", {
     staticClass: "h-16 w-full border-b mb-2 px-4 flex items-center text-lg justify-between"
-  }, [_vm._v("\n                إضافة مشرف\n\n                "), _c("router-link", {
+  }, [_vm._v("\n            إضافة مشرف\n\n            "), _c("router-link", {
     staticClass: "back-btn w-36 h-12 rounded font-normal flex items-center justify-center cursor-pointer",
     attrs: {
       to: "/admin/admin/"
     }
-  }, [_vm._v("\n                    قائمة المشرفين\n                ")])], 1), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                قائمة المشرفين\n            ")])], 1), _vm._v(" "), _c("div", {
     staticClass: "bg-blue-600a grid lg:grid-cols-2"
   }, [_c("div", {
     staticClass: "w-full px-4 py-4"
   }, [_c("div", {
     staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
-  }, [_vm._v("\n                        إسم المشرف\n                    ")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("\n                    الإسم ")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.formData.name,
-      expression: "formData.name"
+      value: _vm.formData.first_name,
+      expression: "formData.first_name"
     }],
     staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg",
     domProps: {
-      value: _vm.formData.name
+      value: _vm.formData.first_name
     },
     on: {
-      change: _vm.validateName,
+      change: _vm.validateFirstName,
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.formData, "name", $event.target.value);
+        _vm.$set(_vm.formData, "first_name", $event.target.value);
       }
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "h-8 text-sm text-red-400 mr-2 flex items-center"
-  }, [_vm._v("\n                        " + _vm._s(_vm.formValidate.name) + "\n                    ")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    " + _vm._s(_vm.formValidate.firstName) + "\n                ")])]), _vm._v(" "), _c("div", {
     staticClass: "w-full px-4 py-4"
   }, [_c("div", {
     staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
-  }, [_vm._v("\n                        إسم الدخول\n                    ")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("\n                    اللقب\n                ")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.formData.username,
-      expression: "formData.username"
+      value: _vm.formData.last_name,
+      expression: "formData.last_name"
     }],
     staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg",
     domProps: {
-      value: _vm.formData.username
+      value: _vm.formData.last_name
     },
     on: {
-      change: _vm.validateUsername,
+      change: _vm.validateLastName,
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.formData, "username", $event.target.value);
+        _vm.$set(_vm.formData, "last_name", $event.target.value);
       }
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "h-8 text-sm text-red-400 mr-2 flex items-center"
-  }, [_vm._v("\n                        " + _vm._s(_vm.formValidate.username) + "\n                    ")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    " + _vm._s(_vm.formValidate.lastName) + "\n                ")])]), _vm._v(" "), _c("div", {
     staticClass: "w-full px-4 py-4"
   }, [_c("div", {
     staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
-  }, [_vm._v("\n                        دور المشرف\n                    ")]), _vm._v(" "), _c("select", {
+  }, [_vm._v("\n            رقم الهاتف\n                ")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.phone,
+      expression: "formData.phone"
+    }],
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg",
+    domProps: {
+      value: _vm.formData.phone
+    },
+    on: {
+      change: _vm.validatePhone,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.formData, "phone", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-8 text-sm text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n                    " + _vm._s(_vm.formValidate.phone) + "\n                ")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\n                    دور المشرف\n                ")]), _vm._v(" "), _c("select", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2922,13 +2946,13 @@ var render = function render() {
     }, [_vm._v(_vm._s(item.name))]);
   }), 0), _vm._v(" "), _c("div", {
     staticClass: "h-8 text-sm text-red-400 mr-2 flex items-center"
-  }, [_vm._v("\n                        " + _vm._s(_vm.formValidate.role) + "\n                    ")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    " + _vm._s(_vm.formValidate.role) + "\n                ")])]), _vm._v(" "), _c("div", {
     staticClass: "w-full px-4"
   }), _vm._v(" "), _c("div", {
     staticClass: "w-full px-4 py-4"
   }, [_c("div", {
     staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
-  }, [_vm._v("\n                        كلمة المرور\n                    ")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("\n                    كلمة المرور\n                ")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2948,11 +2972,11 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "h-8 text-sm text-red-400 mr-2 flex items-center"
-  }, [_vm._v("\n                        " + _vm._s(_vm.formValidate.password) + "\n                    ")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    " + _vm._s(_vm.formValidate.password) + "\n                ")])]), _vm._v(" "), _c("div", {
     staticClass: "w-full px-4 py-4"
   }, [_c("div", {
     staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
-  }, [_vm._v("\n                        تأكيد كلمة المرور\n                    ")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("\n                    تأكيد كلمة المرور\n                ")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2972,18 +2996,18 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "h-8 text-sm text-red-400 mr-2 flex items-center"
-  }, [_vm._v("\n                        " + _vm._s(_vm.formValidate.confirmPassword) + "\n                    ")])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    " + _vm._s(_vm.formValidate.confirmPassword) + "\n                ")])])]), _vm._v(" "), _c("div", {
     staticClass: "flex items-center h-20 mx-4"
   }, [_c("div", {
     staticClass: "btn-color-one rounded shadow px-12 h-12 w-auto flex items-center justify-center text-white text-lg cursor-pointer",
     on: {
       click: _vm.addAdmin
     }
-  }, [_vm._v("\n                    إضافة\n                ")])])]) : _vm._e(), _vm._v(" "), _vm.loaded && _vm.roleList.length == 0 ? _c("Empty-Box", {
+  }, [_vm._v("\n                إضافة\n            ")])])]) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box", {
     attrs: {
       message: "لم نتمكن من جلب بيانات الأدوار, تأكد من أنك تمتلك صلاحية مشاهدة أدوار الصفحة"
     }
-  }) : _vm._e()], 1);
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("div", [_vm._v("\n        حدث خطأ ما\n    ")]) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("div", [_vm._v("\n        تحقق من اتصالك بالانترنت\n    ")]) : _vm._e()], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -4854,76 +4878,95 @@ __webpack_require__.r(__webpack_exports__);
     return {
       roleList: [],
       formData: {
-        name: "",
-        username: "",
+        first_name: "",
+        last_name: "",
+        phone: "",
         password: "",
         role_id: null,
         confirmPassword: ""
       },
       formValidate: {
-        name: "",
-        username: "",
+        firstName: "",
+        lastName: "",
+        phone: "",
         password: "",
         confirmPassword: ""
       },
-      loaded: false
+      loaded: 0
     };
   },
   methods: {
     addAdmin: function addAdmin() {
       var _this = this;
-      this.validateName();
-      this.validateUsername();
+      this.validateFirstName();
+      this.validateLastName();
+      this.validatePhone();
       this.validateRole();
       this.validatePassword();
       this.validateConfirmPassword();
-      if (this.formValidate.name != "") return 0;
-      if (this.formValidate.username != "") return 0;
+      if (this.formValidate.firstName != "") return 0;
+      if (this.formValidate.lastName != "") return 0;
+      if (this.formValidate.phone != "") return 0;
       if (this.formValidate.role != "") return 0;
       if (this.formValidate.password != "") return 0;
       if (this.formValidate.confirmPassword != "") return 0;
       this.$loading.Start();
       this.$http.PostNewAdmin(this.formData).then(function (response) {
         _this.$loading.Stop();
-        _this.loaded = true;
         _this.$alert.Success(response.data.message);
-        _this.formData.name = "";
-        _this.formData.username = "";
-        _this.formData.password = "";
+        _this.formData.first_name = "";
+        _this.formData.last_name = "";
+        _this.formData.phone = "";
         _this.formData.role_id = null;
+        _this.formData.password = "";
         _this.formData.confirmPassword = "";
       })["catch"](function (error) {
         _this.$loading.Stop();
         _this.$alert.BadRequest(error.response);
       });
     },
-    validateName: function validateName() {
-      this.formValidate.name = "";
-      if (this.formData.name.trim() == "") {
-        this.formValidate.name = "لا يمكن ترك هذا الحقل فارغ";
+    validateFirstName: function validateFirstName() {
+      this.formValidate.firstName = "";
+      if (this.formData.first_name.trim() == "") {
+        this.formValidate.firstName = "لا يمكن ترك هذا الحقل فارغ";
         return 1;
       }
-      if (this.formData.name.trim().length < 5) {
-        this.formValidate.name = "يجب ان يكون الإسم 5 أحرف أو اكثر";
+      if (this.formData.first_name.trim().length < 5) {
+        this.formValidate.firstName = "يجب ان يكون الإسم 5 أحرف أو اكثر";
         return 1;
       }
-      if (this.formData.name.trim().length > 16) {
-        this.formValidate.name = "يجب ان يكون الإسم أقل من 16 حرف";
+      if (this.formData.first_name.trim().length > 16) {
+        this.formValidate.firstName = "يجب ان يكون الإسم أقل من 16 حرف";
         return 1;
       }
     },
-    validateUsername: function validateUsername() {
-      this.formValidate.username = "";
-      if (this.formData.username.trim() == "") {
-        this.formValidate.username = "لا يمكن ترك هذا الحقل فارغ";
+    validateLastName: function validateLastName() {
+      this.formValidate.lastName = "";
+      if (this.formData.last_name.trim() == "") {
+        this.formValidate.lastName = "لا يمكن ترك هذا الحقل فارغ";
         return 1;
       }
-      if (this.formData.username.trim().length < 5) {
-        this.formValidate.username = "يجب ان يكون إسم الدخول 5 أحرف أو اكثر";
+      if (this.formData.last_name.trim().length < 5) {
+        this.formValidate.lastName = "يجب ان يكون الإسم 5 أحرف أو اكثر";
         return 1;
       }
-      if (this.formData.username.trim().length > 16) {
-        this.formValidate.username = "يجب ان يكون إسم الدخول أقل من 16 حرف";
+      if (this.formData.last_name.trim().length > 16) {
+        this.formValidate.lastName = "يجب ان يكون الإسم أقل من 16 حرف";
+        return 1;
+      }
+    },
+    validatePhone: function validatePhone() {
+      this.formValidate.phone = "";
+      if (this.formData.phone.trim() == "") {
+        this.formValidate.phone = "لا يمكن ترك هذا الحقل فارغ";
+        return 1;
+      }
+      if (this.formData.phone.trim().length < 5) {
+        this.formValidate.phone = "يجب ان يكون إسم الدخول 5 أحرف أو اكثر";
+        return 1;
+      }
+      if (this.formData.phone.trim().length > 16) {
+        this.formValidate.phone = "يجب ان يكون إسم الدخول أقل من 16 حرف";
         return 1;
       }
     },
@@ -4965,16 +5008,19 @@ __webpack_require__.r(__webpack_exports__);
     var _this2 = this;
     this.$store.commit("activePage", 3);
     this.$loading.Start();
-    this.$http.GetAdminRolesForNewAdmin().then(function (response) {
+    this.$http.GetAllRoles().then(function (response) {
       _this2.$loading.Stop();
       _this2.loaded = true;
       if (response.status == 200) {
-        _this2.roleList = response.data.roleList;
+        _this2.loaded = 200;
+        _this2.roleList = response.data.data.data;
         _this2.$alert.Success(response.data.message);
       } else if (response.status == 204) {
+        _this2.loaded = 204;
         _this2.$alert.Empty("تنبيه لا يوجد اي أدوار");
       }
     })["catch"](function (error) {
+      _this2.loaded = 404;
       _this2.$loading.Stop();
       _this2.$alert.BadRequest(error.response);
     });
@@ -6277,14 +6323,14 @@ __webpack_require__.r(__webpack_exports__);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/admin/api/admin/role");
   },
   PostNewAdmin: function PostNewAdmin(admin) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/admin/admin/", admin);
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().post("/admin/api/admin", admin);
   },
   UpdateAdminRole: function UpdateAdminRole(admin, formData) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default().put("/admin/api/admin/" + admin + "/role", formData);
   },
   // ============== Role Part =======================
   GetAllRoles: function GetAllRoles() {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/admin/role");
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/admin/api/permission?page=1&count=10");
   },
   GetRoleById: function GetRoleById(role) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/admin/role/" + role);

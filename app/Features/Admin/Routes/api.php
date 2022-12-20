@@ -1,5 +1,6 @@
 <?php
 
+use App\Features\Admin\Controllers\PermissionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
@@ -41,10 +42,20 @@ Route::middleware(['auth:sanctum', 'type.admin'])->group(function () {
             Route::put('/{admin}/banned', [AdminController::class, 'banned'])->middleware('check.role:BannedAdmin');
             Route::put('/{admin}/reset', [AdminController::class, 'resetPassword'])->middleware('check.role:ResetPasswordAdmin');
             Route::get('/{admin}/withPermissions', [AdminController::class, 'showWithPermissions'])->middleware('check.role:EditRoleAdmin');
-        Route::put('/{admin}/role', [AdminController::class, 'changeAdminRole'])->middleware('check.role:EditRoleAdmin');
+            Route::put('/{admin}/role', [AdminController::class, 'changeAdminRole'])->middleware('check.role:EditRoleAdmin');
+            Route::post('/', [AdminController::class, 'create'])->middleware('check.role:CreateAdmin');
         }
     );
     # # # # # # # # # # # # # # # # # End Admin  # # # # # # # # # # # # # # # 
+
+
+    # # # # # # # # # # # # # # # # #  Admin Permissions  # # # # # # # # # # # # # # # # #
+    Route::controller(PermissionController::class)->prefix('permission')->group(
+        function () {
+            Route::get('/', [PermissionController::class, 'index'])->middleware('check.role:ReadAdmin');
+        }
+    );
+    # # # # # # # # # # # # # # # # # End Admin Permissions  # # # # # # # # # # # # # # # 
 
 
     # # # # # # # # # # # # # # # Admin Auth # # # # # # # # # # # # # # # 

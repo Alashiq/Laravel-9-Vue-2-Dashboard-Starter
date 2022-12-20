@@ -53,7 +53,7 @@ class AdminController extends Controller
     {
         $admin = Admin::with('role:id,name')->where('id', $admin)->where('state', '<>', 9)->first();
         if (!$admin)
-        return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 204);
+            return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 204);
         return response()->json(['success' => true, 'message' => 'تم جلب المشرف بنجاح', 'data' => $admin], 200);
     }
 
@@ -132,30 +132,30 @@ class AdminController extends Controller
     }
 
 
-        // Banned Admin
-        public function resetPassword($admin)
-        {
-            $admin = Admin::where('id', $admin)->where('state', '<>', 9)->first();
-            if (!$admin)
-                return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 204);
-    
-            if ($admin->state == 2)
-                return response()->json(['success' => false, 'message' => 'هذا الحساب محظور'], 400);
-    
-            $admin->password =  Hash::make("123456");
-            $edit = $admin->save();
-            if ($edit)
-                return response()->json(['success' => true, 'message' => 'تم تغيير كلمة المرور إلى 123456 , يجب عليك تغيير كلمة المرور بمجرد تسجيل دخول إلى الحساب'], 200);
-            return response()->json(['success' => true, 'message' => 'حدث خطأ ما'], 400);
-        }
+    // Banned Admin
+    public function resetPassword($admin)
+    {
+        $admin = Admin::where('id', $admin)->where('state', '<>', 9)->first();
+        if (!$admin)
+            return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 204);
+
+        if ($admin->state == 2)
+            return response()->json(['success' => false, 'message' => 'هذا الحساب محظور'], 400);
+
+        $admin->password = Hash::make("123456");
+        $edit = $admin->save();
+        if ($edit)
+            return response()->json(['success' => true, 'message' => 'تم تغيير كلمة المرور إلى 123456 , يجب عليك تغيير كلمة المرور بمجرد تسجيل دخول إلى الحساب'], 200);
+        return response()->json(['success' => true, 'message' => 'حدث خطأ ما'], 400);
+    }
 
 
-            // Get Admin By Id With Permseeions
+    // Get Admin By Id With Permseeions
     public function showWithPermissions($admin)
     {
         $admin = Admin::with('role:id,name')->where('id', $admin)->where('state', '<>', 9)->first();
         if (!$admin)
-        return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 204);
+            return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 204);
 
 
         $roles = Permission::select('id', 'name')->where('state', '<>', 9)->get();
@@ -163,32 +163,61 @@ class AdminController extends Controller
             return response()->json([], 204);
 
 
-        return response()->json(['success' => true, 'message' => 'تم جلب المشرف بنجاح', 'data' => $admin,'roles'=>$roles], 200);
+        return response()->json(['success' => true, 'message' => 'تم جلب المشرف بنجاح', 'data' => $admin, 'roles' => $roles], 200);
     }
 
 
-        //  Change Admin Role
-        public function changeAdminRole($admin, Request $request)
-        {
-            $admin = Admin::with('role:id,name')->where('id', $admin)->where('state', '<>', 9)->first();
-            if (!$admin)
-                return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 400);
-    
-            if (Validator::make($request->all(), [
+    //  Change Admin Role
+    public function changeAdminRole($admin, Request $request)
+    {
+        $admin = Admin::with('role:id,name')->where('id', $admin)->where('state', '<>', 9)->first();
+        if (!$admin)
+            return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 400);
+
+        if (
+            Validator::make($request->all(), [
                 'role_id' => 'required',
-            ])->fails()) {
-                return response()->json(["success" => false, "message" => "يجب عليك إرسال رقم الدور"], 400);
-            }
-    
-            $role = Permission::where('id', $request['role_id'])->where('state', '<>', 9)->first();
-            if (!$role)
-                return response()->json(['success' => false, 'message' => 'هذا الدور لم يعد متاح قم بإختيار دور اخر'], 400);
-    
-            $admin->role_id = $request['role_id'];
-            $edit = $admin->save();
-            if ($edit)
-                return response()->json(['success' => true, 'message' => 'تم تحديث دور الحساب بنجاح'], 200);
-            return response()->json(['success' => true, 'message' => 'حدث خطأ ما'], 400);
+            ])->fails()
+        ) {
+            return response()->json(["success" => false, "message" => "يجب عليك إرسال رقم الدور"], 400);
         }
+
+        $role = Permission::where('id', $request['role_id'])->where('state', '<>', 9)->first();
+        if (!$role)
+            return response()->json(['success' => false, 'message' => 'هذا الدور لم يعد متاح قم بإختيار دور اخر'], 400);
+
+        $admin->role_id = $request['role_id'];
+        $edit = $admin->save();
+        if ($edit)
+            return response()->json(['success' => true, 'message' => 'تم تحديث دور الحساب بنجاح'], 200);
+        return response()->json(['success' => true, 'message' => 'حدث خطأ ما'], 400);
+    }
+
+
+
+    // Add New Admin
+    public function create(Request $request)
+    {
+        if (Validator::make($request->all(), [
+            'phone' => 'unique:admins',
+        ])->fails()) {
+            return response()->json(["success" => false, "message" => "رقم الهاتف محجوز مسبقا"], 400);
+        }
+
+
+        $role = Permission::where('id', $request['role_id'])->where('state', '<>', 9)->first();
+        if (!$role)
+            return response()->json(['success' => false, 'message' => 'دور المشرف غير متاح'], 400);
+
+
+        $admin = Admin::create([
+            'first_name' => $request['first_name'],
+            'last_name' => $request['last_name'],
+            'phone' => $request['phone'],
+            'role_id' => $request['role_id'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return response()->json(['success' => true, 'message' => 'تم إنشاء هذا الحساب بنجاح'], 200);
+    }
 
 }
