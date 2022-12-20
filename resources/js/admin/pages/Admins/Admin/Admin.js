@@ -4,7 +4,13 @@ export default {
     data() {
         return {
             mainItem: [],
-            loaded: 0, // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+            loaded: 0, 
+            // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+                        // Side Menu
+                        sideMenuPage:{
+                            main:5,
+                            sub:1,
+                        }
         };
     },
     methods: {
@@ -186,7 +192,7 @@ export default {
         },
     },
     mounted() {
-        this.$store.commit("activePage", 3);
+        this.$store.commit("activePage", this.sideMenuPage);
         this.$loading.Start();
         this.$http
             .GetAdminById(this.$route.params.id)

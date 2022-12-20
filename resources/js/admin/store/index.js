@@ -7,125 +7,84 @@ export default {
             name: "",
             phone: "",
             photo: "",
-            role: ""
+            role: "" 
         },
         permissions: [],
-        pageList: [
+        pages: [
             {
                 id: 1,
+                target: 0, // 0 label - 1 page
                 name: "الرئيسية",
                 role: "HomeChart",
-                open: true,
-                path: "/admin",
-                icon: "fas fa-home",
-                list: [
-                    {
-                        id: 1,
-                        name: "الرئيسية",
-                        role: "HomeChart",
-                        active: true,
-                        path: "/admin",
-                        icon: "fas fa-home"
-                    },
-                    {
-                        id: 2,
-                        name: "الإحصائيات",
-                        role: "HomeChart",
-                        active: false,
-                        path: "/admin",
-                        icon: "fas fa-home"
-                    },
-                ]
+                url: "/admin",
+                icon: "fa-regular fa-house",
+                list: [],
             },
             {
                 id: 2,
-                name: "الرسائل",
-                role: "ReadMessage",
-                open: false,
-                path: "/admin/message",
-                icon: "fas fa-comment-dots",
-                list: [
-                    {
-                        id: 3,
-                        name: "كل الرسائل",
-                        role: "HomeChart",
-                        active: false,
-                        path: "/admin",
-                        icon: "fas fa-home"
-                    },
-                    {
-                        id: 4,
-                        name: "اضف رسالة",
-                        role: "HomeChart",
-                        active: false,
-                        path: "/admin",
-                        icon: "fas fa-home"
-                    },
-                ]
+                target: 1, // 0 label - 1 page
+                name: "الصفحة الرئيسية",
+                role: "HomeChart",
+                url: "/admin",
+                icon: "fa-sharp fa-solid fa-house",
+                list: [],
             },
-
             {
                 id: 3,
-                name: "المشرفين",
-                role: "ReadAdmin",
-                open: false,
-                path: "/admin/admin",
-                icon: "fas fa-users",
-                list: []
-            },
-            {
-                id: 4,
-                name: "أدوار المشرفين",
-                role: "ReadRole",
-                open: false,
-                path: "/admin/role",
-                icon: "fas fa-user-shield",
-                list: [
-                    {
-                        id: 5,
-                        name: "قائمة المشرفين",
-                        role: "ReadRole",
-                        active: false,
-                        path: "/admin/role",
-                        icon: "fas fa-user-shield",
-                    },
-                    {
-                        id: 6,
-                        name: "أضف مشرف",
-                        role: "ReadRole",
-                        active: false,
-                        path: "/admin/role",
-                        icon: "fas fa-user-shield",
-                    },
-                ]
+                target: 0, // 0 label - 1 page
+                name: "الإعدادات",
+                role: "HomeChart",
+                url: "/admin",
+                icon: "fas fa-home",
+                list: [],
             },
             {
                 id: 5,
-                name: "إدارة المشرفين",
+                target: 1, // 0 label - 1 page
+                name: "المشرفين والصلاحيات",
                 role: "HomeChart",
-                open: true,
-                path: "/admin",
-                icon: "fas fa-home",
+                url: "/admin",
+                icon: "fas fa-user-shield",
                 list: [
                     {
-                        id: 7,
-                        name: "المشرفين",
+                        id: 1,
+                        name: "قائمة المشرفين",
                         role: "HomeChart",
-                        active: true,
-                        path: "/admin/admin",
-                        icon: "fas fa-home"
+                        url: "/admin/admin",
                     },
                     {
-                        id: 8,
-                        name: "الصلاحيات",
+                        id: 2,
+                        name: "إضافة مشرف",
                         role: "HomeChart",
-                        active: false,
-                        path: "/admin/role",
-                        icon: "fas fa-home"
+                        url: "/admin/admin/new",
                     },
-                ]
+                    {
+                        id: 3,
+                        name: "أدوار المشرفين",
+                        role: "HomeChart",
+                        url: "/admin/role",
+                    },
+                    {
+                        id: 4,
+                        name: "إضافة دور",
+                        role: "HomeChart",
+                        url: "/admin/role/new",
+                    },
+                ],
+            },
+            {
+                id: 6,
+                target: 1, // 0 label - 1 page
+                name: "قامة المشرفين",
+                role: "HomeChart",
+                url: "/admin",
+                icon: "fas fa-user-shield",
+                list: [],
             },
         ],
+        pageActive: 4,
+        subPageActive: 1,
+        openPageList: 4,
         menu: false,
         loading: false
     }),
@@ -152,42 +111,24 @@ export default {
             state.auth = false;
             state.loadAuth = false;
         },
-        updateName(state,data) {
+        updateName(state, data) {
             state.user.first_name = data.first_name;
             state.user.last_name = data.last_name;
-            state.user.name=data.first_name+" "+data.last_name;
+            state.user.name = data.first_name + " " + data.last_name;
         },
         updatePhoto(state, photo) {
             state.user.photo = photo;
         },
-        activePage(state, pageNumber) {
-            for (var i = 0; i < state.pageList.length; i++) {
-                state.pageList[i].open = false;
-                for (var j = 0; j < state.pageList[i].list.length; j++) {
-                    if (state.pageList[i].list[j].id == pageNumber) {
-                        state.pageList[i].open = true;
-                        state.pageList[i].list[j].active = true;
-                    }
-                    else {
-                        state.pageList[i].list[j].active = false;
-                    }
-                }
-
-            }
+        activePage(state, v) {
+            state.pageActive=v.main;
+            state.subPageActive=v.sub;
+            state.openPageList=v.main;
         },
-        openPageList(state, pageNumber) {
-            for (var i = 0; i < state.pageList.length; i++) {
-                if (state.pageList[i].id == pageNumber) {
-                    state.pageList[i].open = true;
-                }
-            }
-        },
-        closePageList(state, pageNumber) {
-            for (var i = 0; i < state.pageList.length; i++) {
-                if (state.pageList[i].id == pageNumber) {
-                    state.pageList[i].open = false;
-                }
-            }
+        toggllePageList(state, pageNumber) {
+            if(state.openPageList!=pageNumber)
+            state.openPageList=pageNumber;
+            else
+            state.openPageList=0;
         },
         toggleMenu(state) {
             state.menu = !state.menu;

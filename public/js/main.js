@@ -2099,24 +2099,39 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "h-16 w-full bg-white mb-8 flex justify-between items-center px-4 layout-shadow"
+    staticClass: "h-20 w-full bg-white mb-8 flex justify-between items-center px-3 layout-shadow"
   }, [_c("div", {
+    staticClass: "flex flex-wrap items-center font-normal cairo text-sm text-gray-500 hover-side-menu cursor-pointer px-2 py-1 rounded-lg"
+  }, [_c("div", {
+    staticClass: "border rounded-full flex items-center justify-center"
+  }, [_c("img", {
+    staticClass: "w-10 h-10 m-1 rounded-full",
+    attrs: {
+      src: _vm.user.photo,
+      alt: ""
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "mr-2"
+  }, [_vm._v("\n        مرحبا بك\n\n      ")]), _vm._v(" "), _c("div", {
+    staticClass: "mr-1 font-medium"
+  }, [_vm._v("\n        " + _vm._s(_vm.user.first_name) + "\n      ")]), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _c("div", {
     staticClass: "h-16 w-16 text-gray-600 flex items-center justify-center text-3xl hover:text-red-400 cursor-pointer md:hidden",
     on: {
       click: _vm.toggleMenu
     }
   }, [_c("i", {
     staticClass: "fas fa-bars"
-  })]), _vm._v(" "), _c("div"), _vm._v(" "), _c("div", {
-    staticClass: "h-16 flex items-center"
-  }, [_c("div", [_vm._v(_vm._s(_vm.user.name))]), _vm._v(" "), _c("img", {
-    staticClass: "h-10 w-10 rounded-full mr-2",
-    attrs: {
-      src: _vm.user.photo
-    }
   })])]);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "mr-2"
+  }, [_c("i", {
+    staticClass: "fa-solid fa-chevron-down"
+  })]);
+}];
 render._withStripped = true;
 
 
@@ -2355,8 +2370,10 @@ var render = function render() {
   }, [_c("span", {
     staticClass: "h-12 flex items-center"
   }, [_c("i", {
-    staticClass: "fas fa-plus ml-4 text-lg"
-  }), _vm._v("\n                أضف مشرف\n            ")])])], 1), _vm._v(" "), _c("div", {
+    staticClass: "fas fa-plus text-xl"
+  }), _vm._v(" "), _c("p", {
+    staticClass: "mr-3 md:block hidden"
+  }, [_vm._v("\n                 أضف مشرف\n             ")])])])], 1), _vm._v(" "), _c("div", {
     staticClass: "flex justify-between my-8"
   }, [_c("div", {
     staticClass: "border rounded font-semibold cairo flex bg-center text-gray-700"
@@ -2480,7 +2497,7 @@ var render = function render() {
   })]), _vm._v(" "), _c("div", {
     staticClass: "xl:w-1/4 lg:w-1/3 md:w-1/2 px-2 mt-4 flex items-center justify-center"
   }, [_c("div", {
-    staticClass: "h-10 mt-8 shadow rounded w-28 bg-green-500 flex items-center justify-center text-white cairo",
+    staticClass: "h-10 mt-8 shadow rounded w-28 add-btn flex items-center justify-center text-white cairo",
     on: {
       click: function click($event) {
         return _vm.loadData(1);
@@ -2521,7 +2538,7 @@ var render = function render() {
       staticClass: "bg-red-100 flex items-center justify-center rounded shadow1d h-10 w-24 text-red-700 text-sm"
     }, [_vm._v("\n                        محظور\n                    ")])]), _vm._v(" "), _c("td", {
       staticClass: "xl:table-cell hidden"
-    }, [_vm._v("\n                    " + _vm._s(item.created_at.substring(0, 10)) + "\n                ")]), _vm._v(" "), _c("td", {
+    }, [_vm._v("\n                    " + _vm._s(item.created_at != null ? item.created_at.substring(0, 10) : "خالي") + "\n                ")]), _vm._v(" "), _c("td", {
       staticClass: "rounded-l-lg h-20 flex items-center justify-center"
     }, [_c("div", {
       staticClass: "flex items-start justify-center mx-auto"
@@ -3200,74 +3217,124 @@ var render = function render() {
     staticClass: "fas fa-user-edit"
   })]), _vm._v(" "), _c("div", {
     staticClass: "h-10 w-6"
-  })], 1)])]), _vm._v(" "), _vm._l(_vm.pageList, function (item) {
+  })], 1)])]), _vm._v(" "), _vm._l(_vm.pages, function (item) {
     return _c("div", {
-      directives: [{
-        name: "show",
-        rawName: "v-show",
-        value: _vm.$parent.checkPermission(item.role) == true,
-        expression: "$parent.checkPermission(item.role) == true"
-      }],
       key: item.id,
-      staticClass: "w-auto px-2 flex flex-wrap items-center justify-start cairo",
+      staticClass: "JF-Flat"
+    }, [item.target == 0 ? _c("div", {
+      staticClass: "w-full flex items-center h-10 mt-2"
+    }, [_c("div", {
+      staticClass: "h-px w-4 bg-gray-400 ml-3 mt-1"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "Swissra-Light",
       staticStyle: {
-        color: "#7a7a7a"
+        color: "#a1acb8"
       }
-    }, [item.open ? _c("div", {
-      staticClass: "my-1 layout-btn w-full rounded px-4",
+    }, [_vm._v(_vm._s(item.name))])]) : item.list.length > 0 ? _c("div", {
+      staticClass: "item",
       on: {
         click: function click($event) {
-          return _vm.closeSideItem(item.id);
+          return _vm.toggleSideList(item.id);
         }
       }
-    }, [_c("div", {
-      staticClass: "flex items-center h-12 my-1 justify-between"
+    }, [_vm.pageActive == item.id ? _c("div", {
+      staticClass: "flex items-center justify-between h-12 w-auto mx-3 rounded-md px-3",
+      staticStyle: {
+        color: "#696cff",
+        "background-color": "rgba(105,108,255,.16)"
+      }
     }, [_c("div", {
       staticClass: "flex items-center"
     }, [_c("i", {
-      "class": item.icon + " ml-6 text-lg"
-    }), _vm._v("\n                        " + _vm._s(item.name) + "\n                    ")]), _vm._v(" "), _c("i", {
-      staticClass: "fas fa-chevron-up text-lg"
+      "class": item.icon + " ml-2 text-md"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "text-sm"
+    }, [_vm._v(_vm._s(item.name))])]), _vm._v(" "), _vm.openPageList == item.id ? _c("i", {
+      staticClass: "fas fa-chevron-down text-md"
+    }) : _c("i", {
+      staticClass: "fas fa-chevron-left text-md"
+    })]) : _c("div", {
+      staticClass: "flex items-center justify-between h-12 w-auto mx-3 rounded-md px-3 hover-side-menu",
+      staticStyle: {
+        color: "#697a8d"
+      }
+    }, [_c("div", {
+      staticClass: "flex items-center"
+    }, [_c("i", {
+      "class": item.icon + " ml-2 text-md"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "text-sm"
+    }, [_vm._v(_vm._s(item.name))])]), _vm._v(" "), _vm.openPageList == item.id ? _c("i", {
+      staticClass: "fas fa-chevron-down text-md"
+    }) : _c("i", {
+      staticClass: "fas fa-chevron-left text-md"
     })])]) : _c("div", {
-      staticClass: "my-1 w-full px-4",
-      on: {
-        click: function click($event) {
-          return _vm.openSideItem(item.id);
-        }
+      staticClass: "item"
+    }, [_c("router-link", {
+      attrs: {
+        to: item.url
       }
-    }, [_c("div", {
-      staticClass: "flex items-center h-12 my-1 hover:text-red-400 justify-between"
-    }, [_c("div", {
-      staticClass: "flex items-center"
-    }, [_c("i", {
-      "class": item.icon + " ml-6 text-lg"
-    }), _vm._v("\n                        " + _vm._s(item.name) + "\n                    ")]), _vm._v(" "), _c("i", {
-      staticClass: "fas fa-chevron-down text-lg"
-    })])]), _vm._v(" "), item.open ? _c("div", {
-      staticClass: "w-full",
+    }, [_vm.pageActive == item.id ? _c("div", {
+      staticClass: "flex items-center h-12 w-auto mx-3 rounded-md px-3",
       staticStyle: {
-        color: "#8a8a8a"
+        color: "#696cff",
+        "background-color": "rgba(105,108,255,.16)"
       }
-    }, _vm._l(item.list, function (subItem) {
-      return _c("router-link", {
+    }, [_c("i", {
+      "class": item.icon + " ml-2 text-md"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "text-sm"
+    }, [_vm._v(_vm._s(item.name))])]) : _c("div", {
+      staticClass: "flex items-center h-12 w-auto mx-3 rounded-md px-3 hover-side-menu",
+      staticStyle: {
+        color: "#697a8d"
+      }
+    }, [_c("i", {
+      "class": item.icon + " ml-2 text-md"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "text-sm"
+    }, [_vm._v(_vm._s(item.name))])])])], 1), _vm._v(" "), _vm.openPageList == item.id ? _c("div", _vm._l(item.list, function (subItem) {
+      return _c("div", {
         key: subItem.id,
         attrs: {
-          to: subItem.path
+          to: subItem.url
         }
-      }, [subItem.active ? _c("div", {
-        staticClass: "my-1 w-full px-6 text-red-400"
-      }, [_c("div", {
-        staticClass: "flex items-center h-9 my-1 hover:text-red-400"
-      }, [_c("i", {
-        "class": subItem.icon + " ml-6 text-lg"
-      }), _vm._v("\n                                " + _vm._s(subItem.name) + "\n                        ")])]) : _c("div", {
-        staticClass: "my-1 w-full px-6"
-      }, [_c("div", {
-        staticClass: "flex items-center h-9 my-1 hover:text-red-400"
-      }, [_c("i", {
-        "class": subItem.icon + " ml-6 text-lg"
-      }), _vm._v("\n                                " + _vm._s(subItem.name) + "\n                        ")])])]);
-    }), 1) : _vm._e()]);
+      }, [_c("router-link", {
+        attrs: {
+          to: subItem.url
+        }
+      }, [_vm.subPageActive == subItem.id && _vm.pageActive == item.id ? _c("div", {
+        staticClass: "flex items-center h-12 w-auto mx-3 rounded-md px-3",
+        staticStyle: {
+          color: "#696cff"
+        }
+      }, [_c("span", {
+        staticClass: "rounded-full bg-gray-400 ml-3 mr-1",
+        staticStyle: {
+          "background-color": "#6a6cff",
+          border: "4px solid #e7e7ff",
+          height: "15px",
+          width: "15px"
+        }
+      }), _vm._v(" "), _c("div", {
+        staticClass: "text-sm"
+      }, [_vm._v(_vm._s(subItem.name))])]) : _c("div", {
+        staticClass: "flex items-center h-12 w-auto mx-3 rounded-md px-3 hover-side-menu",
+        staticStyle: {
+          color: "#697a8d"
+        }
+      }, [_c("span", {
+        staticClass: "rounded-full bg-gray-400 ml-3 mr-1",
+        staticStyle: {
+          "background-color": "#b4bdc6",
+          border: "4px solid #ffffff",
+          height: "15px",
+          width: "15px"
+        }
+      }), _vm._v(" "), _c("div", {
+        staticClass: "text-sm"
+      }, [_vm._v(_vm._s(subItem.name))])])])], 1);
+    }), 0) : _vm._e()]);
   })], 2)]);
 };
 var staticRenderFns = [function () {
@@ -4376,10 +4443,15 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       mainItem: [],
-      loaded: 0 // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+      loaded: 0,
+      // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+      // Side Menu
+      sideMenuPage: {
+        main: 5,
+        sub: 1
+      }
     };
   },
-
   methods: {
     activeAdmin: function activeAdmin() {
       var _this = this;
@@ -4539,7 +4611,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this6 = this;
-    this.$store.commit("activePage", 3);
+    this.$store.commit("activePage", this.sideMenuPage);
     this.$loading.Start();
     this.$http.GetAdminById(this.$route.params.id).then(function (response) {
       _this6.$loading.Stop();
@@ -4598,7 +4670,12 @@ __webpack_require__.r(__webpack_exports__);
       firstNameSrh: "",
       lastNameSrh: "",
       // UI
-      optionId: 0
+      optionId: 0,
+      // Side Menu
+      sideMenuPage: {
+        main: 5,
+        sub: 1
+      }
     };
   },
   methods: {
@@ -4791,7 +4868,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    this.$store.commit("activePage", 3);
+    this.$store.commit("activePage", this.sideMenuPage);
     this.$loading.Start();
     this.loadData(this.pageId);
   },
@@ -4817,7 +4894,12 @@ __webpack_require__.r(__webpack_exports__);
     return {
       mainItem: [],
       roles: [],
-      loaded: 0
+      loaded: 0,
+      // Side Menu
+      sideMenuPage: {
+        main: 5,
+        sub: 1
+      }
     };
   },
   methods: {
@@ -4837,7 +4919,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this2 = this;
-    this.$store.commit("activePage", 3);
+    this.$store.commit("activePage", this.sideMenuPage);
     this.$loading.Start();
     this.$http.GetAdminByIdWithPermissions(this.$route.params.id).then(function (response) {
       _this2.$loading.Stop();
@@ -4892,7 +4974,12 @@ __webpack_require__.r(__webpack_exports__);
         password: "",
         confirmPassword: ""
       },
-      loaded: 0
+      loaded: 0,
+      // Side Menu
+      sideMenuPage: {
+        main: 5,
+        sub: 2
+      }
     };
   },
   methods: {
@@ -5006,7 +5093,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this2 = this;
-    this.$store.commit("activePage", 3);
+    this.$store.commit("activePage", this.sideMenuPage);
     this.$loading.Start();
     this.$http.GetAllRoles().then(function (response) {
       _this2.$loading.Stop();
@@ -5053,13 +5140,17 @@ __webpack_require__.r(__webpack_exports__);
         notSloveMessage: 0,
         sloveMessage: 0
       },
-      loaded: 204 // 0 not load - 200 done - 204 empty 
+      loaded: 204,
+      // 0 not load - 200 done - 204 empty 
+      sideMenuPage: {
+        main: 2,
+        sub: 0
+      }
     };
   },
-
   methods: {},
   mounted: function mounted() {
-    this.$store.commit("activePage", 1);
+    this.$store.commit("activePage", this.sideMenuPage);
     // this.$loading.Start();
     // this.$http
     //     .GetHome()
@@ -5117,16 +5208,25 @@ __webpack_require__.r(__webpack_exports__);
         _this.$alert.BadRequest(error.response);
       });
     },
-    openSideItem: function openSideItem(id) {
-      this.$store.commit("openPageList", id);
-    },
-    closeSideItem: function closeSideItem(id) {
-      this.$store.commit("closePageList", id);
+    toggleSideList: function toggleSideList(id) {
+      this.$store.commit("toggllePageList", id);
     }
   },
   computed: {
     pageList: function pageList() {
       return this.$store.state.pageList;
+    },
+    pages: function pages() {
+      return this.$store.state.pages;
+    },
+    pageActive: function pageActive() {
+      return this.$store.state.pageActive;
+    },
+    subPageActive: function subPageActive() {
+      return this.$store.state.subPageActive;
+    },
+    openPageList: function openPageList() {
+      return this.$store.state.openPageList;
     },
     user: function user() {
       return this.$store.state.user;
@@ -6401,103 +6501,75 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         role: ""
       },
       permissions: [],
-      pageList: [{
+      pages: [{
         id: 1,
+        target: 0,
+        // 0 label - 1 page
         name: "الرئيسية",
         role: "HomeChart",
-        open: true,
-        path: "/admin",
-        icon: "fas fa-home",
-        list: [{
-          id: 1,
-          name: "الرئيسية",
-          role: "HomeChart",
-          active: true,
-          path: "/admin",
-          icon: "fas fa-home"
-        }, {
-          id: 2,
-          name: "الإحصائيات",
-          role: "HomeChart",
-          active: false,
-          path: "/admin",
-          icon: "fas fa-home"
-        }]
-      }, {
-        id: 2,
-        name: "الرسائل",
-        role: "ReadMessage",
-        open: false,
-        path: "/admin/message",
-        icon: "fas fa-comment-dots",
-        list: [{
-          id: 3,
-          name: "كل الرسائل",
-          role: "HomeChart",
-          active: false,
-          path: "/admin",
-          icon: "fas fa-home"
-        }, {
-          id: 4,
-          name: "اضف رسالة",
-          role: "HomeChart",
-          active: false,
-          path: "/admin",
-          icon: "fas fa-home"
-        }]
-      }, {
-        id: 3,
-        name: "المشرفين",
-        role: "ReadAdmin",
-        open: false,
-        path: "/admin/admin",
-        icon: "fas fa-users",
+        url: "/admin",
+        icon: "fa-regular fa-house",
         list: []
       }, {
-        id: 4,
-        name: "أدوار المشرفين",
-        role: "ReadRole",
-        open: false,
-        path: "/admin/role",
-        icon: "fas fa-user-shield",
-        list: [{
-          id: 5,
-          name: "قائمة المشرفين",
-          role: "ReadRole",
-          active: false,
-          path: "/admin/role",
-          icon: "fas fa-user-shield"
-        }, {
-          id: 6,
-          name: "أضف مشرف",
-          role: "ReadRole",
-          active: false,
-          path: "/admin/role",
-          icon: "fas fa-user-shield"
-        }]
+        id: 2,
+        target: 1,
+        // 0 label - 1 page
+        name: "الصفحة الرئيسية",
+        role: "HomeChart",
+        url: "/admin",
+        icon: "fa-sharp fa-solid fa-house",
+        list: []
+      }, {
+        id: 3,
+        target: 0,
+        // 0 label - 1 page
+        name: "الإعدادات",
+        role: "HomeChart",
+        url: "/admin",
+        icon: "fas fa-home",
+        list: []
       }, {
         id: 5,
-        name: "إدارة المشرفين",
+        target: 1,
+        // 0 label - 1 page
+        name: "المشرفين والصلاحيات",
         role: "HomeChart",
-        open: true,
-        path: "/admin",
-        icon: "fas fa-home",
+        url: "/admin",
+        icon: "fas fa-user-shield",
         list: [{
-          id: 7,
-          name: "المشرفين",
+          id: 1,
+          name: "قائمة المشرفين",
           role: "HomeChart",
-          active: true,
-          path: "/admin/admin",
-          icon: "fas fa-home"
+          url: "/admin/admin"
         }, {
-          id: 8,
-          name: "الصلاحيات",
+          id: 2,
+          name: "إضافة مشرف",
           role: "HomeChart",
-          active: false,
-          path: "/admin/role",
-          icon: "fas fa-home"
+          url: "/admin/admin/new"
+        }, {
+          id: 3,
+          name: "أدوار المشرفين",
+          role: "HomeChart",
+          url: "/admin/role"
+        }, {
+          id: 4,
+          name: "إضافة دور",
+          role: "HomeChart",
+          url: "/admin/role/new"
         }]
+      }, {
+        id: 6,
+        target: 1,
+        // 0 label - 1 page
+        name: "قامة المشرفين",
+        role: "HomeChart",
+        url: "/admin",
+        icon: "fas fa-user-shield",
+        list: []
       }],
+      pageActive: 4,
+      subPageActive: 1,
+      openPageList: 4,
       menu: false,
       loading: false
     };
@@ -6532,32 +6604,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     updatePhoto: function updatePhoto(state, photo) {
       state.user.photo = photo;
     },
-    activePage: function activePage(state, pageNumber) {
-      for (var i = 0; i < state.pageList.length; i++) {
-        state.pageList[i].open = false;
-        for (var j = 0; j < state.pageList[i].list.length; j++) {
-          if (state.pageList[i].list[j].id == pageNumber) {
-            state.pageList[i].open = true;
-            state.pageList[i].list[j].active = true;
-          } else {
-            state.pageList[i].list[j].active = false;
-          }
-        }
-      }
+    activePage: function activePage(state, v) {
+      state.pageActive = v.main;
+      state.subPageActive = v.sub;
+      state.openPageList = v.main;
     },
-    openPageList: function openPageList(state, pageNumber) {
-      for (var i = 0; i < state.pageList.length; i++) {
-        if (state.pageList[i].id == pageNumber) {
-          state.pageList[i].open = true;
-        }
-      }
-    },
-    closePageList: function closePageList(state, pageNumber) {
-      for (var i = 0; i < state.pageList.length; i++) {
-        if (state.pageList[i].id == pageNumber) {
-          state.pageList[i].open = false;
-        }
-      }
+    toggllePageList: function toggllePageList(state, pageNumber) {
+      if (state.openPageList != pageNumber) state.openPageList = pageNumber;else state.openPageList = 0;
     },
     toggleMenu: function toggleMenu(state) {
       state.menu = !state.menu;
@@ -6639,6 +6692,30 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
 //     enabledTransports: ['ws', 'wss'],
 // });
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/pages/Layout/AppSide/AppSide.vue?vue&type=style&index=0&id=397659f6&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/pages/Layout/AppSide/AppSide.vue?vue&type=style&index=0&id=397659f6&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.hover-side-menu:hover{\n    background: rgba(67,89,113,.04);\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
 
 /***/ }),
 
@@ -24148,6 +24225,36 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/pages/Layout/AppSide/AppSide.vue?vue&type=style&index=0&id=397659f6&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/pages/Layout/AppSide/AppSide.vue?vue&type=style&index=0&id=397659f6&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_11_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_11_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AppSide_vue_vue_type_style_index_0_id_397659f6_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AppSide.vue?vue&type=style&index=0&id=397659f6&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/pages/Layout/AppSide/AppSide.vue?vue&type=style&index=0&id=397659f6&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_11_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_11_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AppSide_vue_vue_type_style_index_0_id_397659f6_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_11_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_11_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AppSide_vue_vue_type_style_index_0_id_397659f6_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/pages/Layout/LoadingBox/LoadingBox.vue?vue&type=style&index=0&id=a0bd4b9a&lang=css&":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/pages/Layout/LoadingBox/LoadingBox.vue?vue&type=style&index=0&id=a0bd4b9a&lang=css& ***!
@@ -28373,15 +28480,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _AppSide_html_vue_type_template_id_397659f6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AppSide.html?vue&type=template&id=397659f6& */ "./resources/js/admin/pages/Layout/AppSide/AppSide.html?vue&type=template&id=397659f6&");
 /* harmony import */ var _AppSide_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AppSide.js?vue&type=script&lang=js& */ "./resources/js/admin/pages/Layout/AppSide/AppSide.js?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _AppSide_vue_vue_type_style_index_0_id_397659f6_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AppSide.vue?vue&type=style&index=0&id=397659f6&lang=css& */ "./resources/js/admin/pages/Layout/AppSide/AppSide.vue?vue&type=style&index=0&id=397659f6&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
+;
 
 
 /* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _AppSide_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _AppSide_html_vue_type_template_id_397659f6___WEBPACK_IMPORTED_MODULE_0__.render,
   _AppSide_html_vue_type_template_id_397659f6___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
@@ -29402,6 +29511,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Roles_html_vue_type_template_id_3bd4bbdc_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Roles_html_vue_type_template_id_3bd4bbdc_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./Roles.html?vue&type=template&id=3bd4bbdc&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Roles/Roles.html?vue&type=template&id=3bd4bbdc&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Layout/AppSide/AppSide.vue?vue&type=style&index=0&id=397659f6&lang=css&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/Layout/AppSide/AppSide.vue?vue&type=style&index=0&id=397659f6&lang=css& ***!
+  \**********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_11_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_11_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AppSide_vue_vue_type_style_index_0_id_397659f6_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader/dist/cjs.js!../../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AppSide.vue?vue&type=style&index=0&id=397659f6&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/pages/Layout/AppSide/AppSide.vue?vue&type=style&index=0&id=397659f6&lang=css&");
 
 
 /***/ }),

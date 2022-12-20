@@ -10,8 +10,10 @@
         <router-link v-show="$parent.checkPermission('CreateAdmin') == true" to="/admin/admin/new"
             class="rounded px-4 flex items-center cairo font-medium add-btn">
             <span class="h-12 flex items-center">
-                <i class="fas fa-plus ml-4 text-lg"></i>
-                أضف مشرف
+                <i class="fas fa-plus text-xl"></i>
+             <p class="mr-3 md:block hidden">
+                 أضف مشرف
+             </p>  
             </span>
         </router-link>
     </div>
@@ -76,7 +78,7 @@
 
         <!-- Search BTN -->
         <div class="xl:w-1/4 lg:w-1/3 md:w-1/2 px-2 mt-4 flex items-center justify-center">
-            <div class="h-10 mt-8 shadow rounded w-28 bg-green-500 flex items-center justify-center text-white cairo"
+            <div class="h-10 mt-8 shadow rounded w-28  add-btn flex items-center justify-center text-white cairo"
                 @click="loadData(1)">
                 بحث
             </div>
@@ -129,7 +131,7 @@
                     </div>
                 </td>
                 <td class="xl:table-cell hidden">
-                    {{ item.created_at.substring(0, 10) }}
+                    {{ item.created_at!=null? item.created_at.substring(0, 10) : 'خالي' }}
                 </td>
                 <td class="rounded-l-lg h-20 flex items-center justify-center">
 

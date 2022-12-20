@@ -21,16 +21,25 @@ export default {
                     this.$alert.BadRequest(error.response);
                 });
         },
-        openSideItem:function(id){
-        this.$store.commit("openPageList", id);
-        },
-        closeSideItem:function(id){
-        this.$store.commit("closePageList", id);
+        toggleSideList:function(id){
+        this.$store.commit("toggllePageList", id);
         },
     },
     computed: {
         pageList() {
             return this.$store.state.pageList;
+        },
+        pages() {
+            return this.$store.state.pages;
+        },
+        pageActive() {
+            return this.$store.state.pageActive;
+        },
+        subPageActive() {
+            return this.$store.state.subPageActive;
+        },
+        openPageList() {
+            return this.$store.state.openPageList;
         },
         user() {
             return this.$store.state.user;

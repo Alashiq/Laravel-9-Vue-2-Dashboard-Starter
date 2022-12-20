@@ -39,58 +39,87 @@
         </div>
         <!-- User Info -->
 
-        <div v-for="item in pageList" :key="item.id"
-            v-show="$parent.checkPermission(item.role) == true"
-            class="w-auto px-2 flex flex-wrap items-center justify-start cairo" style="color:#7a7a7a;">
-            <div v-if="item.open" class="my-1 layout-btn w-full rounded px-4" @click="closeSideItem(item.id)">
-                <div class="flex items-center h-12 my-1 justify-between">
 
+        
+        <!-- New List -->
+        <div v-for="item in pages" :key="item.id" class="JF-Flat">
+            <!-- Label -->
+            <div v-if="item.target==0" class="w-full flex items-center h-10 mt-2">
+                <div class="h-px w-4 bg-gray-400 ml-3 mt-1"></div>
+                <div class="Swissra-Light" style="color: #a1acb8;">{{item.name}}</div>
+            </div>
+            <!-- End Label -->
+            <!-- Father List -->
+            <div v-else-if="item.list.length>0" class="item" @click="toggleSideList(item.id)">
+                <div v-if="pageActive==item.id"
+                    class="flex items-center justify-between h-12 w-auto mx-3 rounded-md px-3"
+                    style="color: #696cff; background-color: rgba(105,108,255,.16);">
                     <div class="flex items-center">
-                        <i :class="item.icon + ' ml-6 text-lg'"></i>
-                        {{ item.name }}
+                        <i :class="item.icon + ' ml-2 text-md'"></i>
+                        <div class="text-sm">{{item.name}}</div>
                     </div>
-
-                    <i class='fas fa-chevron-up text-lg'></i>
+                    <i v-if="openPageList==item.id" class='fas fa-chevron-down text-md'></i>
+                    <i v-else class='fas fa-chevron-left text-md'></i>
+                </div>
+                <div v-else class="flex items-center justify-between h-12 w-auto mx-3 rounded-md px-3  hover-side-menu"
+                    style="color: #697a8d;">
+                    <div class="flex items-center">
+                        <i :class="item.icon + ' ml-2 text-md'"></i>
+                        <div class="text-sm">{{item.name}}</div>
+                    </div>
+                    <i v-if="openPageList==item.id" class='fas fa-chevron-down text-md'></i>
+                    <i v-else class='fas fa-chevron-left text-md'></i>
                 </div>
             </div>
+            <!-- End Father List -->
 
-
-
-
-            <div v-else class="my-1  w-full px-4" @click="openSideItem(item.id)">
-                <div class="flex items-center h-12 my-1 hover:text-red-400 justify-between">
-                    <div class="flex items-center">
-                        <i :class="item.icon + ' ml-6 text-lg'"></i>
-                        {{ item.name }}
-                    </div>
-                    <i class='fas fa-chevron-down text-lg'></i>
-
+            <!-- Item List -->
+            <div v-else class="item">
+                <router-link  :to="item.url">
+                <div v-if="pageActive==item.id" class="flex items-center h-12 w-auto mx-3 rounded-md px-3"
+                    style="color: #696cff; background-color: rgba(105,108,255,.16);">
+                    <i :class="item.icon + ' ml-2 text-md'"></i>
+                    <div class="text-sm">{{item.name}}</div>
                 </div>
+                <div v-else class="flex items-center h-12 w-auto mx-3 rounded-md px-3  hover-side-menu" style="color: #697a8d;">
+                    <i :class="item.icon + ' ml-2 text-md'"></i>
+                    <div class="text-sm">{{item.name}}</div>
+                </div>
+                </router-link>
             </div>
+            <!-- End Item List -->
+
+
 
 
             <!-- Sub -->
-            <div v-if="item.open" class="w-full" style="color:#8a8a8a;">
-                <router-link v-for="subItem in item.list" :key="subItem.id" :to="subItem.path">
+            <div v-if="openPageList==item.id">
 
-                    <div v-if="subItem.active" class="my-1  w-full px-6 text-red-400">
-                        <div class="flex items-center h-9 my-1 hover:text-red-400 ">
-                                <i :class="subItem.icon + ' ml-6 text-lg'"></i>
-                                {{ subItem.name }}
-                        </div>
+                <div v-for="subItem in item.list" :key="subItem.id" :to="subItem.url">
+                    <router-link  :to="subItem.url">
+
+                    <div v-if="subPageActive==subItem.id && pageActive==item.id"
+                        class="flex items-center h-12 w-auto mx-3 rounded-md px-3"
+                        style="color: #696cff;">
+                        <span class="rounded-full bg-gray-400 ml-3 mr-1"
+                            style="background-color: #6a6cff; border: 4px solid #e7e7ff; height: 15px; width: 15px;"></span>
+                        <div class="text-sm">{{subItem.name}}</div>
                     </div>
-                    <div v-else class="my-1  w-full px-6">
-                        <div class="flex items-center h-9 my-1 hover:text-red-400 ">
-                                <i :class="subItem.icon + ' ml-6 text-lg'"></i>
-                                {{ subItem.name }}
-                        </div>
+                    <div v-else class="flex items-center h-12 w-auto mx-3 rounded-md px-3  hover-side-menu" style="color: #697a8d;">
+                        <span class="rounded-full bg-gray-400 ml-3 mr-1"
+                            style="background-color: #b4bdc6; border: 4px solid #ffffff; height: 15px; width: 15px;"></span>
+                        <div class="text-sm">{{subItem.name}}</div>
                     </div>
+                    </router-link>
 
+                </div>
 
-                </router-link>
             </div>
             <!-- End Sub -->
 
+
         </div>
+        <!-- End New List -->
+
     </div>
 </div>

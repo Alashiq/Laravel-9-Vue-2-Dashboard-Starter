@@ -10,11 +10,15 @@ export default {
                 sloveMessage:0,
             },
             loaded:204, // 0 not load - 200 done - 204 empty 
+            sideMenuPage:{
+                main:2,
+                sub:0,
+            }
         };
     },
     methods: {},
     mounted() {
-        this.$store.commit("activePage", 1);
+        this.$store.commit("activePage", this.sideMenuPage);
         // this.$loading.Start();
         // this.$http
         //     .GetHome()

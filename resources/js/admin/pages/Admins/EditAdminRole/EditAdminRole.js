@@ -4,7 +4,12 @@ export default {
         return {
             mainItem: [],
             roles: [],
-            loaded: 0
+            loaded: 0,
+                                    // Side Menu
+            sideMenuPage:{
+                main:5,
+                sub:1,
+            }
         };
     },
     methods: {
@@ -25,7 +30,7 @@ export default {
         }
     },
     mounted() {
-        this.$store.commit("activePage", 3);
+        this.$store.commit("activePage", this.sideMenuPage);
         this.$loading.Start();
         this.$http
             .GetAdminByIdWithPermissions(this.$route.params.id)
