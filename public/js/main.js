@@ -2067,11 +2067,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
-    return {};
+    return {
+      userMenu: false,
+      hi: "hello"
+    };
   },
   methods: {
     toggleMenu: function toggleMenu() {
       this.$store.commit("toggleMenu");
+    },
+    toggleUserMenu: function toggleUserMenu() {
+      this.userMenu = !this.userMenu;
+    },
+    logout: function logout() {
+      var _this = this;
+      this.$loading.Start();
+      this.$http.Logout().then(function (response) {
+        _this.$loading.Stop();
+        _this.$router.push("/admin/login");
+        _this.$store.commit("clearUser");
+        localStorage.removeItem("token");
+        axios.defaults.headers.common["Authorization"] = null;
+        _this.$alert.Success(response.data.message);
+      })["catch"](function (error) {
+        _this.$loading.Stop();
+        _this.$alert.BadRequest(error.response);
+      });
+    },
+    toggleSideList: function toggleSideList(id) {
+      this.$store.commit("toggllePageList", id);
     }
   },
   computed: {
@@ -2101,7 +2125,14 @@ var render = function render() {
   return _c("div", {
     staticClass: "h-20 w-full bg-white mb-8 flex justify-between items-center px-3 layout-shadow"
   }, [_c("div", {
-    staticClass: "flex flex-wrap items-center font-normal cairo text-sm text-gray-500 hover-side-menu cursor-pointer px-2 py-1 rounded-lg"
+    staticClass: "flex justify-end"
+  }, [_c("div", {
+    "class": [_vm.userMenu ? "active-header-user" : " "] + " flex flex-wrap items-center font-normal cairo text-sm text-gray-500   hover:bg-gray-100 cursor-pointer px-2 py-1 rounded-lg",
+    on: {
+      click: function click($event) {
+        return _vm.toggleUserMenu();
+      }
+    }
   }, [_c("div", {
     staticClass: "border rounded-full flex items-center justify-center"
   }, [_c("img", {
@@ -2112,10 +2143,67 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "mr-2"
-  }, [_vm._v("\n        مرحبا بك\n\n      ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                مرحبا بك\n\n            ")]), _vm._v(" "), _c("div", {
     staticClass: "mr-1 font-medium"
-  }, [_vm._v("\n        " + _vm._s(_vm.user.first_name) + "\n      ")]), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _c("div", {
-    staticClass: "h-16 w-16 text-gray-600 flex items-center justify-center text-3xl hover:text-red-400 cursor-pointer md:hidden",
+  }, [_vm._v("\n                " + _vm._s(_vm.user.first_name) + "\n            ")]), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _vm.userMenu ? _c("div", {
+    staticClass: "py-1 w-44 bg-white mt-14 rounded absolute text-gray-600 text-sm cairo",
+    staticStyle: {
+      "box-shadow": "0 0.25rem 1rem rgb(161 172 184 / 45%)"
+    }
+  }, [_c("div", {
+    staticClass: "flex items-center px-4 pt-3 pb-2"
+  }, [_c("div", {
+    staticClass: "h-10 w-10"
+  }, [_c("img", {
+    staticClass: "rounded-full h-10",
+    attrs: {
+      src: _vm.user.photo
+    }
+  }), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("div", {
+    staticClass: "mr-2"
+  }, [_c("div", {
+    staticClass: "Swissra-Normal text-basea",
+    staticStyle: {
+      color: "#697a8d"
+    }
+  }, [_vm._v(_vm._s(_vm.user.first_name))]), _vm._v(" "), _c("div", {
+    staticClass: "text-gray-400 text-xs"
+  }, [_vm._v(_vm._s(_vm.user.role))])])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full bg-gray-200 h-px my-1"
+  }), _vm._v(" "), _c("router-link", {
+    attrs: {
+      to: "/admin/profile"
+    }
+  }, [_c("div", {
+    staticClass: "flex items-center justify-start px-4 my-1 h-10 hover:bg-gray-100 JF-Flat cursor-pointer",
+    staticStyle: {
+      color: "#697a8d"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.toggleUserMenu();
+      }
+    }
+  }, [_c("i", {
+    staticClass: "fa-solid fa-user-pen"
+  }), _vm._v(" "), _c("span", {
+    staticClass: "mr-2"
+  }, [_vm._v("تعديل حسابي")])])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full bg-gray-200 h-px my-1"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "flex items-center justify-start px-4 my-1 h-10 hover:bg-gray-100 JF-Flat cursor-pointer",
+    staticStyle: {
+      color: "#697a8d"
+    },
+    on: {
+      click: _vm.logout
+    }
+  }, [_c("i", {
+    staticClass: "fa-solid fa-power-off"
+  }), _vm._v(" "), _c("span", {
+    staticClass: "mr-2"
+  }, [_vm._v("تسجيل الخروج")])])], 1) : _vm._e(), _vm._v(" "), _vm._m(3)]), _vm._v(" "), _c("div", {
+    staticClass: "h-16 w-16 text-gray-600 flex items-center justify-center text-2xl hover:text-red-400 cursor-pointer md:hidden",
     on: {
       click: _vm.toggleMenu
     }
@@ -2130,6 +2218,33 @@ var staticRenderFns = [function () {
     staticClass: "mr-2"
   }, [_c("i", {
     staticClass: "fa-solid fa-chevron-down"
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "rounded-full h-3 w-3 bg-white shadow-xl animate-ping -mt-3 mr-7 flex items-center justify-center"
+  }, [_c("div", {
+    staticClass: "bg-green-500 h-4 w-4 rounded-full animate-ping"
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "rounded-full h-3 w-3 bg-white shadow-xl relative z-10 -mt-3 mr-7 flex items-center justify-center"
+  }, [_c("div", {
+    staticClass: "bg-green-500 h-2 w-2 rounded-full"
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "text-2xl mr-4 flex items-center justify-center"
+  }, [_c("i", {
+    staticClass: "fa-regular fa-bell",
+    staticStyle: {
+      color: "#697a8d"
+    }
   })]);
 }];
 render._withStripped = true;
@@ -2190,9 +2305,11 @@ var render = function render() {
   }, [_vm.loaded == 200 ? _c("div", {
     staticClass: "w-full md:px-4 px-0 pb-8 pt-2 bg-white shadow-2 rounded-lg text-lg text-gray-600 font-medium"
   }, [_c("div", {
-    staticClass: "h-16 w-full border-b mb-2 px-4 flex items-center text-lg justify-between"
-  }, [_vm._v("\n                بيانات المشرف\n\n                "), _c("router-link", {
-    staticClass: "back-btn w-36 h-12 rounded font-normal flex items-center justify-center cursor-pointer",
+    staticClass: "h-16 w-full border-b mb-2 px-4 flex items-center text-xl justify-between JF-Flat"
+  }, [_c("p", {
+    staticClass: "text-gray-600 font-medium"
+  }, [_vm._v("\n                بيانات المشرف\n\n            ")]), _vm._v(" "), _c("router-link", {
+    staticClass: "back-btn w-36 h-12 rounded font-normal flex items-center justify-center cursor-pointer cairo text-base",
     attrs: {
       to: "/admin/admin/"
     }
@@ -3188,36 +3305,7 @@ var render = function render() {
     }
   }, [_c("div", {
     staticClass: "h-20 items-center w-full flex justify-center text-xl border-b font-medium orange-color"
-  }, [_vm._v("\n            لوحة التحكم\n        ")]), _vm._v(" "), _c("div", {
-    staticClass: "h-32 w-full flex items-center px-3 justify-between border-b mb-4"
-  }, [_c("div", {
-    staticClass: "h-24 w-16"
-  }, [_c("img", {
-    staticClass: "rounded-full h-16",
-    attrs: {
-      src: _vm.user.photo
-    }
-  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c("div", [_c("div", {
-    staticClass: "text-lg w-40 font-medium"
-  }, [_vm._v(_vm._s(_vm.user.first_name) + " " + _vm._s(_vm.user.last_name))]), _vm._v(" "), _c("div", {
-    staticClass: "flex items-center justify-center py-3 text-gray-700"
-  }, [_c("div", {
-    staticClass: "bg-white h-10 w-10 rounded-full shadow-1 mx-2 flex items-center justify-center cursor-pointer hover:text-red-400",
-    on: {
-      click: _vm.logout
-    }
-  }, [_c("i", {
-    staticClass: "fas fa-sign-out-alt"
-  })]), _vm._v(" "), _c("router-link", {
-    staticClass: "bg-white h-10 w-10 rounded-full shadow-1 mx-2 flex items-center justify-center cursor-pointer hover:text-red-400",
-    attrs: {
-      to: "/admin/profile"
-    }
-  }, [_c("i", {
-    staticClass: "fas fa-user-edit"
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "h-10 w-6"
-  })], 1)])]), _vm._v(" "), _vm._l(_vm.pages, function (item) {
+  }, [_vm._v("\n            لوحة التحكم\n        ")]), _vm._v(" "), _vm._l(_vm.pages, function (item) {
     return _c("div", {
       key: item.id,
       staticClass: "JF-Flat"
@@ -3337,23 +3425,7 @@ var render = function render() {
     }), 0) : _vm._e()]);
   })], 2)]);
 };
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "rounded-full h-5 w-5 bg-white shadow-xl animate-ping -mt-5 mr-12 flex items-center justify-center"
-  }, [_c("div", {
-    staticClass: "bg-green-500 h-4 w-4 rounded-full animate-ping"
-  })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "rounded-full h-5 w-5 bg-white shadow-xl relative z-10 -mt-5 mr-12 flex items-center justify-center"
-  }, [_c("div", {
-    staticClass: "bg-green-500 h-4 w-4 rounded-full"
-  })]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -4023,10 +4095,10 @@ render._withStripped = true;
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Roles/EditRole/EditRole.html?vue&type=template&id=1f0da024&":
-/*!********************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Roles/EditRole/EditRole.html?vue&type=template&id=1f0da024& ***!
-  \********************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Roles/EditRole/EditRole.html?vue&type=template&id=1f0da024&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Roles/EditRole/EditRole.html?vue&type=template&id=1f0da024&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4040,27 +4112,34 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "w-auto md:p-8 p-4"
-  }, [_vm.loaded && _vm.role.length != 0 ? _c("div", {
+  }, [_vm.loaded == 200 ? _c("div", {
     staticClass: "w-full md:px-4 px-0 pb-8 pt-2 bg-white shadow-2 rounded-lg text-lg text-gray-600 font-medium"
   }, [_c("div", {
-    staticClass: "h-16 w-full border-b mb-2 px-4 flex items-center text-lg justify-between"
-  }, [_vm._v("\n                بيانات الدور\n\n                "), _c("router-link", {
-    staticClass: "back-btn text-white w-36 h-12 rounded font-normal flex items-center justify-center cursor-pointer",
+    staticClass: "h-16 w-full border-b mb-2 px-4 flex items-center text-xl justify-between JF-Flat"
+  }, [_c("p", {
+    staticClass: "text-gray-600 font-medium"
+  }, [_vm._v("\n                بيانات الدور\n\n            ")]), _vm._v(" "), _c("router-link", {
+    staticClass: "back-btn w-36 h-12 rounded font-normal flex items-center justify-center cursor-pointer JF-Flat text-base",
     attrs: {
       to: "/admin/role/"
     }
   }, [_vm._v("\n                    أدوار المشرفين\n                ")])], 1), _vm._v(" "), _c("div", {
-    staticClass: "w-full px-4 py-4"
+    staticClass: "bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2"
+  }, [_c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
   }, [_c("div", {
     staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
-  }, [_vm._v("\n                    إسم الدور\n                ")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("\n                        إسم الدور\n                    ")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
       value: _vm.formData.name,
       expression: "formData.name"
     }],
-    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg",
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
+    attrs: {
+      type: "text"
+    },
     domProps: {
       value: _vm.formData.name
     },
@@ -4072,12 +4151,18 @@ var render = function render() {
       }
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "h-8 text-sm text-red-400 mr-2 flex items-center"
-  }, [_vm._v("\n                    " + _vm._s(_vm.formValidate.name) + "\n                ")])]), _vm._v(" "), _c("div", {
-    staticClass: "border-b mx-4 px-2 py-2 mt-6 text-gray-500 text-sm"
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n                        " + _vm._s(_vm.formValidate.name) + "\n                    ")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\n                        عدد المشرفين\n                    ")]), _vm._v(" "), _c("div", {
+    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base JF-Flat"
+  }, [_vm._v("\n                        " + _vm._s(_vm.mainItem.admins_count) + "\n                    ")])])]), _vm._v(" "), _c("div", {
+    staticClass: "border-b mx-4 px-2 py-2 mt-6 text-gray-500 text-sm JF-Flat"
   }, [_vm._v("\n                الصلاحيات\n            ")]), _vm._v(" "), _c("div", {
-    staticClass: "bg-blue-600a grid lg:grid-cols-2"
-  }, _vm._l(_vm.role.permissions, function (item, index) {
+    staticClass: "bg-blue-600a grid lg:grid-cols-2 Swissra-Light"
+  }, _vm._l(_vm.mainItem.permissions, function (item, index) {
     return _c("div", {
       key: index,
       staticClass: "w-full mx-2 my-2 flex items-center",
@@ -4089,30 +4174,41 @@ var render = function render() {
     }, [_c("div", {
       staticClass: "py-2 px-2 flex items-center"
     }, [_c("div", {
-      staticClass: "border rounded-xl h-9 w-9 flex items-center justify-center"
+      staticClass: "border rounded-xl h-8 w-8 flex items-center justify-center"
     }, [item.state == true ? _c("div", {
-      staticClass: "h-7 w-7 rounded-xl bg-green-500 text-white flex items-center justify-center text-center"
+      staticClass: "h-7 w-7 rounded-xl text-white bg-green-500a flex items-center justify-center text-center",
+      staticStyle: {
+        "background-color": "#8082ff"
+      }
     }, [_c("i", {
       staticClass: "fas fa-check"
-    })]) : _vm._e()]), _vm._v(" "), _c("div", {
-      staticClass: "mr-2"
+    })]) : _c("div", {
+      staticClass: "h-7 w-7 rounded-xl text-white flex items-center justify-center text-center"
+    })]), _vm._v(" "), _c("div", {
+      staticClass: "mr-2 text-base"
     }, [_vm._v(_vm._s(item.description))])])]);
   }), 0), _vm._v(" "), _c("div", {
-    staticClass: "h-8 text-sm text-red-400 mr-2 flex items-center px-3"
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center px-3"
   }, [_vm._v("\n                " + _vm._s(_vm.formValidate.permissions) + "\n            ")]), _vm._v(" "), _c("div", {
-    staticClass: "w-full h-16 mt-12 flex items-center justify-start"
+    staticClass: "w-full lg:h-20 mt-12 lg:flex items-center justify-start text-sm cairo"
   }, [_c("div", {
-    staticClass: "h-12 px-6 mx-4 bg-red-400 hover:bg-red-500 flex items-center justify-center text-white shadow-lg rounded cursor-pointer",
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.$parent.checkPermission("DeleteAdmin") == true,
+      expression: "$parent.checkPermission('DeleteAdmin') == true"
+    }],
+    staticClass: "h-12 px-6 mx-4 my-2 bg-red-400 hover:bg-red-500 flex items-center justify-center text-white shadow-lg rounded cursor-pointer",
     on: {
-      click: _vm.editRole
+      click: _vm.editMainItem
     }
   }, [_c("i", {
-    staticClass: "fas fa-check ml-2"
-  }), _vm._v("\n                    حفظ\n                ")])])]) : _vm._e(), _vm._v(" "), _vm.loaded && _vm.role.length == 0 ? _c("Empty-Box", {
+    staticClass: "fa-solid fa-check ml-2"
+  }), _vm._v("\n                حفظ\n            ")])])]) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box", {
     attrs: {
       message: "لا يوجد دور بهذا الرقم"
     }
-  }) : _vm._e()], 1);
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("div", [_vm._v("\n            حدث خطأ ما\n        ")]) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("div", [_vm._v("\n            تحقق من اتصالك بالانترنت\n        ")]) : _vm._e()], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -4137,27 +4233,34 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "w-auto md:p-8 p-4"
-  }, [_vm.loaded && _vm.permissions.length != 0 ? _c("div", {
+  }, [_vm.loaded == 200 ? _c("div", {
     staticClass: "w-full md:px-4 px-0 pb-8 pt-2 bg-white shadow-2 rounded-lg text-lg text-gray-600 font-medium"
   }, [_c("div", {
-    staticClass: "h-16 w-full border-b mb-2 px-4 flex items-center text-lg justify-between"
-  }, [_vm._v("\n                إضافة دور جديد\n\n                "), _c("router-link", {
-    staticClass: "back-btn w-36 h-12 rounded font-normal flex items-center justify-center cursor-pointer",
+    staticClass: "h-16 w-full border-b mb-2 px-4 flex items-center text-xl justify-between JF-Flat"
+  }, [_c("p", {
+    staticClass: "text-gray-600 font-medium"
+  }, [_vm._v("\n                بيانات الدور\n\n            ")]), _vm._v(" "), _c("router-link", {
+    staticClass: "back-btn w-36 h-12 rounded font-normal flex items-center justify-center cursor-pointer JF-Flat text-base",
     attrs: {
       to: "/admin/role/"
     }
   }, [_vm._v("\n                    أدوار المشرفين\n                ")])], 1), _vm._v(" "), _c("div", {
-    staticClass: "w-full px-4 py-4"
+    staticClass: "bg-blue-600a agrid alg:grid-cols-2 amd:grid-cols-2"
+  }, [_c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
   }, [_c("div", {
     staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
-  }, [_vm._v("\n                    إسم الدور\n                ")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("\n                        إسم الدور\n                    ")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
       value: _vm.formData.name,
       expression: "formData.name"
     }],
-    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg",
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
+    attrs: {
+      type: "text"
+    },
     domProps: {
       value: _vm.formData.name
     },
@@ -4169,15 +4272,15 @@ var render = function render() {
       }
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "h-8 text-sm text-red-400 mr-2 flex items-center"
-  }, [_vm._v("\n                    " + _vm._s(_vm.formValidate.name) + "\n                ")])]), _vm._v(" "), _c("div", {
-    staticClass: "border-b mx-4 px-2 py-2 mt-6 text-gray-500 text-sm"
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n                        " + _vm._s(_vm.formValidate.name) + "\n                    ")])])]), _vm._v(" "), _c("div", {
+    staticClass: "border-b mx-4 px-2 py-2 mt-6 text-gray-500 text-sm JF-Flat"
   }, [_vm._v("\n                الصلاحيات\n            ")]), _vm._v(" "), _c("div", {
-    staticClass: "bg-blue-600a grid lg:grid-cols-2"
-  }, _vm._l(_vm.permissions, function (item, index) {
+    staticClass: "bg-blue-600a grid lg:grid-cols-2 Swissra-Light"
+  }, _vm._l(_vm.mainItem.permissions, function (item, index) {
     return _c("div", {
       key: index,
-      staticClass: "w-full mx-2 my-2 flex items-center cursor-pointer",
+      staticClass: "w-full mx-2 my-2 flex items-center",
       on: {
         click: function click($event) {
           return _vm.togglePermission(index);
@@ -4186,28 +4289,41 @@ var render = function render() {
     }, [_c("div", {
       staticClass: "py-2 px-2 flex items-center"
     }, [_c("div", {
-      staticClass: "border rounded-xl h-9 w-9 flex items-center justify-center"
+      staticClass: "border rounded-xl h-8 w-8 flex items-center justify-center"
     }, [item.state == true ? _c("div", {
-      staticClass: "h-7 w-7 rounded-xl bg-green-500 text-white flex items-center justify-center text-center"
+      staticClass: "h-7 w-7 rounded-xl text-white bg-green-500a flex items-center justify-center text-center",
+      staticStyle: {
+        "background-color": "#8082ff"
+      }
     }, [_c("i", {
       staticClass: "fas fa-check"
-    })]) : _vm._e()]), _vm._v(" "), _c("div", {
-      staticClass: "mr-2"
+    })]) : _c("div", {
+      staticClass: "h-7 w-7 rounded-xl text-white flex items-center justify-center text-center"
+    })]), _vm._v(" "), _c("div", {
+      staticClass: "mr-2 text-base"
     }, [_vm._v(_vm._s(item.description))])])]);
   }), 0), _vm._v(" "), _c("div", {
-    staticClass: "h-8 text-sm text-red-400 mr-2 flex items-center px-3"
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center px-3"
   }, [_vm._v("\n                " + _vm._s(_vm.formValidate.permissions) + "\n            ")]), _vm._v(" "), _c("div", {
-    staticClass: "flex items-center h-20 mx-4"
+    staticClass: "w-full lg:h-20 mt-12 lg:flex items-center justify-start text-sm cairo"
   }, [_c("div", {
-    staticClass: "btn-color-one rounded shadow px-12 h-12 w-auto flex items-center justify-center text-white text-lg cursor-pointer",
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.$parent.checkPermission("DeleteAdmin") == true,
+      expression: "$parent.checkPermission('DeleteAdmin') == true"
+    }],
+    staticClass: "h-12 px-6 mx-4 my-2 back-btn JF-Flat text-base flex items-center justify-center text-white shadow-lg rounded cursor-pointer",
     on: {
-      click: _vm.addRole
+      click: _vm.editMainItem
     }
-  }, [_vm._v("\n                    إضافة\n                ")])])]) : _vm._e(), _vm._v(" "), _vm.loaded && _vm.permissions.length == 0 ? _c("Empty-Box", {
+  }, [_c("i", {
+    staticClass: "fa-solid fa-plus ml-2 text-lg"
+  }), _vm._v("\n                إضافة\n            ")])])]) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box", {
     attrs: {
-      message: "لم نتمكن من جلب الصلاحيات, قم بإعادة تحميل الصفحة"
+      message: "لم نتمكن من جلب بيانات الصلاحيات"
     }
-  }) : _vm._e()], 1);
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("div", [_vm._v("\n            حدث خطأ ما\n        ")]) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("div", [_vm._v("\n            تحقق من اتصالك بالانترنت\n        ")]) : _vm._e()], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -4215,10 +4331,10 @@ render._withStripped = true;
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Roles/Role/Role.html?vue&type=template&id=735e9264&":
-/*!************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Roles/Role/Role.html?vue&type=template&id=735e9264& ***!
-  \************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Roles/Role/Role.html?vue&type=template&id=735e9264&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Roles/Role/Role.html?vue&type=template&id=735e9264&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4232,26 +4348,36 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "w-auto md:p-8 p-4"
-  }, [_vm.loaded && _vm.role.length != 0 ? _c("div", {
+  }, [_vm.loaded == 200 ? _c("div", {
     staticClass: "w-full md:px-4 px-0 pb-8 pt-2 bg-white shadow-2 rounded-lg text-lg text-gray-600 font-medium"
   }, [_c("div", {
-    staticClass: "h-16 w-full border-b mb-2 px-4 flex items-center text-lg justify-between"
-  }, [_vm._v("\n                بيانات الدور\n\n                "), _c("router-link", {
-    staticClass: "back-btn w-36 h-12 rounded font-normal flex items-center justify-center cursor-pointer",
+    staticClass: "h-16 w-full border-b mb-2 px-4 flex items-center text-xl justify-between JF-Flat"
+  }, [_c("p", {
+    staticClass: "text-gray-600 font-medium"
+  }, [_vm._v("\n                بيانات الدور\n\n            ")]), _vm._v(" "), _c("router-link", {
+    staticClass: "back-btn w-36 h-12 rounded font-normal flex items-center justify-center cursor-pointer JF-Flat text-base",
     attrs: {
       to: "/admin/role/"
     }
   }, [_vm._v("\n                    أدوار المشرفين\n                ")])], 1), _vm._v(" "), _c("div", {
+    staticClass: "bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2"
+  }, [_c("div", {
     staticClass: "w-full px-4 py-4"
   }, [_c("div", {
     staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
-  }, [_vm._v("\n                    إسم الدور\n                ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                        إسم الدور\n                    ")]), _vm._v(" "), _c("div", {
     staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg"
-  }, [_vm._v("\n                    " + _vm._s(_vm.role.name) + "\n                ")])]), _vm._v(" "), _c("div", {
-    staticClass: "border-b mx-4 px-2 py-2 mt-6 text-gray-500 text-sm"
+  }, [_vm._v("\n                        " + _vm._s(_vm.mainItem.name) + "\n                    ")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\n                        عدد المشرفين\n                    ")]), _vm._v(" "), _c("div", {
+    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg"
+  }, [_vm._v("\n                        " + _vm._s(_vm.mainItem.admins_count) + "\n                    ")])])]), _vm._v(" "), _c("div", {
+    staticClass: "border-b mx-4 px-2 py-2 mt-6 text-gray-500 text-sm JF-Flat"
   }, [_vm._v("\n                الصلاحيات\n            ")]), _vm._v(" "), _c("div", {
-    staticClass: "bg-blue-600a grid lg:grid-cols-2"
-  }, _vm._l(_vm.role.permissions, function (item, index) {
+    staticClass: "bg-blue-600a grid lg:grid-cols-2 Swissra-Light"
+  }, _vm._l(_vm.mainItem.permissions, function (item, index) {
     return _c("div", {
       key: index,
       staticClass: "w-full mx-2 my-2 flex items-center"
@@ -4271,38 +4397,38 @@ var render = function render() {
       staticClass: "mr-2"
     }, [_vm._v(_vm._s(item.description))])])]);
   }), 0), _vm._v(" "), _c("div", {
-    staticClass: "w-full h-16 mt-12 flex items-center justify-start"
-  }, [_vm.role.admins_count == 0 ? _c("div", {
+    staticClass: "w-full lg:h-20 mt-12 lg:flex items-center justify-start text-sm cairo"
+  }, [_c("router-link", {
     directives: [{
       name: "show",
       rawName: "v-show",
-      value: _vm.$parent.checkPermission("DeleteRole") == true,
-      expression: "$parent.checkPermission('DeleteRole') == true"
+      value: _vm.$parent.checkPermission("EditRoleAdmin") == true,
+      expression: "$parent.checkPermission('EditRoleAdmin') == true"
     }],
-    staticClass: "h-12 px-6 mx-4 bg-red-400 hover:bg-red-500 flex items-center justify-center text-white shadow-lg rounded cursor-pointer",
+    staticClass: "h-12 px-6 mx-4 bg-gray-400 hover:bg-gray-500 flex items-center justify-center text-white shadow-lg rounded cursor-pointer",
+    attrs: {
+      to: "/admin/role/" + _vm.$route.params.id + "/edit"
+    }
+  }, [_c("i", {
+    staticClass: "fa-solid fa-pen-to-square ml-2"
+  }), _vm._v("\n                    تعديل \n                ")]), _vm._v(" "), _vm.mainItem.state != 2 ? _c("div", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.$parent.checkPermission("DeleteAdmin") == true,
+      expression: "$parent.checkPermission('DeleteAdmin') == true"
+    }],
+    staticClass: "h-12 px-6 mx-4 my-2 bg-red-400 hover:bg-red-500 flex items-center justify-center text-white shadow-lg rounded cursor-pointer",
     on: {
-      click: _vm.deleteRole
+      click: _vm.deleteMainItem
     }
   }, [_c("i", {
     staticClass: "far fa-trash-alt ml-2"
-  }), _vm._v("\n                    حذف\n                ")]) : _vm._e(), _vm._v(" "), _c("router-link", {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: _vm.$parent.checkPermission("EditRole") == true,
-      expression: "$parent.checkPermission('EditRole') == true"
-    }],
-    staticClass: "h-12 px-6 bg-green-400 hover:bg-green-500 flex items-center justify-center text-white shadow-lg rounded cursor-pointer",
-    attrs: {
-      to: "/admin/role/" + this.$route.params.id + "/edit"
-    }
-  }, [_c("i", {
-    staticClass: "far fa-edit ml-2"
-  }), _vm._v("\n                    تعديل\n                ")])], 1)]) : _vm._e(), _vm._v(" "), _vm.loaded && _vm.role.length == 0 ? _c("Empty-Box", {
+  }), _vm._v("\n                حذف الدور\n            ")]) : _vm._e()], 1)]) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box", {
     attrs: {
       message: "لا يوجد دور بهذا الرقم"
     }
-  }) : _vm._e()], 1);
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("div", [_vm._v("\n            حدث خطأ ما\n        ")]) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("div", [_vm._v("\n            تحقق من اتصالك بالانترنت\n        ")]) : _vm._e()], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -4326,17 +4452,25 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "w-auto md:p-8 p-4"
+    staticClass: "w-auto md:p-8 p-4",
+    attrs: {
+      id: "0"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.openOptions($event);
+      }
+    }
   }, [_c("div", {
     staticClass: "flex justify-between w-full h-16 items-center"
   }, [_c("div", {
     staticClass: "text-2xl font-semibold cairo text-gray-600"
-  }, [_vm._v("\n                أدوار المشرفين\n            ")]), _vm._v(" "), _c("router-link", {
+  }, [_vm._v("\n            أدوار المشرفين\n        ")]), _vm._v(" "), _c("router-link", {
     directives: [{
       name: "show",
       rawName: "v-show",
-      value: _vm.$parent.checkPermission("CreateRole") == true,
-      expression: "$parent.checkPermission('CreateRole') == true"
+      value: _vm.$parent.checkPermission("CreateAdmin") == true,
+      expression: "$parent.checkPermission('CreateAdmin') == true"
     }],
     staticClass: "rounded px-4 flex items-center cairo font-medium add-btn",
     attrs: {
@@ -4345,67 +4479,199 @@ var render = function render() {
   }, [_c("span", {
     staticClass: "h-12 flex items-center"
   }, [_c("i", {
-    staticClass: "fas fa-plus ml-4 text-lg"
-  }), _vm._v("\n                    دور جديد\n                ")])])], 1), _vm._v(" "), _c("div", {
-    staticClass: "flex justify-between my-8"
-  }), _vm._v(" "), _vm.loaded && _vm.roles.length != 0 ? _c("table", {
+    staticClass: "fas fa-plus text-xl"
+  }), _vm._v(" "), _c("p", {
+    staticClass: "mr-3 md:block hidden"
+  }, [_vm._v("\n                 أضف دور\n             ")])])])], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "flex flex-wrap pb-5 px-4 bg-white border rounded"
+  }, [_c("div", {
+    staticClass: "xl:w-3/4 lg:w-2/3 md:w-1/2 w-full px-2 mt-4"
+  }, [_c("div", {
+    staticClass: "text-gray-400 text-sm cairo h-8 flex items-center mr-2"
+  }, [_vm._v("الإسم")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.nameSrh,
+      expression: "nameSrh"
+    }],
+    staticClass: "w-full h-12 border border-gray-300 rounded outline-green-600 cairo placeholder:text-sm px-4",
+    attrs: {
+      type: "text",
+      placeholder: "الإسم"
+    },
+    domProps: {
+      value: _vm.nameSrh
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.nameSrh = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "xl:w-1/4 lg:w-1/3 md:w-1/2 px-2 mt-4 flex items-center justify-center"
+  }, [_c("div", {
+    staticClass: "h-10 mt-8 shadow rounded w-28 add-btn flex items-center justify-center text-white cairo",
+    on: {
+      click: function click($event) {
+        return _vm.loadData(1);
+      }
+    }
+  }, [_vm._v("\n                بحث\n            ")]), _vm._v(" "), _c("div", {
+    staticClass: "h-10 mt-8 shadow-lg rounded w-24 bg-gray-400 mr-3 text-white cairo flex items-center justify-center",
+    on: {
+      click: function click($event) {
+        return _vm.clearSearch();
+      }
+    }
+  }, [_vm._v("\n                تصفير\n            ")])])]), _vm._v(" "), _vm.loaded == 200 ? _c("div", [_c("table", {
     staticClass: "w-full"
-  }, [_vm._m(0), _vm._v(" "), _vm._l(_vm.roles, function (item, index) {
+  }, [_vm._m(1), _vm._v(" "), _vm._l(_vm.mainList, function (item, index) {
     return _c("tr", {
       key: index,
       staticClass: "h-24 bg-white shadow-2 rounded-lg text-lg text-gray-600 font-medium hover:bg-gray-50"
     }, [_c("td", {
       staticClass: "w-12 text-center rounded-r-lg"
     }, [_vm._v(_vm._s(item.id))]), _vm._v(" "), _c("td", {
-      staticClass: "rounded-l-lg"
-    }, [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("td", {
-      staticClass: "rounded-l-lg"
-    }, [_vm._v(_vm._s(item.admins_count))]), _vm._v(" "), _c("td", {
-      staticClass: "rounded-l-lg h-20"
+      staticClass: "table-cell"
+    }, [_vm._v("\n                    " + _vm._s(item.name) + "\n                ")]), _vm._v(" "), _c("td", {
+      staticClass: "lg:table-cell hidden"
+    }, [_vm._v(" " + _vm._s(item.admins_count))]), _vm._v(" "), _c("td", {
+      staticClass: "rounded-l-lg h-20 flex items-center justify-center"
+    }, [_c("div", {
+      staticClass: "flex items-start justify-center mx-auto"
+    }, [_c("i", {
+      staticClass: "fas fa-ellipsis-v text-gray-500 text-xl px-4 flex pt-2 justify-center",
+      attrs: {
+        id: item.id
+      },
+      on: {
+        click: function click($event) {
+          return _vm.openOptions($event);
+        }
+      }
+    }), _vm._v(" "), item.id == _vm.optionId ? _c("div", {
+      staticClass: "py-2 px-2 w-32 bg-white rounded-lg absolute text-gray-600 text-sm cairo",
+      staticStyle: {
+        "box-shadow": "rgb(145 158 171 / 24%) 0px 0px 2px 0px, rgb(145 158 171 / 24%) -20px 20px 40px -4px"
+      }
     }, [_c("router-link", {
       attrs: {
         to: "/admin/role/" + item.id
       }
+    }, [_c("div", {
+      staticClass: "h-8 w-auto px-2 rounded-lg hover:bg-gray-100 flex items-center justify-start"
     }, [_c("i", {
-      staticClass: "fas fa-eye px-4 py-2 see-btn rounded ml-2",
-      attrs: {
-        title: "عرض الدور"
-      }
-    })]), _vm._v(" "), _c("router-link", {
+      staticClass: "fas fa-eye"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "mr-2"
+    }, [_vm._v("\n                                        عرض\n                                    ")]), _vm._v(" "), _c("div")])]), _vm._v(" "), _c("router-link", {
       directives: [{
         name: "show",
         rawName: "v-show",
-        value: _vm.$parent.checkPermission("EditRole") == true,
-        expression: "$parent.checkPermission('EditRole') == true"
+        value: _vm.$parent.checkPermission("EditRoleAdmin") == true,
+        expression: "$parent.checkPermission('EditRoleAdmin') == true"
       }],
       attrs: {
         to: "/admin/role/" + item.id + "/edit"
       }
+    }, [_c("div", {
+      staticClass: "h-8 w-auto px-2 rounded-lg hover:bg-gray-100 flex items-center justify-start"
     }, [_c("i", {
-      staticClass: "far fa-edit px-4 py-2 pink-btn rounded ml-2",
-      attrs: {
-        title: "تعديل الدور"
-      }
-    })]), _vm._v(" "), item.admins_count == 0 ? _c("i", {
-      directives: [{
-        name: "show",
-        rawName: "v-show",
-        value: _vm.$parent.checkPermission("DeleteRole") == true,
-        expression: "$parent.checkPermission('DeleteRole') == true"
-      }],
-      staticClass: "far fa-trash-alt px-4 py-2 delete-btn rounded ml-2",
-      attrs: {
-        title: "حذف الدور"
-      },
+      staticClass: "fas fa-edit"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "mr-2"
+    }, [_vm._v("\n                                        تعديل\n                                    ")]), _vm._v(" "), _c("div")])]), _vm._v(" "), item.admins_count == 0 ? _c("div", {
+      staticClass: "h-px border border-dashed border-gray-200 w-full my-1"
+    }) : _vm._e(), _vm._v(" "), item.admins_count == 0 ? _c("div", {
+      staticClass: "h-8 w-auto px-2 rounded-lg hover:bg-gray-100 flex items-center justify-start text-red-500",
       on: {
         click: function click($event) {
-          return _vm.deleteRole(item.id, index);
+          return _vm.deleteMainItem(item.id);
         }
       }
-    }) : _vm._e()], 1)]);
-  })], 2) : _vm._e(), _vm._v(" "), _vm.loaded && _vm.roles.length == 0 ? _c("Empty-Box") : _vm._e()], 1);
+    }, [_c("i", {
+      staticClass: "far fa-trash-alt"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "mr-2"
+    }, [_vm._v("\n                                    حذف\n                                ")]), _vm._v(" "), _c("div")]) : _vm._e()], 1) : _vm._e()])])]);
+  })], 2), _vm._v(" "), _c("div", {
+    staticClass: "h-14 flex items-center justify-start px-6 shadow-2 rounded-lg bg-white cairo"
+  }, [_c("div", {
+    staticClass: "flex items-center text-sm text-gray-600"
+  }, [_c("div", {
+    staticClass: "text-gray-500"
+  }, [_vm._v("عددالصفوف")]), _vm._v(" "), _c("select", {
+    staticClass: "mr-2",
+    on: {
+      change: function change($event) {
+        return _vm.changePerPage($event);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      value: "5"
+    }
+  }, [_vm._v("5")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "10"
+    }
+  }, [_vm._v("10")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "20"
+    }
+  }, [_vm._v("20")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "50"
+    }
+  }, [_vm._v("50")])]), _vm._v(" "), _c("div", {
+    staticClass: "mr-4"
+  }, [_vm._v(_vm._s(_vm.itemTo) + "-" + _vm._s(_vm.itemFrom))]), _vm._v(" "), _c("div", {
+    staticClass: "mr-2 ml-1 text-gray-500"
+  }, [_vm._v("من")]), _vm._v(" "), _c("div", [_vm._v(_vm._s(_vm.totalRows))]), _vm._v(" "), _c("div", {
+    staticClass: "text-gray-500 mr-1"
+  }, [_vm._v("سجل")])]), _vm._v(" "), _c("div", {
+    staticClass: "flex text-sm items-center mr-10"
+  }, [_vm.pageId > 1 ? _c("div", {
+    staticClass: "ml-5 text-gray-600",
+    on: {
+      click: function click($event) {
+        return _vm.moveToPrevius();
+      }
+    }
+  }, [_c("i", {
+    staticClass: "fas fa-chevron-right ml-1"
+  }), _vm._v("\n                    السابق\n                ")]) : _c("div", {
+    staticClass: "text-gray-400 ml-5"
+  }, [_c("i", {
+    staticClass: "fas fa-chevron-right ml-1"
+  }), _vm._v("\n                    السابق\n                ")]), _vm._v(" "), _c("div", {
+    staticClass: "text-base font-medium"
+  }, [_vm._v(_vm._s(_vm.pageId))]), _vm._v(" "), _vm.pageId < _vm.lastPage ? _c("div", {
+    staticClass: "mr-5 text-gray-600",
+    on: {
+      click: function click($event) {
+        return _vm.moveToNext();
+      }
+    }
+  }, [_vm._v("التالي\n                    "), _c("i", {
+    staticClass: "fas fa-chevron-left mr-1"
+  })]) : _c("div", {
+    staticClass: "text-gray-400 mr-5"
+  }, [_vm._v("التالي\n                    "), _c("i", {
+    staticClass: "fas fa-chevron-left mr-1"
+  })])])])]) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box") : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("div", [_vm._v("\n        حدث خطأ ما\n    ")]) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("div", [_vm._v("\n        تحقق من اتصالك بالانترنت\n    ")]) : _vm._e()], 1);
 };
 var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "flex justify-between my-8"
+  }, [_c("div", {
+    staticClass: "border rounded font-semibold cairo flex bg-center text-gray-700"
+  })]);
+}, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("tr", {
@@ -4414,10 +4680,10 @@ var staticRenderFns = [function () {
     staticClass: "w-12 text-center"
   }, [_vm._v("#")]), _vm._v(" "), _c("td", {
     staticClass: "sm:table-cell"
-  }, [_vm._v("اسم الدور")]), _vm._v(" "), _c("td", {
-    staticClass: "sm:table-cell"
+  }, [_vm._v("إسم الدور")]), _vm._v(" "), _c("td", {
+    staticClass: "lg:table-cell hidden"
   }, [_vm._v("عدد المشرفين")]), _vm._v(" "), _c("td", {
-    staticClass: "sm:table-cell"
+    staticClass: "rounded-l-lg text-center"
   }, [_vm._v("الإجراءات")])]);
 }];
 render._withStripped = true;
@@ -5095,7 +5361,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this2 = this;
     this.$store.commit("activePage", this.sideMenuPage);
     this.$loading.Start();
-    this.$http.GetAllRoles().then(function (response) {
+    this.$http.GetAllRoles(0, 100, '').then(function (response) {
       _this2.$loading.Stop();
       _this2.loaded = true;
       if (response.status == 200) {
@@ -5361,7 +5627,7 @@ __webpack_require__.r(__webpack_exports__);
         localStorage.setItem("token", response.data.admin.token);
         axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.admin.token;
         _this.$store.commit("setUser", response.data.admin);
-        _this.$store.commit("setPermissions", response.data.permissions);
+        _this.$store.commit("setPermissions", response.data.admin.permissions);
         _this.$store.commit("authLoaded");
         _this.$alert.Success(response.data.message);
         _this.$router.push("/admin");
@@ -5843,10 +6109,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      role: [],
+      mainItem: [],
       formData: {
         name: "",
         permissions: []
@@ -5855,30 +6124,42 @@ __webpack_require__.r(__webpack_exports__);
         name: "",
         permissions: ""
       },
-      loaded: false
+      loaded: 0,
+      // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+      // Side Menu
+      sideMenuPage: {
+        main: 5,
+        sub: 3
+      }
     };
   },
   methods: {
     togglePermission: function togglePermission(index) {
-      this.role.permissions[index].state = !this.role.permissions[index].state;
+      this.mainItem.permissions[index].state = !this.mainItem.permissions[index].state;
     },
-    editRole: function editRole() {
+    editMainItem: function editMainItem(id) {
       var _this = this;
       this.formData.permissions = [];
-      for (var i = 0; i < this.role.permissions.length; i++) {
-        if (this.role.permissions[i].state == true) this.formData.permissions.push(this.role.permissions[i].name);
+      for (var i = 0; i < this.mainItem.permissions.length; i++) {
+        if (this.mainItem.permissions[i].state == true) this.formData.permissions.push(this.mainItem.permissions[i].name);
       }
       this.validateName();
       this.validatePermissions();
       if (this.formValidate.name != "") return 0;
       if (this.formValidate.permissions != "") return 0;
       this.$loading.Start();
-      this.$http.UpdateRole(this.$route.params.id, this.formData).then(function (response) {
+      this.$http.EditRole(this.$route.params.id, this.formData).then(function (response) {
         _this.$loading.Stop();
         if (response.status == 200) {
           _this.$alert.Success(response.data.message);
         } else if (response.status == 204) {
-          _this.$alert.Empty("هذا الدور غير موجود");
+          _this.mainItem = [];
+          _this.loaded = 204;
+          _this.$alert.Empty("لم يعد هذا الدور متوفرة, قد يكون شخص أخر قام بحذفه");
+        } else if (response.status == 400) {
+          _this.mainItem = [];
+          _this.loaded = 204;
+          _this.$alert.Empty(response.data.messageresponse.data.message);
         }
       })["catch"](function (error) {
         _this.$loading.Stop();
@@ -5910,20 +6191,23 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this2 = this;
-    this.$store.commit("activePage", 4);
+    this.$store.commit("activePage", this.sideMenuPage);
     this.$loading.Start();
     this.$http.GetRoleById(this.$route.params.id).then(function (response) {
       _this2.$loading.Stop();
       _this2.loaded = true;
       if (response.status == 200) {
-        _this2.role = response.data.role;
-        _this2.formData.name = _this2.role.name;
+        _this2.mainItem = response.data.data;
+        _this2.formData.name = response.data.data.name;
+        _this2.loaded = 200;
         _this2.$alert.Success(response.data.message);
       } else if (response.status == 204) {
-        _this2.$alert.Empty("هذا الدور غير موجود");
+        _this2.loaded = 204;
+        _this2.$alert.Empty("هذه الدور غير متوفر");
       }
     })["catch"](function (error) {
       _this2.$loading.Stop();
+      _this2.loaded = 404;
       _this2.loaded = true;
       _this2.$alert.BadRequest(error.response);
     });
@@ -5945,30 +6229,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      loaded: false,
+      mainItem: [],
       formData: {
         name: "",
         permissions: []
       },
-      permissions: [],
       formValidate: {
         name: "",
         permissions: ""
+      },
+      loaded: 0,
+      // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+      // Side Menu
+      sideMenuPage: {
+        main: 5,
+        sub: 4
       }
     };
   },
   methods: {
     togglePermission: function togglePermission(index) {
-      this.permissions[index].state = !this.permissions[index].state;
+      this.mainItem.permissions[index].state = !this.mainItem.permissions[index].state;
     },
-    addRole: function addRole() {
+    editMainItem: function editMainItem(id) {
       var _this = this;
       this.formData.permissions = [];
-      for (var i = 0; i < this.permissions.length; i++) {
-        if (this.permissions[i].state == true) this.formData.permissions.push(this.permissions[i].name);
+      for (var i = 0; i < this.mainItem.permissions.length; i++) {
+        if (this.mainItem.permissions[i].state == true) this.formData.permissions.push(this.mainItem.permissions[i].name);
       }
       this.validateName();
       this.validatePermissions();
@@ -5977,10 +6270,14 @@ __webpack_require__.r(__webpack_exports__);
       this.$loading.Start();
       this.$http.PostNewRole(this.formData).then(function (response) {
         _this.$loading.Stop();
-        _this.$alert.Success(response.data.message);
-        _this.formData.name = "";
-        for (var i = 0; i < _this.permissions.length; i++) {
-          if (_this.permissions[i].state == true) _this.permissions[i].state = false;
+        if (response.status == 200) {
+          _this.formData.name = "";
+          for (var i = 0; i < _this.mainItem.permissions.length; i++) {
+            _this.mainItem.permissions[i].state = false;
+          }
+          _this.$alert.Success(response.data.message);
+        } else if (response.status == 400) {
+          _this.$alert.Empty(response.data.messageresponse.data.message);
         }
       })["catch"](function (error) {
         _this.$loading.Stop();
@@ -6012,19 +6309,23 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this2 = this;
-    this.$store.commit("activePage", 4);
+    this.$store.commit("activePage", this.sideMenuPage);
     this.$loading.Start();
     this.$http.GetAllPermissionsForNewRole().then(function (response) {
       _this2.$loading.Stop();
       _this2.loaded = true;
       if (response.status == 200) {
-        _this2.permissions = response.data.permissions;
+        _this2.mainItem = response.data.data;
+        _this2.formData.name = response.data.data.name;
+        _this2.loaded = 200;
         _this2.$alert.Success(response.data.message);
       } else if (response.status == 204) {
-        _this2.$alert.Empty("لا يتوفر اي صلاحية حاليا");
+        _this2.loaded = 204;
+        _this2.$alert.Empty("هذه الدور غير متوفر");
       }
     })["catch"](function (error) {
       _this2.$loading.Stop();
+      _this2.loaded = 404;
       _this2.loaded = true;
       _this2.$alert.BadRequest(error.response);
     });
@@ -6052,12 +6353,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      role: [],
-      loaded: false
+      mainItem: [],
+      loaded: 0,
+      // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+      // Side Menu
+      sideMenuPage: {
+        main: 5,
+        sub: 3
+      }
     };
   },
   methods: {
-    deleteRole: function deleteRole() {
+    deleteMainItem: function deleteMainItem(id) {
       var _this = this;
       sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
         title: "هل أنت متأكد",
@@ -6066,7 +6373,7 @@ __webpack_require__.r(__webpack_exports__);
         showCancelButton: true,
         confirmButtonColor: "#16a085",
         cancelButtonColor: "#d33",
-        confirmButtonText: "نعم قم بالحذف",
+        confirmButtonText: "نعم حذف",
         cancelButtonText: "إلغاء"
       }).then(function (result) {
         if (result.isConfirmed) {
@@ -6074,11 +6381,17 @@ __webpack_require__.r(__webpack_exports__);
           _this.$http.DeleteRole(_this.$route.params.id).then(function (response) {
             _this.$loading.Stop();
             if (response.status == 200) {
-              _this.role = [];
+              _this.mainItem = [];
+              _this.loaded = 204;
               _this.$alert.Success(response.data.message);
             } else if (response.status == 204) {
-              _this.role = [];
-              _this.$alert.Empty("لم يعد هذا الدور متوفر, قد يكون شخص أخر قام بحذفه");
+              _this.mainItem = [];
+              _this.loaded = 204;
+              _this.$alert.Empty("لم يعد هذا الدور متوفرة, قد يكون شخص أخر قام بحذفه");
+            } else if (response.status == 400) {
+              _this.mainItem = [];
+              _this.loaded = 204;
+              _this.$alert.Empty(response.data.messageresponse.data.message);
             }
           })["catch"](function (error) {
             _this.$loading.Stop();
@@ -6090,19 +6403,22 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this2 = this;
-    this.$store.commit("activePage", 4);
+    this.$store.commit("activePage", this.sideMenuPage);
     this.$loading.Start();
     this.$http.GetRoleById(this.$route.params.id).then(function (response) {
       _this2.$loading.Stop();
       _this2.loaded = true;
       if (response.status == 200) {
-        _this2.role = response.data.role;
+        _this2.mainItem = response.data.data;
+        _this2.loaded = 200;
         _this2.$alert.Success(response.data.message);
       } else if (response.status == 204) {
-        _this2.$alert.Empty("هذا الدور غير موجود");
+        _this2.loaded = 204;
+        _this2.$alert.Empty("هذه الدور غير متوفر");
       }
     })["catch"](function (error) {
       _this2.$loading.Stop();
+      _this2.loaded = 404;
       _this2.loaded = true;
       _this2.$alert.BadRequest(error.response);
     });
@@ -6130,13 +6446,84 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      roles: [],
-      loaded: false
+      mainList: [],
+      loaded: 0,
+      // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+      tagId: null,
+      //null =>All ,  1 => Active , 0 =>Not Active , 2=>Banned 
+      pageId: 1,
+      countPerPage: 5,
+      lastPage: 0,
+      totalRows: 0,
+      itemFrom: 0,
+      itemTo: 0,
+      // Search 
+      nameSrh: "",
+      // UI
+      optionId: 0,
+      // Side Menu
+      sideMenuPage: {
+        main: 5,
+        sub: 3
+      }
     };
   },
   methods: {
-    deleteRole: function deleteRole(id, index) {
+    loadData: function loadData(page) {
       var _this = this;
+      this.pageId = page;
+      this.$loading.Start();
+      this.$http.GetAllRoles(this.pageId, this.countPerPage, this.nameSrh).then(function (response) {
+        _this.$loading.Stop();
+        if (response.status == 200) {
+          _this.mainList = response.data.data.data;
+          _this.lastPage = response.data.data.last_page;
+          _this.totalRows = response.data.data.total;
+          _this.itemFrom = response.data.data.from;
+          _this.itemTo = response.data.data.to;
+          _this.$alert.Success(response.data.message);
+          _this.loaded = 200;
+        } else if (response.status == 204) {
+          _this.loaded = 204;
+          _this.$alert.Empty("تنبيه لا يوجد اي ادوار");
+        } else {
+          _this.loaded = 400;
+          alert("400");
+        }
+      })["catch"](function (error) {
+        _this.loaded = 404;
+        _this.$loading.Stop();
+        _this.$alert.BadRequest(error.response);
+      });
+    },
+    changePerPage: function changePerPage(event) {
+      this.countPerPage = event.target.value;
+      this.pageId = 1;
+      this.loadData(this.pageId);
+    },
+    clearSearch: function clearSearch() {
+      this.nameSrh = "";
+      this.loadData(this.pageId);
+    },
+    moveToNext: function moveToNext() {
+      this.pageId++;
+      this.loadData(this.pageId);
+    },
+    moveToPrevius: function moveToPrevius() {
+      this.pageId--;
+      this.loadData(this.pageId);
+    },
+    openOptions: function openOptions(event) {
+      if (event.target.id == 0) {
+        this.optionId = 0;
+        console.log(event.target.id);
+      } else {
+        this.optionId = event.target.id;
+        console.log(event.target.id);
+      }
+    },
+    deleteMainItem: function deleteMainItem(id) {
+      var _this2 = this;
       sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
         title: "هل أنت متأكد",
         text: "هل أنت متأكد من أنك تريد حذف هذا الدور !",
@@ -6144,47 +6531,41 @@ __webpack_require__.r(__webpack_exports__);
         showCancelButton: true,
         confirmButtonColor: "#16a085",
         cancelButtonColor: "#d33",
-        confirmButtonText: "نعم قم بالحذف",
+        confirmButtonText: "نعم حذف",
         cancelButtonText: "إلغاء"
       }).then(function (result) {
         if (result.isConfirmed) {
-          _this.$loading.Start();
-          _this.$http.DeleteRole(id).then(function (response) {
-            _this.$loading.Stop();
+          _this2.$loading.Start();
+          _this2.$http.DeleteRole(id).then(function (response) {
+            _this2.$loading.Stop();
             if (response.status == 200) {
-              _this.roles.splice(index, 1);
-              _this.$alert.Success(response.data.message);
+              _this2.mainList.splice(_this2.mainList.findIndex(function (m) {
+                return m.id === id;
+              }), 1);
+              _this2.$alert.Success(response.data.message);
             } else if (response.status == 204) {
-              _this.$alert.Empty("لم يعد هذا الدور متوفر, قد يكون شخص أخر قام بحذفه");
+              _this2.mainList.splice(_this2.mainList.findIndex(function (m) {
+                return m.id === id;
+              }), 1);
+              _this2.$alert.Empty("لم يعد هذا الدور متوفرة, قد يكون شخص أخر قام بحذفه");
+            } else if (response.status == 400) {
+              _this2.$alert.Empty(response.data.message);
             }
           })["catch"](function (error) {
-            _this.$loading.Stop();
-            _this.$alert.BadRequest(error.response);
+            _this2.$loading.Stop();
+            _this2.$alert.BadRequest(error.response);
           });
         }
       });
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
-    this.$store.commit("activePage", 4);
+    this.$store.commit("activePage", this.sideMenuPage);
     this.$loading.Start();
-    this.$http.GetAllRoles().then(function (response) {
-      _this2.$loading.Stop();
-      _this2.loaded = true;
-      if (response.status == 200) {
-        _this2.roles = response.data.roleList;
-        _this2.$alert.Success(response.data.message);
-      } else if (response.status == 204) {
-        _this2.$alert.Empty("تنبيه لا يوجد اي أدوار");
-      }
-    })["catch"](function (error) {
-      _this2.loaded = true;
-      _this2.$loading.Stop();
-      _this2.$alert.BadRequest(error.response);
-    });
+    this.loadData(this.pageId);
   },
-  computed: {}
+  computed: {},
+  created: function created() {}
 });
 
 /***/ }),
@@ -6429,23 +6810,23 @@ __webpack_require__.r(__webpack_exports__);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().put("/admin/api/admin/" + admin + "/role", formData);
   },
   // ============== Role Part =======================
-  GetAllRoles: function GetAllRoles() {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/admin/api/permission?page=1&count=10");
+  GetAllRoles: function GetAllRoles(page, countPerPage, name) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/admin/api/permission?page=" + page + "&count=" + countPerPage + "&name=" + name);
   },
   GetRoleById: function GetRoleById(role) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/admin/role/" + role);
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/admin/api/permission/" + role);
   },
   DeleteRole: function DeleteRole(role) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]("/api/admin/role/" + role);
+    return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]("/admin/api/permission/" + role);
   },
   GetAllPermissionsForNewRole: function GetAllPermissionsForNewRole() {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/admin/role/permissions");
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/admin/api/permission/allPermissions");
   },
   PostNewRole: function PostNewRole(role) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/admin/role", role);
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().post("/admin/api/permission", role);
   },
-  UpdateRole: function UpdateRole(role, formData) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default().put("/api/admin/role/" + role, formData);
+  EditRole: function EditRole(role, formData) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().put("/admin/api/permission/" + role, formData);
   }
 });
 
@@ -6692,6 +7073,30 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
 //     enabledTransports: ['ws', 'wss'],
 // });
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/pages/Layout/AppHeader/AppHeader.vue?vue&type=style&index=0&id=32d6a731&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/pages/Layout/AppHeader/AppHeader.vue?vue&type=style&index=0&id=32d6a731&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.active-header-user {\n    background: rgba(67, 89, 113, .04);\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
 
 /***/ }),
 
@@ -24225,6 +24630,36 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/pages/Layout/AppHeader/AppHeader.vue?vue&type=style&index=0&id=32d6a731&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/pages/Layout/AppHeader/AppHeader.vue?vue&type=style&index=0&id=32d6a731&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_11_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_11_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AppHeader_vue_vue_type_style_index_0_id_32d6a731_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AppHeader.vue?vue&type=style&index=0&id=32d6a731&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/pages/Layout/AppHeader/AppHeader.vue?vue&type=style&index=0&id=32d6a731&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_11_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_11_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AppHeader_vue_vue_type_style_index_0_id_32d6a731_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_11_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_11_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AppHeader_vue_vue_type_style_index_0_id_32d6a731_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/pages/Layout/AppSide/AppSide.vue?vue&type=style&index=0&id=397659f6&lang=css&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/pages/Layout/AppSide/AppSide.vue?vue&type=style&index=0&id=397659f6&lang=css& ***!
@@ -28441,15 +28876,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _AppHeader_vue_vue_type_template_id_32d6a731___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AppHeader.vue?vue&type=template&id=32d6a731& */ "./resources/js/admin/pages/Layout/AppHeader/AppHeader.vue?vue&type=template&id=32d6a731&");
 /* harmony import */ var _AppHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AppHeader.vue?vue&type=script&lang=js& */ "./resources/js/admin/pages/Layout/AppHeader/AppHeader.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _AppHeader_vue_vue_type_style_index_0_id_32d6a731_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AppHeader.vue?vue&type=style&index=0&id=32d6a731&lang=css& */ "./resources/js/admin/pages/Layout/AppHeader/AppHeader.vue?vue&type=style&index=0&id=32d6a731&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
+;
 
 
 /* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _AppHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _AppHeader_vue_vue_type_template_id_32d6a731___WEBPACK_IMPORTED_MODULE_0__.render,
   _AppHeader_vue_vue_type_template_id_32d6a731___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
@@ -28792,7 +29229,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _EditRole_html_vue_type_template_id_1f0da024___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditRole.html?vue&type=template&id=1f0da024& */ "./resources/js/admin/pages/Roles/EditRole/EditRole.html?vue&type=template&id=1f0da024&");
+/* harmony import */ var _EditRole_html_vue_type_template_id_1f0da024_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditRole.html?vue&type=template&id=1f0da024&scoped=true& */ "./resources/js/admin/pages/Roles/EditRole/EditRole.html?vue&type=template&id=1f0da024&scoped=true&");
 /* harmony import */ var _EditRole_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditRole.js?vue&type=script&lang=js& */ "./resources/js/admin/pages/Roles/EditRole/EditRole.js?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
@@ -28804,11 +29241,11 @@ __webpack_require__.r(__webpack_exports__);
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _EditRole_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _EditRole_html_vue_type_template_id_1f0da024___WEBPACK_IMPORTED_MODULE_0__.render,
-  _EditRole_html_vue_type_template_id_1f0da024___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _EditRole_html_vue_type_template_id_1f0da024_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _EditRole_html_vue_type_template_id_1f0da024_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  null,
+  "1f0da024",
   null
   
 )
@@ -28870,7 +29307,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Role_html_vue_type_template_id_735e9264___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Role.html?vue&type=template&id=735e9264& */ "./resources/js/admin/pages/Roles/Role/Role.html?vue&type=template&id=735e9264&");
+/* harmony import */ var _Role_html_vue_type_template_id_735e9264_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Role.html?vue&type=template&id=735e9264&scoped=true& */ "./resources/js/admin/pages/Roles/Role/Role.html?vue&type=template&id=735e9264&scoped=true&");
 /* harmony import */ var _Role_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Role.js?vue&type=script&lang=js& */ "./resources/js/admin/pages/Roles/Role/Role.js?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
@@ -28882,11 +29319,11 @@ __webpack_require__.r(__webpack_exports__);
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _Role_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Role_html_vue_type_template_id_735e9264___WEBPACK_IMPORTED_MODULE_0__.render,
-  _Role_html_vue_type_template_id_735e9264___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _Role_html_vue_type_template_id_735e9264_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Role_html_vue_type_template_id_735e9264_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  null,
+  "735e9264",
   null
   
 )
@@ -29447,19 +29884,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/admin/pages/Roles/EditRole/EditRole.html?vue&type=template&id=1f0da024&":
-/*!**********************************************************************************************!*\
-  !*** ./resources/js/admin/pages/Roles/EditRole/EditRole.html?vue&type=template&id=1f0da024& ***!
-  \**********************************************************************************************/
+/***/ "./resources/js/admin/pages/Roles/EditRole/EditRole.html?vue&type=template&id=1f0da024&scoped=true&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/Roles/EditRole/EditRole.html?vue&type=template&id=1f0da024&scoped=true& ***!
+  \**********************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_EditRole_html_vue_type_template_id_1f0da024___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_EditRole_html_vue_type_template_id_1f0da024___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_EditRole_html_vue_type_template_id_1f0da024_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_EditRole_html_vue_type_template_id_1f0da024_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_EditRole_html_vue_type_template_id_1f0da024___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./EditRole.html?vue&type=template&id=1f0da024& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Roles/EditRole/EditRole.html?vue&type=template&id=1f0da024&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_EditRole_html_vue_type_template_id_1f0da024_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./EditRole.html?vue&type=template&id=1f0da024&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Roles/EditRole/EditRole.html?vue&type=template&id=1f0da024&scoped=true&");
 
 
 /***/ }),
@@ -29481,19 +29918,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/admin/pages/Roles/Role/Role.html?vue&type=template&id=735e9264&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/admin/pages/Roles/Role/Role.html?vue&type=template&id=735e9264& ***!
-  \**************************************************************************************/
+/***/ "./resources/js/admin/pages/Roles/Role/Role.html?vue&type=template&id=735e9264&scoped=true&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/Roles/Role/Role.html?vue&type=template&id=735e9264&scoped=true& ***!
+  \**************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Role_html_vue_type_template_id_735e9264___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Role_html_vue_type_template_id_735e9264___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Role_html_vue_type_template_id_735e9264_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Role_html_vue_type_template_id_735e9264_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Role_html_vue_type_template_id_735e9264___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./Role.html?vue&type=template&id=735e9264& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Roles/Role/Role.html?vue&type=template&id=735e9264&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Role_html_vue_type_template_id_735e9264_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./Role.html?vue&type=template&id=735e9264&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Roles/Role/Role.html?vue&type=template&id=735e9264&scoped=true&");
 
 
 /***/ }),
@@ -29511,6 +29948,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Roles_html_vue_type_template_id_3bd4bbdc_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Roles_html_vue_type_template_id_3bd4bbdc_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./Roles.html?vue&type=template&id=3bd4bbdc&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Roles/Roles.html?vue&type=template&id=3bd4bbdc&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Layout/AppHeader/AppHeader.vue?vue&type=style&index=0&id=32d6a731&lang=css&":
+/*!**************************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/Layout/AppHeader/AppHeader.vue?vue&type=style&index=0&id=32d6a731&lang=css& ***!
+  \**************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_11_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_11_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AppHeader_vue_vue_type_style_index_0_id_32d6a731_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader/dist/cjs.js!../../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AppHeader.vue?vue&type=style&index=0&id=32d6a731&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/pages/Layout/AppHeader/AppHeader.vue?vue&type=style&index=0&id=32d6a731&lang=css&");
 
 
 /***/ }),

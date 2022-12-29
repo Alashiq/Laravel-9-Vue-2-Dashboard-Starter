@@ -1,13 +1,20 @@
+
 import Swal from "sweetalert2";
 export default {
     data() {
         return {
-            role: [],
-            loaded: false
+            mainItem: [],
+            loaded: 0,
+            // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+            // Side Menu
+            sideMenuPage: {
+                main: 5,
+                sub: 3,
+            }
         };
     },
     methods: {
-        deleteRole: function() {
+        deleteMainItem: function (id) {
             Swal.fire({
                 title: "هل أنت متأكد",
                 text: "هل أنت متأكد من أنك تريد حذف هذا الدور !",
@@ -15,7 +22,7 @@ export default {
                 showCancelButton: true,
                 confirmButtonColor: "#16a085",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "نعم قم بالحذف",
+                confirmButtonText: "نعم حذف",
                 cancelButtonText: "إلغاء"
             }).then(result => {
                 if (result.isConfirmed) {
@@ -25,12 +32,21 @@ export default {
                         .then(response => {
                             this.$loading.Stop();
                             if (response.status == 200) {
-                                this.role = [];
+                                this.mainItem = [];
+                                this.loaded = 204;
                                 this.$alert.Success(response.data.message);
                             } else if (response.status == 204) {
-                                this.role = [];
+                                this.mainItem = [];
+                                this.loaded = 204;
                                 this.$alert.Empty(
-                                        "لم يعد هذا الدور متوفر, قد يكون شخص أخر قام بحذفه",
+                                    "لم يعد هذا الدور متوفرة, قد يكون شخص أخر قام بحذفه"
+                                );
+                            }
+                            else if (response.status == 400) {
+                                this.mainItem = [];
+                                this.loaded = 204;
+                                this.$alert.Empty(
+                                    response.data.messageresponse.data.message
                                 );
                             }
                         })
@@ -40,11 +56,10 @@ export default {
                         });
                 }
             });
-        }
+        },
     },
     mounted() {
-        this.$store.commit("activePage", 4);
-
+        this.$store.commit("activePage", this.sideMenuPage);
         this.$loading.Start();
         this.$http
             .GetRoleById(this.$route.params.id)
@@ -52,18 +67,21 @@ export default {
                 this.$loading.Stop();
                 this.loaded = true;
                 if (response.status == 200) {
-                    this.role = response.data.role;
+                    this.mainItem = response.data.data;
+                    this.loaded = 200;
                     this.$alert.Success(response.data.message);
                 } else if (response.status == 204) {
-                    this.$alert.Empty("هذا الدور غير موجود");
+                    this.loaded = 204;
+                    this.$alert.Empty("هذه الدور غير متوفر");
                 }
             })
             .catch(error => {
                 this.$loading.Stop();
+                this.loaded = 404;
                 this.loaded = true;
                 this.$alert.BadRequest(error.response);
             });
     },
     computed: {},
-    created() {}
+    created() { }
 };

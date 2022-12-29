@@ -148,7 +148,7 @@ export default {
 
         this.$loading.Start();
         this.$http
-            .GetAllRoles()
+            .GetAllRoles(0,100,'')
             .then(response => {
                 this.$loading.Stop();
                 this.loaded = true;

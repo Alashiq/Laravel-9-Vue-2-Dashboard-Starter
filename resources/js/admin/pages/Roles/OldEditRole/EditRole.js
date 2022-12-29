@@ -1,9 +1,8 @@
 
-import Swal from "sweetalert2";
 export default {
     data() {
         return {
-            mainItem: [],
+            role: [],
             formData: {
                 name: "",
                 permissions: []
@@ -12,28 +11,21 @@ export default {
                 name: "",
                 permissions: ""
             },
-            loaded: 0,
-            // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
-            // Side Menu
-            sideMenuPage: {
-                main: 5,
-                sub: 4,
-            }
+            loaded: false
         };
     },
     methods: {
         togglePermission(index) {
-            this.mainItem.permissions[index].state = !this.mainItem.permissions[index]
+            this.role.permissions[index].state = !this.role.permissions[index]
                 .state;
         },
-        editMainItem: function (id) {
-
+        editRole: function() {
             this.formData.permissions = [];
 
-            for (var i = 0; i < this.mainItem.permissions.length; i++) {
-                if (this.mainItem.permissions[i].state == true)
+            for (var i = 0; i < this.role.permissions.length; i++) {
+                if (this.role.permissions[i].state == true)
                     this.formData.permissions.push(
-                        this.mainItem.permissions[i].name
+                        this.role.permissions[i].name
                     );
             }
 
@@ -43,27 +35,20 @@ export default {
             if (this.formValidate.permissions != "") return 0;
 
         this.$loading.Start();
-            this.$http
-            .PostNewRole(this.formData)
+        this.$http
+            .UpdateRole(this.$route.params.id, this.formData)
             .then(response => {
                 this.$loading.Stop();
                 if (response.status == 200) {
-                    this.formData.name="";
-                    for(var i=0;i<this.mainItem.permissions.length;i++)
-                    this.mainItem.permissions[i].state=false;
                     this.$alert.Success(response.data.message);
-                }
-                else if (response.status == 400) {
-                    this.$alert.Empty(
-                        response.data.messageresponse.data.message
-                    );
+                } else if (response.status == 204) {
+                    this.$alert.Empty("هذا الدور غير موجود");
                 }
             })
             .catch(error => {
                 this.$loading.Stop();
                 this.$alert.BadRequest(error.response);
             });
-
         },
         validateName: function() {
             this.formValidate.name = "";
@@ -90,30 +75,28 @@ export default {
         }
     },
     mounted() {
-        this.$store.commit("activePage", this.sideMenuPage);
+        this.$store.commit("activePage", 4);
+
         this.$loading.Start();
         this.$http
-            .GetAllPermissionsForNewRole()
+            .GetRoleById(this.$route.params.id)
             .then(response => {
                 this.$loading.Stop();
                 this.loaded = true;
                 if (response.status == 200) {
-                    this.mainItem = response.data.data;
-                    this.formData.name=response.data.data.name;
-                    this.loaded = 200;
+                    this.role = response.data.role;
+                    this.formData.name = this.role.name;
                     this.$alert.Success(response.data.message);
                 } else if (response.status == 204) {
-                    this.loaded = 204;
-                    this.$alert.Empty("هذه الدور غير متوفر");
+                    this.$alert.Empty("هذا الدور غير موجود");
                 }
             })
             .catch(error => {
                 this.$loading.Stop();
-                this.loaded = 404;
                 this.loaded = true;
                 this.$alert.BadRequest(error.response);
             });
     },
     computed: {},
-    created() { }
+    created() {}
 };

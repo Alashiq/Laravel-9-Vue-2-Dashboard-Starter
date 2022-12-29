@@ -53,6 +53,12 @@ Route::middleware(['auth:sanctum', 'type.admin'])->group(function () {
     Route::controller(PermissionController::class)->prefix('permission')->group(
         function () {
             Route::get('/', [PermissionController::class, 'index'])->middleware('check.role:ReadAdmin');
+            Route::get('/allPermissions', [PermissionController::class, 'allPermissions'])->middleware('check.role:ReadAdmin');
+            Route::delete('/{role}', [PermissionController::class, 'delete'])->middleware('check.role:DeleteAdmin');
+            Route::get('/{role}', [PermissionController::class, 'show'])->middleware('check.role:ReadAdmin');
+            Route::put('/{role}', [PermissionController::class, 'edit'])->middleware('check.role:ReadAdmin');
+            Route::post('/', [PermissionController::class, 'create'])->middleware('check.role:ReadAdmin');
+
         }
     );
     # # # # # # # # # # # # # # # # # End Admin Permissions  # # # # # # # # # # # # # # # 

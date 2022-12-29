@@ -1,8 +1,9 @@
 
+import Swal from "sweetalert2";
 export default {
     data() {
         return {
-            role: [],
+            mainItem: [],
             formData: {
                 name: "",
                 permissions: []
@@ -11,21 +12,28 @@ export default {
                 name: "",
                 permissions: ""
             },
-            loaded: false
+            loaded: 0,
+            // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+            // Side Menu
+            sideMenuPage: {
+                main: 5,
+                sub: 3,
+            }
         };
     },
     methods: {
         togglePermission(index) {
-            this.role.permissions[index].state = !this.role.permissions[index]
+            this.mainItem.permissions[index].state = !this.mainItem.permissions[index]
                 .state;
         },
-        editRole: function() {
+        editMainItem: function (id) {
+
             this.formData.permissions = [];
 
-            for (var i = 0; i < this.role.permissions.length; i++) {
-                if (this.role.permissions[i].state == true)
+            for (var i = 0; i < this.mainItem.permissions.length; i++) {
+                if (this.mainItem.permissions[i].state == true)
                     this.formData.permissions.push(
-                        this.role.permissions[i].name
+                        this.mainItem.permissions[i].name
                     );
             }
 
@@ -35,20 +43,32 @@ export default {
             if (this.formValidate.permissions != "") return 0;
 
         this.$loading.Start();
-        this.$http
-            .UpdateRole(this.$route.params.id, this.formData)
+            this.$http
+            .EditRole(this.$route.params.id,this.formData)
             .then(response => {
                 this.$loading.Stop();
                 if (response.status == 200) {
                     this.$alert.Success(response.data.message);
                 } else if (response.status == 204) {
-                    this.$alert.Empty("هذا الدور غير موجود");
+                    this.mainItem = [];
+                    this.loaded = 204;
+                    this.$alert.Empty(
+                        "لم يعد هذا الدور متوفرة, قد يكون شخص أخر قام بحذفه"
+                    );
+                }
+                else if (response.status == 400) {
+                    this.mainItem = [];
+                    this.loaded = 204;
+                    this.$alert.Empty(
+                        response.data.messageresponse.data.message
+                    );
                 }
             })
             .catch(error => {
                 this.$loading.Stop();
                 this.$alert.BadRequest(error.response);
             });
+
         },
         validateName: function() {
             this.formValidate.name = "";
@@ -75,8 +95,7 @@ export default {
         }
     },
     mounted() {
-        this.$store.commit("activePage", 4);
-
+        this.$store.commit("activePage", this.sideMenuPage);
         this.$loading.Start();
         this.$http
             .GetRoleById(this.$route.params.id)
@@ -84,19 +103,22 @@ export default {
                 this.$loading.Stop();
                 this.loaded = true;
                 if (response.status == 200) {
-                    this.role = response.data.role;
-                    this.formData.name = this.role.name;
+                    this.mainItem = response.data.data;
+                    this.formData.name=response.data.data.name;
+                    this.loaded = 200;
                     this.$alert.Success(response.data.message);
                 } else if (response.status == 204) {
-                    this.$alert.Empty("هذا الدور غير موجود");
+                    this.loaded = 204;
+                    this.$alert.Empty("هذه الدور غير متوفر");
                 }
             })
             .catch(error => {
                 this.$loading.Stop();
+                this.loaded = 404;
                 this.loaded = true;
                 this.$alert.BadRequest(error.response);
             });
     },
     computed: {},
-    created() {}
+    created() { }
 };

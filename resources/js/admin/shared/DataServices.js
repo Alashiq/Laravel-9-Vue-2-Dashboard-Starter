@@ -74,22 +74,22 @@ export default {
     },
 
     // ============== Role Part =======================
-    GetAllRoles() {
-        return axios.get("/admin/api/permission?page=1&count=10");
+    GetAllRoles(page,countPerPage,name) {
+        return axios.get("/admin/api/permission?page=" + page + "&count=" + countPerPage + "&name=" + name);
     },
     GetRoleById(role) {
-        return axios.get("/api/admin/role/" + role);
+        return axios.get("/admin/api/permission/" + role);
     },
     DeleteRole(role) {
-        return axios.delete("/api/admin/role/" + role);
+        return axios.delete("/admin/api/permission/" + role);
     },
     GetAllPermissionsForNewRole() {
-        return axios.get("/api/admin/role/permissions");
+        return axios.get("/admin/api/permission/allPermissions");
     },
     PostNewRole(role) {
-        return axios.post("/api/admin/role", role);
+        return axios.post("/admin/api/permission", role);
     },
-    UpdateRole(role, formData) {
-        return axios.put("/api/admin/role/" + role, formData);
+    EditRole(role, formData) {
+        return axios.put("/admin/api/permission/" + role, formData);
     }
 };

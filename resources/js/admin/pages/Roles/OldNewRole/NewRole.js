@@ -1,69 +1,50 @@
 
-import Swal from "sweetalert2";
 export default {
     data() {
         return {
-            mainItem: [],
+            loaded: false,
             formData: {
                 name: "",
                 permissions: []
             },
+            permissions: [],
             formValidate: {
                 name: "",
                 permissions: ""
-            },
-            loaded: 0,
-            // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
-            // Side Menu
-            sideMenuPage: {
-                main: 5,
-                sub: 4,
             }
         };
     },
     methods: {
         togglePermission(index) {
-            this.mainItem.permissions[index].state = !this.mainItem.permissions[index]
-                .state;
+            this.permissions[index].state = !this.permissions[index].state;
         },
-        editMainItem: function (id) {
-
+        addRole: function() {
             this.formData.permissions = [];
-
-            for (var i = 0; i < this.mainItem.permissions.length; i++) {
-                if (this.mainItem.permissions[i].state == true)
-                    this.formData.permissions.push(
-                        this.mainItem.permissions[i].name
-                    );
+            for (var i = 0; i < this.permissions.length; i++) {
+                if (this.permissions[i].state == true)
+                    this.formData.permissions.push(this.permissions[i].name);
             }
-
             this.validateName();
             this.validatePermissions();
             if (this.formValidate.name != "") return 0;
             if (this.formValidate.permissions != "") return 0;
 
-        this.$loading.Start();
+            this.$loading.Start();
             this.$http
-            .PostNewRole(this.formData)
-            .then(response => {
-                this.$loading.Stop();
-                if (response.status == 200) {
-                    this.formData.name="";
-                    for(var i=0;i<this.mainItem.permissions.length;i++)
-                    this.mainItem.permissions[i].state=false;
+                .PostNewRole(this.formData)
+                .then(response => {
+                    this.$loading.Stop();
                     this.$alert.Success(response.data.message);
-                }
-                else if (response.status == 400) {
-                    this.$alert.Empty(
-                        response.data.messageresponse.data.message
-                    );
-                }
-            })
-            .catch(error => {
-                this.$loading.Stop();
-                this.$alert.BadRequest(error.response);
-            });
-
+                    this.formData.name = "";
+                    for (var i = 0; i < this.permissions.length; i++) {
+                        if (this.permissions[i].state == true)
+                            this.permissions[i].state = false;
+                    }
+                })
+                .catch(error => {
+                    this.$loading.Stop();
+                    this.$alert.BadRequest(error.response);
+                });
         },
         validateName: function() {
             this.formValidate.name = "";
@@ -90,7 +71,7 @@ export default {
         }
     },
     mounted() {
-        this.$store.commit("activePage", this.sideMenuPage);
+        this.$store.commit("activePage", 4);
         this.$loading.Start();
         this.$http
             .GetAllPermissionsForNewRole()
@@ -98,22 +79,18 @@ export default {
                 this.$loading.Stop();
                 this.loaded = true;
                 if (response.status == 200) {
-                    this.mainItem = response.data.data;
-                    this.formData.name=response.data.data.name;
-                    this.loaded = 200;
+                    this.permissions = response.data.permissions;
                     this.$alert.Success(response.data.message);
                 } else if (response.status == 204) {
-                    this.loaded = 204;
-                    this.$alert.Empty("هذه الدور غير متوفر");
+                    this.$alert.Empty("لا يتوفر اي صلاحية حاليا");
                 }
             })
             .catch(error => {
                 this.$loading.Stop();
-                this.loaded = 404;
                 this.loaded = true;
                 this.$alert.BadRequest(error.response);
             });
     },
     computed: {},
-    created() { }
+    created() {}
 };

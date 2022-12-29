@@ -32,7 +32,7 @@ export default {
                     this.$store.commit("setUser", response.data.admin);
                     this.$store.commit(
                         "setPermissions",
-                        response.data.permissions
+                        response.data.admin.permissions
                     );
                     this.$store.commit("authLoaded");
                     this.$alert.Success(response.data.message);
