@@ -26,7 +26,7 @@ export default {
             this.mainItem.permissions[index].state = !this.mainItem.permissions[index]
                 .state;
         },
-        editMainItem: function (id) {
+        addNewItem: function (id) {
 
             this.formData.permissions = [];
 

@@ -26,7 +26,7 @@ export default {
         };
     },
     methods: {
-        addAdmin: function () {
+        addNewItem: function () {
             this.validateFirstName();
             this.validateLastName();
             this.validatePhone();

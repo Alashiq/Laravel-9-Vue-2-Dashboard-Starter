@@ -40,6 +40,10 @@ Vue.component('App-Header', require('../admin/pages/Layout/AppHeader/AppHeader.v
 Vue.component('Empty-Box', require('../admin/pages/Layout/EmptyBox/EmptyBox.vue').default);
 Vue.component('Loading-Box', require('../admin/pages/Layout/LoadingBox/LoadingBox.vue').default);
 
+Vue.component('Pagination-Bar', require('../admin/components/PaginationBar/PaginationBar.vue').default);
+Vue.component('Single-Page-Header', require('../admin/components/SinglePageHeader/SinglePageHeader.vue').default);
+Vue.component('Btn-Submit-New-Item', require('../admin/components/BtnSubmitNewItem/BtnSubmitNewItem.vue').default);
+
 
 
 

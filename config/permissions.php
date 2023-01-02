@@ -3,14 +3,14 @@
 return [
     'permissions'=>[
         // Home Chart
-        'HomeChart'=>'مشاهدة إحصائيات الصفحة الرئيسية',
-        // Message Permission
-        'ReadMessage'=>'مشاهدة الرسائل',
-        'DeleteMessage'=>'حذف الرسائل',
-        'EditMessage'=>'تعديل حالة الرسالة',
+        'HomeLabel'=>'عنوان الرئيسية',
+        'HomeChart'=>'إحصائيات الصفحة الرئيسية',
+
         // Admin Permission
+        'SettingLabel'=>'عنوان الاعدادات',
+        'RolePermissionsList'=>'اختصار المشرفين والصلاحيات',
         'ReadAdmin'=>'مشاهدة المشرفين',
-        'DeleteAdmin'=>'مشاهدة المشرفين',
+        'DeleteAdmin'=>'حذف المشرفين',
         'CreateAdmin'=>'إضافة مشرف',
         'ActiveAdmin'=>'تفعيل مشرف',
         'DisActiveAdmin'=>'إلغاء تفعيل مشرف',
@@ -22,13 +22,5 @@ return [
         'CreateRole'=>'إنشاء دور جديد',
         'EditRole'=>'تعديل دور',
         'DeleteRole'=>'حذف دور',
-        // User Permission
-        'ReadUser'=>'مشاهدة المستخدمين',
-        'CreateUser'=>'إضافة مستخدم',
-        'ActiveUser'=>'تفعيل مستخدم',
-        'DisActiveUser'=>'إلغاء تفعيل مستخدم',
-        'BannedUser'=>'حظر مستخدم',
-        'ResetPasswordUser'=>'تهيئة كلمة مرور المشرف',
-
     ]
 ];

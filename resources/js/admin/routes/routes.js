@@ -1,8 +1,6 @@
 import Home from "../pages/Home/Home.vue";
 import Profile from "../pages/Profile/Profile.vue";
 import Login from "../pages/Login/Login.vue";
-import Messages from "../pages/Messages/Messages.vue";
-import Message from "../pages/Messages/Message/Message.vue";
 import Layout from "../pages/Layout/Layout.vue";
 import Admins from "../pages/Admins/Admins.vue";
 import Admin from "../pages/Admins/Admin/Admin.vue";
@@ -41,14 +39,6 @@ export const routes = [
             {
                 path: "admin",
                 component: Home
-            },
-            {
-                path: "admin/message",
-                component: Messages
-            },
-            {
-                path: "admin/message/:id",
-                component: Message
             },
             {
                 path: "admin/profile",

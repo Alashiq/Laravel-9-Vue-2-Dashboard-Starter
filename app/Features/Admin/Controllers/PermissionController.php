@@ -2,6 +2,7 @@
 
 namespace App\Features\Admin\Controllers;
 
+use App\Features\Admin\Requests\PermissionStoreRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use App\Models\Permission;
@@ -144,40 +145,8 @@ class PermissionController extends Controller
 
 
     // Add New Role
-    public function create(Request $request)
+    public function create(PermissionStoreRequest $request)
     {
-        if (
-            Validator::make($request->all(), [
-                'name' => 'required',
-            ])->fails()
-        ) {
-            return response()->json(["success" => false, "message" => "يجب عليك ادخال اسم الصلاحية"], 400);
-        }
-        if (
-            Validator::make($request->all(), [
-                'name' => 'unique:permissions',
-            ])->fails()
-        ) {
-            return response()->json(["success" => false, "message" => "توجد صلاحية بهذا الإسم"], 400);
-        }
-
-
-        if (
-            Validator::make($request->all(), [
-                'permissions' => 'required|min:1',
-            ])->fails()
-        ) {
-            return response()->json(["success" => false, "message" => "يجب عليك ادخال وظئيفة واحدة على الأقل"], 400);
-        }
-        if (
-            Validator::make($request->all(), [
-                'permissions' => 'array',
-            ])->fails()
-        ) {
-            return response()->json(["success" => false, "message" => "نوع الوظائف غير صحيح"], 400);
-        }
-
-
         $permission = Permission::create([
             'name' => $request['name'],
             'permissions' => json_encode($request['permissions']),

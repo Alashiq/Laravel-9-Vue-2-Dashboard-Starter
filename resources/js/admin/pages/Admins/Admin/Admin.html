@@ -7,21 +7,7 @@
             v-if="loaded==200"
         >
             <!-- Table Header -->
-            <div
-                class="h-16 w-full border-b mb-2 px-4 flex items-center text-xl justify-between JF-Flat"
-            >
-            <p class=" text-gray-600 font-medium">
-                بيانات المشرف
-
-            </p>
-
-                <router-link
-                    to="/admin/admin/"
-                    class="back-btn w-36 h-12 rounded font-normal flex items-center justify-center cursor-pointer cairo text-base"
-                >
-                    قائمة المشرفين
-                </router-link>
-            </div>
+            <Single-Page-Header title="بيانات المشرف" url="/admin/admin/" urlLabel="قائمة المشرفين"></Single-Page-Header>
             <!-- End Table Header -->
 
             <!-- Admin Photo -->

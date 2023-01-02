@@ -52,12 +52,12 @@ Route::middleware(['auth:sanctum', 'type.admin'])->group(function () {
     # # # # # # # # # # # # # # # # #  Admin Permissions  # # # # # # # # # # # # # # # # #
     Route::controller(PermissionController::class)->prefix('permission')->group(
         function () {
-            Route::get('/', [PermissionController::class, 'index'])->middleware('check.role:ReadAdmin');
+            Route::get('/', [PermissionController::class, 'index'])->middleware('check.role:ReadRole');
             Route::get('/allPermissions', [PermissionController::class, 'allPermissions'])->middleware('check.role:ReadAdmin');
-            Route::delete('/{role}', [PermissionController::class, 'delete'])->middleware('check.role:DeleteAdmin');
-            Route::get('/{role}', [PermissionController::class, 'show'])->middleware('check.role:ReadAdmin');
-            Route::put('/{role}', [PermissionController::class, 'edit'])->middleware('check.role:ReadAdmin');
-            Route::post('/', [PermissionController::class, 'create'])->middleware('check.role:ReadAdmin');
+            Route::delete('/{role}', [PermissionController::class, 'delete'])->middleware('check.role:DeleteRole');
+            Route::get('/{role}', [PermissionController::class, 'show'])->middleware('check.role:ReadRole');
+            Route::put('/{role}', [PermissionController::class, 'edit'])->middleware('check.role:EditRole');
+            Route::post('/', [PermissionController::class, 'create'])->middleware('check.role:CreateRole');
 
         }
     );

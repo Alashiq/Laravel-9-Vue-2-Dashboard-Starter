@@ -18,13 +18,13 @@
         <!-- New List -->
         <div v-for="item in pages" :key="item.id" class="JF-Flat">
             <!-- Label -->
-            <div v-if="item.target==0" class="w-full flex items-center h-10 mt-2">
+            <div v-if="item.target==0" v-show="$parent.checkPermission(item.role) == true" class="w-full flex items-center h-10 mt-2">
                 <div class="h-px w-4 bg-gray-400 ml-3 mt-1"></div>
                 <div class="Swissra-Light" style="color: #a1acb8;">{{item.name}}</div>
             </div>
             <!-- End Label -->
             <!-- Father List -->
-            <div v-else-if="item.list.length>0" class="item" @click="toggleSideList(item.id)">
+            <div v-else-if="item.list.length>0" v-show="$parent.checkPermission(item.role) == true" class="item" @click="toggleSideList(item.id)">
                 <div v-if="pageActive==item.id"
                     class="flex items-center justify-between h-12 w-auto mx-3 rounded-md px-3"
                     style="color: #696cff; background-color: rgba(105,108,255,.16);">
@@ -48,7 +48,7 @@
             <!-- End Father List -->
 
             <!-- Item List -->
-            <div v-else class="item">
+            <div v-else class="item"  v-show="$parent.checkPermission(item.role) == true">
                 <router-link  :to="item.url">
                 <div v-if="pageActive==item.id" class="flex items-center h-12 w-auto mx-3 rounded-md px-3"
                     style="color: #696cff; background-color: rgba(105,108,255,.16);">
@@ -70,7 +70,7 @@
             <div v-if="openPageList==item.id">
 
                 <div v-for="subItem in item.list" :key="subItem.id" :to="subItem.url">
-                    <router-link  :to="subItem.url">
+                    <router-link  :to="subItem.url"  v-show="$parent.checkPermission(subItem.role) == true">
 
                     <div v-if="subPageActive==subItem.id && pageActive==item.id"
                         class="flex items-center h-12 w-auto mx-3 rounded-md px-3"

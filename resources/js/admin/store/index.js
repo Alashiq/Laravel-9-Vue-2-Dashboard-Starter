@@ -15,7 +15,7 @@ export default {
                 id: 1,
                 target: 0, // 0 label - 1 page
                 name: "الرئيسية",
-                role: "HomeChart",
+                role: "HomeLabel",
                 url: "/admin",
                 icon: "fa-regular fa-house",
                 list: [],
@@ -33,7 +33,7 @@ export default {
                 id: 3,
                 target: 0, // 0 label - 1 page
                 name: "الإعدادات",
-                role: "HomeChart",
+                role: "SettingLabel",
                 url: "/admin",
                 icon: "fas fa-home",
                 list: [],
@@ -42,32 +42,32 @@ export default {
                 id: 5,
                 target: 1, // 0 label - 1 page
                 name: "المشرفين والصلاحيات",
-                role: "HomeChart",
+                role: "RolePermissionsList",
                 url: "/admin",
                 icon: "fas fa-user-shield",
                 list: [
                     {
                         id: 1,
                         name: "قائمة المشرفين",
-                        role: "HomeChart",
+                        role: "ReadAdmin",
                         url: "/admin/admin",
                     },
                     {
                         id: 2,
                         name: "إضافة مشرف",
-                        role: "HomeChart",
+                        role: "CreateAdmin",
                         url: "/admin/admin/new",
                     },
                     {
                         id: 3,
                         name: "أدوار المشرفين",
-                        role: "HomeChart",
+                        role: "ReadRole",
                         url: "/admin/role",
                     },
                     {
                         id: 4,
                         name: "إضافة دور",
-                        role: "HomeChart",
+                        role: "CreateRole",
                         url: "/admin/role/new",
                     },
                 ],
@@ -75,8 +75,8 @@ export default {
             {
                 id: 6,
                 target: 1, // 0 label - 1 page
-                name: "قامة المشرفين",
-                role: "HomeChart",
+                name: "قائمة المشرفين",
+                role: "ReadAdmin",
                 url: "/admin",
                 icon: "fas fa-user-shield",
                 list: [],

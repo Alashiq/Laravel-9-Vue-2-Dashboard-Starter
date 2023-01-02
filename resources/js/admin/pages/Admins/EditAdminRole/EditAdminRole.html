@@ -7,18 +7,7 @@
             v-if="loaded == 200"
         >
             <!-- Table Header -->
-            <div
-                class="h-16 w-full border-b mb-2 px-4 flex items-center text-lg justify-between"
-            >
-                تعديل دور المشرف
-
-                <router-link
-                    to="/admin/admin/"
-                    class="back-btn w-36 h-12 rounded font-normal flex items-center justify-center cursor-pointer"
-                >
-                    قائمة المشرفين
-                </router-link>
-            </div>
+            <Single-Page-Header title="تعديل دور المشرف" url="/admin/admin/" urlLabel="قائمة المشرفين"></Single-Page-Header>
             <!-- End Table Header -->
 
             <!-- Admin Photo -->
