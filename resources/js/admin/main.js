@@ -37,12 +37,13 @@ const router = new VueRouter({
 // Shared Components
 Vue.component('App-Side', require('../admin/pages/Layout/AppSide/AppSide.vue').default);
 Vue.component('App-Header', require('../admin/pages/Layout/AppHeader/AppHeader.vue').default);
-Vue.component('Empty-Box', require('../admin/pages/Layout/EmptyBox/EmptyBox.vue').default);
-Vue.component('Loading-Box', require('../admin/pages/Layout/LoadingBox/LoadingBox.vue').default);
 
+Vue.component('Loading-Box', require('../admin/components/LoadingBox/LoadingBox.vue').default);
 Vue.component('Pagination-Bar', require('../admin/components/PaginationBar/PaginationBar.vue').default);
 Vue.component('Single-Page-Header', require('../admin/components/SinglePageHeader/SinglePageHeader.vue').default);
 Vue.component('Btn-Submit-New-Item', require('../admin/components/BtnSubmitNewItem/BtnSubmitNewItem.vue').default);
+Vue.component('Empty-Box', require('../admin/components/EmptyBox/EmptyBox.vue').default);
+Vue.component('Bad-Request', require('../admin/components/BadRequest/BadRequest.vue').default);
 
 
 

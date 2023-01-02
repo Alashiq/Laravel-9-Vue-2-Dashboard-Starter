@@ -14,6 +14,32 @@ export default {
         };
     },
     methods: {
+        reload:function(){
+            this.$http
+            .GetAdminById(this.$route.params.id)
+            .then(response => {
+                this.$loading.Stop();
+                this.loaded = true;
+                if (response.status == 200) {
+                    this.mainItem = response.data.data;
+                    this.loaded=200;
+                    this.$alert.Success(response.data.message);
+                } else if (response.status == 204) {
+                    this.loaded=204;
+                    this.$alert.Empty("هذه الرسالة غير متوفرة");
+                }
+                else if (response.status == 400) {
+                    this.loaded=400;
+                    this.$alert.Empty(response.data.message);
+                }
+            })
+            .catch(error => {
+                this.$loading.Stop();
+                this.loaded=404;
+                this.loaded = true;
+                this.$alert.BadRequest(error.response);
+            });
+        },
         activeAdmin: function() {
             Swal.fire({
                 title: "هل أنت متأكد",

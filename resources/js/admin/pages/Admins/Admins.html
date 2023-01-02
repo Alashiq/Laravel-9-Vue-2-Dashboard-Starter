@@ -259,16 +259,13 @@
 
     <!--  -->
     <Empty-Box v-if="loaded==204"></Empty-Box>
+    
+    
+
+    <Bad-Request v-if="loaded==404 || loaded==400" :reload="reload"></Bad-Request>
 
 
-    <div v-if="loaded==400">
-        حدث خطأ ما
-    </div>
 
-
-    <div v-if="loaded==404">
-        تحقق من اتصالك بالانترنت
-    </div>
 
     <!-- End Inside Page -->
 </div>

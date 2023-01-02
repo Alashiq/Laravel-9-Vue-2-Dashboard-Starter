@@ -177,14 +177,8 @@
             message="لا يوجد مشرف بهذا الرقم"
         ></Empty-Box>
 
-        <div v-if="loaded==400">
-            حدث خطأ ما
-        </div>
-    
-    
-        <div v-if="loaded==404">
-            تحقق من اتصالك بالانترنت
-        </div>
+        <Bad-Request v-if="loaded==404 || loaded==400" :reload="reload"></Bad-Request>
+
 
         <!-- End Inside Page -->
     </div>
