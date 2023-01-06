@@ -24,6 +24,9 @@ export default {
         };
     },
     methods: {
+        reload: function(){
+            this.loadData(this.pageId);
+        },
         loadData: function (page) {
             this.pageId = page;
             this.$loading.Start();

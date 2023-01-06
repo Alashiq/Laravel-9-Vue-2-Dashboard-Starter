@@ -3079,13 +3079,13 @@ var render = function render() {
       src: _vm.mainItem.photo
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2"
+    staticClass: "bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2 JF-Flat"
   }, [_c("div", {
     staticClass: "w-full px-4 py-4"
   }, [_c("div", {
     staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
   }, [_vm._v("\n                        إسم المشرف\n                    ")]), _vm._v(" "), _c("div", {
-    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg"
+    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
   }, [_vm._v("\n                        " + _vm._s(_vm.mainItem.first_name) + " " + _vm._s(_vm.mainItem.last_name) + "\n                    ")])]), _vm._v(" "), _c("div", {
     staticClass: "w-full px-4 py-4"
   }, [_c("div", {
@@ -3097,7 +3097,7 @@ var render = function render() {
       value: _vm.mainItem.role_id,
       expression: "mainItem.role_id"
     }],
-    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg",
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
     on: {
       change: function change($event) {
         var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
@@ -3128,6 +3128,10 @@ var render = function render() {
   }), _vm._v("\n                    حفظ\n                ")])])], 1) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box", {
     attrs: {
       message: "لا يوجد مشرف بهذا الرقم"
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 || _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload
     }
   }) : _vm._e()], 1);
 };
@@ -4132,7 +4136,11 @@ var render = function render() {
     attrs: {
       message: "لا يوجد دور بهذا الرقم"
     }
-  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("div", [_vm._v("\n            حدث خطأ ما\n        ")]) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("div", [_vm._v("\n            تحقق من اتصالك بالانترنت\n        ")]) : _vm._e()], 1);
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 || _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload
+    }
+  }) : _vm._e()], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -4341,7 +4349,11 @@ var render = function render() {
     attrs: {
       message: "لا يوجد دور بهذا الرقم"
     }
-  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("div", [_vm._v("\n            حدث خطأ ما\n        ")]) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("div", [_vm._v("\n            تحقق من اتصالك بالانترنت\n        ")]) : _vm._e()], 1);
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 || _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload
+    }
+  }) : _vm._e()], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -4526,7 +4538,11 @@ var render = function render() {
       moveToPrevius: _vm.moveToPrevius,
       changePerPage: _vm.changePerPage
     }
-  })], 1) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box") : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("div", [_vm._v("\n        حدث خطأ ما\n    ")]) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("div", [_vm._v("\n        تحقق من اتصالك بالانترنت\n    ")]) : _vm._e()], 1);
+  })], 1) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box") : _vm._e(), _vm._v(" "), _vm.loaded == 404 || _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload
+    }
+  }) : _vm._e()], 1);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -4695,25 +4711,27 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     reload: function reload() {
+      this.loadData();
+    },
+    loadData: function loadData() {
       var _this = this;
+      this.$loading.Start();
       this.$http.GetAdminById(this.$route.params.id).then(function (response) {
         _this.$loading.Stop();
-        _this.loaded = true;
         if (response.status == 200) {
           _this.mainItem = response.data.data;
           _this.loaded = 200;
           _this.$alert.Success(response.data.message);
         } else if (response.status == 204) {
           _this.loaded = 204;
-          _this.$alert.Empty("هذه الرسالة غير متوفرة");
-        } else if (response.status == 400) {
+          _this.$alert.Empty("هذه العنصر غير متوفرة");
+        } else {
           _this.loaded = 400;
           _this.$alert.Empty(response.data.message);
         }
       })["catch"](function (error) {
-        _this.$loading.Stop();
         _this.loaded = 404;
-        _this.loaded = true;
+        _this.$loading.Stop();
         _this.$alert.BadRequest(error.response);
       });
     },
@@ -4874,26 +4892,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    var _this7 = this;
     this.$store.commit("activePage", this.sideMenuPage);
-    this.$loading.Start();
-    this.$http.GetAdminById(this.$route.params.id).then(function (response) {
-      _this7.$loading.Stop();
-      _this7.loaded = true;
-      if (response.status == 200) {
-        _this7.mainItem = response.data.data;
-        _this7.loaded = 200;
-        _this7.$alert.Success(response.data.message);
-      } else if (response.status == 204) {
-        _this7.loaded = 204;
-        _this7.$alert.Empty("هذه الرسالة غير متوفرة");
-      }
-    })["catch"](function (error) {
-      _this7.$loading.Stop();
-      _this7.loaded = 404;
-      _this7.loaded = true;
-      _this7.$alert.BadRequest(error.response);
-    });
+    this.loadData();
   },
   computed: {},
   created: function created() {}
@@ -4965,7 +4965,6 @@ __webpack_require__.r(__webpack_exports__);
           _this.$alert.Empty("تنبيه لا يوجد اي مشرفين");
         } else {
           _this.loaded = 400;
-          alert("400");
         }
       })["catch"](function (error) {
         _this.loaded = 404;
@@ -5170,40 +5169,49 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    updateAdminRole: function updateAdminRole() {
+    reload: function reload() {
+      this.loadData();
+    },
+    loadData: function loadData() {
       var _this = this;
+      this.$loading.Start();
+      this.$http.GetAdminByIdWithPermissions(this.$route.params.id).then(function (response) {
+        _this.$loading.Stop();
+        if (response.status == 200) {
+          _this.mainItem = response.data.data;
+          _this.roles = response.data.roles;
+          _this.loaded = 200;
+          _this.$alert.Success(response.data.message);
+        } else if (response.status == 204) {
+          _this.loaded = 204;
+          _this.$alert.Empty("هذه العنصر غير متوفرة");
+        } else {
+          _this.loaded = 400;
+          _this.$alert.Empty(response.data.message);
+        }
+      })["catch"](function (error) {
+        _this.loaded = 404;
+        _this.$loading.Stop();
+        _this.$alert.BadRequest(error.response);
+      });
+    },
+    updateAdminRole: function updateAdminRole() {
+      var _this2 = this;
       this.$loading.Start();
       this.$http.UpdateAdminRole(this.$route.params.id, {
         role_id: this.mainItem.role_id
       }).then(function (response) {
-        _this.$loading.Stop();
-        _this.$alert.Success(response.data.message);
+        _this2.$loading.Stop();
+        _this2.$alert.Success(response.data.message);
       })["catch"](function (error) {
-        _this.$loading.Stop();
-        _this.$alert.BadRequest(error.response);
+        _this2.$loading.Stop();
+        _this2.$alert.BadRequest(error.response);
       });
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
     this.$store.commit("activePage", this.sideMenuPage);
-    this.$loading.Start();
-    this.$http.GetAdminByIdWithPermissions(this.$route.params.id).then(function (response) {
-      _this2.$loading.Stop();
-      _this2.loaded = true;
-      if (response.status == 200) {
-        _this2.loaded = 200;
-        _this2.mainItem = response.data.data;
-        _this2.roles = response.data.roles;
-        _this2.$alert.Success(response.data.message);
-      } else if (response.status == 204) {
-        _this2.loaded = 204;
-        _this2.$alert.Empty("هذا المشرف غير موجود");
-      }
-    })["catch"](function (error) {
-      _this2.$loading.Stop();
-      _this2.$alert.BadRequest(error.response);
-    });
+    this.loadData();
   },
   computed: {},
   created: function created() {}
@@ -5888,11 +5896,34 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    reload: function reload() {
+      this.loadData();
+    },
+    loadData: function loadData() {
+      var _this = this;
+      this.$loading.Start();
+      this.$http.GetRoleById(this.$route.params.id).then(function (response) {
+        _this.$loading.Stop();
+        if (response.status == 200) {
+          _this.mainItem = response.data.data;
+          _this.formData.name = response.data.data.name;
+          _this.loaded = 200;
+          _this.$alert.Success(response.data.message);
+        } else if (response.status == 204) {
+          _this.loaded = 204;
+          _this.$alert.Empty("هذه الدور غير متوفر");
+        }
+      })["catch"](function (error) {
+        _this.$loading.Stop();
+        _this.loaded = 404;
+        _this.$alert.BadRequest(error.response);
+      });
+    },
     togglePermission: function togglePermission(index) {
       this.mainItem.permissions[index].state = !this.mainItem.permissions[index].state;
     },
     editMainItem: function editMainItem(id) {
-      var _this = this;
+      var _this2 = this;
       this.formData.permissions = [];
       for (var i = 0; i < this.mainItem.permissions.length; i++) {
         if (this.mainItem.permissions[i].state == true) this.formData.permissions.push(this.mainItem.permissions[i].name);
@@ -5903,21 +5934,21 @@ __webpack_require__.r(__webpack_exports__);
       if (this.formValidate.permissions != "") return 0;
       this.$loading.Start();
       this.$http.EditRole(this.$route.params.id, this.formData).then(function (response) {
-        _this.$loading.Stop();
+        _this2.$loading.Stop();
         if (response.status == 200) {
-          _this.$alert.Success(response.data.message);
+          _this2.$alert.Success(response.data.message);
         } else if (response.status == 204) {
-          _this.mainItem = [];
-          _this.loaded = 204;
-          _this.$alert.Empty("لم يعد هذا الدور متوفرة, قد يكون شخص أخر قام بحذفه");
+          _this2.mainItem = [];
+          _this2.loaded = 204;
+          _this2.$alert.Empty("لم يعد هذا الدور متوفرة, قد يكون شخص أخر قام بحذفه");
         } else if (response.status == 400) {
-          _this.mainItem = [];
-          _this.loaded = 204;
-          _this.$alert.Empty(response.data.messageresponse.data.message);
+          _this2.mainItem = [];
+          _this2.loaded = 204;
+          _this2.$alert.Empty(response.data.messageresponse.data.message);
         }
       })["catch"](function (error) {
-        _this.$loading.Stop();
-        _this.$alert.BadRequest(error.response);
+        _this2.$loading.Stop();
+        _this2.$alert.BadRequest(error.response);
       });
     },
     validateName: function validateName() {
@@ -5944,27 +5975,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
     this.$store.commit("activePage", this.sideMenuPage);
-    this.$loading.Start();
-    this.$http.GetRoleById(this.$route.params.id).then(function (response) {
-      _this2.$loading.Stop();
-      _this2.loaded = true;
-      if (response.status == 200) {
-        _this2.mainItem = response.data.data;
-        _this2.formData.name = response.data.data.name;
-        _this2.loaded = 200;
-        _this2.$alert.Success(response.data.message);
-      } else if (response.status == 204) {
-        _this2.loaded = 204;
-        _this2.$alert.Empty("هذه الدور غير متوفر");
-      }
-    })["catch"](function (error) {
-      _this2.$loading.Stop();
-      _this2.loaded = 404;
-      _this2.loaded = true;
-      _this2.$alert.BadRequest(error.response);
-    });
+    this.loadData();
   },
   computed: {},
   created: function created() {}
@@ -6118,8 +6130,30 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    deleteMainItem: function deleteMainItem(id) {
+    reload: function reload() {
+      this.loadData();
+    },
+    loadData: function loadData() {
       var _this = this;
+      this.$loading.Start();
+      this.$http.GetRoleById(this.$route.params.id).then(function (response) {
+        _this.$loading.Stop();
+        if (response.status == 200) {
+          _this.mainItem = response.data.data;
+          _this.loaded = 200;
+          _this.$alert.Success(response.data.message);
+        } else if (response.status == 204) {
+          _this.loaded = 204;
+          _this.$alert.Empty("هذه الدور غير متوفر");
+        }
+      })["catch"](function (error) {
+        _this.$loading.Stop();
+        _this.loaded = 404;
+        _this.$alert.BadRequest(error.response);
+      });
+    },
+    deleteMainItem: function deleteMainItem(id) {
+      var _this2 = this;
       sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
         title: "هل أنت متأكد",
         text: "هل أنت متأكد من أنك تريد حذف هذا الدور !",
@@ -6131,51 +6165,33 @@ __webpack_require__.r(__webpack_exports__);
         cancelButtonText: "إلغاء"
       }).then(function (result) {
         if (result.isConfirmed) {
-          _this.$loading.Start();
-          _this.$http.DeleteRole(_this.$route.params.id).then(function (response) {
-            _this.$loading.Stop();
+          _this2.$loading.Start();
+          _this2.$http.DeleteRole(_this2.$route.params.id).then(function (response) {
+            _this2.$loading.Stop();
             if (response.status == 200) {
-              _this.mainItem = [];
-              _this.loaded = 204;
-              _this.$alert.Success(response.data.message);
+              _this2.mainItem = [];
+              _this2.loaded = 204;
+              _this2.$alert.Success(response.data.message);
             } else if (response.status == 204) {
-              _this.mainItem = [];
-              _this.loaded = 204;
-              _this.$alert.Empty("لم يعد هذا الدور متوفرة, قد يكون شخص أخر قام بحذفه");
+              _this2.mainItem = [];
+              _this2.loaded = 204;
+              _this2.$alert.Empty("لم يعد هذا الدور متوفرة, قد يكون شخص أخر قام بحذفه");
             } else if (response.status == 400) {
-              _this.mainItem = [];
-              _this.loaded = 204;
-              _this.$alert.Empty(response.data.messageresponse.data.message);
+              _this2.mainItem = [];
+              _this2.loaded = 204;
+              _this2.$alert.Empty(response.data.messageresponse.data.message);
             }
           })["catch"](function (error) {
-            _this.$loading.Stop();
-            _this.$alert.BadRequest(error.response);
+            _this2.$loading.Stop();
+            _this2.$alert.BadRequest(error.response);
           });
         }
       });
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
     this.$store.commit("activePage", this.sideMenuPage);
-    this.$loading.Start();
-    this.$http.GetRoleById(this.$route.params.id).then(function (response) {
-      _this2.$loading.Stop();
-      _this2.loaded = true;
-      if (response.status == 200) {
-        _this2.mainItem = response.data.data;
-        _this2.loaded = 200;
-        _this2.$alert.Success(response.data.message);
-      } else if (response.status == 204) {
-        _this2.loaded = 204;
-        _this2.$alert.Empty("هذه الدور غير متوفر");
-      }
-    })["catch"](function (error) {
-      _this2.$loading.Stop();
-      _this2.loaded = 404;
-      _this2.loaded = true;
-      _this2.$alert.BadRequest(error.response);
-    });
+    this.loadData();
   },
   computed: {},
   created: function created() {}
@@ -6223,6 +6239,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    reload: function reload() {
+      this.loadData(this.pageId);
+    },
     loadData: function loadData(page) {
       var _this = this;
       this.pageId = page;
@@ -6505,19 +6524,6 @@ __webpack_require__.r(__webpack_exports__);
   // ============== Home Part =======================
   GetHome: function GetHome() {
     return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/admin/home");
-  },
-  // ============== Message Part =======================
-  GetAllMessages: function GetAllMessages() {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/admin/message");
-  },
-  DeleteMessage: function DeleteMessage(message) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]("/api/admin/message/" + message);
-  },
-  SloveMessage: function SloveMessage(message) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default().put("/api/admin/message/" + message);
-  },
-  GetMessageById: function GetMessageById(message) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/admin/message/" + message);
   },
   // ============== Admin Part =======================
   GetAllAdmins: function GetAllAdmins(page, countPerPage, tag, phone, firstName, lastName) {

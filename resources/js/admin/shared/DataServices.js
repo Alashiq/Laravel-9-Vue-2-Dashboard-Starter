@@ -24,19 +24,6 @@ export default {
         return axios.get("/api/admin/home");
     },
 
-    // ============== Message Part =======================
-    GetAllMessages() {
-        return axios.get("/api/admin/message");
-    },
-    DeleteMessage(message) {
-        return axios.delete("/api/admin/message/" + message);
-    },
-    SloveMessage(message) {
-        return axios.put("/api/admin/message/" + message);
-    },
-    GetMessageById(message) {
-        return axios.get("/api/admin/message/" + message);
-    },
     
     // ============== Admin Part =======================
     GetAllAdmins(page,countPerPage,tag,phone,firstName,lastName) {

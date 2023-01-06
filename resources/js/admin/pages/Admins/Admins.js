@@ -49,7 +49,6 @@ export default {
                         this.$alert.Empty("تنبيه لا يوجد اي مشرفين");
                     }else{
                     this.loaded=400;
-                    alert("400");
                     }
                 })
                 .catch(error => {

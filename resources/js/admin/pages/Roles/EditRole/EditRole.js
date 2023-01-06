@@ -22,6 +22,31 @@ export default {
         };
     },
     methods: {
+        reload:function () {
+            this.loadData();
+        },
+        loadData:function(){
+            this.$loading.Start();
+            this.$http
+                .GetRoleById(this.$route.params.id)
+                .then(response => {
+                    this.$loading.Stop();
+                    if (response.status == 200) {
+                        this.mainItem = response.data.data;
+                        this.formData.name=response.data.data.name;
+                        this.loaded = 200;
+                        this.$alert.Success(response.data.message);
+                    } else if (response.status == 204) {
+                        this.loaded = 204;
+                        this.$alert.Empty("هذه الدور غير متوفر");
+                    }
+                })
+                .catch(error => {
+                    this.$loading.Stop();
+                    this.loaded = 404;
+                    this.$alert.BadRequest(error.response);
+                });
+        },
         togglePermission(index) {
             this.mainItem.permissions[index].state = !this.mainItem.permissions[index]
                 .state;
@@ -96,28 +121,7 @@ export default {
     },
     mounted() {
         this.$store.commit("activePage", this.sideMenuPage);
-        this.$loading.Start();
-        this.$http
-            .GetRoleById(this.$route.params.id)
-            .then(response => {
-                this.$loading.Stop();
-                this.loaded = true;
-                if (response.status == 200) {
-                    this.mainItem = response.data.data;
-                    this.formData.name=response.data.data.name;
-                    this.loaded = 200;
-                    this.$alert.Success(response.data.message);
-                } else if (response.status == 204) {
-                    this.loaded = 204;
-                    this.$alert.Empty("هذه الدور غير متوفر");
-                }
-            })
-            .catch(error => {
-                this.$loading.Stop();
-                this.loaded = 404;
-                this.loaded = true;
-                this.$alert.BadRequest(error.response);
-            });
+        this.loadData();
     },
     computed: {},
     created() { }
