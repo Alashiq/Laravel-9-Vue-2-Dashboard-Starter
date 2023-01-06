@@ -12,7 +12,7 @@
 
 
             <!-- Grid -->
-            <div class="bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2">
+            <div class="bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2 JF-Flat">
                 <!-- Item -->
                 <div class="w-full px-4 py-4">
                     <div
@@ -21,7 +21,7 @@
                         إسم الدور
                     </div>
                     <div
-                        class="h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg"
+                        class="h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
                     >
                         {{ mainItem.name }}
                     </div>
@@ -36,7 +36,7 @@
                         عدد المشرفين
                     </div>
                     <div
-                        class="h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg"
+                        class="h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
                     >
                         {{ mainItem.admins_count }}
                     </div>
@@ -67,7 +67,8 @@
                         >
                             <div
                                 v-if="item.state == true"
-                                class="h-7 w-7 rounded-xl bg-green-500 text-white  flex items-center justify-center text-center"
+                                class="h-7 w-7 rounded-xl text-white  flex items-center justify-center text-center"
+                                style="background-color: #8082ff;"
                             >
                                 <i class="fas fa-check"></i>
                             </div>

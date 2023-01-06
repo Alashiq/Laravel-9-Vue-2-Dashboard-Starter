@@ -17,7 +17,7 @@
                 الإسم
             </div>
                 <input v-model="formData.first_name" v-on:change="validateFirstName"
-                    class="h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg" />
+                    class="h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base JF-Flat" />
                 <div class="h-8 JF-Flat text-sm text-red-400 mr-2 flex items-center">
                     {{ formValidate.firstName }}
                 </div>
@@ -30,7 +30,7 @@
                     اللقب
                 </div>
                 <input v-model="formData.last_name" v-on:change="validateLastName"
-                    class="h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg" />
+                class="h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base JF-Flat" />
                 <div class="h-8 JF-Flat text-sm text-red-400 mr-2 flex items-center">
                     {{ formValidate.lastName }}
                 </div>
@@ -43,7 +43,7 @@
             رقم الهاتف
                 </div>
                 <input v-model="formData.phone" v-on:change="validatePhone"
-                    class="h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg" />
+                class="h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base JF-Flat" />
                 <div class="h-8 JF-Flat text-sm text-red-400 mr-2 flex items-center">
                     {{ formValidate.phone }}
                 </div>
@@ -56,7 +56,7 @@
                     دور المشرف
                 </div>
                 <select v-model="formData.role_id" v-on:change="validateRole"
-                    class="h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg">
+                    class="h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base JF-Flat">
                     <option v-for="(item, index) in roleList" :key="index" :value="item.id">{{ item.name }}</option>
                 </select>
                 <div class="h-8 JF-Flat text-sm text-red-400 mr-2 flex items-center">
@@ -72,7 +72,7 @@
                     كلمة المرور
                 </div>
                 <input v-model="formData.password" v-on:change="validatePassword"
-                    class="h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg" />
+                class="h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base JF-Flat" />
                 <div class="h-8 JF-Flat text-sm text-red-400 mr-2 flex items-center">
                     {{ formValidate.password }}
                 </div>
@@ -85,7 +85,7 @@
                     تأكيد كلمة المرور
                 </div>
                 <input v-model="formData.confirmPassword" v-on:change="validateConfirmPassword"
-                    class="h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg" />
+                class="h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base JF-Flat" />
                 <div class="h-8 JF-Flat text-sm text-red-400 mr-2 flex items-center">
                     {{ formValidate.confirmPassword }}
                 </div>

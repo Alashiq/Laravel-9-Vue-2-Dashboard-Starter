@@ -20,7 +20,7 @@
             <!-- Admin Photo -->
 
             <!-- Grid -->
-            <div class="bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2">
+            <div class="bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2 JF-Flat">
                 <!-- Item -->
                 <div class="w-full px-4 py-4">
                     <div
@@ -29,7 +29,7 @@
                         إسم المشرف
                     </div>
                     <div
-                        class="h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg"
+                        class="h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
                     >
                         {{ mainItem.first_name }}
                     </div>
@@ -44,7 +44,7 @@
                         رقم الهاتف
                     </div>
                     <div
-                        class="h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg"
+                        class="h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
                     >
                         {{ mainItem.phone }}
                     </div>
@@ -59,7 +59,7 @@
                         دور المشرف
                     </div>
                     <div
-                        class="h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg"
+                        class="h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
                     >
                         {{ mainItem.role.name }}
                     </div>
@@ -74,7 +74,7 @@
                         تاريخ الإنشاء
                     </div>
                     <div
-                        class="h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg"
+                        class="h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
                     >
                         {{ mainItem.created_at.substring(0, 10) }}
                     </div>
@@ -89,7 +89,7 @@
                         حالة الحساب
                     </div>
                     <div
-                        class="h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg"
+                        class="h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
                     >
                         {{
                             mainItem.state == 0

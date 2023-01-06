@@ -2551,37 +2551,37 @@ var render = function render() {
       src: _vm.mainItem.photo
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2"
+    staticClass: "bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2 JF-Flat"
   }, [_c("div", {
     staticClass: "w-full px-4 py-4"
   }, [_c("div", {
     staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
   }, [_vm._v("\n                        إسم المشرف\n                    ")]), _vm._v(" "), _c("div", {
-    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg"
+    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
   }, [_vm._v("\n                        " + _vm._s(_vm.mainItem.first_name) + "\n                    ")])]), _vm._v(" "), _c("div", {
     staticClass: "w-full px-4 py-4"
   }, [_c("div", {
     staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
   }, [_vm._v("\n                        رقم الهاتف\n                    ")]), _vm._v(" "), _c("div", {
-    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg"
+    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
   }, [_vm._v("\n                        " + _vm._s(_vm.mainItem.phone) + "\n                    ")])]), _vm._v(" "), _c("div", {
     staticClass: "w-full px-4 py-4"
   }, [_c("div", {
     staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
   }, [_vm._v("\n                        دور المشرف\n                    ")]), _vm._v(" "), _c("div", {
-    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg"
+    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
   }, [_vm._v("\n                        " + _vm._s(_vm.mainItem.role.name) + "\n                    ")])]), _vm._v(" "), _c("div", {
     staticClass: "w-full px-4 py-4"
   }, [_c("div", {
     staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
   }, [_vm._v("\n                        تاريخ الإنشاء\n                    ")]), _vm._v(" "), _c("div", {
-    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg"
+    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
   }, [_vm._v("\n                        " + _vm._s(_vm.mainItem.created_at.substring(0, 10)) + "\n                    ")])]), _vm._v(" "), _c("div", {
     staticClass: "w-full px-4 py-4"
   }, [_c("div", {
     staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
   }, [_vm._v("\n                        حالة الحساب\n                    ")]), _vm._v(" "), _c("div", {
-    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg"
+    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
   }, [_vm._v("\n                        " + _vm._s(_vm.mainItem.state == 0 ? "غير مفعل" : _vm.mainItem.state == 1 ? "حساب نشط" : "محظور") + "\n                    ")])])]), _vm._v(" "), _c("div", {
     staticClass: "w-full lg:h-20 mt-12 lg:flex items-center justify-start text-sm cairo"
   }, [_vm.mainItem.state != 2 ? _c("div", {
@@ -2721,13 +2721,13 @@ var render = function render() {
   }, [_c("span", {
     staticClass: "h-12 flex items-center"
   }, [_c("i", {
-    staticClass: "fas fa-plus text-xl"
+    staticClass: "fas fa-plus text-lg"
   }), _vm._v(" "), _c("p", {
-    staticClass: "mr-3 md:block hidden"
+    staticClass: "mr-3 md:block hidden text-base JF-Flat"
   }, [_vm._v("\n                    أضف مشرف\n                ")])])])], 1), _vm._v(" "), _c("div", {
     staticClass: "flex justify-between my-8"
   }, [_c("div", {
-    staticClass: "border rounded font-semibold cairo flex bg-center text-gray-700"
+    staticClass: "border rounded font-semibold JF-Flat text-base flex bg-center text-gray-600"
   }, [_c("div", {
     "class": {
       "h-12 px-4 flex cursor-pointer items-center rounded-r border-l ": 1 == 1,
@@ -2866,7 +2866,7 @@ var render = function render() {
   }, [_vm._m(0), _vm._v(" "), _vm._l(_vm.mainList, function (item, index) {
     return _c("tr", {
       key: index,
-      staticClass: "h-24 bg-white shadow-2 rounded-lg text-lg text-gray-600 font-medium hover:bg-gray-50"
+      staticClass: "h-24 bg-white shadow-2 rounded-lg text-base JF-Flat text-gray-500 font-medium hover:bg-gray-50"
     }, [_c("td", {
       staticClass: "w-12 text-center rounded-r-lg"
     }, [_vm._v(_vm._s(item.id))]), _vm._v(" "), _c("td", {
@@ -3026,7 +3026,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("tr", {
-    staticClass: "h-12 text-lg font-bold text-gray-600"
+    staticClass: "h-12 text-lg cairo font-semibold text-gray-600"
   }, [_c("td", {
     staticClass: "w-12 text-center"
   }, [_vm._v("#")]), _vm._v(" "), _c("td", {
@@ -3175,7 +3175,7 @@ var render = function render() {
       value: _vm.formData.first_name,
       expression: "formData.first_name"
     }],
-    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg",
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base JF-Flat",
     domProps: {
       value: _vm.formData.first_name
     },
@@ -3199,7 +3199,7 @@ var render = function render() {
       value: _vm.formData.last_name,
       expression: "formData.last_name"
     }],
-    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg",
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base JF-Flat",
     domProps: {
       value: _vm.formData.last_name
     },
@@ -3223,7 +3223,7 @@ var render = function render() {
       value: _vm.formData.phone,
       expression: "formData.phone"
     }],
-    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg",
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base JF-Flat",
     domProps: {
       value: _vm.formData.phone
     },
@@ -3247,7 +3247,7 @@ var render = function render() {
       value: _vm.formData.role_id,
       expression: "formData.role_id"
     }],
-    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg",
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base JF-Flat",
     on: {
       change: [function ($event) {
         var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
@@ -3279,7 +3279,7 @@ var render = function render() {
       value: _vm.formData.password,
       expression: "formData.password"
     }],
-    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg",
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base JF-Flat",
     domProps: {
       value: _vm.formData.password
     },
@@ -3303,7 +3303,7 @@ var render = function render() {
       value: _vm.formData.confirmPassword,
       expression: "formData.confirmPassword"
     }],
-    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg",
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base JF-Flat",
     domProps: {
       value: _vm.formData.confirmPassword
     },
@@ -3806,11 +3806,11 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "w-auto md:p-8 p-4"
+    staticClass: "w-auto md:p-8 p-4 JF-Flat"
   }, [_c("div", {
     staticClass: "w-full bg-white shadow-2 lg:px-8 md:px-6 px-4 py-4"
   }, [_c("div", {
-    staticClass: "text-2xl font-bold h-20 flex items-center justify-start border-b"
+    staticClass: "text-2xl font-semibold text-gray-600 h-20 flex items-center justify-start border-b cairo"
   }, [_vm._v("\n                الملف الشخصي\n            ")]), _vm._v(" "), _c("div", {
     staticClass: "md:flex items-center my-8"
   }, [_c("img", {
@@ -3831,18 +3831,18 @@ var render = function render() {
   }), _vm._v(" "), _vm._m(0)])]), _vm._v(" "), _c("div", {
     staticClass: "flex items-center h-20"
   }, [_c("div", {
-    staticClass: "btn-color-one rounded shadow px-12 h-12 w-auto flex items-center justify-center text-white text-lg cursor-pointer",
+    staticClass: "rounded back-btn shadow px-12 h-12 w-auto flex items-center justify-center text-white text-lg cursor-pointer",
     on: {
       click: _vm.changePhoto
     }
   }, [_vm._v("\n                    تحديث\n                ")])]), _vm._v(" "), _c("div", {
     staticClass: "border-b border-t"
   }, [_c("div", {
-    staticClass: "text-2xl text-gray-600 font-medium mt-12"
+    staticClass: "text-2xl text-gray-600 font-medium mt-12 cairo"
   }, [_vm._v("\n                    البيانات الشخصية\n                ")]), _vm._v(" "), _c("div", {
     staticClass: "mt-4 lg:h-16 lg:flex items-center"
   }, [_c("div", {
-    staticClass: "md:w-48 h-8 text-lg text-gray-600"
+    staticClass: "md:w-48 h-8 text-lg text-gray-600 mb-6"
   }, [_vm._v("\n                        الإسم\n                    ")]), _vm._v(" "), _c("div", {
     staticClass: "16"
   }, [_c("input", {
@@ -3871,7 +3871,7 @@ var render = function render() {
   }, [_vm._v("\n                            " + _vm._s(_vm.formValidate.first_name) + "\n                        ")])])]), _vm._v(" "), _c("div", {
     staticClass: "mt-4 lg:h-16 lg:flex items-center"
   }, [_c("div", {
-    staticClass: "md:w-48 h-8 text-lg text-gray-600"
+    staticClass: "md:w-48 h-8 text-lg text-gray-600 mb-6"
   }, [_vm._v("\n                        اللقب\n                    ")]), _vm._v(" "), _c("div", {
     staticClass: "16"
   }, [_c("input", {
@@ -3912,16 +3912,16 @@ var render = function render() {
   }, [_vm._v("\n                        " + _vm._s(_vm.user.role) + "\n                    ")])]), _vm._v(" "), _c("div", {
     staticClass: "flex items-center h-20"
   }, [_c("div", {
-    staticClass: "btn-color-one rounded shadow px-12 h-12 w-auto flex items-center justify-center text-white text-lg cursor-pointer",
+    staticClass: "back-btn rounded shadow px-12 h-12 w-auto flex items-center justify-center text-white text-lg cursor-pointer",
     on: {
       click: _vm.changeName
     }
   }, [_vm._v("\n                        تحديث\n                    ")])])]), _vm._v(" "), _c("div", [_c("div", {
-    staticClass: "text-2xl text-gray-600 font-medium mt-12"
+    staticClass: "text-2xl text-gray-600 font-medium mt-12 mb-6 cairo"
   }, [_vm._v("\n                    تغيير كلمة المرور\n                ")]), _vm._v(" "), _c("div", {
     staticClass: "mt-4 lg:h-16 lg:flex items-center"
   }, [_c("div", {
-    staticClass: "md:w-48 h-8 text-lg text-gray-600"
+    staticClass: "md:w-48 h-8 text-lg text-gray-600 mb-6"
   }, [_vm._v("\n                        كلمة المرور الحالية\n                    ")]), _vm._v(" "), _c("div", {
     staticClass: "16"
   }, [_c("input", {
@@ -3950,7 +3950,7 @@ var render = function render() {
   }, [_vm._v("\n                            " + _vm._s(_vm.formValidate.old_password) + "\n                        ")])])]), _vm._v(" "), _c("div", {
     staticClass: "mt-4 lg:h-16 lg:flex items-center"
   }, [_c("div", {
-    staticClass: "md:w-48 h-8 text-lg text-gray-600"
+    staticClass: "md:w-48 h-8 text-lg text-gray-600 mb-6"
   }, [_vm._v("\n                        كلمة المرور الجديدة\n                    ")]), _vm._v(" "), _c("div", {
     staticClass: "16"
   }, [_c("input", {
@@ -3979,7 +3979,7 @@ var render = function render() {
   }, [_vm._v("\n                            " + _vm._s(_vm.formValidate.new_password) + "\n                        ")])])]), _vm._v(" "), _c("div", {
     staticClass: "mt-4 lg:h-16 lg:flex items-center"
   }, [_c("div", {
-    staticClass: "md:w-48 h-8 text-lg text-gray-600"
+    staticClass: "md:w-48 h-8 text-lg text-gray-600 mb-6"
   }, [_vm._v("\n                        تأكيد كلمة المرور\n                    ")]), _vm._v(" "), _c("div", {
     staticClass: "16"
   }, [_c("input", {
@@ -4008,7 +4008,7 @@ var render = function render() {
   }, [_vm._v("\n                            " + _vm._s(_vm.formValidate.confirm_password) + "\n                        ")])])]), _vm._v(" "), _c("div", {
     staticClass: "flex items-center h-20"
   }, [_c("div", {
-    staticClass: "btn-color-one rounded shadow px-12 h-12 w-auto flex items-center justify-center text-white text-lg cursor-pointer",
+    staticClass: "back-btn rounded shadow px-12 h-12 w-auto flex items-center justify-center text-white text-lg cursor-pointer",
     on: {
       click: _vm.changePassword
     }
@@ -4018,9 +4018,9 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("span", {
-    staticClass: "ml-2 bg-blue-400 h-16 w-32 text-white flex items-center justify-center rounded shadow cursor-pointer hover:bg-blue-500 text-lg"
+    staticClass: "ml-2 bg-blue-400 h-16 w-36 text-white flex items-center justify-center rounded shadow cursor-pointer hover:bg-blue-500 text-base"
   }, [_c("i", {
-    staticClass: "fas fa-folder-plus ml-2"
+    staticClass: "fas fa-folder-plus ml-2 text-xl"
   }), _vm._v("\n                        إختر الصورة")]);
 }];
 render._withStripped = true;
@@ -4270,19 +4270,19 @@ var render = function render() {
       urlLabel: "أدوار المشرفين"
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2"
+    staticClass: "bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2 JF-Flat"
   }, [_c("div", {
     staticClass: "w-full px-4 py-4"
   }, [_c("div", {
     staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
   }, [_vm._v("\n                        إسم الدور\n                    ")]), _vm._v(" "), _c("div", {
-    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg"
+    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
   }, [_vm._v("\n                        " + _vm._s(_vm.mainItem.name) + "\n                    ")])]), _vm._v(" "), _c("div", {
     staticClass: "w-full px-4 py-4"
   }, [_c("div", {
     staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
   }, [_vm._v("\n                        عدد المشرفين\n                    ")]), _vm._v(" "), _c("div", {
-    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-lg"
+    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
   }, [_vm._v("\n                        " + _vm._s(_vm.mainItem.admins_count) + "\n                    ")])])]), _vm._v(" "), _c("div", {
     staticClass: "border-b mx-4 px-2 py-2 mt-6 text-gray-500 text-sm JF-Flat"
   }, [_vm._v("\n                الصلاحيات\n            ")]), _vm._v(" "), _c("div", {
@@ -4296,7 +4296,10 @@ var render = function render() {
     }, [_c("div", {
       staticClass: "border rounded-xl h-9 w-9 flex items-center justify-center"
     }, [item.state == true ? _c("div", {
-      staticClass: "h-7 w-7 rounded-xl bg-green-500 text-white flex items-center justify-center text-center"
+      staticClass: "h-7 w-7 rounded-xl text-white flex items-center justify-center text-center",
+      staticStyle: {
+        "background-color": "#8082ff"
+      }
     }, [_c("i", {
       staticClass: "fas fa-check"
     })]) : _c("div", {
@@ -4440,7 +4443,7 @@ var render = function render() {
   }, [_vm._m(1), _vm._v(" "), _vm._l(_vm.mainList, function (item, index) {
     return _c("tr", {
       key: index,
-      staticClass: "h-24 bg-white shadow-2 rounded-lg text-lg text-gray-600 font-medium hover:bg-gray-50"
+      staticClass: "h-24 bg-white shadow-2 rounded-lg text-base JF-Flat text-gray-500 font-medium hover:bg-gray-50"
     }, [_c("td", {
       staticClass: "w-12 text-center rounded-r-lg"
     }, [_vm._v(_vm._s(item.id))]), _vm._v(" "), _c("td", {
@@ -4537,7 +4540,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("tr", {
-    staticClass: "h-12 text-lg font-bold text-gray-600"
+    staticClass: "h-12 text-lg cairo font-semibold text-gray-600"
   }, [_c("td", {
     staticClass: "w-12 text-center"
   }, [_vm._v("#")]), _vm._v(" "), _c("td", {
