@@ -22,5 +22,5 @@ Route::get('/', function () {
 //     return view('admin.admin');
 // })->where('any', '.*');
 
-Route::view('/','admin.admin');
-Route::view('/{a?}/{b?}/{c?}/{d?}/{e?}','admin.admin');
+// Route::view('/','admin.admin');
+// Route::view('/{a?}/{b?}/{c?}/{d?}/{e?}','admin.admin');

@@ -22,12 +22,10 @@ class PermissionController extends Controller
     // All Permission
     public function index(Request $request)
     {
-
         if ($request->count)
             $count = $request->count;
         else
             $count = 10;
-
 
         $permissions = Permission::latest()
             ->where('state', '<>', 9)

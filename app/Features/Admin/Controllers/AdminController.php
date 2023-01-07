@@ -20,7 +20,6 @@ class AdminController extends Controller
     // Admin List
     public function index(Request $request)
     {
-
         if ($request->count)
             $count = $request->count;
         else
@@ -153,6 +152,7 @@ class AdminController extends Controller
     // Get Admin By Id With Permseeions
     public function showWithPermissions($admin)
     {
+        
         $admin = Admin::with('role:id,name')->where('id', $admin)->where('state', '<>', 9)->first();
         if (!$admin)
             return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 204);

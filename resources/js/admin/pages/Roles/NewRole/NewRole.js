@@ -23,6 +23,45 @@ export default {
         };
     },
     methods: {
+        reload:function(){
+            this.loadData();
+        },
+        loadData:function(){
+            this.$loading.Start();
+            this.$http
+                .GetAllPermissionsForNewRole()
+                .then(response => {
+                    this.$loading.Stop();
+                    this.loaded = true;
+                    if (response.status == 200) {
+                        this.mainItem = response.data.data;
+                        this.formData.name=response.data.data.name;
+                        this.loaded = 200;
+                        this.$alert.Success(response.data.message);
+                    } else if (response.status == 204) {
+                        this.loaded = 204;
+                        this.$alert.Empty("هذه الدور غير متوفر");
+                    }
+                })
+                .catch(error => {
+                    this.$loading.Stop();
+                    if (error.response.status == 400) {
+                        this.errorMessage=error.response.data.message;
+                        this.loaded = 400;
+                        this.$alert.BadRequest(error.response.data.message);
+                    } else if (error.response.status == 403) {
+                        this.errorMessage=error.response.data.message;
+                        this.loaded = 403;
+                        this.$alert.BadRequest(error.response.data.message);
+                    } else if (error.response.status == 401) {
+                        this.$alert.NotAuth();
+                    } else {
+                        this.errorMessage="حدث خطأ ما";
+                        this.loaded = 404;
+                        this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+                    }
+                });
+        },
         togglePermission(index) {
             this.mainItem.permissions[index].state = !this.mainItem.permissions[index]
                 .state;
@@ -62,21 +101,7 @@ export default {
             })
             .catch(error => {
                 this.$loading.Stop();
-                if (error.response.status == 400) {
-                    this.errorMessage=error.response.data.message;
-                    this.loaded = 400;
-                    this.$alert.BadRequest(error.response.data.message);
-                } else if (error.response.status == 403) {
-                    this.errorMessage=error.response.data.message;
-                    this.loaded = 403;
-                    this.$alert.BadRequest(error.response.data.message);
-                } else if (error.response.status == 401) {
-                    this.$alert.NotAuth();
-                } else {
-                    this.errorMessage="حدث خطأ ما";
-                    this.loaded = 404;
-                    this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
-                }
+                this.$alert.BadRequest(error.response.data.message);
             });
 
         },
@@ -106,28 +131,7 @@ export default {
     },
     mounted() {
         this.$store.commit("activePage", this.sideMenuPage);
-        this.$loading.Start();
-        this.$http
-            .GetAllPermissionsForNewRole()
-            .then(response => {
-                this.$loading.Stop();
-                this.loaded = true;
-                if (response.status == 200) {
-                    this.mainItem = response.data.data;
-                    this.formData.name=response.data.data.name;
-                    this.loaded = 200;
-                    this.$alert.Success(response.data.message);
-                } else if (response.status == 204) {
-                    this.loaded = 204;
-                    this.$alert.Empty("هذه الدور غير متوفر");
-                }
-            })
-            .catch(error => {
-                this.$loading.Stop();
-                this.loaded = 404;
-                this.loaded = true;
-                this.$alert.BadRequest(error.response);
-            });
+        this.loadData();
     },
     computed: {},
     created() { }

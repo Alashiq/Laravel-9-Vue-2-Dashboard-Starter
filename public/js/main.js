@@ -6334,30 +6334,23 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    togglePermission: function togglePermission(index) {
-      this.mainItem.permissions[index].state = !this.mainItem.permissions[index].state;
+    reload: function reload() {
+      this.loadData();
     },
-    addNewItem: function addNewItem(id) {
+    loadData: function loadData() {
       var _this = this;
-      this.formData.permissions = [];
-      for (var i = 0; i < this.mainItem.permissions.length; i++) {
-        if (this.mainItem.permissions[i].state == true) this.formData.permissions.push(this.mainItem.permissions[i].name);
-      }
-      this.validateName();
-      this.validatePermissions();
-      if (this.formValidate.name != "") return 0;
-      if (this.formValidate.permissions != "") return 0;
       this.$loading.Start();
-      this.$http.PostNewRole(this.formData).then(function (response) {
+      this.$http.GetAllPermissionsForNewRole().then(function (response) {
         _this.$loading.Stop();
+        _this.loaded = true;
         if (response.status == 200) {
-          _this.formData.name = "";
-          for (var i = 0; i < _this.mainItem.permissions.length; i++) {
-            _this.mainItem.permissions[i].state = false;
-          }
+          _this.mainItem = response.data.data;
+          _this.formData.name = response.data.data.name;
+          _this.loaded = 200;
           _this.$alert.Success(response.data.message);
-        } else if (response.status == 400) {
-          _this.$alert.Empty(response.data.messageresponse.data.message);
+        } else if (response.status == 204) {
+          _this.loaded = 204;
+          _this.$alert.Empty("هذه الدور غير متوفر");
         }
       })["catch"](function (error) {
         _this.$loading.Stop();
@@ -6376,6 +6369,36 @@ __webpack_require__.r(__webpack_exports__);
           _this.loaded = 404;
           _this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
         }
+      });
+    },
+    togglePermission: function togglePermission(index) {
+      this.mainItem.permissions[index].state = !this.mainItem.permissions[index].state;
+    },
+    addNewItem: function addNewItem(id) {
+      var _this2 = this;
+      this.formData.permissions = [];
+      for (var i = 0; i < this.mainItem.permissions.length; i++) {
+        if (this.mainItem.permissions[i].state == true) this.formData.permissions.push(this.mainItem.permissions[i].name);
+      }
+      this.validateName();
+      this.validatePermissions();
+      if (this.formValidate.name != "") return 0;
+      if (this.formValidate.permissions != "") return 0;
+      this.$loading.Start();
+      this.$http.PostNewRole(this.formData).then(function (response) {
+        _this2.$loading.Stop();
+        if (response.status == 200) {
+          _this2.formData.name = "";
+          for (var i = 0; i < _this2.mainItem.permissions.length; i++) {
+            _this2.mainItem.permissions[i].state = false;
+          }
+          _this2.$alert.Success(response.data.message);
+        } else if (response.status == 400) {
+          _this2.$alert.Empty(response.data.messageresponse.data.message);
+        }
+      })["catch"](function (error) {
+        _this2.$loading.Stop();
+        _this2.$alert.BadRequest(error.response.data.message);
       });
     },
     validateName: function validateName() {
@@ -6402,27 +6425,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
     this.$store.commit("activePage", this.sideMenuPage);
-    this.$loading.Start();
-    this.$http.GetAllPermissionsForNewRole().then(function (response) {
-      _this2.$loading.Stop();
-      _this2.loaded = true;
-      if (response.status == 200) {
-        _this2.mainItem = response.data.data;
-        _this2.formData.name = response.data.data.name;
-        _this2.loaded = 200;
-        _this2.$alert.Success(response.data.message);
-      } else if (response.status == 204) {
-        _this2.loaded = 204;
-        _this2.$alert.Empty("هذه الدور غير متوفر");
-      }
-    })["catch"](function (error) {
-      _this2.$loading.Stop();
-      _this2.loaded = 404;
-      _this2.loaded = true;
-      _this2.$alert.BadRequest(error.response);
-    });
+    this.loadData();
   },
   computed: {},
   created: function created() {}
