@@ -22,10 +22,50 @@ export default {
             sideMenuPage: {
                 main: 5,
                 sub: 2,
-            }
+            },
+            errorMessage: "حدث خطأ ما",
         };
     },
     methods: {
+        reload:function(){
+            this.loadData();
+        },
+        loadData:function(){
+        this.$loading.Start();
+        this.$http
+            .GetAllRoles(0,100,'')
+            .then(response => {
+                this.$loading.Stop();
+                if (response.status == 200) {
+                    this.loaded = 200;
+                    this.roleList = response.data.data.data;
+                    this.$alert.Success(response.data.message);
+                } else if (response.status == 204) {
+                    this.loaded = 204;
+                    this.$alert.Empty("تنبيه لا يوجد اي أدوار");
+                } else {
+                    this.loaded = 400;
+                }
+            })
+            .catch(error => {
+                this.$loading.Stop();
+                if (error.response.status == 400) {
+                    this.errorMessage=error.response.data.message;
+                    this.loaded = 400;
+                    this.$alert.BadRequest(error.response.data.message);
+                } else if (error.response.status == 403) {
+                    this.errorMessage=error.response.data.message;
+                    this.loaded = 403;
+                    this.$alert.BadRequest(error.response.data.message);
+                } else if (error.response.status == 401) {
+                    this.$alert.NotAuth();
+                } else {
+                    this.errorMessage="حدث خطأ ما";
+                    this.loaded = 404;
+                    this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+                }
+            });
+        },
         addNewItem: function () {
             this.validateFirstName();
             this.validateLastName();
@@ -145,27 +185,7 @@ export default {
     },
     mounted() {
         this.$store.commit("activePage", this.sideMenuPage);
-
-        this.$loading.Start();
-        this.$http
-            .GetAllRoles(0,100,'')
-            .then(response => {
-                this.$loading.Stop();
-                this.loaded = true;
-                if (response.status == 200) {
-                    this.loaded = 200;
-                    this.roleList = response.data.data.data;
-                    this.$alert.Success(response.data.message);
-                } else if (response.status == 204) {
-                    this.loaded = 204;
-                    this.$alert.Empty("تنبيه لا يوجد اي أدوار");
-                }
-            })
-            .catch(error => {
-                this.loaded = 404;
-                this.$loading.Stop();
-                this.$alert.BadRequest(error.response);
-            });
+        this.loadData();
     },
     computed: {},
     created() { }

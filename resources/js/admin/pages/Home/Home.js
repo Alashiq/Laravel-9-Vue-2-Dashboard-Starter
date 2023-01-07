@@ -1,43 +1,62 @@
 export default {
     data() {
         return {
-            data: {
-                todayVisitor:0,
-                weekVisitor:0,
-                monthVisitor:0,
-                todayMessage:0,
-                notSloveMessage:0,
-                sloveMessage:0,
+            mainItem: {
             },
-            loaded:204, // 0 not load - 200 done - 204 empty 
-            sideMenuPage:{
-                main:2,
-                sub:0,
-            }
+            loaded: 0, // 0 not load - 200 done - 204 empty 
+            sideMenuPage: {
+                main: 2,
+                sub: 0,
+            },
+            errorMessage: "حدث خطأ ما"
         };
     },
-    methods: {},
+    methods: {
+        reload: function () {
+            this.loadData(1)
+        },
+        loadData: function (page) {
+            this.pageId = page;
+            this.$loading.Start();
+            this.$http
+                .GetHome()
+                .then(response => {
+                    this.$loading.Stop();
+                    if (response.status == 200) {
+                        this.mainItem = response.data.data;
+                        this.$alert.Success(response.data.message);
+                        this.loaded = 200;
+                    } else if (response.status == 204) {
+                        this.loaded = 204;
+                        this.$alert.Empty("لا يوجد اي بيانات");
+                    } else {
+                        this.loaded = 400;
+                    }
+                })
+                .catch(error => {
+                    this.$loading.Stop();
+                    if (error.response.status == 400) {
+                        this.errorMessage=error.response.data.message;
+                        this.loaded = 400;
+                        this.$alert.BadRequest(error.response.data.message);
+                    } else if (error.response.status == 403) {
+                        this.errorMessage=error.response.data.message;
+                        this.loaded = 403;
+                        this.$alert.BadRequest(error.response.data.message);
+                    } else if (error.response.status == 401) {
+                        this.$alert.NotAuth();
+                    } else {
+                        this.errorMessage="حدث خطأ ما";
+                        this.loaded = 404;
+                        this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+                    }
+                });
+        },
+    },
     mounted() {
         this.$store.commit("activePage", this.sideMenuPage);
-        // this.$loading.Start();
-        // this.$http
-        //     .GetHome()
-        //     .then(response => {
-        //         this.$loading.Stop();
-        //         this.loaded = true;
-        //         if (response.status == 200) {
-        //             this.data = response.data.data;
-        //             this.$alert.Success(response.data.message);
-        //         } else if (response.status == 204) {
-        //             this.$alert.Empty("لم نتمكن من جلب البيانات");
-        //         }
-        //     })
-        //     .catch(error => {
-        //         this.$loading.Stop();
-        //         this.loaded = true;
-        //         this.$alert.BadRequest(error.response);
-        //     });
+        this.loadData();
     },
     computed: {},
-    created() {}
+    created() { }
 };

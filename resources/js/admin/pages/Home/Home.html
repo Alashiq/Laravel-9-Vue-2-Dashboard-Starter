@@ -15,7 +15,7 @@
                 <div
                     class="text-3xl text-gray-700 font-semibold h-20 flex items-center"
                 >
-                    {{ data.todayVisitor }} زائر
+                    {{ mainItem.users }} زائر
                 </div>
                 <div class="text-gray-500 flex items-center h-4">
                     الزيارات اليوم
@@ -35,7 +35,7 @@
                 <div
                     class="text-3xl text-gray-700 font-semibold h-20 flex items-center"
                 >
-                    {{ data.weekVisitor }} زائر
+                    {{ mainItem.users}} زائر
                 </div>
                 <div class="text-gray-500 flex items-center h-4">
                     زيارات الأسبوع
@@ -55,7 +55,7 @@
                 <div
                     class="text-3xl text-gray-700 font-semibold h-20 flex items-center"
                 >
-                    {{ data.monthVisitor }} زائر
+                    {{mainItem.users }} زائر
                 </div>
                 <div class="text-gray-500 flex items-center h-4">
                     زيارات الشهر
@@ -75,7 +75,7 @@
                 <div
                     class="text-3xl text-gray-700 font-semibold h-20 flex items-center"
                 >
-                    {{ data.todayMessage }} رسالة
+                    {{ mainItem.users }} رسالة
                 </div>
                 <div class="text-gray-500 flex items-center h-4">
                     رسائل اليوم
@@ -95,7 +95,7 @@
                 <div
                     class="text-3xl text-gray-700 font-semibold h-20 flex items-center"
                 >
-                    {{ data.notSloveMessage }} رسالة
+                    {{ mainItem.users }} رسالة
                 </div>
                 <div class="text-gray-500 flex items-center h-4">
                     الرسائل الغير محلولة
@@ -115,7 +115,7 @@
                 <div
                     class="text-3xl text-gray-700 font-semibold h-20 flex items-center"
                 >
-                    {{ data.sloveMessage }} رسالة
+                    {{ mainItem.users }} رسالة
                 </div>
                 <div class="text-gray-500 flex items-center h-4">
                     الرسائل المحلولة
@@ -138,4 +138,8 @@
     </div>
 
     <Empty-Box v-if="loaded == 204"></Empty-Box>
+    <Bad-Request v-if="loaded==400" :reload="reload" :message="errorMessage"></Bad-Request>
+    <No-Permission v-if="loaded==403" :message="errorMessage"></No-Permission>
+    <No-Internet v-if="loaded==404" :reload="reload"></No-Internet>
+
 </div>

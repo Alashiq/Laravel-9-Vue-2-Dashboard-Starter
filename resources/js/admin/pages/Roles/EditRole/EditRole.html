@@ -116,7 +116,9 @@
             message="لا يوجد دور بهذا الرقم"
         ></Empty-Box>
 
-        <Bad-Request v-if="loaded==404 || loaded==400" :reload="reload"></Bad-Request>
-
+        <Bad-Request v-if="loaded==400" :reload="reload" :message="errorMessage"></Bad-Request>
+        <No-Permission v-if="loaded==403" :message="errorMessage"></No-Permission>
+        <No-Internet v-if="loaded==404" :reload="reload"></No-Internet>
+    
         <!-- End Inside Page -->
     </div>

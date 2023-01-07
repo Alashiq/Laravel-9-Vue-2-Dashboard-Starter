@@ -20,7 +20,8 @@ export default {
             sideMenuPage: {
                 main: 5,
                 sub: 3,
-            }
+            },
+            errorMessage: "حدث خطأ ما",
         };
     },
     methods: {
@@ -51,9 +52,22 @@ export default {
                     }
                 })
                 .catch(error => {
-                    this.loaded = 404;
                     this.$loading.Stop();
-                    this.$alert.BadRequest(error.response);
+                    if (error.response.status == 400) {
+                        this.errorMessage=error.response.data.message;
+                        this.loaded = 400;
+                        this.$alert.BadRequest(error.response.data.message);
+                    } else if (error.response.status == 403) {
+                        this.errorMessage=error.response.data.message;
+                        this.loaded = 403;
+                        this.$alert.BadRequest(error.response.data.message);
+                    } else if (error.response.status == 401) {
+                        this.$alert.NotAuth();
+                    } else {
+                        this.errorMessage="حدث خطأ ما";
+                        this.loaded = 404;
+                        this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+                    }
                 });
         },
         changePerPage: function (event) {

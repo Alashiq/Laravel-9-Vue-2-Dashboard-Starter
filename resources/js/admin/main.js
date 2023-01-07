@@ -44,6 +44,8 @@ Vue.component('Single-Page-Header', require('../admin/components/SinglePageHeade
 Vue.component('Btn-Submit-New-Item', require('../admin/components/BtnSubmitNewItem/BtnSubmitNewItem.vue').default);
 Vue.component('Empty-Box', require('../admin/components/EmptyBox/EmptyBox.vue').default);
 Vue.component('Bad-Request', require('../admin/components/BadRequest/BadRequest.vue').default);
+Vue.component('No-Permission', require('../admin/components/NoPermission/NoPermission.vue').default);
+Vue.component('No-Internet', require('../admin/components/NoInternet/NoInternet.vue').default);
 
 
 

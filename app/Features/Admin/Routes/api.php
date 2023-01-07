@@ -1,5 +1,6 @@
 <?php
 
+use App\Features\Admin\Controllers\HomeController;
 use App\Features\Admin\Controllers\PermissionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,14 @@ Route::middleware(['auth:sanctum', 'type.admin'])->group(function () {
         }
     );
     # # # # # # # # # # # # # # # End Admin Auth # # # # # # # # # # # # # # # 
+
+    # # # # # # # # # # # # # # # # #  Home  # # # # # # # # # # # # # # # # #
+    Route::controller(HomeController::class)->prefix('home')->group(
+        function () {
+            Route::get('/', [HomeController::class, 'index'])->middleware('check.role:HomeChart');
+        }
+    );
+    # # # # # # # # # # # # # # # # # End Home  # # # # # # # # # # # # # # # 
 
 
     # # # # # # # # # # # # # # # # #  Admin  # # # # # # # # # # # # # # # # #

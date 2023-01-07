@@ -21,7 +21,7 @@ export default {
     },
     // ============== Home Part =======================
     GetHome() {
-        return axios.get("/api/admin/home");
+        return axios.get("/admin/api/home");
     },
 
     

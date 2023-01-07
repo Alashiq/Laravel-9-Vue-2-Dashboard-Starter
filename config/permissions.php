@@ -5,7 +5,6 @@ return [
         // Home Chart
         'HomeLabel'=>'عنوان الرئيسية',
         'HomeChart'=>'إحصائيات الصفحة الرئيسية',
-
         // Admin Permission
         'SettingLabel'=>'عنوان الاعدادات',
         'RolePermissionsList'=>'اختصار المشرفين والصلاحيات',

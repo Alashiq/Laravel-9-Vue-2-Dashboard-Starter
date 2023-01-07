@@ -2398,6 +2398,91 @@ render._withStripped = true;
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/components/NoInternet/NoInternet.html?vue&type=template&id=0b89b498&":
+/*!***********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/components/NoInternet/NoInternet.html?vue&type=template&id=0b89b498& ***!
+  \***********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "w-full h-auto"
+  }, [_c("div", {
+    staticClass: "h-80 bg-white rounded-lg shadow-2 mx-auto my-8 flex items-center justify-center"
+  }, [_c("div", [_c("img", {
+    staticClass: "h-28 w-28 mx-auto mb-6",
+    attrs: {
+      src: "/storage/assets/400.jpg",
+      alt: ""
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "flex items-center justify-center text-4xl font-bold text-gray-600 mb-3 cairo"
+  }, [_vm._v("عذرا")]), _vm._v(" "), _c("div", {
+    staticClass: "flex items-center justify-center text-lg text-gray-500 JF-Flat mt-4"
+  }, [_vm._v(_vm._s(!_vm.message ? "حدث خطأ ما, الرجاء إعادة تحميل الصفحة" : _vm.message))]), _vm._v(" "), _c("div", {
+    staticClass: "mx-auto back-btn h-12 w-36 mt-8 flex items-center justify-center text-white text-base JF-Flat shadow rounded",
+    on: {
+      click: function click($event) {
+        return _vm.reload();
+      }
+    }
+  }, [_vm._v("إعادة تحميل")])])])]);
+};
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/components/NoPermission/NoPermission.html?vue&type=template&id=50c6ceb4&":
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/components/NoPermission/NoPermission.html?vue&type=template&id=50c6ceb4& ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _vm._m(0);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "w-full h-auto"
+  }, [_c("div", {
+    staticClass: "h-80 bg-white rounded-lg shadow-2 mx-auto my-8 flex items-center justify-center"
+  }, [_c("div", [_c("img", {
+    staticClass: "h-28 w-28 mx-auto mb-6",
+    attrs: {
+      src: "https://uxwing.com/wp-content/themes/uxwing/download/signs-and-symbols/stop-limit-icon.png",
+      alt: ""
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "flex items-center justify-center text-4xl font-bold text-gray-600 mb-3 cairo"
+  }, [_vm._v("عذرا")]), _vm._v(" "), _c("div", {
+    staticClass: "flex items-center justify-center text-lg text-gray-500 JF-Flat mt-4"
+  }, [_vm._v("ليس لديك الصلاحية للوصول إلى هذه الصفحة")])])])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/components/PaginationBar/PaginationBar.html?vue&type=template&id=37328a28&":
 /*!*****************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/components/PaginationBar/PaginationBar.html?vue&type=template&id=37328a28& ***!
@@ -2666,7 +2751,16 @@ var render = function render() {
     attrs: {
       message: "لا يوجد مشرف بهذا الرقم"
     }
-  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 || _vm.loaded == 400 ? _c("Bad-Request", {
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload,
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 403 ? _c("No-Permission", {
+    attrs: {
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("No-Internet", {
     attrs: {
       reload: _vm.reload
     }
@@ -3016,7 +3110,16 @@ var render = function render() {
       moveToPrevius: _vm.moveToPrevius,
       changePerPage: _vm.changePerPage
     }
-  })], 1) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box") : _vm._e(), _vm._v(" "), _vm.loaded == 404 || _vm.loaded == 400 ? _c("Bad-Request", {
+  })], 1) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box") : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload,
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 403 ? _c("No-Permission", {
+    attrs: {
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("No-Internet", {
     attrs: {
       reload: _vm.reload
     }
@@ -3129,7 +3232,16 @@ var render = function render() {
     attrs: {
       message: "لا يوجد مشرف بهذا الرقم"
     }
-  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 || _vm.loaded == 400 ? _c("Bad-Request", {
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload,
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 403 ? _c("No-Permission", {
+    attrs: {
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("No-Internet", {
     attrs: {
       reload: _vm.reload
     }
@@ -3331,7 +3443,20 @@ var render = function render() {
     attrs: {
       message: "لم نتمكن من جلب بيانات الأدوار, تأكد من أنك تمتلك صلاحية مشاهدة أدوار الصفحة"
     }
-  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("div", [_vm._v("\n        حدث خطأ ما\n    ")]) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("div", [_vm._v("\n        تحقق من اتصالك بالانترنت\n    ")]) : _vm._e()], 1);
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload,
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 403 ? _c("No-Permission", {
+    attrs: {
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("No-Internet", {
+    attrs: {
+      reload: _vm.reload
+    }
+  }) : _vm._e()], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -3364,7 +3489,7 @@ var render = function render() {
     staticClass: "mr-8"
   }, [_c("div", {
     staticClass: "text-3xl text-gray-700 font-semibold h-20 flex items-center"
-  }, [_vm._v("\n                    " + _vm._s(_vm.data.todayVisitor) + " زائر\n                ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    " + _vm._s(_vm.mainItem.users) + " زائر\n                ")]), _vm._v(" "), _c("div", {
     staticClass: "text-gray-500 flex items-center h-4"
   }, [_vm._v("\n                    الزيارات اليوم\n                ")])])]), _vm._v(" "), _c("div", {
     staticClass: "h-40 bg-white shadow-3 mx-3 mb-8 px-6 rounded-lg flex items-center"
@@ -3372,7 +3497,7 @@ var render = function render() {
     staticClass: "mr-8"
   }, [_c("div", {
     staticClass: "text-3xl text-gray-700 font-semibold h-20 flex items-center"
-  }, [_vm._v("\n                    " + _vm._s(_vm.data.weekVisitor) + " زائر\n                ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    " + _vm._s(_vm.mainItem.users) + " زائر\n                ")]), _vm._v(" "), _c("div", {
     staticClass: "text-gray-500 flex items-center h-4"
   }, [_vm._v("\n                    زيارات الأسبوع\n                ")])])]), _vm._v(" "), _c("div", {
     staticClass: "h-40 bg-white shadow-3 mx-3 mb-8 px-6 rounded-lg flex items-center"
@@ -3380,7 +3505,7 @@ var render = function render() {
     staticClass: "mr-8"
   }, [_c("div", {
     staticClass: "text-3xl text-gray-700 font-semibold h-20 flex items-center"
-  }, [_vm._v("\n                    " + _vm._s(_vm.data.monthVisitor) + " زائر\n                ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    " + _vm._s(_vm.mainItem.users) + " زائر\n                ")]), _vm._v(" "), _c("div", {
     staticClass: "text-gray-500 flex items-center h-4"
   }, [_vm._v("\n                    زيارات الشهر\n                ")])])]), _vm._v(" "), _c("div", {
     staticClass: "h-40 bg-white shadow-3 mx-3 mb-8 px-6 rounded-lg flex items-center"
@@ -3388,7 +3513,7 @@ var render = function render() {
     staticClass: "mr-8"
   }, [_c("div", {
     staticClass: "text-3xl text-gray-700 font-semibold h-20 flex items-center"
-  }, [_vm._v("\n                    " + _vm._s(_vm.data.todayMessage) + " رسالة\n                ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    " + _vm._s(_vm.mainItem.users) + " رسالة\n                ")]), _vm._v(" "), _c("div", {
     staticClass: "text-gray-500 flex items-center h-4"
   }, [_vm._v("\n                    رسائل اليوم\n                ")])])]), _vm._v(" "), _c("div", {
     staticClass: "h-40 bg-white shadow-3 mx-3 mb-8 px-6 rounded-lg flex items-center"
@@ -3396,7 +3521,7 @@ var render = function render() {
     staticClass: "mr-8"
   }, [_c("div", {
     staticClass: "text-3xl text-gray-700 font-semibold h-20 flex items-center"
-  }, [_vm._v("\n                    " + _vm._s(_vm.data.notSloveMessage) + " رسالة\n                ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    " + _vm._s(_vm.mainItem.users) + " رسالة\n                ")]), _vm._v(" "), _c("div", {
     staticClass: "text-gray-500 flex items-center h-4"
   }, [_vm._v("\n                    الرسائل الغير محلولة\n                ")])])]), _vm._v(" "), _c("div", {
     staticClass: "h-40 bg-white shadow-3 mx-3 mb-8 px-6 rounded-lg flex items-center"
@@ -3404,7 +3529,7 @@ var render = function render() {
     staticClass: "mr-8"
   }, [_c("div", {
     staticClass: "text-3xl text-gray-700 font-semibold h-20 flex items-center"
-  }, [_vm._v("\n                    " + _vm._s(_vm.data.sloveMessage) + " رسالة\n                ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    " + _vm._s(_vm.mainItem.users) + " رسالة\n                ")]), _vm._v(" "), _c("div", {
     staticClass: "text-gray-500 flex items-center h-4"
   }, [_vm._v("\n                    الرسائل المحلولة\n                ")])])])]) : _vm._e(), _vm._v(" "), _vm.loaded == 200 ? _c("div", {
     staticClass: "w-auto mx-4 bg-white shadow-3 mt-8 rounded-lg px-6"
@@ -3412,7 +3537,20 @@ var render = function render() {
     staticClass: "h-20 w-full flex items-center text-2xl bg-blu font-semibold cairo text-gray-600 border-b"
   }, [_vm._v("\n            مخطط الزيارات\n        ")]), _vm._v(" "), _c("div", {
     staticClass: "h-96 w-full"
-  })]) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box") : _vm._e()], 1);
+  })]) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box") : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload,
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 403 ? _c("No-Permission", {
+    attrs: {
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("No-Internet", {
+    attrs: {
+      reload: _vm.reload
+    }
+  }) : _vm._e()], 1);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -4136,7 +4274,16 @@ var render = function render() {
     attrs: {
       message: "لا يوجد دور بهذا الرقم"
     }
-  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 || _vm.loaded == 400 ? _c("Bad-Request", {
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload,
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 403 ? _c("No-Permission", {
+    attrs: {
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("No-Internet", {
     attrs: {
       reload: _vm.reload
     }
@@ -4244,7 +4391,20 @@ var render = function render() {
     attrs: {
       message: "لم نتمكن من جلب بيانات الصلاحيات"
     }
-  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("div", [_vm._v("\n        حدث خطأ ما\n    ")]) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("div", [_vm._v("\n        تحقق من اتصالك بالانترنت\n    ")]) : _vm._e()], 1);
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload,
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 403 ? _c("No-Permission", {
+    attrs: {
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("No-Internet", {
+    attrs: {
+      reload: _vm.reload
+    }
+  }) : _vm._e()], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -4349,7 +4509,16 @@ var render = function render() {
     attrs: {
       message: "لا يوجد دور بهذا الرقم"
     }
-  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 || _vm.loaded == 400 ? _c("Bad-Request", {
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload,
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 403 ? _c("No-Permission", {
+    attrs: {
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("No-Internet", {
     attrs: {
       reload: _vm.reload
     }
@@ -4538,7 +4707,16 @@ var render = function render() {
       moveToPrevius: _vm.moveToPrevius,
       changePerPage: _vm.changePerPage
     }
-  })], 1) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box") : _vm._e(), _vm._v(" "), _vm.loaded == 404 || _vm.loaded == 400 ? _c("Bad-Request", {
+  })], 1) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box") : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload,
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 403 ? _c("No-Permission", {
+    attrs: {
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("No-Internet", {
     attrs: {
       reload: _vm.reload
     }
@@ -4638,6 +4816,50 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/components/NoInternet/NoInternet.js?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/components/NoInternet/NoInternet.js?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['message', 'reload'],
+  data: function data() {
+    return {};
+  },
+  methods: {},
+  computed: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/components/NoPermission/NoPermission.js?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/components/NoPermission/NoPermission.js?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: [],
+  data: function data() {
+    return {};
+  },
+  methods: {},
+  computed: {}
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/components/PaginationBar/PaginationBar.js?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/components/PaginationBar/PaginationBar.js?vue&type=script&lang=js& ***!
@@ -4706,7 +4928,8 @@ __webpack_require__.r(__webpack_exports__);
       sideMenuPage: {
         main: 5,
         sub: 1
-      }
+      },
+      errorMessage: "حدث خطأ ما"
     };
   },
   methods: {
@@ -4727,12 +4950,24 @@ __webpack_require__.r(__webpack_exports__);
           _this.$alert.Empty("هذه العنصر غير متوفرة");
         } else {
           _this.loaded = 400;
-          _this.$alert.Empty(response.data.message);
         }
       })["catch"](function (error) {
-        _this.loaded = 404;
         _this.$loading.Stop();
-        _this.$alert.BadRequest(error.response);
+        if (error.response.status == 400) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 400;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 403) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 403;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 401) {
+          _this.$alert.NotAuth();
+        } else {
+          _this.errorMessage = "حدث خطأ ما";
+          _this.loaded = 404;
+          _this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+        }
       });
     },
     activeAdmin: function activeAdmin() {
@@ -4939,7 +5174,8 @@ __webpack_require__.r(__webpack_exports__);
       sideMenuPage: {
         main: 5,
         sub: 1
-      }
+      },
+      errorMessage: "حدث خطأ ما"
     };
   },
   methods: {
@@ -4967,9 +5203,22 @@ __webpack_require__.r(__webpack_exports__);
           _this.loaded = 400;
         }
       })["catch"](function (error) {
-        _this.loaded = 404;
         _this.$loading.Stop();
-        _this.$alert.BadRequest(error.response);
+        if (error.response.status == 400) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 400;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 403) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 403;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 401) {
+          _this.$alert.NotAuth();
+        } else {
+          _this.errorMessage = "حدث خطأ ما";
+          _this.loaded = 404;
+          _this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+        }
       });
     },
     changeTag: function changeTag(tag) {
@@ -5165,7 +5414,8 @@ __webpack_require__.r(__webpack_exports__);
       sideMenuPage: {
         main: 5,
         sub: 1
-      }
+      },
+      errorMessage: "حدث خطأ ما"
     };
   },
   methods: {
@@ -5190,9 +5440,22 @@ __webpack_require__.r(__webpack_exports__);
           _this.$alert.Empty(response.data.message);
         }
       })["catch"](function (error) {
-        _this.loaded = 404;
         _this.$loading.Stop();
-        _this.$alert.BadRequest(error.response);
+        if (error.response.status == 400) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 400;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 403) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 403;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 401) {
+          _this.$alert.NotAuth();
+        } else {
+          _this.errorMessage = "حدث خطأ ما";
+          _this.loaded = 404;
+          _this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+        }
       });
     },
     updateAdminRole: function updateAdminRole() {
@@ -5254,12 +5517,50 @@ __webpack_require__.r(__webpack_exports__);
       sideMenuPage: {
         main: 5,
         sub: 2
-      }
+      },
+      errorMessage: "حدث خطأ ما"
     };
   },
   methods: {
-    addNewItem: function addNewItem() {
+    reload: function reload() {
+      this.loadData();
+    },
+    loadData: function loadData() {
       var _this = this;
+      this.$loading.Start();
+      this.$http.GetAllRoles(0, 100, '').then(function (response) {
+        _this.$loading.Stop();
+        if (response.status == 200) {
+          _this.loaded = 200;
+          _this.roleList = response.data.data.data;
+          _this.$alert.Success(response.data.message);
+        } else if (response.status == 204) {
+          _this.loaded = 204;
+          _this.$alert.Empty("تنبيه لا يوجد اي أدوار");
+        } else {
+          _this.loaded = 400;
+        }
+      })["catch"](function (error) {
+        _this.$loading.Stop();
+        if (error.response.status == 400) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 400;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 403) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 403;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 401) {
+          _this.$alert.NotAuth();
+        } else {
+          _this.errorMessage = "حدث خطأ ما";
+          _this.loaded = 404;
+          _this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+        }
+      });
+    },
+    addNewItem: function addNewItem() {
+      var _this2 = this;
       this.validateFirstName();
       this.validateLastName();
       this.validatePhone();
@@ -5274,17 +5575,17 @@ __webpack_require__.r(__webpack_exports__);
       if (this.formValidate.confirmPassword != "") return 0;
       this.$loading.Start();
       this.$http.PostNewAdmin(this.formData).then(function (response) {
-        _this.$loading.Stop();
-        _this.$alert.Success(response.data.message);
-        _this.formData.first_name = "";
-        _this.formData.last_name = "";
-        _this.formData.phone = "";
-        _this.formData.role_id = null;
-        _this.formData.password = "";
-        _this.formData.confirmPassword = "";
+        _this2.$loading.Stop();
+        _this2.$alert.Success(response.data.message);
+        _this2.formData.first_name = "";
+        _this2.formData.last_name = "";
+        _this2.formData.phone = "";
+        _this2.formData.role_id = null;
+        _this2.formData.password = "";
+        _this2.formData.confirmPassword = "";
       })["catch"](function (error) {
-        _this.$loading.Stop();
-        _this.$alert.BadRequest(error.response);
+        _this2.$loading.Stop();
+        _this2.$alert.BadRequest(error.response);
       });
     },
     validateFirstName: function validateFirstName() {
@@ -5367,25 +5668,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
     this.$store.commit("activePage", this.sideMenuPage);
-    this.$loading.Start();
-    this.$http.GetAllRoles(0, 100, '').then(function (response) {
-      _this2.$loading.Stop();
-      _this2.loaded = true;
-      if (response.status == 200) {
-        _this2.loaded = 200;
-        _this2.roleList = response.data.data.data;
-        _this2.$alert.Success(response.data.message);
-      } else if (response.status == 204) {
-        _this2.loaded = 204;
-        _this2.$alert.Empty("تنبيه لا يوجد اي أدوار");
-      }
-    })["catch"](function (error) {
-      _this2.loaded = 404;
-      _this2.$loading.Stop();
-      _this2.$alert.BadRequest(error.response);
-    });
+    this.loadData();
   },
   computed: {},
   created: function created() {}
@@ -5407,45 +5691,60 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      data: {
-        todayVisitor: 0,
-        weekVisitor: 0,
-        monthVisitor: 0,
-        todayMessage: 0,
-        notSloveMessage: 0,
-        sloveMessage: 0
-      },
-      loaded: 204,
+      mainItem: {},
+      loaded: 0,
       // 0 not load - 200 done - 204 empty 
       sideMenuPage: {
         main: 2,
         sub: 0
-      }
+      },
+      errorMessage: "حدث خطأ ما"
     };
   },
-  methods: {},
+  methods: {
+    reload: function reload() {
+      this.loadData(1);
+    },
+    loadData: function loadData(page) {
+      var _this = this;
+      this.pageId = page;
+      this.$loading.Start();
+      this.$http.GetHome().then(function (response) {
+        _this.$loading.Stop();
+        if (response.status == 200) {
+          _this.mainItem = response.data.data;
+          _this.$alert.Success(response.data.message);
+          _this.loaded = 200;
+        } else if (response.status == 204) {
+          _this.loaded = 204;
+          _this.$alert.Empty("لا يوجد اي بيانات");
+        } else {
+          _this.loaded = 400;
+        }
+      })["catch"](function (error) {
+        _this.$loading.Stop();
+        if (error.response.status == 400) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 400;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 403) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 403;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 401) {
+          _this.$alert.NotAuth();
+        } else {
+          _this.errorMessage = "حدث خطأ ما";
+          _this.loaded = 404;
+          _this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+        }
+      });
+    }
+  },
   mounted: function mounted() {
     this.$store.commit("activePage", this.sideMenuPage);
-    // this.$loading.Start();
-    // this.$http
-    //     .GetHome()
-    //     .then(response => {
-    //         this.$loading.Stop();
-    //         this.loaded = true;
-    //         if (response.status == 200) {
-    //             this.data = response.data.data;
-    //             this.$alert.Success(response.data.message);
-    //         } else if (response.status == 204) {
-    //             this.$alert.Empty("لم نتمكن من جلب البيانات");
-    //         }
-    //     })
-    //     .catch(error => {
-    //         this.$loading.Stop();
-    //         this.loaded = true;
-    //         this.$alert.BadRequest(error.response);
-    //     });
+    this.loadData();
   },
-
   computed: {},
   created: function created() {}
 });
@@ -5892,7 +6191,8 @@ __webpack_require__.r(__webpack_exports__);
       sideMenuPage: {
         main: 5,
         sub: 3
-      }
+      },
+      errorMessage: "حدث خطأ ما"
     };
   },
   methods: {
@@ -5915,8 +6215,21 @@ __webpack_require__.r(__webpack_exports__);
         }
       })["catch"](function (error) {
         _this.$loading.Stop();
-        _this.loaded = 404;
-        _this.$alert.BadRequest(error.response);
+        if (error.response.status == 400) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 400;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 403) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 403;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 401) {
+          _this.$alert.NotAuth();
+        } else {
+          _this.errorMessage = "حدث خطأ ما";
+          _this.loaded = 404;
+          _this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+        }
       });
     },
     togglePermission: function togglePermission(index) {
@@ -6016,7 +6329,8 @@ __webpack_require__.r(__webpack_exports__);
       sideMenuPage: {
         main: 5,
         sub: 4
-      }
+      },
+      errorMessage: "حدث خطأ ما"
     };
   },
   methods: {
@@ -6047,7 +6361,21 @@ __webpack_require__.r(__webpack_exports__);
         }
       })["catch"](function (error) {
         _this.$loading.Stop();
-        _this.$alert.BadRequest(error.response);
+        if (error.response.status == 400) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 400;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 403) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 403;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 401) {
+          _this.$alert.NotAuth();
+        } else {
+          _this.errorMessage = "حدث خطأ ما";
+          _this.loaded = 404;
+          _this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+        }
       });
     },
     validateName: function validateName() {
@@ -6126,7 +6454,8 @@ __webpack_require__.r(__webpack_exports__);
       sideMenuPage: {
         main: 5,
         sub: 3
-      }
+      },
+      errorMessage: "حدث خطأ ما"
     };
   },
   methods: {
@@ -6148,8 +6477,21 @@ __webpack_require__.r(__webpack_exports__);
         }
       })["catch"](function (error) {
         _this.$loading.Stop();
-        _this.loaded = 404;
-        _this.$alert.BadRequest(error.response);
+        if (error.response.status == 400) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 400;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 403) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 403;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 401) {
+          _this.$alert.NotAuth();
+        } else {
+          _this.errorMessage = "حدث خطأ ما";
+          _this.loaded = 404;
+          _this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+        }
       });
     },
     deleteMainItem: function deleteMainItem(id) {
@@ -6235,7 +6577,8 @@ __webpack_require__.r(__webpack_exports__);
       sideMenuPage: {
         main: 5,
         sub: 3
-      }
+      },
+      errorMessage: "حدث خطأ ما"
     };
   },
   methods: {
@@ -6264,9 +6607,22 @@ __webpack_require__.r(__webpack_exports__);
           alert("400");
         }
       })["catch"](function (error) {
-        _this.loaded = 404;
         _this.$loading.Stop();
-        _this.$alert.BadRequest(error.response);
+        if (error.response.status == 400) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 400;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 403) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 403;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 401) {
+          _this.$alert.NotAuth();
+        } else {
+          _this.errorMessage = "حدث خطأ ما";
+          _this.loaded = 404;
+          _this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+        }
       });
     },
     changePerPage: function changePerPage(event) {
@@ -6475,13 +6831,14 @@ __webpack_require__.r(__webpack_exports__);
       showConfirmButton: false
     }).fire("تنبيه", message, "warning");
   },
-  BadRequest: function BadRequest(response) {
-    if (response.status == 401) {
-      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire("فشل", "انتهت الجلسة الخاصة بك قم بعمل تسجيل دخول مجددا", "warning");
-      localStorage.removeItem("token");
-      root.$store.commit("clearUser");
-      root.$router.push("/admin/login");
-    } else if (response.status == 404) sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire("فشل", "لم نتمكن من  الإتصال بالخادم", "warning");else sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire("فشل", response.data.message, "warning");
+  BadRequest: function BadRequest(message) {
+    sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire("فشل", message, "warning");
+  },
+  NotAuth: function NotAuth() {
+    sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire("فشل", "انتهت الجلسة الخاصة بك قم بعمل تسجيل دخول مجددا", "warning");
+    localStorage.removeItem("token");
+    root.$store.commit("clearUser");
+    root.$router.push("/admin/login");
   }
 });
 
@@ -6523,7 +6880,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   // ============== Home Part =======================
   GetHome: function GetHome() {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/admin/home");
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/admin/api/home");
   },
   // ============== Admin Part =======================
   GetAllAdmins: function GetAllAdmins(page, countPerPage, tag, phone, firstName, lastName) {
@@ -28574,6 +28931,84 @@ component.options.__file = "resources/js/admin/components/LoadingBox/LoadingBox.
 
 /***/ }),
 
+/***/ "./resources/js/admin/components/NoInternet/NoInternet.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/admin/components/NoInternet/NoInternet.vue ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _NoInternet_html_vue_type_template_id_0b89b498___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoInternet.html?vue&type=template&id=0b89b498& */ "./resources/js/admin/components/NoInternet/NoInternet.html?vue&type=template&id=0b89b498&");
+/* harmony import */ var _NoInternet_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NoInternet.js?vue&type=script&lang=js& */ "./resources/js/admin/components/NoInternet/NoInternet.js?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _NoInternet_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _NoInternet_html_vue_type_template_id_0b89b498___WEBPACK_IMPORTED_MODULE_0__.render,
+  _NoInternet_html_vue_type_template_id_0b89b498___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/components/NoInternet/NoInternet.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/admin/components/NoPermission/NoPermission.vue":
+/*!*********************************************************************!*\
+  !*** ./resources/js/admin/components/NoPermission/NoPermission.vue ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _NoPermission_html_vue_type_template_id_50c6ceb4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoPermission.html?vue&type=template&id=50c6ceb4& */ "./resources/js/admin/components/NoPermission/NoPermission.html?vue&type=template&id=50c6ceb4&");
+/* harmony import */ var _NoPermission_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NoPermission.js?vue&type=script&lang=js& */ "./resources/js/admin/components/NoPermission/NoPermission.js?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _NoPermission_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _NoPermission_html_vue_type_template_id_50c6ceb4___WEBPACK_IMPORTED_MODULE_0__.render,
+  _NoPermission_html_vue_type_template_id_50c6ceb4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/components/NoPermission/NoPermission.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/admin/components/PaginationBar/PaginationBar.vue":
 /*!***********************************************************************!*\
   !*** ./resources/js/admin/components/PaginationBar/PaginationBar.vue ***!
@@ -29250,6 +29685,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/admin/components/NoInternet/NoInternet.js?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/admin/components/NoInternet/NoInternet.js?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_NoInternet_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./NoInternet.js?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/components/NoInternet/NoInternet.js?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_NoInternet_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/admin/components/NoPermission/NoPermission.js?vue&type=script&lang=js&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/admin/components/NoPermission/NoPermission.js?vue&type=script&lang=js& ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_NoPermission_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./NoPermission.js?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/components/NoPermission/NoPermission.js?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_NoPermission_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/admin/components/PaginationBar/PaginationBar.js?vue&type=script&lang=js&":
 /*!***********************************************************************************************!*\
   !*** ./resources/js/admin/components/PaginationBar/PaginationBar.js?vue&type=script&lang=js& ***!
@@ -29587,6 +30054,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_EmptyBox_html_vue_type_template_id_f7aaca18___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_EmptyBox_html_vue_type_template_id_f7aaca18___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./EmptyBox.html?vue&type=template&id=f7aaca18& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/components/EmptyBox/EmptyBox.html?vue&type=template&id=f7aaca18&");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/components/NoInternet/NoInternet.html?vue&type=template&id=0b89b498&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/admin/components/NoInternet/NoInternet.html?vue&type=template&id=0b89b498& ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_NoInternet_html_vue_type_template_id_0b89b498___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_NoInternet_html_vue_type_template_id_0b89b498___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_NoInternet_html_vue_type_template_id_0b89b498___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./NoInternet.html?vue&type=template&id=0b89b498& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/components/NoInternet/NoInternet.html?vue&type=template&id=0b89b498&");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/components/NoPermission/NoPermission.html?vue&type=template&id=50c6ceb4&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/admin/components/NoPermission/NoPermission.html?vue&type=template&id=50c6ceb4& ***!
+  \*****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_NoPermission_html_vue_type_template_id_50c6ceb4___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_NoPermission_html_vue_type_template_id_50c6ceb4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_NoPermission_html_vue_type_template_id_50c6ceb4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./NoPermission.html?vue&type=template&id=50c6ceb4& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/components/NoPermission/NoPermission.html?vue&type=template&id=50c6ceb4&");
 
 
 /***/ }),
@@ -46539,6 +47040,8 @@ vue__WEBPACK_IMPORTED_MODULE_3__["default"].component('Single-Page-Header', (__w
 vue__WEBPACK_IMPORTED_MODULE_3__["default"].component('Btn-Submit-New-Item', (__webpack_require__(/*! ../admin/components/BtnSubmitNewItem/BtnSubmitNewItem.vue */ "./resources/js/admin/components/BtnSubmitNewItem/BtnSubmitNewItem.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_3__["default"].component('Empty-Box', (__webpack_require__(/*! ../admin/components/EmptyBox/EmptyBox.vue */ "./resources/js/admin/components/EmptyBox/EmptyBox.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_3__["default"].component('Bad-Request', (__webpack_require__(/*! ../admin/components/BadRequest/BadRequest.vue */ "./resources/js/admin/components/BadRequest/BadRequest.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_3__["default"].component('No-Permission', (__webpack_require__(/*! ../admin/components/NoPermission/NoPermission.vue */ "./resources/js/admin/components/NoPermission/NoPermission.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_3__["default"].component('No-Internet', (__webpack_require__(/*! ../admin/components/NoInternet/NoInternet.vue */ "./resources/js/admin/components/NoInternet/NoInternet.vue")["default"]));
 window.root = new vue__WEBPACK_IMPORTED_MODULE_3__["default"]({
   el: "#app",
   router: router,
