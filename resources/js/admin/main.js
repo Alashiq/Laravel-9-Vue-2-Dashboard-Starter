@@ -15,6 +15,7 @@ import { routes } from "./routes/routes";
 import Vuex from 'vuex'
 Vue.use(Vuex)
 import storeData from "./store/index.js"
+import menuStore from "./store/menu.js"
 import axios from "axios";
 
 Vue.prototype.$http = DataServices;
@@ -22,7 +23,7 @@ Vue.prototype.$alert = Alert;
 Vue.prototype.$loading = Loading;
 
 const store = new Vuex.Store(
-    storeData
+    storeData,
  )
 
 const router = new VueRouter({

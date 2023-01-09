@@ -68,7 +68,7 @@ export default {
                 })
                 .catch(error => {
                     this.$loading.Stop();
-                    this.$alert.BadRequest(error.response);
+                    this.$alert.BadRequest(error.response.data.message);
                 });
         }
     },

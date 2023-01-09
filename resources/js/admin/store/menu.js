@@ -1,5 +1,6 @@
 export default {
     state: () => ({
+        country:"libya",
         loadAuth: false,
         auth: false,
         user: {
@@ -7,7 +8,7 @@ export default {
             name: "",
             phone: "",
             photo: "",
-            role: ""
+            role: "" 
         },
         permissions: [],
         pages: [
@@ -85,11 +86,8 @@ export default {
         pageActive: 4,
         subPageActive: 1,
         openPageList: 4,
-        loading: false,
-
-        // Menu
         menu: false,
-        languageMenu: false,
+        loading: false
     }),
 
     mutations: {
@@ -123,29 +121,24 @@ export default {
             state.user.photo = photo;
         },
         activePage(state, v) {
-            state.pageActive = v.main;
-            state.subPageActive = v.sub;
-            state.openPageList = v.main;
+            state.pageActive=v.main;
+            state.subPageActive=v.sub;
+            state.openPageList=v.main;
         },
         toggllePageList(state, pageNumber) {
-            if (state.openPageList != pageNumber)
-                state.openPageList = pageNumber;
+            if(state.openPageList!=pageNumber)
+            state.openPageList=pageNumber;
             else
-                state.openPageList = 0;
+            state.openPageList=0;
         },
-        // Loading 
+        toggleMenu(state) {
+            state.menu = !state.menu;
+        },
         loadingStart(state) {
             state.loading = true;
         },
         loadingStop(state) {
             state.loading = false;
-        },
-        // Menu
-        toggleMenu(state) {
-            state.menu = !state.menu;
-        },
-        toggleLanguageMenu(state) {
-            state.languageMenu = !state.languageMenu;
         },
     },
 

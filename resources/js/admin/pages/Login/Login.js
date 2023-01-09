@@ -40,7 +40,7 @@ export default {
                 })
                 .catch(error => {
                     this.$loading.Stop();
-                    this.$alert.BadRequest(error.response);
+                    this.$alert.BadRequest(error.response.data.message);
                     this.$store.commit("authLoaded");
                 });
         },
@@ -96,7 +96,7 @@ export default {
                 })
                 .catch(error => {
                     this.$loading.Stop();
-                    this.$alert.BadRequest(error.response);
+                    this.$alert.BadRequest(error.response.data.message);
                     this.$store.commit("authLoaded");
                 });
         }

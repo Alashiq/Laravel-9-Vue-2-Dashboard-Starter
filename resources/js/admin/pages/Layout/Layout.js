@@ -24,7 +24,17 @@ export default {
             });
             if (item[0] != null) return item[0].state;
             return false;
-        }
+        },
+        openOptions: function(event){
+            if(event.target.id==0){
+                this.optionId=0;
+            console.log(event.target.id);
+            }else{
+                this.optionId=event.target.id;
+            console.log(event.target.id);
+            }
+
+        },
     },
     mounted() {
         if (this.auth) {
@@ -46,7 +56,7 @@ export default {
                 })
                 .catch(error => {
                     this.$loading.Stop();
-                    this.$alert.BadRequest(error.response);
+                    this.$alert.BadRequest(error.response.data.message);
                     this.$store.commit("authLoaded");
                 });
         } else {

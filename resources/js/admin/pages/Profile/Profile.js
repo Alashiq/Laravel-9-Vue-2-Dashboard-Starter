@@ -41,7 +41,7 @@ export default {
                 })
                 .catch(error => {
                     this.$loading.Stop();
-                    this.$alert.BadRequest(error.response);
+                    this.$alert.BadRequest(error.response.data.message);
                 });
         },
         changeName: function() {
@@ -66,7 +66,7 @@ export default {
                 })
                 .catch(error => {
                     this.$loading.Stop();
-                    this.$alert.BadRequest(error.response);
+                    this.$alert.BadRequest(error.response.data.message);
                 });
         },
         changePassword: function() {
@@ -92,7 +92,7 @@ export default {
                 })
                 .catch(error => {
                     this.$loading.Stop();
-                    this.$alert.BadRequest(error.response);
+                    this.$alert.BadRequest(error.response.data.message);
                 });
         },
         validateFirstName: function() {

@@ -123,6 +123,7 @@ class AdminController extends Controller
             return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 204);
 
 
+        $admin->phone = 'old-'.$admin->phone;
         $admin->state = 9;
         $edit = $admin->save();
         if ($edit)

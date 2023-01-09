@@ -6,21 +6,21 @@
             <!-- Form -->
             <div class="lg:w-96">
                 <div
-                    class="h-48 flex items-center justify-center text-4xl font-medium"
+                    class="h-48 flex items-center justify-center text-4xl font-medium cairo text-gray-600"
                 >
                     تسجيل الدخول
                 </div>
                 <div class="w-full h-24 flex items-center justify-center">
                     <div class="w-full mx-4">
                         <input
-                            class="h-14 w-full border rounded px-3 text-xl"
+                            class="w-full border rounded px-3 py-3 JF-Flat placeholder:text-gray-500 text-gray-600"
                             v-model="formData.phone"
                             v-on:change="validatePhone"
                             type="text"
-                            placeholder="اسم المستخدم"
+                            placeholder="رقم الهاتف"
                         />
                         <div
-                            class="h-6 text-sm text-red-400 mr-2 flex items-center"
+                            class="h-6 text-xs text-red-400 mr-2 flex items-center JF-Flat"
                         >
                             {{ formValidate.phone }}
                         </div>
@@ -29,15 +29,15 @@
                 <div class="w-full h-24 flex items-center justify-center">
                     <div class="w-full mx-4">
                         <input
-                            class="h-14 w-full border rounded px-3 text-xl"
-                            v-model="formData.password"
+                        class="w-full border rounded px-3 py-3 JF-Flat placeholder:text-gray-500 text-gray-600"
+                        v-model="formData.password"
                             v-on:change="validatePassword"
                             v-on:keyup.enter="login"
                             type="password"
                             placeholder="كلمة المرور"
                         />
                         <div
-                            class="h-6 text-sm text-red-400 mr-2 flex items-center"
+                            class="h-6 text-xs text-red-400 mr-2 flex items-center JF-Flat"
                         >
                             {{ formValidate.password }}
                         </div>
@@ -46,7 +46,7 @@
 
                 <div class="w-full h-24 flex items-center justify-center">
                     <div
-                        class="w-56 h-14 bg-green-400 text-white flex items-center justify-center rounded shadow-lg text-xl font-medium cursor-pointer hover:bg-green-500"
+                        class="w-56 h-14 JF-Flat back-btn text-white flex items-center justify-center rounded shadow-lg text-lg font-medium cursor-pointer"
                         @click="login"
                     >
                         تسجيل الدخول
