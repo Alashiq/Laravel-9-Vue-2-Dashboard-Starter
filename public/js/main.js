@@ -2065,11 +2065,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _lang_layout_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../lang/layout.json */ "./resources/js/admin/lang/layout.json");
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       userMenu: false,
-      hi: "hello"
+      t: _lang_layout_json__WEBPACK_IMPORTED_MODULE_0__
     };
   },
   methods: {
@@ -2099,6 +2101,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     toggleSideList: function toggleSideList(id) {
       this.$store.commit("toggllePageList", id);
+    },
+    // Change Language
+    changeLanguage: function changeLanguage(language) {
+      this.$store.commit("channgeLanguage", language);
     }
   },
   computed: {
@@ -2107,6 +2113,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     languageMenu: function languageMenu() {
       return this.$store.state.languageMenu;
+    },
+    lang: function lang() {
+      return this.$store.state.language;
     }
   }
 });
@@ -2183,10 +2192,14 @@ var render = function render() {
       alt: ""
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "mr-2"
-  }, [_vm._v("\n                    مرحبا بك \n\n                ")]), _vm._v(" "), _c("div", {
-    staticClass: "mr-1 font-medium"
-  }, [_vm._v("\n                    " + _vm._s(_vm.user.first_name) + "\n                ")]), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _vm.userMenu ? _c("div", {
+    staticClass: "w-2"
+  }), _vm._v(" "), _c("div", [_vm._v("\n                 " + _vm._s(_vm.t[_vm.lang].headerWelcome) + "\n\n                ")]), _vm._v(" "), _c("div", {
+    staticClass: "w-1"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "font-medium"
+  }, [_vm._v("\n                    " + _vm._s(_vm.user.first_name) + "\n                ")]), _vm._v(" "), _c("div", {
+    staticClass: "w-2"
+  }), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _vm.userMenu ? _c("div", {
     staticClass: "py-1 w-44 bg-white mt-14 rounded absolute text-gray-600 text-sm cairo",
     staticStyle: {
       "box-shadow": "0 0.25rem 1rem rgb(161 172 184 / 45%)"
@@ -2201,8 +2214,8 @@ var render = function render() {
       src: _vm.user.photo
     }
   }), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("div", {
-    staticClass: "mr-2"
-  }, [_c("div", {
+    staticClass: "w-2"
+  }), _vm._v(" "), _c("div", {}, [_c("div", {
     staticClass: "Swissra-Normal text-basea",
     staticStyle: {
       color: "#697a8d"
@@ -2219,17 +2232,12 @@ var render = function render() {
     staticClass: "flex items-center justify-start px-4 my-1 h-10 hover:bg-gray-100 JF-Flat cursor-pointer",
     staticStyle: {
       color: "#697a8d"
-    },
-    on: {
-      click: function click($event) {
-        return _vm.toggleUserMenu();
-      }
     }
   }, [_c("i", {
     staticClass: "fa-solid fa-user-pen"
-  }), _vm._v(" "), _c("span", {
-    staticClass: "mr-2"
-  }, [_vm._v("تعديل حسابي")])])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("div", {
+    staticClass: "w-2"
+  }), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.t[_vm.lang].editAccount))])])]), _vm._v(" "), _c("div", {
     staticClass: "w-full bg-gray-200 h-px my-1"
   }), _vm._v(" "), _c("div", {
     staticClass: "flex items-center justify-start px-4 my-1 h-10 hover:bg-gray-100 JF-Flat cursor-pointer",
@@ -2241,9 +2249,9 @@ var render = function render() {
     }
   }, [_c("i", {
     staticClass: "fa-solid fa-power-off"
-  }), _vm._v(" "), _c("span", {
-    staticClass: "mr-2"
-  }, [_vm._v("تسجيل الخروج")])])], 1) : _vm._e()]), _vm._v(" "), _vm._m(3)]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("div", {
+    staticClass: "w-2"
+  }), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.t[_vm.lang].logout))])])], 1) : _vm._e()]), _vm._v(" "), _vm._m(3)]), _vm._v(" "), _c("div", {
     staticClass: "flex items-center justify-center"
   }, [_c("div", {
     staticClass: "h-9 ml-2 flex items-start justify-end",
@@ -2257,10 +2265,16 @@ var render = function render() {
         return _vm.toggleLanguageMenu();
       }
     }
-  }, [_c("img", {
+  }, [_vm.lang == "ar" ? _c("img", {
     staticClass: "h-7 w-7 rounded-lg",
     attrs: {
       src: "http://localhost:3000/src/assets/png/ar.png",
+      alt: ""
+    }
+  }) : _c("img", {
+    staticClass: "h-7 w-7 rounded-lg",
+    attrs: {
+      src: "https://demos.themeselection.com/sneat-aspnet-core-admin-template/assets/vendor/fonts/flags/1x1/us.svg",
       alt: ""
     }
   })]), _vm._v(" "), _vm.languageMenu ? _c("div", {
@@ -2284,9 +2298,9 @@ var render = function render() {
       src: "http://localhost:3000/src/assets/png/ar.png",
       alt: ""
     }
-  }), _vm._v(" "), _c("span", {
-    staticClass: "mr-2"
-  }, [_vm._v("العربية")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("div", {
+    staticClass: "w-2"
+  }), _vm._v(" "), _c("span", [_vm._v("العربية")])]), _vm._v(" "), _c("div", {
     staticClass: "flex items-center justify-start px-4 my-1 h-10 hover:bg-gray-100 JF-Flat cursor-pointer",
     staticStyle: {
       color: "#697a8d"
@@ -2302,9 +2316,9 @@ var render = function render() {
       src: "https://demos.themeselection.com/sneat-aspnet-core-admin-template/assets/vendor/fonts/flags/1x1/us.svg",
       alt: ""
     }
-  }), _vm._v(" "), _c("span", {
-    staticClass: "mr-2"
-  }, [_vm._v("English")])])]) : _vm._e()]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("div", {
+    staticClass: "w-2"
+  }), _vm._v(" "), _c("span", [_vm._v("English")])])]) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "h-16 w-16 text-gray-600 flex items-center justify-center text-2xl hover:text-red-400 cursor-pointer md:hidden",
     on: {
       click: _vm.toggleMenu
@@ -2316,9 +2330,7 @@ var render = function render() {
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "mr-2"
-  }, [_c("i", {
+  return _c("div", [_c("i", {
     staticClass: "fa-solid fa-chevron-down"
   })]);
 }, function () {
@@ -2327,7 +2339,7 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "rounded-full h-3 w-3 bg-white shadow-xl animate-ping -mt-3 mr-7 flex items-center justify-center"
   }, [_c("div", {
-    staticClass: "bg-green-500 h-4 w-4 rounded-full animate-ping"
+    staticClass: "back-btn h-4 w-4 rounded-full animate-ping"
   })]);
 }, function () {
   var _vm = this,
@@ -2335,13 +2347,13 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "rounded-full h-3 w-3 bg-white shadow-xl relative z-10 -mt-3 mr-7 flex items-center justify-center"
   }, [_c("div", {
-    staticClass: "bg-green-500 h-2 w-2 rounded-full"
+    staticClass: "back-btn h-2 w-2 rounded-full"
   })]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "text-2xl mr-4 flex items-center justify-center"
+    staticClass: "text-2xl mx-4 flex items-center justify-center"
   }, [_c("i", {
     staticClass: "fa-regular fa-bell",
     staticStyle: {
@@ -3868,7 +3880,10 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _vm.loadAuth ? _c("div", {
-    staticClass: "w-full"
+    staticClass: "w-full",
+    attrs: {
+      dir: _vm.dir
+    }
   }, [_c("App-Side"), _vm._v(" "), _c("div", {
     staticClass: "relative md:mr-64"
   }, [_c("App-Header"), _vm._v(" "), _c("router-view")], 1), _vm._v(" "), _vm.loading == true ? _c("Loading-Box") : _vm._e()], 1) : _c("div");
@@ -5893,7 +5908,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _lang_layout_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../lang/layout.json */ "./resources/js/admin/lang/layout.json");
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      t: _lang_layout_json__WEBPACK_IMPORTED_MODULE_0__
+    };
+  },
   computed: {
     loadAuth: function loadAuth() {
       return this.$store.state.loadAuth;
@@ -5909,6 +5931,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     loading: function loading() {
       return this.$store.state.loading;
+    },
+    dir: function dir() {
+      return this.$store.state.language == 'ar' ? 'rtl' : 'ltr';
     }
   },
   methods: {
@@ -7143,7 +7168,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       loading: false,
       // Menu
       menu: false,
-      languageMenu: false
+      languageMenu: false,
+      // Language
+      language: 'ar'
     };
   },
   mutations: {
@@ -7197,6 +7224,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     toggleLanguageMenu: function toggleLanguageMenu(state) {
       state.languageMenu = !state.languageMenu;
+    },
+    // Language
+    channgeLanguage: function channgeLanguage(state, language) {
+      state.language = language;
     }
   },
   actions: {
@@ -47155,6 +47186,17 @@ var index = {
 
 "use strict";
 module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
+
+/***/ }),
+
+/***/ "./resources/js/admin/lang/layout.json":
+/*!*********************************************!*\
+  !*** ./resources/js/admin/lang/layout.json ***!
+  \*********************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('{"ar":{"headerWelcome":"مرحبا بك","editAccount":"تعديل حسابي","logout":"تعديل حسابي"},"en":{"headerWelcome":"Welcome","editAccount":"Edit Account","logout":"Logout"}}');
 
 /***/ })
 

@@ -1,0 +1,14 @@
+{
+    "ar":{
+        "headerWelcome":"مرحبا بك",
+        "editAccount":"تعديل حسابي",
+        "logout":"تعديل حسابي"
+    },
+
+
+    "en":{
+        "headerWelcome":"Welcome",
+        "editAccount":"Edit Account",
+        "logout":"Logout"
+    }
+}

@@ -2,10 +2,16 @@ require("../bootstrap");
 
 import Vue from "vue";
 
+
 import DataServices from "./shared/DataServices";
 import Alert from "./shared/Alert";
 import Loading from "./shared/Loading";
 window.Vue = require("vue");
+
+
+
+
+
 
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
@@ -34,7 +40,6 @@ const router = new VueRouter({
 
 
 
-
 // Shared Components
 Vue.component('App-Side', require('../admin/pages/Layout/AppSide/AppSide.vue').default);
 Vue.component('App-Header', require('../admin/pages/Layout/AppHeader/AppHeader.vue').default);
@@ -51,6 +56,9 @@ Vue.component('No-Internet', require('../admin/components/NoInternet/NoInternet.
 
 
 
+
+
+
 window.root = new Vue({
     el: "#app",
     router,
@@ -60,6 +68,3 @@ window.root = new Vue({
     methods:{
     }
 });
-
-
-

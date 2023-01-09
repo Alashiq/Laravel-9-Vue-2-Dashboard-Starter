@@ -696,6 +696,10 @@ video {
   margin-right: 1.75rem;
 }
 
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -706,18 +710,6 @@ video {
 
 .mt-6 {
   margin-top: 1.5rem;
-}
-
-.-mt-4 {
-  margin-top: -1rem;
-}
-
-.mt-9 {
-  margin-top: 2.25rem;
-}
-
-.mt-10 {
-  margin-top: 2.5rem;
 }
 
 .block {
@@ -776,6 +768,10 @@ video {
   height: 5rem;
 }
 
+.h-28 {
+  height: 7rem;
+}
+
 .h-14 {
   height: 3.5rem;
 }
@@ -828,16 +824,12 @@ video {
   height: 0.5rem;
 }
 
-.h-full {
-  height: 100%;
-}
-
 .h-7 {
   height: 1.75rem;
 }
 
-.h-28 {
-  height: 7rem;
+.h-full {
+  height: 100%;
 }
 
 .min-h-screen {
@@ -924,16 +916,20 @@ video {
   width: 0.5rem;
 }
 
-.w-7 {
-  width: 1.75rem;
-}
-
 .w-9 {
   width: 2.25rem;
 }
 
+.w-7 {
+  width: 1.75rem;
+}
+
 .w-6 {
   width: 1.5rem;
+}
+
+.w-1 {
+  width: 0.25rem;
 }
 
 .max-w-6xl {
@@ -968,10 +964,6 @@ video {
   align-items: flex-start;
 }
 
-.items-end {
-  align-items: flex-end;
-}
-
 .items-center {
   align-items: center;
 }
@@ -992,10 +984,6 @@ video {
   justify-content: space-between;
 }
 
-.justify-self-start {
-  justify-self: start;
-}
-
 .overflow-hidden {
   overflow: hidden;
 }
@@ -1012,12 +1000,12 @@ video {
   border-radius: 9999px;
 }
 
-.rounded-md {
-  border-radius: 0.375rem;
-}
-
 .rounded-xl {
   border-radius: 0.75rem;
+}
+
+.rounded-md {
+  border-radius: 0.375rem;
 }
 
 .rounded-r {
@@ -1078,16 +1066,6 @@ video {
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
-}
-
-.border-gray-50 {
-  --tw-border-opacity: 1;
-  border-color: rgb(249 250 251 / var(--tw-border-opacity));
-}
-
-.border-gray-100 {
-  --tw-border-opacity: 1;
-  border-color: rgb(243 244 246 / var(--tw-border-opacity));
 }
 
 .bg-gray-800 {
@@ -1173,21 +1151,6 @@ video {
 .bg-gray-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
-}
-
-.bg-red-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 242 242 / var(--tw-bg-opacity));
-}
-
-.bg-blue-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(219 234 254 / var(--tw-bg-opacity));
-}
-
-.bg-red-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 202 202 / var(--tw-bg-opacity));
 }
 
 .bg-cover {
@@ -1317,6 +1280,11 @@ video {
   line-height: 1.5rem;
 }
 
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -1327,19 +1295,9 @@ video {
   line-height: 2rem;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
 }
 
 .font-semibold {
@@ -1534,36 +1492,6 @@ body{
   line-height: 1.25rem;
 }
 
-.placeholder\:text-red-200::-moz-placeholder {
-  --tw-text-opacity: 1;
-  color: rgb(254 202 202 / var(--tw-text-opacity));
-}
-
-.placeholder\:text-red-200::placeholder {
-  --tw-text-opacity: 1;
-  color: rgb(254 202 202 / var(--tw-text-opacity));
-}
-
-.placeholder\:text-gray-700::-moz-placeholder {
-  --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity));
-}
-
-.placeholder\:text-gray-700::placeholder {
-  --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity));
-}
-
-.placeholder\:text-gray-400::-moz-placeholder {
-  --tw-text-opacity: 1;
-  color: rgb(156 163 175 / var(--tw-text-opacity));
-}
-
-.placeholder\:text-gray-400::placeholder {
-  --tw-text-opacity: 1;
-  color: rgb(156 163 175 / var(--tw-text-opacity));
-}
-
 .placeholder\:text-gray-500::-moz-placeholder {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
@@ -1690,24 +1618,6 @@ body{
     height: 5rem;
   }
 
-  .sm\:w-auto {
-    width: auto;
-  }
-
-  .sm\:w-min {
-    width: -moz-min-content;
-    width: min-content;
-  }
-
-  .sm\:w-0 {
-    width: 0px;
-  }
-
-  .sm\:max-w-min {
-    max-width: -moz-min-content;
-    max-width: min-content;
-  }
-
   .sm\:items-center {
     align-items: center;
   }
@@ -1739,10 +1649,6 @@ body{
 
   .sm\:text-right {
     text-align: right;
-  }
-
-  .sm\:file\:h-20::file-selector-button {
-    height: 5rem;
   }
 }
 

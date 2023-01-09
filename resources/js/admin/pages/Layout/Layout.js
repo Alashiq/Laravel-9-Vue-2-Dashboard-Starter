@@ -1,4 +1,11 @@
+import language from "../../lang/layout.json";
+
 export default {
+    data: function () {
+        return {
+            t: language,
+        };
+    },
     computed: {
         loadAuth() {
             return this.$store.state.loadAuth;
@@ -14,6 +21,9 @@ export default {
         },
         loading() {
             return this.$store.state.loading;
+        },
+        dir() {
+            return this.$store.state.language=='ar'?'rtl':'ltr';
         }
     },
     methods: {

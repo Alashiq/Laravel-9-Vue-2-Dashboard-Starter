@@ -90,6 +90,10 @@ export default {
         // Menu
         menu: false,
         languageMenu: false,
+
+
+        // Language
+        language:'ar',
     }),
 
     mutations: {
@@ -147,6 +151,10 @@ export default {
         toggleLanguageMenu(state) {
             state.languageMenu = !state.languageMenu;
         },
+        // Language
+        channgeLanguage(state,language){
+            state.language=language;
+        }
     },
 
     actions: {
