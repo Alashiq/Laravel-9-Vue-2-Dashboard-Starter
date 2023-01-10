@@ -1,7 +1,10 @@
+import language from "../../../lang/layout.json";
 
 export default {
     data: function() {
-        return {};
+        return {
+            t: language,
+        };
     },
     methods: {
         logout: function() {
@@ -46,6 +49,9 @@ export default {
         },
         menu() {
             return this.$store.state.menu;
+        },
+        lang(){
+            return this.$store.state.language;
         }
     }
 };

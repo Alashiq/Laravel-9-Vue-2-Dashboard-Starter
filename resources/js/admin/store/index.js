@@ -15,6 +15,7 @@ export default {
                 id: 1,
                 target: 0, // 0 label - 1 page
                 name: "الرئيسية",
+                nameEn: "Home",
                 role: "HomeLabel",
                 url: "/admin",
                 icon: "fa-regular fa-house",
@@ -24,6 +25,7 @@ export default {
                 id: 2,
                 target: 1, // 0 label - 1 page
                 name: "الصفحة الرئيسية",
+                nameEn: "Home Page",
                 role: "HomeChart",
                 url: "/admin",
                 icon: "fa-sharp fa-solid fa-house",
@@ -33,6 +35,7 @@ export default {
                 id: 3,
                 target: 0, // 0 label - 1 page
                 name: "الإعدادات",
+                nameEn: "Settings",
                 role: "SettingLabel",
                 url: "/admin",
                 icon: "fas fa-home",
@@ -42,6 +45,7 @@ export default {
                 id: 5,
                 target: 1, // 0 label - 1 page
                 name: "المشرفين والصلاحيات",
+                nameEn: "Admins & Roles",
                 role: "RolePermissionsList",
                 url: "/admin",
                 icon: "fas fa-user-shield",
@@ -49,24 +53,28 @@ export default {
                     {
                         id: 1,
                         name: "قائمة المشرفين",
+                        nameEn: "Admins List",
                         role: "ReadAdmin",
                         url: "/admin/admin",
                     },
                     {
                         id: 2,
                         name: "إضافة مشرف",
+                        nameEn: "New Admin",
                         role: "CreateAdmin",
                         url: "/admin/admin/new",
                     },
                     {
                         id: 3,
                         name: "أدوار المشرفين",
+                        nameEn: "Roles List",
                         role: "ReadRole",
                         url: "/admin/role",
                     },
                     {
                         id: 4,
                         name: "إضافة دور",
+                        nameEn: "New Role",
                         role: "CreateRole",
                         url: "/admin/role/new",
                     },
@@ -76,6 +84,7 @@ export default {
                 id: 6,
                 target: 1, // 0 label - 1 page
                 name: "قائمة المشرفين",
+                nameEn: "Admins List",
                 role: "ReadAdmin",
                 url: "/admin",
                 icon: "fas fa-user-shield",
@@ -154,6 +163,7 @@ export default {
         // Language
         channgeLanguage(state,language){
             state.language=language;
+            localStorage.setItem("language", language);
         }
     },
 

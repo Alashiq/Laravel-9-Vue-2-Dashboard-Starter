@@ -47,6 +47,7 @@ export default {
         },
     },
     mounted() {
+
         if (this.auth) {
         } else if (localStorage.getItem("token") && !this.auth) {
             axios.defaults.headers.common["Authorization"] =

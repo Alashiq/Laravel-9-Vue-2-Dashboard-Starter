@@ -3705,7 +3705,9 @@ var render = function render() {
   return _c("div", {
     "class": {
       "md:right-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-no-wrap md:overflow-hidden bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 bg-cover bg-center layout-shadow": 1 == 1,
-      " hidden": _vm.menu == false
+      " hidden": _vm.menu == false,
+      " md:right-0": _vm.lang == "ar",
+      " md:left-0": _vm.lang == "en"
     }
   }, [_c("div", {
     staticClass: "h-full w-full",
@@ -3714,7 +3716,7 @@ var render = function render() {
     }
   }, [_c("div", {
     staticClass: "h-20 items-center w-full flex justify-center text-xl border-b font-medium orange-color"
-  }, [_vm._v("\n            لوحة التحكم\n        ")]), _vm._v(" "), _vm._l(_vm.pages, function (item) {
+  }, [_vm._v("\n            " + _vm._s(_vm.t[_vm.lang].SideHeader) + "\n        ")]), _vm._v(" "), _vm._l(_vm.pages, function (item) {
     return _c("div", {
       key: item.id,
       staticClass: "JF-Flat"
@@ -3727,13 +3729,15 @@ var render = function render() {
       }],
       staticClass: "w-full flex items-center h-10 mt-2"
     }, [_c("div", {
-      staticClass: "h-px w-4 bg-gray-400 ml-3 mt-1"
+      staticClass: "h-px w-4 bg-gray-400 mt-1"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "w-3"
     }), _vm._v(" "), _c("div", {
       staticClass: "Swissra-Light",
       staticStyle: {
         color: "#a1acb8"
       }
-    }, [_vm._v(_vm._s(item.name))])]) : item.list.length > 0 ? _c("div", {
+    }, [_vm._v(_vm._s(_vm.lang == "ar" ? item.name : item.nameEn))])]) : item.list.length > 0 ? _c("div", {
       directives: [{
         name: "show",
         rawName: "v-show",
@@ -3755,13 +3759,17 @@ var render = function render() {
     }, [_c("div", {
       staticClass: "flex items-center"
     }, [_c("i", {
-      "class": item.icon + " ml-2 text-md"
+      "class": item.icon + " text-md"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "w-2"
     }), _vm._v(" "), _c("div", {
       staticClass: "text-sm"
-    }, [_vm._v(_vm._s(item.name))])]), _vm._v(" "), _vm.openPageList == item.id ? _c("i", {
+    }, [_vm._v(_vm._s(_vm.lang == "ar" ? item.name : item.nameEn))])]), _vm._v(" "), _vm.openPageList == item.id ? _c("i", {
       staticClass: "fas fa-chevron-down text-md"
-    }) : _c("i", {
+    }) : _vm.lang == "ar" ? _c("i", {
       staticClass: "fas fa-chevron-left text-md"
+    }) : _c("i", {
+      staticClass: "fas fa-chevron-right text-md"
     })]) : _c("div", {
       staticClass: "flex items-center justify-between h-12 w-auto mx-3 rounded-md px-3 hover-side-menu",
       staticStyle: {
@@ -3770,13 +3778,17 @@ var render = function render() {
     }, [_c("div", {
       staticClass: "flex items-center"
     }, [_c("i", {
-      "class": item.icon + " ml-2 text-md"
+      "class": item.icon + " text-md"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "w-2"
     }), _vm._v(" "), _c("div", {
       staticClass: "text-sm"
-    }, [_vm._v(_vm._s(item.name))])]), _vm._v(" "), _vm.openPageList == item.id ? _c("i", {
+    }, [_vm._v(_vm._s(_vm.lang == "ar" ? item.name : item.nameEn))])]), _vm._v(" "), _vm.openPageList == item.id ? _c("i", {
       staticClass: "fas fa-chevron-down text-md"
-    }) : _c("i", {
+    }) : _vm.lang == "ar" ? _c("i", {
       staticClass: "fas fa-chevron-left text-md"
+    }) : _c("i", {
+      staticClass: "fas fa-chevron-right text-md"
     })])]) : _c("div", {
       directives: [{
         name: "show",
@@ -3796,19 +3808,23 @@ var render = function render() {
         "background-color": "rgba(105,108,255,.16)"
       }
     }, [_c("i", {
-      "class": item.icon + " ml-2 text-md"
+      "class": item.icon + " text-md"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "w-2"
     }), _vm._v(" "), _c("div", {
       staticClass: "text-sm"
-    }, [_vm._v(_vm._s(item.name))])]) : _c("div", {
+    }, [_vm._v(_vm._s(_vm.lang == "ar" ? item.name : item.nameEn))])]) : _c("div", {
       staticClass: "flex items-center h-12 w-auto mx-3 rounded-md px-3 hover-side-menu",
       staticStyle: {
         color: "#697a8d"
       }
     }, [_c("i", {
-      "class": item.icon + " ml-2 text-md"
+      "class": item.icon + " text-md"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "w-2"
     }), _vm._v(" "), _c("div", {
       staticClass: "text-sm"
-    }, [_vm._v(_vm._s(item.name))])])])], 1), _vm._v(" "), _vm.openPageList == item.id ? _c("div", _vm._l(item.list, function (subItem) {
+    }, [_vm._v(_vm._s(_vm.lang == "ar" ? item.name : item.nameEn))])])])], 1), _vm._v(" "), _vm.openPageList == item.id ? _c("div", _vm._l(item.list, function (subItem) {
       return _c("div", {
         key: subItem.id,
         attrs: {
@@ -3829,8 +3845,10 @@ var render = function render() {
         staticStyle: {
           color: "#696cff"
         }
-      }, [_c("span", {
-        staticClass: "rounded-full bg-gray-400 ml-3 mr-1",
+      }, [_c("div", {
+        staticClass: "w-1"
+      }), _vm._v(" "), _c("span", {
+        staticClass: "rounded-full bg-gray-400",
         staticStyle: {
           "background-color": "#6a6cff",
           border: "4px solid #e7e7ff",
@@ -3838,14 +3856,18 @@ var render = function render() {
           width: "15px"
         }
       }), _vm._v(" "), _c("div", {
+        staticClass: "w-3"
+      }), _vm._v(" "), _c("div", {
         staticClass: "text-sm"
-      }, [_vm._v(_vm._s(subItem.name))])]) : _c("div", {
+      }, [_vm._v(_vm._s(_vm.lang == "ar" ? subItem.name : subItem.nameEn))])]) : _c("div", {
         staticClass: "flex items-center h-12 w-auto mx-3 rounded-md px-3 hover-side-menu",
         staticStyle: {
           color: "#697a8d"
         }
-      }, [_c("span", {
-        staticClass: "rounded-full bg-gray-400 ml-3 mr-1",
+      }, [_c("div", {
+        staticClass: "w-1"
+      }), _vm._v(" "), _c("span", {
+        staticClass: "rounded-full bg-gray-400",
         staticStyle: {
           "background-color": "#b4bdc6",
           border: "4px solid #ffffff",
@@ -3853,8 +3875,10 @@ var render = function render() {
           width: "15px"
         }
       }), _vm._v(" "), _c("div", {
+        staticClass: "w-3"
+      }), _vm._v(" "), _c("div", {
         staticClass: "text-sm"
-      }, [_vm._v(_vm._s(subItem.name))])])])], 1);
+      }, [_vm._v(_vm._s(_vm.lang == "ar" ? subItem.name : subItem.nameEn))])])])], 1);
     }), 0) : _vm._e()]);
   })], 2)]);
 };
@@ -3884,8 +3908,10 @@ var render = function render() {
     attrs: {
       dir: _vm.dir
     }
-  }, [_c("App-Side"), _vm._v(" "), _c("div", {
+  }, [_c("App-Side"), _vm._v(" "), _vm.dir == "rtl" ? _c("div", {
     staticClass: "relative md:mr-64"
+  }, [_c("App-Header"), _vm._v(" "), _c("router-view")], 1) : _c("div", {
+    staticClass: "relative md:ml-64"
   }, [_c("App-Header"), _vm._v(" "), _c("router-view")], 1), _vm._v(" "), _vm.loading == true ? _c("Loading-Box") : _vm._e()], 1) : _c("div");
 };
 var staticRenderFns = [];
@@ -5846,9 +5872,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _lang_layout_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../lang/layout.json */ "./resources/js/admin/lang/layout.json");
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
-    return {};
+    return {
+      t: _lang_layout_json__WEBPACK_IMPORTED_MODULE_0__
+    };
   },
   methods: {
     logout: function logout() {
@@ -5891,6 +5921,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     menu: function menu() {
       return this.$store.state.menu;
+    },
+    lang: function lang() {
+      return this.$store.state.language;
     }
   }
 });
@@ -7101,6 +7134,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         target: 0,
         // 0 label - 1 page
         name: "الرئيسية",
+        nameEn: "Home",
         role: "HomeLabel",
         url: "/admin",
         icon: "fa-regular fa-house",
@@ -7110,6 +7144,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         target: 1,
         // 0 label - 1 page
         name: "الصفحة الرئيسية",
+        nameEn: "Home Page",
         role: "HomeChart",
         url: "/admin",
         icon: "fa-sharp fa-solid fa-house",
@@ -7119,6 +7154,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         target: 0,
         // 0 label - 1 page
         name: "الإعدادات",
+        nameEn: "Settings",
         role: "SettingLabel",
         url: "/admin",
         icon: "fas fa-home",
@@ -7128,27 +7164,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         target: 1,
         // 0 label - 1 page
         name: "المشرفين والصلاحيات",
+        nameEn: "Admins & Roles",
         role: "RolePermissionsList",
         url: "/admin",
         icon: "fas fa-user-shield",
         list: [{
           id: 1,
           name: "قائمة المشرفين",
+          nameEn: "Admins List",
           role: "ReadAdmin",
           url: "/admin/admin"
         }, {
           id: 2,
           name: "إضافة مشرف",
+          nameEn: "New Admin",
           role: "CreateAdmin",
           url: "/admin/admin/new"
         }, {
           id: 3,
           name: "أدوار المشرفين",
+          nameEn: "Roles List",
           role: "ReadRole",
           url: "/admin/role"
         }, {
           id: 4,
           name: "إضافة دور",
+          nameEn: "New Role",
           role: "CreateRole",
           url: "/admin/role/new"
         }]
@@ -7157,6 +7198,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         target: 1,
         // 0 label - 1 page
         name: "قائمة المشرفين",
+        nameEn: "Admins List",
         role: "ReadAdmin",
         url: "/admin",
         icon: "fas fa-user-shield",
@@ -7228,6 +7270,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     // Language
     channgeLanguage: function channgeLanguage(state, language) {
       state.language = language;
+      localStorage.setItem("language", language);
     }
   },
   actions: {
@@ -47196,7 +47239,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"ar":{"headerWelcome":"مرحبا بك","editAccount":"تعديل حسابي","logout":"تعديل حسابي"},"en":{"headerWelcome":"Welcome","editAccount":"Edit Account","logout":"Logout"}}');
+module.exports = JSON.parse('{"ar":{"headerWelcome":"مرحبا بك","editAccount":"تعديل حسابي","logout":"تسجيل الخروج","SideHeader":"لوحة التحكم"},"en":{"headerWelcome":"Welcome","editAccount":"Edit Account","logout":"Logout","SideHeader":"Admin Panel"}}');
 
 /***/ })
 
@@ -47354,7 +47397,13 @@ window.root = new vue__WEBPACK_IMPORTED_MODULE_3__["default"]({
   el: "#app",
   router: router,
   store: store,
-  beforeCreate: function beforeCreate() {},
+  beforeCreate: function beforeCreate() {
+    if (localStorage.getItem("language") == 'ar' || localStorage.getItem("language") == 'en') {
+      this.$store.commit("channgeLanguage", localStorage.getItem("language"));
+    } else {
+      this.$store.commit("channgeLanguage", 'ar');
+    }
+  },
   methods: {}
 });
 })();

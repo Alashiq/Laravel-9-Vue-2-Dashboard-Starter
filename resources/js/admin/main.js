@@ -64,6 +64,11 @@ window.root = new Vue({
     router,
     store,
     beforeCreate: function () {
+    if (localStorage.getItem("language")=='ar' || localStorage.getItem("language")=='en') {
+        this.$store.commit("channgeLanguage", localStorage.getItem("language"));
+    }else{
+        this.$store.commit("channgeLanguage", 'ar');
+    }
     },
     methods:{
     }

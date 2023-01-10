@@ -1,17 +1,27 @@
+<div v-if="loadAuth" class="w-full" :dir="dir">
+    <!-- Side Menu -->
+    <App-Side></App-Side>
+    <!-- End Side Menu -->
 
-    <div v-if="loadAuth" class="w-full" :dir="dir">
-        <!-- Side Menu -->
-        <App-Side></App-Side>
-        <!-- End Side Menu -->
-
-        <!-- Left Part -->
-        <div class="relative md:mr-64">
-            <!-- Header Bar -->
-            <App-Header></App-Header>
-            <!-- End Header Bar -->
-            <router-view></router-view>
-        </div>
-        <!-- End Left Part -->
-        <Loading-Box v-if="loading == true"></Loading-Box>
+    <!-- Left Part -->
+    <div v-if="dir=='rtl'" class="relative md:mr-64">
+        <!-- Header Bar -->
+        <App-Header></App-Header>
+        <!-- End Header Bar -->
+        <router-view></router-view>
     </div>
-    <div v-else></div>
+    <!-- End Left Part -->
+
+    <!-- Left Part -->
+    <div v-else class="relative md:ml-64">
+        <!-- Header Bar -->
+        <App-Header></App-Header>
+        <!-- End Header Bar -->
+        <router-view></router-view>
+    </div>
+    <!-- End Left Part -->
+
+
+    <Loading-Box v-if="loading == true"></Loading-Box>
+</div>
+<div v-else></div>
