@@ -80,10 +80,10 @@
             <div class="h-9  flex items-start justify-end">
                 <div @click="toggleLanguageMenu()" id="languageMenu"
                     class=" h-9 w-9 border border-gray-200 cursor-pointer rounded-xl flex items-center justify-center">
-                    <img v-if="lang == 'ar'" id="languageMenu" src="http://localhost:3000/src/assets/png/ar.png"
+                    <img v-if="lang == 'ar'" id="languageMenu" src="/storage/assets/ar.png"
                         class="h-7 w-7 rounded-lg" alt="">
                     <img v-else id="languageMenu"
-                        src="https://demos.themeselection.com/sneat-aspnet-core-admin-template/assets/vendor/fonts/flags/1x1/us.svg"
+                        src="/storage/assets/en.svg"
                         class="h-7 w-7 rounded-lg" alt="">
                 </div>
 

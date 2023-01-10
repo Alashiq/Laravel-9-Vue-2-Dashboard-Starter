@@ -2314,14 +2314,14 @@ var render = function render() {
     staticClass: "h-7 w-7 rounded-lg",
     attrs: {
       id: "languageMenu",
-      src: "http://localhost:3000/src/assets/png/ar.png",
+      src: "/storage/assets/ar.png",
       alt: ""
     }
   }) : _c("img", {
     staticClass: "h-7 w-7 rounded-lg",
     attrs: {
       id: "languageMenu",
-      src: "https://demos.themeselection.com/sneat-aspnet-core-admin-template/assets/vendor/fonts/flags/1x1/us.svg",
+      src: "/storage/assets/en.svg",
       alt: ""
     }
   })]), _vm._v(" "), _vm.languageMenu ? _c("div", {
@@ -2614,7 +2614,7 @@ var staticRenderFns = [function () {
   }, [_c("div", [_c("img", {
     staticClass: "h-28 w-28 mx-auto mb-6",
     attrs: {
-      src: "https://uxwing.com/wp-content/themes/uxwing/download/signs-and-symbols/stop-limit-icon.png",
+      src: "/storage/assets/noPermission.webp",
       alt: ""
     }
   }), _vm._v(" "), _c("div", {
