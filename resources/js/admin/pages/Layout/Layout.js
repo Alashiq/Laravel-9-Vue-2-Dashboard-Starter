@@ -23,11 +23,19 @@ export default {
             return this.$store.state.loading;
         },
         dir() {
-            return this.$store.state.language=='ar'?'rtl':'ltr';
+            return this.$store.state.language == 'ar' ? 'rtl' : 'ltr';
         }
     },
     methods: {
-        checkPermission: function(perName) {
+        showId(event) {
+            if (event.target.id != "languageMenu") {
+                this.$store.commit("toggleLanguageMenu", 0);
+            }
+            if (event.target.id != "userMenu") {
+                this.$store.commit("toggleUserMenu", 0);
+            }
+        },
+        checkPermission: function (perName) {
             var item = this.permissions.filter(project => {
                 return project.name == perName;
                 //return project.name.match(perName);
@@ -35,13 +43,13 @@ export default {
             if (item[0] != null) return item[0].state;
             return false;
         },
-        openOptions: function(event){
-            if(event.target.id==0){
-                this.optionId=0;
-            console.log(event.target.id);
-            }else{
-                this.optionId=event.target.id;
-            console.log(event.target.id);
+        openOptions: function (event) {
+            if (event.target.id == 0) {
+                this.optionId = 0;
+                console.log(event.target.id);
+            } else {
+                this.optionId = event.target.id;
+                console.log(event.target.id);
             }
 
         },

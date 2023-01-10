@@ -2070,7 +2070,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      userMenu: false,
       t: _lang_layout_json__WEBPACK_IMPORTED_MODULE_0__
     };
   },
@@ -2079,10 +2078,10 @@ __webpack_require__.r(__webpack_exports__);
       this.$store.commit("toggleMenu");
     },
     toggleUserMenu: function toggleUserMenu() {
-      this.userMenu = !this.userMenu;
+      this.$store.commit("toggleUserMenu", 1);
     },
     toggleLanguageMenu: function toggleLanguageMenu() {
-      this.$store.commit("toggleLanguageMenu");
+      this.$store.commit("toggleLanguageMenu", 1);
     },
     logout: function logout() {
       var _this = this;
@@ -2110,6 +2109,9 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     user: function user() {
       return this.$store.state.user;
+    },
+    userMenu: function userMenu() {
+      return this.$store.state.userMenu;
     },
     languageMenu: function languageMenu() {
       return this.$store.state.languageMenu;
@@ -2178,50 +2180,93 @@ var render = function render() {
     staticClass: "flex justify-end clear-left"
   }, [_c("div", {
     "class": [_vm.userMenu ? "active-header-user" : " "] + " flex flex-wrap items-center font-normal cairo text-sm text-gray-500   hover:bg-gray-100 cursor-pointer px-2 py-1 rounded-lg",
+    attrs: {
+      id: "userMenu"
+    },
     on: {
       click: function click($event) {
         return _vm.toggleUserMenu();
       }
     }
   }, [_c("div", {
-    staticClass: "border rounded-full flex items-center justify-center"
+    staticClass: "border rounded-full flex items-center justify-center",
+    attrs: {
+      id: "userMenu"
+    }
   }, [_c("img", {
     staticClass: "w-10 h-10 m-1 rounded-full",
     attrs: {
+      id: "userMenu",
       src: _vm.user.photo,
       alt: ""
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "w-2"
-  }), _vm._v(" "), _c("div", [_vm._v("\n                 " + _vm._s(_vm.t[_vm.lang].headerWelcome) + "\n\n                ")]), _vm._v(" "), _c("div", {
-    staticClass: "w-1"
+    staticClass: "w-2",
+    attrs: {
+      id: "userMenu"
+    }
   }), _vm._v(" "), _c("div", {
-    staticClass: "font-medium"
+    attrs: {
+      id: "userMenu"
+    }
+  }, [_vm._v("\n                    " + _vm._s(_vm.t[_vm.lang].headerWelcome) + "\n\n                ")]), _vm._v(" "), _c("div", {
+    staticClass: "w-1",
+    attrs: {
+      id: "userMenu"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "font-medium",
+    attrs: {
+      id: "userMenu"
+    }
   }, [_vm._v("\n                    " + _vm._s(_vm.user.first_name) + "\n                ")]), _vm._v(" "), _c("div", {
-    staticClass: "w-2"
+    staticClass: "w-2",
+    attrs: {
+      id: "userMenu"
+    }
   }), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _vm.userMenu ? _c("div", {
     staticClass: "py-1 w-44 bg-white mt-14 rounded absolute text-gray-600 text-sm cairo",
     staticStyle: {
       "box-shadow": "0 0.25rem 1rem rgb(161 172 184 / 45%)"
     }
   }, [_c("div", {
-    staticClass: "flex items-center px-4 pt-3 pb-2"
+    staticClass: "flex items-center px-4 pt-3 pb-2",
+    attrs: {
+      id: "userMenu"
+    }
   }, [_c("div", {
-    staticClass: "h-10 w-10"
+    staticClass: "h-10 w-10",
+    attrs: {
+      id: "userMenu"
+    }
   }, [_c("img", {
     staticClass: "rounded-full h-10",
     attrs: {
-      src: _vm.user.photo
+      src: _vm.user.photo,
+      id: "userMenu"
     }
   }), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("div", {
-    staticClass: "w-2"
-  }), _vm._v(" "), _c("div", {}, [_c("div", {
+    staticClass: "w-2",
+    attrs: {
+      id: "userMenu"
+    }
+  }), _vm._v(" "), _c("div", {
+    attrs: {
+      id: "userMenu"
+    }
+  }, [_c("div", {
     staticClass: "Swissra-Normal text-basea",
     staticStyle: {
       color: "#697a8d"
+    },
+    attrs: {
+      id: "userMenu"
     }
   }, [_vm._v(_vm._s(_vm.user.first_name))]), _vm._v(" "), _c("div", {
-    staticClass: "text-gray-400 text-xs"
+    staticClass: "text-gray-400 text-xs",
+    attrs: {
+      id: "userMenu"
+    }
   }, [_vm._v(_vm._s(_vm.user.role))])])]), _vm._v(" "), _c("div", {
     staticClass: "w-full bg-gray-200 h-px my-1"
   }), _vm._v(" "), _c("router-link", {
@@ -2254,12 +2299,12 @@ var render = function render() {
   }), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.t[_vm.lang].logout))])])], 1) : _vm._e()]), _vm._v(" "), _vm._m(3)]), _vm._v(" "), _c("div", {
     staticClass: "flex items-center justify-center"
   }, [_c("div", {
-    staticClass: "h-9 ml-2 flex items-start justify-end",
-    attrs: {
-      id: "language"
-    }
+    staticClass: "h-9 flex items-start justify-end"
   }, [_c("div", {
     staticClass: "h-9 w-9 border border-gray-200 cursor-pointer rounded-xl flex items-center justify-center",
+    attrs: {
+      id: "languageMenu"
+    },
     on: {
       click: function click($event) {
         return _vm.toggleLanguageMenu();
@@ -2268,12 +2313,14 @@ var render = function render() {
   }, [_vm.lang == "ar" ? _c("img", {
     staticClass: "h-7 w-7 rounded-lg",
     attrs: {
+      id: "languageMenu",
       src: "http://localhost:3000/src/assets/png/ar.png",
       alt: ""
     }
   }) : _c("img", {
     staticClass: "h-7 w-7 rounded-lg",
     attrs: {
+      id: "languageMenu",
       src: "https://demos.themeselection.com/sneat-aspnet-core-admin-template/assets/vendor/fonts/flags/1x1/us.svg",
       alt: ""
     }
@@ -2319,6 +2366,8 @@ var render = function render() {
   }), _vm._v(" "), _c("div", {
     staticClass: "w-2"
   }), _vm._v(" "), _c("span", [_vm._v("English")])])]) : _vm._e()]), _vm._v(" "), _c("div", {
+    staticClass: "w-2"
+  }), _vm._v(" "), _c("div", {
     staticClass: "h-16 w-16 text-gray-600 flex items-center justify-center text-2xl hover:text-red-400 cursor-pointer md:hidden",
     on: {
       click: _vm.toggleMenu
@@ -2331,23 +2380,38 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", [_c("i", {
-    staticClass: "fa-solid fa-chevron-down"
+    staticClass: "fa-solid fa-chevron-down",
+    attrs: {
+      id: "userMenu"
+    }
   })]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "rounded-full h-3 w-3 bg-white shadow-xl animate-ping -mt-3 mr-7 flex items-center justify-center"
+    staticClass: "rounded-full h-3 w-3 bg-white shadow-xl animate-ping -mt-3 mr-7 flex items-center justify-center",
+    attrs: {
+      id: "userMenu"
+    }
   }, [_c("div", {
-    staticClass: "back-btn h-4 w-4 rounded-full animate-ping"
+    staticClass: "back-btn h-4 w-4 rounded-full animate-ping",
+    attrs: {
+      id: "userMenu"
+    }
   })]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "rounded-full h-3 w-3 bg-white shadow-xl relative z-10 -mt-3 mr-7 flex items-center justify-center"
+    staticClass: "rounded-full h-3 w-3 bg-white shadow-xl relative z-10 -mt-3 mr-7 flex items-center justify-center",
+    attrs: {
+      id: "userMenu"
+    }
   }, [_c("div", {
-    staticClass: "back-btn h-2 w-2 rounded-full"
+    staticClass: "back-btn h-2 w-2 rounded-full",
+    attrs: {
+      id: "userMenu"
+    }
   })]);
 }, function () {
   var _vm = this,
@@ -3907,6 +3971,11 @@ var render = function render() {
     staticClass: "w-full",
     attrs: {
       dir: _vm.dir
+    },
+    on: {
+      click: function click($event) {
+        return _vm.showId($event);
+      }
     }
   }, [_c("App-Side"), _vm._v(" "), _vm.dir == "rtl" ? _c("div", {
     staticClass: "relative md:mr-64"
@@ -5970,6 +6039,14 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    showId: function showId(event) {
+      if (event.target.id != "languageMenu") {
+        this.$store.commit("toggleLanguageMenu", 0);
+      }
+      if (event.target.id != "userMenu") {
+        this.$store.commit("toggleUserMenu", 0);
+      }
+    },
     checkPermission: function checkPermission(perName) {
       var item = this.permissions.filter(function (project) {
         return project.name == perName;
@@ -7211,6 +7288,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       // Menu
       menu: false,
       languageMenu: false,
+      userMenu: false,
       // Language
       language: 'ar'
     };
@@ -7264,8 +7342,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     toggleMenu: function toggleMenu(state) {
       state.menu = !state.menu;
     },
-    toggleLanguageMenu: function toggleLanguageMenu(state) {
-      state.languageMenu = !state.languageMenu;
+    toggleLanguageMenu: function toggleLanguageMenu(state, val) {
+      if (val == 1) state.languageMenu = !state.languageMenu;else state.languageMenu = false;
+    },
+    toggleUserMenu: function toggleUserMenu(state, val) {
+      if (val == 1) state.userMenu = !state.userMenu;else state.userMenu = false;
     },
     // Language
     channgeLanguage: function channgeLanguage(state, language) {

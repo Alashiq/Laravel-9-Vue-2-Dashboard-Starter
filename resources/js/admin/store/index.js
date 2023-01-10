@@ -99,6 +99,7 @@ export default {
         // Menu
         menu: false,
         languageMenu: false,
+        userMenu: false,
 
 
         // Language
@@ -157,8 +158,17 @@ export default {
         toggleMenu(state) {
             state.menu = !state.menu;
         },
-        toggleLanguageMenu(state) {
+        toggleLanguageMenu(state,val) {
+            if(val==1)
             state.languageMenu = !state.languageMenu;
+            else
+            state.languageMenu=false;
+        },
+        toggleUserMenu(state,val) {
+            if(val==1)
+            state.userMenu = !state.userMenu;
+            else
+            state.userMenu=false;
         },
         // Language
         channgeLanguage(state,language){
