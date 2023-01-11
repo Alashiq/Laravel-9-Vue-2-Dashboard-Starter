@@ -247,6 +247,9 @@ export default {
         this.loadData(this.pageId);
     },
     computed: {
+        t() {
+            return this.$lang.Profile[this.$store.state.language];
+        }
     },
     created() {}
 };

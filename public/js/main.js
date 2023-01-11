@@ -2065,13 +2065,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _lang_layout_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../lang/layout.json */ "./resources/js/admin/lang/layout.json");
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
-    return {
-      t: _lang_layout_json__WEBPACK_IMPORTED_MODULE_0__
-    };
+    return {};
   },
   methods: {
     toggleMenu: function toggleMenu() {
@@ -2118,6 +2114,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     lang: function lang() {
       return this.$store.state.language;
+    },
+    t: function t() {
+      return this.$lang.Layout[this.$store.state.language];
     }
   }
 });
@@ -2209,7 +2208,7 @@ var render = function render() {
     attrs: {
       id: "userMenu"
     }
-  }, [_vm._v("\n                    " + _vm._s(_vm.t[_vm.lang].headerWelcome) + "\n\n                ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    " + _vm._s(_vm.t.headerWelcome) + "\n\n                ")]), _vm._v(" "), _c("div", {
     staticClass: "w-1",
     attrs: {
       id: "userMenu"
@@ -2282,7 +2281,7 @@ var render = function render() {
     staticClass: "fa-solid fa-user-pen"
   }), _vm._v(" "), _c("div", {
     staticClass: "w-2"
-  }), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.t[_vm.lang].editAccount))])])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.t.editAccount))])])]), _vm._v(" "), _c("div", {
     staticClass: "w-full bg-gray-200 h-px my-1"
   }), _vm._v(" "), _c("div", {
     staticClass: "flex items-center justify-start px-4 my-1 h-10 hover:bg-gray-100 JF-Flat cursor-pointer",
@@ -2296,7 +2295,7 @@ var render = function render() {
     staticClass: "fa-solid fa-power-off"
   }), _vm._v(" "), _c("div", {
     staticClass: "w-2"
-  }), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.t[_vm.lang].logout))])])], 1) : _vm._e()]), _vm._v(" "), _vm._m(3)]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.t.logout))])])], 1) : _vm._e()]), _vm._v(" "), _vm._m(3)]), _vm._v(" "), _c("div", {
     staticClass: "flex items-center justify-center"
   }, [_c("div", {
     staticClass: "h-9 flex items-start justify-end"
@@ -2342,7 +2341,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "h-6 w-6 rounded-full",
     attrs: {
-      src: "http://localhost:3000/src/assets/png/ar.png",
+      src: "/storage/assets/ar.png",
       alt: ""
     }
   }), _vm._v(" "), _c("div", {
@@ -2360,7 +2359,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "h-6 w-6 rounded-full",
     attrs: {
-      src: "https://demos.themeselection.com/sneat-aspnet-core-admin-template/assets/vendor/fonts/flags/1x1/us.svg",
+      src: "/storage/assets/en.svg",
       alt: ""
     }
   }), _vm._v(" "), _c("div", {
@@ -2946,7 +2945,7 @@ var render = function render() {
     staticClass: "flex justify-between w-full h-16 items-center"
   }, [_c("div", {
     staticClass: "text-2xl font-semibold cairo text-gray-600"
-  }, [_vm._v("\n            مشرفي الموقع\n        ")]), _vm._v(" "), _c("router-link", {
+  }, [_vm._v("\n            مشرفي الموقع \n        ")]), _vm._v(" "), _c("router-link", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -2961,15 +2960,17 @@ var render = function render() {
     staticClass: "h-12 flex items-center"
   }, [_c("i", {
     staticClass: "fas fa-plus text-lg"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "w-3"
   }), _vm._v(" "), _c("p", {
-    staticClass: "mr-3 md:block hidden text-base JF-Flat"
+    staticClass: "md:block hidden text-base JF-Flat"
   }, [_vm._v("\n                    أضف مشرف\n                ")])])])], 1), _vm._v(" "), _c("div", {
     staticClass: "flex justify-between my-8"
   }, [_c("div", {
     staticClass: "border rounded font-semibold JF-Flat text-base flex bg-center text-gray-600"
   }, [_c("div", {
     "class": {
-      "h-12 px-4 flex cursor-pointer items-center rounded-r border-l ": 1 == 1,
+      "h-12 px-4 flex cursor-pointer items-center rounded  ": 1 == 1,
       "bg-white ": _vm.tagId == null
     },
     on: {
@@ -2978,8 +2979,10 @@ var render = function render() {
       }
     }
   }, [_vm._v("الكل")]), _vm._v(" "), _c("div", {
+    staticClass: "h-12 border-l"
+  }), _vm._v(" "), _c("div", {
     "class": {
-      "h-12 px-4 flex cursor-pointer items-center border-l  ": 1 == 1,
+      "h-12 px-4 flex cursor-pointer items-center ": 1 == 1,
       "bg-white ": _vm.tagId == 1
     },
     on: {
@@ -2988,8 +2991,10 @@ var render = function render() {
       }
     }
   }, [_vm._v("نشط")]), _vm._v(" "), _c("div", {
+    staticClass: "h-12 border-l"
+  }), _vm._v(" "), _c("div", {
     "class": {
-      "h-12 px-4 flex cursor-pointer items-center border-l  ": 1 == 1,
+      "h-12 px-4 flex cursor-pointer items-center ": 1 == 1,
       "bg-white ": _vm.tagId == 0
     },
     on: {
@@ -2998,8 +3003,10 @@ var render = function render() {
       }
     }
   }, [_vm._v("غير نشط")]), _vm._v(" "), _c("div", {
+    staticClass: "h-12 border-l"
+  }), _vm._v(" "), _c("div", {
     "class": {
-      "h-12 px-4 flex cursor-pointer items-center rounded-l ": 1 == 1,
+      "h-12 px-4 flex cursor-pointer items-center rounded ": 1 == 1,
       "bg-white ": _vm.tagId == 2
     },
     on: {
@@ -3094,7 +3101,9 @@ var render = function render() {
       }
     }
   }, [_vm._v("\n                بحث\n            ")]), _vm._v(" "), _c("div", {
-    staticClass: "h-10 mt-8 shadow-lg rounded w-24 bg-gray-400 mr-3 text-white cairo flex items-center justify-center",
+    staticClass: "w-3"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-10 mt-8 shadow-lg rounded w-24 bg-gray-400 text-white cairo flex items-center justify-center",
     on: {
       click: function click($event) {
         return _vm.clearSearch();
@@ -3780,7 +3789,7 @@ var render = function render() {
     }
   }, [_c("div", {
     staticClass: "h-20 items-center w-full flex justify-center text-xl border-b font-medium orange-color"
-  }, [_vm._v("\n            " + _vm._s(_vm.t[_vm.lang].SideHeader) + "\n        ")]), _vm._v(" "), _vm._l(_vm.pages, function (item) {
+  }, [_vm._v("\n            " + _vm._s(_vm.t.SideHeader) + "\n        ")]), _vm._v(" "), _vm._l(_vm.pages, function (item) {
     return _c("div", {
       key: item.id,
       staticClass: "JF-Flat"
@@ -3974,14 +3983,18 @@ var render = function render() {
     },
     on: {
       click: function click($event) {
-        return _vm.showId($event);
+        return _vm.closeMenu($event);
       }
     }
   }, [_c("App-Side"), _vm._v(" "), _vm.dir == "rtl" ? _c("div", {
     staticClass: "relative md:mr-64"
-  }, [_c("App-Header"), _vm._v(" "), _c("router-view")], 1) : _c("div", {
+  }, [_c("App-Header"), _vm._v(" "), _c("router-view"), _vm._v(" "), _c("div", {
+    staticClass: "h-12"
+  })], 1) : _c("div", {
     staticClass: "relative md:ml-64"
-  }, [_c("App-Header"), _vm._v(" "), _c("router-view")], 1), _vm._v(" "), _vm.loading == true ? _c("Loading-Box") : _vm._e()], 1) : _c("div");
+  }, [_c("App-Header"), _vm._v(" "), _c("router-view"), _vm._v(" "), _c("div", {
+    staticClass: "h-12"
+  })], 1), _vm._v(" "), _vm.loading == true ? _c("Loading-Box") : _vm._e()], 1) : _c("div");
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -4132,7 +4145,7 @@ var render = function render() {
     staticClass: "w-full bg-white shadow-2 lg:px-8 md:px-6 px-4 py-4"
   }, [_c("div", {
     staticClass: "text-2xl font-semibold text-gray-600 h-20 flex items-center justify-start border-b cairo"
-  }, [_vm._v("\n                الملف الشخصي\n            ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                " + _vm._s(_vm.t.pageHeader) + "\n            ")]), _vm._v(" "), _c("div", {
     staticClass: "md:flex items-center my-8"
   }, [_c("img", {
     staticClass: "h-52 w-52 border md:mx-px mx-auto",
@@ -4149,22 +4162,28 @@ var render = function render() {
     on: {
       change: _vm.onChange
     }
-  }), _vm._v(" "), _vm._m(0)])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("span", {
+    staticClass: "ml-2 bg-blue-400 h-16 w-36 text-white flex items-center justify-center rounded shadow cursor-pointer hover:bg-blue-500 text-base"
+  }, [_c("i", {
+    staticClass: "fas fa-folder-plus text-xl"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "w-2"
+  }), _vm._v("\n                        " + _vm._s(_vm.t.choosePhoto) + "\n                        ")])])]), _vm._v(" "), _c("div", {
     staticClass: "flex items-center h-20"
   }, [_c("div", {
     staticClass: "rounded back-btn shadow px-12 h-12 w-auto flex items-center justify-center text-white text-lg cursor-pointer",
     on: {
       click: _vm.changePhoto
     }
-  }, [_vm._v("\n                    تحديث\n                ")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    " + _vm._s(_vm.t.save) + "\n                ")])]), _vm._v(" "), _c("div", {
     staticClass: "border-b border-t"
   }, [_c("div", {
     staticClass: "text-2xl text-gray-600 font-medium mt-12 cairo"
-  }, [_vm._v("\n                    البيانات الشخصية\n                ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    " + _vm._s(_vm.t.personalInfo) + "\n                ")]), _vm._v(" "), _c("div", {
     staticClass: "mt-4 lg:h-16 lg:flex items-center"
   }, [_c("div", {
     staticClass: "md:w-48 h-8 text-lg text-gray-600 mb-6"
-  }, [_vm._v("\n                        الإسم\n                    ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                        " + _vm._s(_vm.t.firstName) + "\n                    ")]), _vm._v(" "), _c("div", {
     staticClass: "16"
   }, [_c("input", {
     directives: [{
@@ -4188,12 +4207,14 @@ var render = function render() {
       }
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "h-6 text-sm text-red-400 mr-2 flex items-center"
+    staticClass: "w-2"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-6 text-sm text-red-400 flex items-center"
   }, [_vm._v("\n                            " + _vm._s(_vm.formValidate.first_name) + "\n                        ")])])]), _vm._v(" "), _c("div", {
     staticClass: "mt-4 lg:h-16 lg:flex items-center"
   }, [_c("div", {
     staticClass: "md:w-48 h-8 text-lg text-gray-600 mb-6"
-  }, [_vm._v("\n                        اللقب\n                    ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                        " + _vm._s(_vm.t.lastName) + "\n                    ")]), _vm._v(" "), _c("div", {
     staticClass: "16"
   }, [_c("input", {
     directives: [{
@@ -4222,13 +4243,13 @@ var render = function render() {
     staticClass: "mt-4 lg:h-16 lg:flex items-center"
   }, [_c("div", {
     staticClass: "md:w-48 h-8 text-lg text-gray-600"
-  }, [_vm._v("\n                    رقم الهاتف\n                    ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                        " + _vm._s(_vm.t.phone) + "\n                    ")]), _vm._v(" "), _c("div", {
     staticClass: "border rounded h-12 lg:w-96 w-full px-4 text-lg text-gray-700 flex items-center bg-gray-100"
   }, [_vm._v("\n                        " + _vm._s(_vm.user.phone) + "\n                    ")])]), _vm._v(" "), _c("div", {
     staticClass: "mt-4 lg:h-16 lg:flex items-center"
   }, [_c("div", {
     staticClass: "md:w-48 h-8 text-lg text-gray-600"
-  }, [_vm._v("\n                        دور الحساب\n                    ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                        " + _vm._s(_vm.t.role) + "\n                    ")]), _vm._v(" "), _c("div", {
     staticClass: "border rounded h-12 lg:w-96 w-full px-4 text-lg text-gray-700 flex items-center bg-gray-100"
   }, [_vm._v("\n                        " + _vm._s(_vm.user.role) + "\n                    ")])]), _vm._v(" "), _c("div", {
     staticClass: "flex items-center h-20"
@@ -4237,13 +4258,13 @@ var render = function render() {
     on: {
       click: _vm.changeName
     }
-  }, [_vm._v("\n                        تحديث\n                    ")])])]), _vm._v(" "), _c("div", [_c("div", {
+  }, [_vm._v("\n                    " + _vm._s(_vm.t.save) + "\n                    ")])])]), _vm._v(" "), _c("div", [_c("div", {
     staticClass: "text-2xl text-gray-600 font-medium mt-12 mb-6 cairo"
-  }, [_vm._v("\n                    تغيير كلمة المرور\n                ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    " + _vm._s(_vm.t.changePassword) + "\n                ")]), _vm._v(" "), _c("div", {
     staticClass: "mt-4 lg:h-16 lg:flex items-center"
   }, [_c("div", {
     staticClass: "md:w-48 h-8 text-lg text-gray-600 mb-6"
-  }, [_vm._v("\n                        كلمة المرور الحالية\n                    ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    " + _vm._s(_vm.t.currentPassword) + "\n                        \n                    ")]), _vm._v(" "), _c("div", {
     staticClass: "16"
   }, [_c("input", {
     directives: [{
@@ -4272,7 +4293,7 @@ var render = function render() {
     staticClass: "mt-4 lg:h-16 lg:flex items-center"
   }, [_c("div", {
     staticClass: "md:w-48 h-8 text-lg text-gray-600 mb-6"
-  }, [_vm._v("\n                        كلمة المرور الجديدة\n                    ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                        " + _vm._s(_vm.t.newPassword) + "\n                    ")]), _vm._v(" "), _c("div", {
     staticClass: "16"
   }, [_c("input", {
     directives: [{
@@ -4301,7 +4322,7 @@ var render = function render() {
     staticClass: "mt-4 lg:h-16 lg:flex items-center"
   }, [_c("div", {
     staticClass: "md:w-48 h-8 text-lg text-gray-600 mb-6"
-  }, [_vm._v("\n                        تأكيد كلمة المرور\n                    ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                        " + _vm._s(_vm.t.confirmPassword) + "\n                    ")]), _vm._v(" "), _c("div", {
     staticClass: "16"
   }, [_c("input", {
     directives: [{
@@ -4333,17 +4354,9 @@ var render = function render() {
     on: {
       click: _vm.changePassword
     }
-  }, [_vm._v("\n                        تحديث\n                    ")])])])])]);
+  }, [_vm._v("\n                    " + _vm._s(_vm.t.save) + "\n                    ")])])])])]);
 };
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("span", {
-    staticClass: "ml-2 bg-blue-400 h-16 w-36 text-white flex items-center justify-center rounded shadow cursor-pointer hover:bg-blue-500 text-base"
-  }, [_c("i", {
-    staticClass: "fas fa-folder-plus ml-2 text-xl"
-  }), _vm._v("\n                        إختر الصورة")]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -5566,7 +5579,11 @@ __webpack_require__.r(__webpack_exports__);
     this.$loading.Start();
     this.loadData(this.pageId);
   },
-  computed: {},
+  computed: {
+    t: function t() {
+      return this.$lang.Profile[this.$store.state.language];
+    }
+  },
   created: function created() {}
 });
 
@@ -5941,13 +5958,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _lang_layout_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../lang/layout.json */ "./resources/js/admin/lang/layout.json");
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
-    return {
-      t: _lang_layout_json__WEBPACK_IMPORTED_MODULE_0__
-    };
+    return {};
   },
   methods: {
     logout: function logout() {
@@ -5993,6 +6006,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     lang: function lang() {
       return this.$store.state.language;
+    },
+    t: function t() {
+      return this.$lang.Profile[this.$store.state.language];
     }
   }
 });
@@ -6039,7 +6055,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    showId: function showId(event) {
+    closeMenu: function closeMenu(event) {
       if (event.target.id != "languageMenu") {
         this.$store.commit("toggleLanguageMenu", 0);
       }
@@ -6211,8 +6227,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       formData: {
         file: "",
-        first_name: "س",
-        last_name: "ي",
+        first_name: "",
+        last_name: "",
         old_password: "",
         new_password: "",
         confirm_password: ""
@@ -6365,6 +6381,12 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     user: function user() {
       return this.$store.state.user;
+    },
+    lang: function lang() {
+      return this.$store.state.language;
+    },
+    t: function t() {
+      return this.$lang.Profile[this.$store.state.language];
     }
   },
   created: function created() {}
@@ -7152,6 +7174,28 @@ __webpack_require__.r(__webpack_exports__);
   EditRole: function EditRole(role, formData) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default().put("/admin/api/permission/" + role, formData);
   }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/shared/Language.js":
+/*!***********************************************!*\
+  !*** ./resources/js/admin/shared/Language.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _lang_profile_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../lang/profile.json */ "./resources/js/admin/lang/profile.json");
+/* harmony import */ var _lang_layout_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../lang/layout.json */ "./resources/js/admin/lang/layout.json");
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  Profile: _lang_profile_json__WEBPACK_IMPORTED_MODULE_0__,
+  Layout: _lang_layout_json__WEBPACK_IMPORTED_MODULE_1__
 });
 
 /***/ }),
@@ -47322,6 +47366,17 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 "use strict";
 module.exports = JSON.parse('{"ar":{"headerWelcome":"مرحبا بك","editAccount":"تعديل حسابي","logout":"تسجيل الخروج","SideHeader":"لوحة التحكم"},"en":{"headerWelcome":"Welcome","editAccount":"Edit Account","logout":"Logout","SideHeader":"Admin Panel"}}');
 
+/***/ }),
+
+/***/ "./resources/js/admin/lang/profile.json":
+/*!**********************************************!*\
+  !*** ./resources/js/admin/lang/profile.json ***!
+  \**********************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('{"ar":{"pageHeader":"الملف الشخصي","choosePhoto":"إختر الصورة","save":"حفظ","personalInfo":"البيانات الشخصية","firstName":"الإسم","lastName":"اللقب","phone":"رقم الهاتف","role":"دور الحساب","changePassword":"تغيير كلمة المرور","currentPassword":"كلمة المرور الحالية","newPassword":"كلمة المرور الجديدة","confirmPassword":"تأكيد كلمة المرور","SideHeader":"لوحة التحكم"},"en":{"pageHeader":"My Profile","choosePhoto":"Choose Photo","save":"Save","personalInfo":"Personal Information","firstName":"First Name","lastName":"Last Name","phone":"Phone Number","role":"Account Role","changePassword":"Change Your Password","currentPassword":"Current Password","newPassword":"New Password","confirmPassword":"Confirm Password","SideHeader":"Admin Panel"}}');
+
 /***/ })
 
 /******/ 	});
@@ -47440,6 +47495,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_menu_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./store/menu.js */ "./resources/js/admin/store/menu.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _shared_Language__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./shared/Language */ "./resources/js/admin/shared/Language.js");
 __webpack_require__(/*! ../bootstrap */ "./resources/js/bootstrap.js");
 
 
@@ -47454,8 +47510,10 @@ vue__WEBPACK_IMPORTED_MODULE_3__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_6_
 
 
 
+
 vue__WEBPACK_IMPORTED_MODULE_3__["default"].prototype.$http = _shared_DataServices__WEBPACK_IMPORTED_MODULE_0__["default"];
 vue__WEBPACK_IMPORTED_MODULE_3__["default"].prototype.$alert = _shared_Alert__WEBPACK_IMPORTED_MODULE_1__["default"];
+vue__WEBPACK_IMPORTED_MODULE_3__["default"].prototype.$lang = _shared_Language__WEBPACK_IMPORTED_MODULE_10__["default"];
 vue__WEBPACK_IMPORTED_MODULE_3__["default"].prototype.$loading = _shared_Loading__WEBPACK_IMPORTED_MODULE_2__["default"];
 var store = new vuex__WEBPACK_IMPORTED_MODULE_6__["default"].Store(_store_index_js__WEBPACK_IMPORTED_MODULE_7__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__["default"]({

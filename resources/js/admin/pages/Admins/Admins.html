@@ -5,13 +5,14 @@
 
     <div class="flex justify-between w-full h-16 items-center">
         <div class="text-2xl font-semibold cairo text-gray-600">
-            مشرفي الموقع
+            مشرفي الموقع 
         </div>
         <router-link v-show="$parent.checkPermission('CreateAdmin') == true" to="/admin/admin/new"
             class="rounded px-4 flex items-center cairo font-medium add-btn">
             <span class="h-12 flex items-center">
                 <i class="fas fa-plus text-lg"></i>
-                <p class="mr-3 md:block hidden text-base JF-Flat">
+                <div class="w-3"></div>
+                <p class=" md:block hidden text-base JF-Flat">
                     أضف مشرف
                 </p>
             </span>
@@ -23,24 +24,25 @@
         <div class="border rounded font-semibold JF-Flat text-base flex bg-center text-gray-600">
 
             <div :class="{
-                'h-12 px-4 flex cursor-pointer items-center rounded-r border-l ': 1 == 1,
+                'h-12 px-4 flex cursor-pointer items-center rounded  ': 1 == 1,
                 'bg-white ': tagId == null,
             }" @click="changeTag(null)">الكل</div>
-
+            <div class="h-12 border-l"></div>
             <div :class="{
-                'h-12 px-4 flex cursor-pointer items-center border-l  ': 1 == 1,
+                'h-12 px-4 flex cursor-pointer items-center ': 1 == 1,
                 'bg-white ': tagId == 1,
             }" @click="changeTag(1)">نشط</div>
-
+            <div class="h-12 border-l"></div>
 
             <div :class="{
-                'h-12 px-4 flex cursor-pointer items-center border-l  ': 1 == 1,
+                'h-12 px-4 flex cursor-pointer items-center ': 1 == 1,
                 'bg-white ': tagId == 0,
             }" @click="changeTag(0)">غير نشط</div>
 
+            <div class="h-12 border-l"></div>
 
             <div :class="{
-                'h-12 px-4 flex cursor-pointer items-center rounded-l ': 1 == 1,
+                'h-12 px-4 flex cursor-pointer items-center rounded ': 1 == 1,
                 'bg-white ': tagId == 2,
             }" @click="changeTag(2)">محظور</div>
 
@@ -82,7 +84,8 @@
                 @click="loadData(1)">
                 بحث
             </div>
-            <div class="h-10 mt-8 shadow-lg rounded w-24 bg-gray-400 mr-3 text-white cairo flex items-center justify-center"
+            <div class="w-3"></div>
+            <div class="h-10 mt-8 shadow-lg rounded w-24 bg-gray-400 text-white cairo flex items-center justify-center"
                 @click="clearSearch()">
                 تصفير
             </div>

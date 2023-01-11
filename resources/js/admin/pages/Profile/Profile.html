@@ -6,7 +6,7 @@
             <div
                 class="text-2xl font-semibold text-gray-600 h-20 flex items-center justify-start border-b cairo"
             >
-                الملف الشخصي
+                {{ t.pageHeader }}
             </div>
 
             <!-- User Photo -->
@@ -28,8 +28,10 @@
                     <span
                         class="ml-2 bg-blue-400 h-16 w-36 text-white flex items-center justify-center rounded shadow cursor-pointer hover:bg-blue-500 text-base"
                     >
-                        <i class="fas fa-folder-plus ml-2 text-xl"></i>
-                        إختر الصورة</span
+                        <i class="fas fa-folder-plus text-xl"></i>
+                        <div class="w-2"></div>
+                        {{ t.choosePhoto}}
+                        </span
                     >
                 </div>
                 <!-- End Input File -->
@@ -39,7 +41,7 @@
                     @click="changePhoto"
                     class=" rounded back-btn shadow px-12 h-12 w-auto flex items-center justify-center text-white text-lg cursor-pointer"
                 >
-                    تحديث
+                    {{t.save}}
                 </div>
             </div>
             <!-- End User Photo -->
@@ -47,11 +49,11 @@
             <!-- User Information -->
             <div class=" border-b border-t">
                 <div class="text-2xl text-gray-600 font-medium mt-12 cairo">
-                    البيانات الشخصية
+                    {{ t.personalInfo}}
                 </div>
                 <div class="mt-4 lg:h-16 lg:flex items-center">
                     <div class="md:w-48 h-8 text-lg text-gray-600 mb-6">
-                        الإسم
+                        {{ t.firstName}}
                     </div>
                     <div class="16">
                         <input
@@ -60,8 +62,9 @@
                             v-on:change="validateFirstName"
                             v-model="formData.first_name"
                         />
+                        <div class="w-2"></div>
                         <div
-                            class="h-6 text-sm text-red-400 mr-2 flex items-center"
+                            class="h-6 text-sm text-red-400 flex items-center"
                         >
                             {{ formValidate.first_name }}
                         </div>
@@ -70,7 +73,7 @@
 
                 <div class="mt-4 lg:h-16 lg:flex items-center">
                     <div class="md:w-48 h-8 text-lg text-gray-600 mb-6">
-                        اللقب
+                        {{ t.lastName}}
                     </div>
                     <div class="16">
                         <input
@@ -89,7 +92,7 @@
 
                 <div class="mt-4 lg:h-16 lg:flex items-center">
                     <div class="md:w-48 h-8 text-lg text-gray-600">
-                    رقم الهاتف
+                        {{ t.phone}}
                     </div>
                     <div
                         class="border rounded h-12 lg:w-96 w-full px-4 text-lg text-gray-700 flex items-center bg-gray-100"
@@ -100,7 +103,7 @@
 
                 <div class="mt-4 lg:h-16 lg:flex items-center">
                     <div class="md:w-48 h-8 text-lg text-gray-600">
-                        دور الحساب
+                        {{ t.role}}
                     </div>
                     <div
                         class="border rounded h-12 lg:w-96 w-full px-4 text-lg text-gray-700 flex items-center bg-gray-100"
@@ -114,7 +117,7 @@
                         @click="changeName"
                         class="back-btn rounded shadow px-12 h-12 w-auto flex items-center justify-center text-white text-lg cursor-pointer"
                     >
-                        تحديث
+                    {{t.save}}
                     </div>
                 </div>
             </div>
@@ -123,11 +126,12 @@
             <!-- Change Password -->
             <div>
                 <div class="text-2xl text-gray-600 font-medium mt-12 mb-6 cairo">
-                    تغيير كلمة المرور
+                    {{t.changePassword}}
                 </div>
                 <div class="mt-4 lg:h-16 lg:flex items-center">
                     <div class="md:w-48 h-8 text-lg text-gray-600 mb-6">
-                        كلمة المرور الحالية
+                    {{t.currentPassword}}
+                        
                     </div>
                     <div class="16">
                         <input
@@ -146,7 +150,7 @@
 
                 <div class="mt-4 lg:h-16 lg:flex items-center">
                     <div class="md:w-48 h-8 text-lg text-gray-600 mb-6">
-                        كلمة المرور الجديدة
+                        {{t.newPassword}}
                     </div>
                     <div class="16">
                         <input
@@ -165,7 +169,7 @@
 
                 <div class="mt-4 lg:h-16 lg:flex items-center">
                     <div class="md:w-48 h-8 text-lg text-gray-600 mb-6">
-                        تأكيد كلمة المرور
+                        {{t.confirmPassword}}
                     </div>
                     <div class="16">
                         <input
@@ -187,7 +191,7 @@
                         @click="changePassword"
                         class="back-btn rounded shadow px-12 h-12 w-auto flex items-center justify-center text-white text-lg cursor-pointer"
                     >
-                        تحديث
+                    {{t.save}}
                     </div>
                 </div>
             </div>

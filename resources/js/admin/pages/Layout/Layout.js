@@ -27,7 +27,7 @@ export default {
         }
     },
     methods: {
-        showId(event) {
+        closeMenu(event) {
             if (event.target.id != "languageMenu") {
                 this.$store.commit("toggleLanguageMenu", 0);
             }

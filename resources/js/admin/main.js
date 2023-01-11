@@ -23,9 +23,11 @@ Vue.use(Vuex)
 import storeData from "./store/index.js"
 import menuStore from "./store/menu.js"
 import axios from "axios";
+import Language from "./shared/Language";
 
 Vue.prototype.$http = DataServices;
 Vue.prototype.$alert = Alert;
+Vue.prototype.$lang = Language;
 Vue.prototype.$loading = Loading;
 
 const store = new Vuex.Store(

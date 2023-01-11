@@ -1,9 +1,7 @@
-import language from "../../../lang/layout.json";
 
 export default {
     data: function() {
         return {
-            t: language,
         };
     },
     methods: {
@@ -52,6 +50,9 @@ export default {
         },
         lang(){
             return this.$store.state.language;
+        },
+        t() {
+            return this.$lang.Profile[this.$store.state.language];
         }
     }
 };

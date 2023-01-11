@@ -1,11 +1,10 @@
-
 export default {
     data() {
         return {
             formData: {
                 file: "",
-                first_name: "س",
-                last_name: "ي",
+                first_name: "",
+                last_name: "",
                 old_password: "",
                 new_password: "",
                 confirm_password: ""
@@ -173,6 +172,12 @@ export default {
     computed: {
         user() {
             return this.$store.state.user;
+        },
+        lang() {
+            return this.$store.state.language;
+        },
+        t() {
+            return this.$lang.Profile[this.$store.state.language];
         }
     },
     created() {}

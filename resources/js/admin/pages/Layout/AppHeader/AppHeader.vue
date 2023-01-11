@@ -11,7 +11,7 @@
                     </div>
                     <div id="userMenu" class="w-2"></div>
                     <div id="userMenu">
-                        {{ t[lang].headerWelcome }}
+                        {{ t.headerWelcome }}
 
                     </div>
                     <div id="userMenu" class="w-1"></div>
@@ -53,7 +53,7 @@
                             style="color:#697a8d;">
                             <i class="fa-solid fa-user-pen"></i>
                             <div class="w-2"></div>
-                            <span>{{ t[lang].editAccount }}</span>
+                            <span>{{ t.editAccount }}</span>
                         </div>
                     </router-link>
 
@@ -63,7 +63,7 @@
                         style="color:#697a8d;">
                         <i class="fa-solid fa-power-off"></i>
                         <div class="w-2"></div>
-                        <span>{{ t[lang].logout }}</span>
+                        <span>{{ t.logout }}</span>
                     </div>
 
                 </div>
@@ -94,7 +94,7 @@
                     <div @click="changeLanguage('ar')"
                         class="flex items-center justify-start px-4 my-1 h-10 hover:bg-gray-100 JF-Flat cursor-pointer"
                         style="color:#697a8d;">
-                        <img src="http://localhost:3000/src/assets/png/ar.png" class="h-6 w-6 rounded-full" alt="">
+                        <img src="/storage/assets/ar.png" class="h-6 w-6 rounded-full" alt="">
                         <div class="w-2"></div>
                         <span>العربية</span>
                     </div>
@@ -103,7 +103,7 @@
                     <div @click="changeLanguage('en')"
                         class="flex items-center justify-start px-4 my-1 h-10 hover:bg-gray-100 JF-Flat cursor-pointer"
                         style="color:#697a8d;">
-                        <img src="https://demos.themeselection.com/sneat-aspnet-core-admin-template/assets/vendor/fonts/flags/1x1/us.svg"
+                        <img src="/storage/assets/en.svg"
                             class="h-6 w-6 rounded-full" alt="">
                         <div class="w-2"></div>
                         <span>English</span>
@@ -124,11 +124,9 @@
 </template>
 
 <script>
-import language from "../../../lang/layout.json";
 export default {
     data: function () {
         return {
-            t: language,
         };
     },
     methods: {
@@ -178,6 +176,9 @@ export default {
         },
         lang() {
             return this.$store.state.language;
+        },
+        t() {
+            return this.$lang.Layout[this.$store.state.language];
         }
     }
 };
