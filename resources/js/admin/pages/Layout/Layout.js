@@ -1,4 +1,5 @@
 import language from "../../lang/layout.json";
+import { mapGetters, mapActions,mapMutations } from "vuex"
 
 export default {
     data: function () {
@@ -7,18 +8,19 @@ export default {
         };
     },
     computed: {
-        loadAuth() {
-            return this.$store.state.loadAuth;
-        },
-        user() {
-            return this.$store.state.user;
-        },
-        auth() {
-            return this.$store.state.auth;
-        },
-        permissions() {
-            return this.$store.state.permissions;
-        },
+        ...mapGetters(["loadAuth","user","auth","permissions"]),
+        // loadAuth() {
+        //     return this.$store.state.loadAuth;
+        // },
+        // user() {
+        //     return this.$store.state.user;
+        // },
+        // auth() {
+        //     return this.$store.state.auth;
+        // },
+        // permissions() {
+        //     return this.$store.state.permissions;
+        // },
         loading() {
             return this.$store.state.loading;
         },

@@ -1,3 +1,4 @@
+import { mapGetters, mapActions,mapMutations } from "vuex"
 export default {
     data() {
         return {
@@ -70,12 +71,13 @@ export default {
         }
     },
     computed: {
-        loadAuth() {
-            return this.$store.state.loadAuth;
-        },
-        auth() {
-            return this.$store.state.auth;
-        },
+        ...mapGetters(["loadAuth","auth"]),
+        // loadAuth() {
+        //     return this.$store.state.loadAuth;
+        // },
+        // auth() {
+        //     return this.$store.state.auth;
+        // },
         loading() {
             return this.$store.state.loading;
         }

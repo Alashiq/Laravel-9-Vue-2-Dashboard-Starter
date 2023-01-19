@@ -11,7 +11,7 @@
                     </div>
                     <div id="userMenu" class="w-2"></div>
                     <div id="userMenu">
-                        {{ t.headerWelcome }}
+                        {{ t.headerWelcome }} {{ getNumber }}
 
                     </div>
                     <div id="userMenu" class="w-1"></div>
@@ -124,6 +124,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions,mapMutations } from "vuex"
 export default {
     data: function () {
         return {
@@ -164,10 +165,11 @@ export default {
             this.$store.commit("channgeLanguage", language);
         },
     },
-    computed: {
-        user() {
-            return this.$store.state.user;
-        },
+    computed:{
+            ...mapGetters(["getNumber","user"]),
+        // user() {
+        //     return this.$store.state.user;
+        // },
         userMenu() {
             return this.$store.state.userMenu;
         },

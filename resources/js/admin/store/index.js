@@ -1,15 +1,18 @@
+
+import authModule from './modules/auth'
+
 export default {
     state: () => ({
-        loadAuth: false,
-        auth: false,
-        user: {
-            id: null,
-            name: "",
-            phone: "",
-            photo: "",
-            role: ""
-        },
-        permissions: [],
+        // loadAuth: false,
+        // auth: false,
+        // user: {
+        //     id: null,
+        //     name: "",
+        //     phone: "",
+        //     photo: "",
+        //     role: ""
+        // },
+        // permissions: [],
         pages: [
             {
                 id: 1,
@@ -107,35 +110,35 @@ export default {
     }),
 
     mutations: {
-        setUser(state, data) {
-            state.user = data;
-            state.user.name = data.first_name + " " + data.last_name
-            state.auth = true;
-        },
-        setPermissions(state, data) {
-            state.permissions = data;
-        },
-        authLoaded(state) {
-            state.loadAuth = true;
-        },
-        clearUser(state) {
-            state.user = {
-                id: null,
-                name: "",
-                phone: "",
-                photo: ""
-            };
-            state.auth = false;
-            state.loadAuth = false;
-        },
-        updateName(state, data) {
-            state.user.first_name = data.first_name;
-            state.user.last_name = data.last_name;
-            state.user.name = data.first_name + " " + data.last_name;
-        },
-        updatePhoto(state, photo) {
-            state.user.photo = photo;
-        },
+        // setUser(state, data) {
+        //     state.user = data;
+        //     state.user.name = data.first_name + " " + data.last_name
+        //     state.auth = true;
+        // },
+        // setPermissions(state, data) {
+        //     state.permissions = data;
+        // },
+        // authLoaded(state) {
+        //     state.loadAuth = true;
+        // },
+        // clearUser(state) {
+        //     state.user = {
+        //         id: null,
+        //         name: "",
+        //         phone: "",
+        //         photo: ""
+        //     };
+        //     state.auth = false;
+        //     state.loadAuth = false;
+        // },
+        // updateName(state, data) {
+        //     state.user.first_name = data.first_name;
+        //     state.user.last_name = data.last_name;
+        //     state.user.name = data.first_name + " " + data.last_name;
+        // },
+        // updatePhoto(state, photo) {
+        //     state.user.photo = photo;
+        // },
         activePage(state, v) {
             state.pageActive = v.main;
             state.subPageActive = v.sub;
@@ -179,9 +182,13 @@ export default {
 
     actions: {
         // If 401 Error
-        async clearAuth({ commit }) {
-            this.commit("clearUser");
-        },
+        // async clearAuth({ commit }) {
+        //     this.commit("clearUser");
+        // },
 
+    },
+    modules:{
+        authModule: authModule
     }
 };
+
