@@ -11,7 +11,7 @@
                     </div>
                     <div id="userMenu" class="w-2"></div>
                     <div id="userMenu">
-                        {{ t.headerWelcome }} {{ getNumber }}
+                        {{ t.headerWelcome }}
 
                     </div>
                     <div id="userMenu" class="w-1"></div>
@@ -166,10 +166,8 @@ export default {
         },
     },
     computed:{
-            ...mapGetters(["getNumber","user"]),
-        // user() {
-        //     return this.$store.state.user;
-        // },
+        ...mapGetters(["user","language"]),
+
         userMenu() {
             return this.$store.state.userMenu;
         },
@@ -177,10 +175,10 @@ export default {
             return this.$store.state.languageMenu;
         },
         lang() {
-            return this.$store.state.language;
+            return this.language;
         },
         t() {
-            return this.$lang.Layout[this.$store.state.language];
+            return this.$lang.Layout[this.language];
         }
     }
 };

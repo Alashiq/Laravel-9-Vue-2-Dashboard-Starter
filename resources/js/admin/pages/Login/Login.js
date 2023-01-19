@@ -72,12 +72,6 @@ export default {
     },
     computed: {
         ...mapGetters(["loadAuth","auth"]),
-        // loadAuth() {
-        //     return this.$store.state.loadAuth;
-        // },
-        // auth() {
-        //     return this.$store.state.auth;
-        // },
         loading() {
             return this.$store.state.loading;
         }

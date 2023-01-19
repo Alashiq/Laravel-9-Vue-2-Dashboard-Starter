@@ -1,6 +1,5 @@
 // State
 const state = {
-    number: 14,
     loadAuth: false,
     auth: false,
     user: {
@@ -26,9 +25,6 @@ const getters = {
     },
     permissions(state) {
         return state.permissions;
-    },
-    getNumber(state) {
-        return state.number;
     },
 };
 

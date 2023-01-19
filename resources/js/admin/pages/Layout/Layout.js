@@ -8,25 +8,10 @@ export default {
         };
     },
     computed: {
-        ...mapGetters(["loadAuth","user","auth","permissions"]),
-        // loadAuth() {
-        //     return this.$store.state.loadAuth;
-        // },
-        // user() {
-        //     return this.$store.state.user;
-        // },
-        // auth() {
-        //     return this.$store.state.auth;
-        // },
-        // permissions() {
-        //     return this.$store.state.permissions;
-        // },
+        ...mapGetters(["loadAuth","user","auth","permissions","dir"]),
         loading() {
             return this.$store.state.loading;
         },
-        dir() {
-            return this.$store.state.language == 'ar' ? 'rtl' : 'ltr';
-        }
     },
     methods: {
         closeMenu(event) {
@@ -40,7 +25,6 @@ export default {
         checkPermission: function (perName) {
             var item = this.permissions.filter(project => {
                 return project.name == perName;
-                //return project.name.match(perName);
             });
             if (item[0] != null) return item[0].state;
             return false;

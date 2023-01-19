@@ -1,5 +1,6 @@
 
 import Swal from "sweetalert2";
+import { mapGetters, mapActions,mapMutations } from "vuex"
 export default {
     data() {
         return {
@@ -247,8 +248,9 @@ export default {
         this.loadData(this.pageId);
     },
     computed: {
+        ...mapGetters(["language"]),
         t() {
-            return this.$lang.Profile[this.$store.state.language];
+            return this.$lang.Profile[this.language];
         }
     },
     created() {}

@@ -1,3 +1,5 @@
+import { mapGetters, mapActions,mapMutations } from "vuex"
+
 export default {
     data() {
         return {
@@ -170,14 +172,12 @@ export default {
         this.formData.last_name = this.user.last_name;
     },
     computed: {
-        user() {
-            return this.$store.state.user;
-        },
+        ...mapGetters(["user","language"]),
         lang() {
-            return this.$store.state.language;
+            return this.language;
         },
         t() {
-            return this.$lang.Profile[this.$store.state.language];
+            return this.$lang.Profile[this.language];
         }
     },
     created() {}

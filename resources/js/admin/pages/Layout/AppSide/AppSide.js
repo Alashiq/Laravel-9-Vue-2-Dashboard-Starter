@@ -1,4 +1,6 @@
 
+import { mapGetters, mapActions,mapMutations } from "vuex"
+
 export default {
     data: function() {
         return {
@@ -27,6 +29,7 @@ export default {
         },
     },
     computed: {
+        ...mapGetters(["user","language"]),
         pageList() {
             return this.$store.state.pageList;
         },
@@ -42,17 +45,14 @@ export default {
         openPageList() {
             return this.$store.state.openPageList;
         },
-        user() {
-            return this.$store.state.user;
-        },
         menu() {
             return this.$store.state.menu;
         },
         lang(){
-            return this.$store.state.language;
+            return this.language;
         },
         t() {
-            return this.$lang.Profile[this.$store.state.language];
+            return this.$lang.Profile[this.language];
         }
     }
 };
