@@ -9,7 +9,6 @@ int main()
 {
 
 
-
     string tableName;
     string modelName;
     int columnCount;
@@ -42,8 +41,10 @@ int main()
         cin >> column[i].search;
     }
 
+
     create_controller(tableName, modelName,column,columnCount);
     create_model(tableName, modelName,column,columnCount);
+    create_table(tableName, modelName,column,columnCount);
 
     return 0;
 }
