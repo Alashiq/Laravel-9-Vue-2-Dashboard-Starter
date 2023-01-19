@@ -25,23 +25,12 @@ class xmodelontroller extends Controller
         else
             $count = 10;
 
-        if ($request->state != "null") {
-            $list = xmodel::latest()
-                ->where('id', '<>', $request->user()->id)->where('state', '<>', 9)
-                ->where('state', $request->state)
-                ->where('phone', 'like', '%' . $request->phone . '%')
-                ->where('first_name', 'like', '%' . $request->first_name . '%')
-                ->where('last_name', 'like', '%' . $request->last_name . '%')
-                ->paginate($count);
-        } else {
-            $list = xmodel::latest()
-                ->where('id', '<>', $request->user()->id)
-                ->where('state', '<>', 9)
-                ->where('phone', 'like', '%' . $request->phone . '%')
-                ->where('first_name', 'like', '%' . $request->first_name . '%')
-                ->where('last_name', 'like', '%' . $request->last_name . '%')
-                ->paginate($count);
-        }
+        $list = xmodel::latest()
+            ->where('id', '<>', $request->user()->id)
+            ->where('state', '<>', 9)
+                //xSearchColumn
+            ->paginate($count);
+
         if ($list->isEmpty())
             return response()->json(['success' => false, 'message' => 'لا يوجد اي مشرفين في الموقع', 'data' => $list], 204);
         return response()->json(['success' => true, 'message' => 'تم جلب  المشرفين بنجاح', 'data' => $list], 200);
@@ -83,11 +72,8 @@ class xmodelontroller extends Controller
     // Add New xmodel
     public function create(Request $request)
     {
-
-
-
         $newItem = xmodel::create([
-            'name' => $request['name'],
+            //xInserColumn
         ]);
         return response()->json(['success' => true, 'message' => 'تم إنشاء هذا الحساب بنجاح'], 200);
     }

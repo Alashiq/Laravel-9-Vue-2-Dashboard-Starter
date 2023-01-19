@@ -3,7 +3,7 @@
 namespace App\Features\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Store;
 use App\Models\Permission;
 use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Validator;
 
 use function PHPUnit\Framework\isEmpty;
 
-class Userontroller extends Controller
+class Storeontroller extends Controller
 {
 
 
-    // User List
+    // Store List
     public function index(Request $request)
     {
         if ($request->count)
@@ -25,32 +25,22 @@ class Userontroller extends Controller
         else
             $count = 10;
 
-        if ($request->state != "null") {
-            $list = User::latest()
-                ->where('id', '<>', $request->user()->id)->where('state', '<>', 9)
-                ->where('state', $request->state)
-                ->where('phone', 'like', '%' . $request->phone . '%')
-                ->where('first_name', 'like', '%' . $request->first_name . '%')
-                ->where('last_name', 'like', '%' . $request->last_name . '%')
-                ->paginate($count);
-        } else {
-            $list = User::latest()
-                ->where('id', '<>', $request->user()->id)
-                ->where('state', '<>', 9)
-                ->where('phone', 'like', '%' . $request->phone . '%')
-                ->where('first_name', 'like', '%' . $request->first_name . '%')
-                ->where('last_name', 'like', '%' . $request->last_name . '%')
-                ->paginate($count);
-        }
+        $list = Store::latest()
+            ->where('id', '<>', $request->user()->id)
+            ->where('state', '<>', 9)
+            ->where('name', 'like', '%' . $request->name . '%')
+
+            ->paginate($count);
+
         if ($list->isEmpty())
             return response()->json(['success' => false, 'message' => 'لا يوجد اي مشرفين في الموقع', 'data' => $list], 204);
         return response()->json(['success' => true, 'message' => 'تم جلب  المشرفين بنجاح', 'data' => $list], 200);
     }
 
-    // Get User By Id
+    // Get Store By Id
     public function show($id)
     {
-        $item = User::with('role:id,name')->where('id', $id)->where('state', '<>', 9)->first();
+        $item = Store::with('role:id,name')->where('id', $id)->where('state', '<>', 9)->first();
         if (!$item)
             return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 204);
         return response()->json(['success' => true, 'message' => 'تم جلب المشرف بنجاح', 'data' => $item], 200);
@@ -58,10 +48,10 @@ class Userontroller extends Controller
 
 
 
-    // Delete User
+    // Delete Store
     public function delete($id)
     {
-        $item = User::where('id', $id)->where('state', '<>', 9)->first();
+        $item = Store::where('id', $id)->where('state', '<>', 9)->first();
         if (!$item)
             return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 204);
 
@@ -80,14 +70,12 @@ class Userontroller extends Controller
 
 
 
-    // Add New User
+    // Add New Store
     public function create(Request $request)
     {
-
-
-
-        $newItem = User::create([
+        $newItem = Store::create([
             'name' => $request['name'],
+            'address' => $request['address'],
         ]);
         return response()->json(['success' => true, 'message' => 'تم إنشاء هذا الحساب بنجاح'], 200);
     }

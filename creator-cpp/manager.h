@@ -8,10 +8,11 @@ using namespace std;
     {
         std::string name;
         std::string type;
+        std::string search;
     };
 
 
-void create_controller(string table, string model)
+void create_controller(string table, string model,Column column[20],int columnCount)
 {
     std::string sourcePath = "Files/Controller.php";
     std::string destinationPath = model + "Controller.php";
@@ -21,8 +22,29 @@ void create_controller(string table, string model)
 
     while (std::getline(sourceFile, data))
     {
+        // Change Class Name
         if (data.find("xmodel") != std::string::npos)
             data.replace(data.find("xmodel"), 6, model);
+
+        // Add Search Filter
+        if (data.find("//xSearchColumn") != std::string::npos){
+            string fill="";
+            for(int i=0;i<columnCount;i++){
+                if(column[i].search=="y" || column[i].search=="Y"){
+                fill=fill + "->where('"+column[i].name+"', 'like', '%' . $request->"+column[i].name+" . '%') \n";
+                }
+            }
+            data.replace(data.find("//xSearchColumn"), 15, fill);  
+        }
+
+        // Add Colum to Insert Item
+        if (data.find("//xInserColumn") != std::string::npos){
+            string fill="";
+            for(int i=0;i<columnCount;i++){
+                fill=fill + "'"+column[i].name+"' => $request['"+column[i].name+"'], \n";
+            }
+            data.replace(data.find("//xInserColumn"), 14, fill);  
+        }
 
         destinationFile << data << "\n";
     }
@@ -34,7 +56,7 @@ void create_controller(string table, string model)
 }
 
 
-void create_model(string table, string model,Column column[10],int columnCount)
+void create_model(string table, string model,Column column[20],int columnCount)
 {
     std::string sourcePath = "Files/Model.php";
     std::string destinationPath = model + ".php";

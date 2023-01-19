@@ -13,7 +13,7 @@ int main()
     string tableName;
     string modelName;
     int columnCount;
-    Column column[10];
+    Column column[20];
     Column cc;
 
     cout << "Enter Your Table =";
@@ -27,6 +27,7 @@ int main()
     {
         cout << "Enter Column " << i + 1 << " Name = ";
         cin >> column[i].name;
+
         cout << "Enter Column " << i + 1 << " Type Number ";
         cout << "String 1 - Integer 2 - Json 3 =";
         cin >> column[i].type;
@@ -36,9 +37,12 @@ int main()
             column[i].type = "integer";
         else if (column[i].type == "3")
             column[i].type = "json";
+
+        cout << "Enter IF Search Y/N = ";
+        cin >> column[i].search;
     }
 
-    create_controller(tableName, modelName);
+    create_controller(tableName, modelName,column,columnCount);
     create_model(tableName, modelName,column,columnCount);
 
     return 0;
