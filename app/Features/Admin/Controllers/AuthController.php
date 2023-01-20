@@ -75,11 +75,6 @@ class AuthController extends Controller
         return response()->json(["success" => true, "message" => "تم تسجيل الخروج بنجاح"]);
     }
 
-    // Test Role
-    public function hello(Request $request)
-    {
-        return response()->json(["success" => true, "message" => "تجربة الصلاحيات"]);
-    }
 
 
     // Add Change Passowrd

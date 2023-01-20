@@ -8,21 +8,21 @@ using namespace std;
 int main()
 {
 
-
-    string tableName;
-    string modelName;
-    int columnCount;
     Column column[20];
-    Column cc;
+    Element element;
 
-    cout << "Enter Your Table =";
-    cin >> tableName;
-    cout << "Enter Your Model =";
-    cin >> modelName;
-    cout << "Enter Column Counts =";
-    cin >> columnCount;
+    cout << "\nTable =";
+    cin >> element.table;
+    cout << "\nModel =";
+    cin >> element.model;
+    cout << "\nArabic Single =";
+    cin >> element.arabicSingle;
+    cout << "\nArabic Name =";
+    cin >> element.arabic;
+    cout << "\nColumn Counts =";
+    cin >> element.columnCount;
 
-    for (int i = 0; i < columnCount; i++)
+    for (int i = 0; i < element.columnCount; i++)
     {
         cout << "Enter Column " << i + 1 << " Name = ";
         cin >> column[i].name;
@@ -42,9 +42,11 @@ int main()
     }
 
 
-    create_controller(tableName, modelName,column,columnCount);
-    create_model(tableName, modelName,column,columnCount);
-    create_table(tableName, modelName,column,columnCount);
+    create_controller(element,column);
+    create_model(element,column);
+    create_table(element,column);
+    create_permissions(element,column);
+    create_route_api(element,column);
 
     return 0;
 }

@@ -4,14 +4,7 @@ namespace App\Features\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\xmodel;
-use App\Models\Permission;
-use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
-
-use function PHPUnit\Framework\isEmpty;
 
 class xmodelontroller extends Controller
 {
@@ -26,23 +19,22 @@ class xmodelontroller extends Controller
             $count = 10;
 
         $list = xmodel::latest()
-            ->where('id', '<>', $request->user()->id)
             ->where('state', '<>', 9)
                 //xSearchColumn
             ->paginate($count);
-
         if ($list->isEmpty())
-            return response()->json(['success' => false, 'message' => 'لا يوجد اي مشرفين في الموقع', 'data' => $list], 204);
-        return response()->json(['success' => true, 'message' => 'تم جلب  المشرفين بنجاح', 'data' => $list], 200);
+            return response()->json(['success' => false, 'message' => 'لا يوجد اي xarabic في الموقع', 'data' => $list], 204);
+        return response()->json(['success' => true, 'message' => 'تم جلب  الxarabic بنجاح', 'data' => $list], 200);
     }
+
 
     // Get xmodel By Id
     public function show($id)
     {
-        $item = xmodel::with('role:id,name')->where('id', $id)->where('state', '<>', 9)->first();
+        $item = xmodel::where('id', $id)->where('state', '<>', 9)->first();
         if (!$item)
-            return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 204);
-        return response()->json(['success' => true, 'message' => 'تم جلب المشرف بنجاح', 'data' => $item], 200);
+            return response()->json(['success' => false, 'message' => 'هذه الxsinglearabic غير موجود'], 204);
+        return response()->json(['success' => true, 'message' => 'تم جلب الxsinglearabic بنجاح', 'data' => $item], 200);
     }
 
 
@@ -52,19 +44,33 @@ class xmodelontroller extends Controller
     {
         $item = xmodel::where('id', $id)->where('state', '<>', 9)->first();
         if (!$item)
-            return response()->json(['success' => false, 'message' => 'هذه الحساب غير موجود'], 204);
-
-
+            return response()->json(['success' => false, 'message' => 'هذه الxsinglearabic غير موجود'], 204);
         $item->state = 9;
         $edit = $item->save();
         if ($edit)
-            return response()->json(['success' => true, 'message' => 'تم حذف هذا الحساب بنجاح'], 200);
+            return response()->json(['success' => true, 'message' => 'تم حذف هذا الxsinglearabic بنجاح'], 200);
         return response()->json(['success' => true, 'message' => 'حدث خطأ ما'], 400);
     }
 
 
 
 
+    // Edit xmodel
+    public function edit(Request $request, $id)
+    {
+        // Check If Role Exist Or Not
+        $item = xmodel::where('id', $id)->where('state', '<>', 9)->first();
+
+        if (!$item)
+            return response()->json(['success' => false, 'message' => ' الxsinglearabic غير موجود'], 204);
+
+        //xEditColumn
+
+        $edit = $item->save();
+        if ($edit)
+            return response()->json(['success' => true, 'message' => 'تم تحديث الxsinglearabic بنجاح'], 200);
+        return response()->json(['success' => true, 'message' => 'حدث خطأ ما'], 400);
+    }
 
 
 
@@ -75,7 +81,7 @@ class xmodelontroller extends Controller
         $newItem = xmodel::create([
             //xInserColumn
         ]);
-        return response()->json(['success' => true, 'message' => 'تم إنشاء هذا الحساب بنجاح'], 200);
+        return response()->json(['success' => true, 'message' => 'تم إنشاء هذا الxsinglearabic بنجاح'], 200);
     }
 
 }
