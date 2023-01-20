@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             xcolumn
             $table->integer('state')->default(1); //1 => Active , 9=>deleted
+            $table->timestamps();
         });
     }
 

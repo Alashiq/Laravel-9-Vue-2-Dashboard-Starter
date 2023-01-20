@@ -5,18 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Teacher extends Model
 {
     use HasFactory;
     public $timestamps = false;
 
     protected $fillable = [
         'first_name',
-'middle_name',
 'last_name',
-'age',
-'role_id',
-'job',
 
         'state',
     ];

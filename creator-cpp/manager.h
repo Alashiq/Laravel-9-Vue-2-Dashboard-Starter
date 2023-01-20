@@ -32,7 +32,7 @@ string to_lower(string s) {
 void create_controller(Element element, Column column[20])
 {
     std::string sourcePath = "Files/Controller.php";
-    std::string destinationPath = element.model + "Controller.php";
+    std::string destinationPath =  "../app/Features/Admin/Controllers/"+element.model+"Controller.php";
     std::ifstream sourceFile(sourcePath, std::ios::binary);
     std::ofstream destinationFile(destinationPath, std::ios::binary);
     std::string data;
@@ -100,7 +100,7 @@ void create_controller(Element element, Column column[20])
 void create_model(Element element, Column column[20])
 {
     std::string sourcePath = "Files/Model.php";
-    std::string destinationPath = element.model + ".php";
+    std::string destinationPath = "../app/Models/"+ element.model + ".php";
     std::ifstream sourceFile(sourcePath, std::ios::binary);
     std::ofstream destinationFile(destinationPath, std::ios::binary);
     std::string data;
@@ -133,7 +133,7 @@ void create_table(Element element, Column column[20])
 {
     // Copy Table File
     std::string sourcePath = "Files/Table.php";
-    std::string destinationPath = "create_" + element.table + "_table.php";
+    std::string destinationPath = "../database/migrations/create_" + element.table + "_table.php";
     std::ifstream sourceFile(sourcePath, std::ios::binary);
     std::ofstream destinationFile(destinationPath, std::ios::binary);
     std::string data;
@@ -165,8 +165,8 @@ void create_table(Element element, Column column[20])
 
 void create_permissions(Element element, Column column[20])
 {
-    std::string sourcePath = "Files/permissions.php";
-    std::string destinationPath = "permissions.php";
+    std::string sourcePath = "../config/permissions.php";
+    std::string destinationPath = "../config/permissions_swap.php";
     std::ifstream sourceFile(sourcePath, std::ios::binary);
     std::ofstream destinationFile(destinationPath, std::ios::binary);
     std::string data;
@@ -180,7 +180,7 @@ void create_permissions(Element element, Column column[20])
             fill = fill + "'Read" + element.model + "'=>'Read " + element.table + "', \n";
             fill = fill + "'Create" + element.model + "'=>'Create " + element.table + "', \n";
             fill = fill + "'Edit" + element.model + "'=>'Edit " + element.table + "', \n";
-            fill = fill + "'Delete" + element.model + "'=>'Delete " + element.table + "', \n";
+            fill = fill + "'Delete" + element.model + "'=>'Delete " + element.table + "', \n\n\n\n";
             fill = fill + "//xpermissions \n";
             data.replace(data.find("//xpermissions"), 14, fill);
         }
@@ -191,14 +191,23 @@ void create_permissions(Element element, Column column[20])
 
     sourceFile.close();
     destinationFile.close();
+    // Swap
+    std::string sourcePath2 = "../config/permissions_swap.php";
+    std::string destinationPath2 = "../config/permissions.php";
+    std::ifstream sourceFile2(sourcePath2, std::ios::binary);
+    std::ofstream destinationFile2(destinationPath2, std::ios::binary);
+    std::string data2;
+    destinationFile2 << sourceFile2.rdbuf();
+    sourceFile2.close();
+    destinationFile2.close();
 }
 
 
 
 void create_route_api(Element element, Column column[20])
 {
-    std::string sourcePath = "Files/api.php";
-    std::string destinationPath = "api.php";
+    std::string sourcePath = "../app/Features/Admin/Routes/api.php";
+    std::string destinationPath = "../app/Features/Admin/Routes/api_swap.php";
     std::ifstream sourceFile(sourcePath, std::ios::binary);
     std::ofstream destinationFile(destinationPath, std::ios::binary);
     std::string data;
@@ -229,4 +238,13 @@ void create_route_api(Element element, Column column[20])
 
     sourceFile.close();
     destinationFile.close();
+        // Swap
+    std::string sourcePath2 = "../app/Features/Admin/Routes/api_swap.php";
+    std::string destinationPath2 = "../app/Features/Admin/Routes/api.php";
+    std::ifstream sourceFile2(sourcePath2, std::ios::binary);
+    std::ofstream destinationFile2(destinationPath2, std::ios::binary);
+    std::string data2;
+    destinationFile2 << sourceFile2.rdbuf();
+    sourceFile2.close();
+    destinationFile2.close();
 }

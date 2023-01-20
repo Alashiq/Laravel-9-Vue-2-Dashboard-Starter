@@ -22,11 +22,11 @@ return [
         'EditRole'=>'تعديل دور',
         'DeleteRole'=>'حذف دور',
 
-        // Role User
-'ReadUser'=>'Read users', 
-'CreateUser'=>'Create users', 
-'EditUser'=>'Edit users', 
-'DeleteUser'=>'Delete users', 
+        // Role Teacher
+'ReadTeacher'=>'Read teachers', 
+'CreateTeacher'=>'Create teachers', 
+'EditTeacher'=>'Edit teachers', 
+'DeleteTeacher'=>'Delete teachers', 
 //xpermissions 
 
     ]

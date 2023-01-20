@@ -39,8 +39,6 @@ class PermissionStoreRequest extends FormRequest
             response()->json([
                 'success' => false,
                 'message' => $validator->errors()->first()
-                // 'data' => $validator->errors(),
-
             ], 400)
         );
 
