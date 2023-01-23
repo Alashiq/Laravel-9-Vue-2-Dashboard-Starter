@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\xmodel;
 use Illuminate\Http\Request;
 
+
 class xmodelController extends Controller
 {
 

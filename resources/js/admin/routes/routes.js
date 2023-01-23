@@ -12,6 +12,13 @@ import EditRole from "../pages/Roles/EditRole/EditRole.vue";
 import EditAdminRole from "../pages/Admins/EditAdminRole/EditAdminRole.vue";
 
 
+import Teachers from '../pages/Teachers/Teachers.vue';
+
+
+
+//ximport
+
+
 import store from "../store/index";
 
 const ifAuth = (to, from, next) => {
@@ -76,6 +83,18 @@ export const routes = [
                 path: "admin/role/:id/edit",
                 component: EditRole
             },
+
+
+
+            {
+                path: 'admin/teacher',
+                component: Teachers
+            },
+
+
+
+            //xroute
+
         ]
     },
     {
