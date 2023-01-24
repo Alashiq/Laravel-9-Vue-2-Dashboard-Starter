@@ -64,6 +64,7 @@ int main()
     create_permissions(element, column);
     create_route_api(element, column);
     create_js_lists(element, column);
+    create_js_item(element, column);
 
     return 0;
 }

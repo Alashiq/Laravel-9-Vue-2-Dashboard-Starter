@@ -165,6 +165,46 @@ return axios.put('/admin/api/teacher/' + id , formData);
 
 
 
+ // ============== School Part =======================
+GetAllSchools(page,countPerPage,name,city) { 
+return axios.get('/admin/api/school?page=' + page + '&count=' + countPerPage+ '&name=' + name+ '&city=' + city);
+}, 
+
+DeleteSchool(id){
+return axios.delete('/admin/api/school/' + id);
+}, 
+GetSchoolById(id){
+return axios.get('/admin/api/school/' + id);
+}, 
+PostNewSchool(formData){
+return axios.post('/admin/api/school' + formData);
+}, 
+EditSchool(id,formData){
+return axios.put('/admin/api/school/' + id , formData);
+}, 
+
+
+
+ // ============== School Part =======================
+GetAllSchools(page,countPerPage,name,city) { 
+return axios.get('/admin/api/school?page=' + page + '&count=' + countPerPage+ '&name=' + name+ '&city=' + city);
+}, 
+
+DeleteSchool(id){
+return axios.delete('/admin/api/school/' + id);
+}, 
+GetSchoolById(id){
+return axios.get('/admin/api/school/' + id);
+}, 
+PostNewSchool(formData){
+return axios.post('/admin/api/school' + formData);
+}, 
+EditSchool(id,formData){
+return axios.put('/admin/api/school/' + id , formData);
+}, 
+
+
+
  //xapi
 
 

@@ -195,7 +195,16 @@ return [
 
 
 
+// Role School
+'ReadSchool'=>'Read schools', 
+'CreateSchool'=>'Create schools', 
+'EditSchool'=>'Edit schools', 
+'DeleteSchool'=>'Delete schools', 
+
+
+
 //xpermissions 
+ 
  
  
  

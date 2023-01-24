@@ -303,7 +303,7 @@ void create_js_lists(Element element, Column column[20])
             for (int i = 0; i < element.columnCount; i++)
             {
                 if (column[i].search == "y" || column[i].search == "Y")
-                    fill = fill + "this."+column[i].name + "Srh='',\n";
+                    fill = fill + "this." + column[i].name + "Srh='',\n";
             }
             data2.replace(data2.find("//xclearcolumn"), 14, fill);
         }
@@ -333,14 +333,14 @@ void create_js_lists(Element element, Column column[20])
     std::string data3;
     while (std::getline(sourceFile3, data3))
     {
+        if (data3.find("xsinglearabic") != std::string::npos)
+            data3.replace(data3.find("xsinglearabic"), 13, element.arabicSingle);
         if (data3.find("xmodel") != std::string::npos)
             data3.replace(data3.find("xmodel"), 6, element.model);
         if (data3.find("xsingle") != std::string::npos)
             data3.replace(data3.find("xsingle"), 7, element.single);
         if (data3.find("xarabic") != std::string::npos)
             data3.replace(data3.find("xarabic"), 7, element.arabic);
-        if (data3.find("xsinglearabic") != std::string::npos)
-            data3.replace(data3.find("xsinglearabic"), 13, element.arabicSingle);
 
         if (data3.find("//xsearchcolumn") != std::string::npos)
         {
@@ -461,7 +461,6 @@ void create_js_lists(Element element, Column column[20])
     sourceFile5.close();
     destinationFile5.close();
 
-
     // Add To RouteJs File
     std::string sourcePath6 = "../resources/js/admin/routes/routes.js";
     std::string destinationPath6 = "../resources/js/admin/routes/routes_swap.js";
@@ -474,20 +473,23 @@ void create_js_lists(Element element, Column column[20])
         if (data6.find("//ximport") != std::string::npos)
         {
             string fill = "";
-            fill = fill + "import "+element.models+" from '../pages/"+element.models+"/"+element.models+".vue';\n";
-            fill = fill + "import "+element.model+" from '../pages/"+element.models+"/"+element.model+"/"+element.model+".vue';\n";
+            fill = fill + "import " + element.models + " from '../pages/" + element.models + "/" + element.models + ".vue';\n";
+            fill = fill + "import " + element.model + " from '../pages/" + element.models + "/" + element.model + "/" + element.model + ".vue';\n";
             fill = fill + "\n\n\n //ximport";
 
             data6.replace(data6.find("//ximport"), 9, fill);
         }
 
-
-                if (data6.find("//xroute") != std::string::npos)
+        if (data6.find("//xroute") != std::string::npos)
         {
             string fill = "";
             fill = fill + "{ \n";
-            fill = fill + "path: 'admin/"+element.single+"', \n";
-            fill = fill + "component: "+element.models+" \n";
+            fill = fill + "path: 'admin/" + element.single + "', \n";
+            fill = fill + "component: " + element.models + " \n";
+            fill = fill + "}, \n";
+                        fill = fill + "{ \n";
+            fill = fill + "path: 'admin/" + element.single + "/:id', \n";
+            fill = fill + "component: " + element.model + " \n";
             fill = fill + "}, \n";
             fill = fill + "\n\n\n //xroute";
 
@@ -509,6 +511,103 @@ void create_js_lists(Element element, Column column[20])
     destinationFile7 << sourceFile7.rdbuf();
     sourceFile7.close();
     destinationFile7.close();
+}
+
+void create_js_item(Element element, Column column[20])
+{
+
+    // Copy Vue File
+    std::string sourcePath = "Files/Item/Item.vue";
+    std::string destinationPath = "../resources/js/admin/pages/" + element.models + "/" + element.model + "/" + element.model + ".vue";
+    std::ifstream sourceFile(sourcePath, std::ios::binary);
+    std::ofstream destinationFile(destinationPath, std::ios::binary);
+    std::string data;
+    while (std::getline(sourceFile, data))
+    {
+        if (data.find("xfile") != std::string::npos)
+            data.replace(data.find("xfile"), 5, element.model);
+        destinationFile << data << "\n";
+    }
+    destinationFile << sourceFile.rdbuf();
+
+    sourceFile.close();
+    destinationFile.close();
+
+    // Copy Js File
+    std::string sourcePath2 = "Files/Item/Item.js";
+    std::string destinationPath2 = "../resources/js/admin/pages/" + element.models + "/" + element.model + "/" + element.model + ".js";
+    std::ifstream sourceFile2(sourcePath2, std::ios::binary);
+    std::ofstream destinationFile2(destinationPath2, std::ios::binary);
+    std::string data2;
+    while (std::getline(sourceFile2, data2))
+    {
+        if (data2.find("xmodel") != std::string::npos)
+            data2.replace(data2.find("xmodel"), 6, element.model);
+        if (data2.find("xsingleArabic") != std::string::npos)
+            data2.replace(data2.find("xsingleArabic"), 13, element.arabicSingle);
+
+        destinationFile2 << data2 << "\n";
+    }
+    destinationFile2 << sourceFile2.rdbuf();
+    sourceFile2.close();
+    destinationFile2.close();
+
+    // Copy HTML File
+    std::string sourcePath3 = "Files/Item/Item.html";
+    std::string destinationPath3 = "../resources/js/admin/pages/" + element.models + "/" + element.model + "/" + element.model + ".html";
+    std::ifstream sourceFile3(sourcePath3, std::ios::binary);
+    std::ofstream destinationFile3(destinationPath3, std::ios::binary);
+    std::string data3;
+    while (std::getline(sourceFile3, data3))
+    {
+        if (data3.find("xsinglearabic") != std::string::npos)
+            data3.replace(data3.find("xsinglearabic"), 13, element.arabicSingle);
+        if (data3.find("xmodel") != std::string::npos)
+            data3.replace(data3.find("xmodel"), 6, element.model);
+        if (data3.find("xsingle") != std::string::npos)
+            data3.replace(data3.find("xsingle"), 7, element.single);
+        if (data3.find("xarabic") != std::string::npos)
+            data3.replace(data3.find("xarabic"), 7, element.arabic);
+
+        if (data3.find("//xcolumn") != std::string::npos)
+        {
+            string fill = "";
+            for (int i = 0; i < element.columnCount; i++)
+            {
+                if (column[i].search == "y" || column[i].search == "Y")
+                {
+                    fill = fill + " <!-- Item -->\n";
+                    fill = fill + "<div class='w-full px-4 py-4'>\n";
+                    fill = fill + "<div class='h-9 flex items-center text-gray-500 mr-2 text-sm'>\n";
+                    fill = fill + column[i].arabic;
+                    fill = fill + "\n</div>\n";
+                    fill = fill + "<div class='h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base'>\n";
+                    fill = fill + "{{ mainItem."+column[i].name+" }}\n";
+                    fill = fill + "</div>\n";
+                    fill = fill + "</div>";
+                    fill = fill + " <!-- End Item -->\n\n";
+                }
+            }
+            data3.replace(data3.find("//xcolumn"), 9, fill);
+        }
+
+
+        if (data3.find("//xcontentcolumn") != std::string::npos)
+        {
+            string fill = "";
+            for (int i = 0; i < element.columnCount; i++)
+            {
+                if (column[i].showInList == "y" || column[i].showInList == "Y")
+                    fill = fill + "<td class='table-cell'> {{item." + column[i].name + "}}</td>";
+            }
+            data3.replace(data3.find("//xcontentcolumn"), 16, fill);
+        }
+
+        destinationFile3 << data3 << "\n";
+    }
+    destinationFile3 << sourceFile3.rdbuf();
+    sourceFile3.close();
+    destinationFile3.close();
 
 
 }

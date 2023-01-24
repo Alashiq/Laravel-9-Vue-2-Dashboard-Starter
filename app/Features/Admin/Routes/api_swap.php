@@ -13,7 +13,9 @@ use App\Features\Admin\Controllers\AdminController;
  use App\Features\Admin\Controllers\TeacherController; 
 
 
- use App\Features\Admin\Controllers\TeacherController; 
+
+
+ use App\Features\Admin\Controllers\SchoolController; 
 
 
  //ximport
@@ -264,7 +266,20 @@ Route::post('/', [TeacherController::class, 'create'])->middleware('check.role:C
 ); 
 # # # # # # # # # # # # # # # # # End teachers  # # # # # # # # # # # # # # #  
  
+# # # # # # # # # # # # # # # # #  schools  # # # # # # # # # # # # # # # # #
+Route::controller(SchoolController::class)->prefix('school')->group( 
+function () { 
+Route::get('/', [SchoolController::class, 'index'])->middleware('check.role:ReadSchool'); 
+Route::delete('/{id}', [SchoolController::class, 'delete'])->middleware('check.role:DeleteSchool'); 
+Route::get('/{id}', [SchoolController::class, 'show'])->middleware('check.role:ReadSchool'); 
+Route::put('/{id}', [SchoolController::class, 'edit'])->middleware('check.role:EditSchool'); 
+Route::post('/', [SchoolController::class, 'create'])->middleware('check.role:CreateSchool'); 
+} 
+); 
+# # # # # # # # # # # # # # # # # End schools  # # # # # # # # # # # # # # #  
+ 
 #xRoute 
+ 
  
  
  

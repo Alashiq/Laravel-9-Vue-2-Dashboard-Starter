@@ -12,11 +12,12 @@ import EditRole from "../pages/Roles/EditRole/EditRole.vue";
 import EditAdminRole from "../pages/Admins/EditAdminRole/EditAdminRole.vue";
 
 
-import Teachers from '../pages/Teachers/Teachers.vue';
 
 
 
-//ximport
+
+
+ //ximport
 
 
 import store from "../store/index";
@@ -86,14 +87,9 @@ export const routes = [
 
 
 
-            {
-                path: 'admin/teacher',
-                component: Teachers
-            },
 
 
-
-            //xroute
+ //xroute
 
         ]
     },

@@ -13,7 +13,17 @@ import EditAdminRole from "../pages/Admins/EditAdminRole/EditAdminRole.vue";
 
 
 import Teachers from '../pages/Teachers/Teachers.vue';
+
 import Teacher from '../pages/Teachers/Teacher/Teacher.vue';
+
+
+import Schools from '../pages/Schools/Schools.vue';
+import School from '../pages/Schools/School/School.vue';
+
+
+
+ import Schools from '../pages/Schools/Schools.vue';
+import School from '../pages/Schools/School/School.vue';
 
 
 
@@ -87,9 +97,36 @@ export const routes = [
 
 
 
+            {
+                path: 'admin/teacher',
+                component: Teachers
+            },
+
+            {
+                path: 'admin/teacher/:id',
+                component: Teacher
+            },
+
+
+
             { 
-path: 'admin/teacher', 
-component: Teachers 
+path: 'admin/school', 
+component: Schools 
+}, 
+{ 
+path: 'admin/school/:id', 
+component: School 
+}, 
+
+
+
+ { 
+path: 'admin/school', 
+component: Schools 
+}, 
+{ 
+path: 'admin/school/:id', 
+component: School 
 }, 
 
 
