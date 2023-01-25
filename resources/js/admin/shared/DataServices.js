@@ -84,6 +84,26 @@ export default {
 
 
 
+ // ============== Member Part =======================
+GetAllMembers(page,countPerPage,first_name,last_name,age) { 
+return axios.get('/admin/api/member?page=' + page + '&count=' + countPerPage+ '&first_name=' + first_name+ '&last_name=' + last_name+ '&age=' + age);
+}, 
+
+DeleteMember(id){
+return axios.delete('/admin/api/member/' + id);
+}, 
+GetMemberById(id){
+return axios.get('/admin/api/member/' + id);
+}, 
+PostNewMember(formData){
+return axios.post('/admin/api/member' + formData);
+}, 
+EditMember(id,formData){
+return axios.put('/admin/api/member/' + id , formData);
+}, 
+
+
+
  //xapi
 
 

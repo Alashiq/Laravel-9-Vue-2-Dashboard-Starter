@@ -58,13 +58,14 @@ int main()
 
     }
 
-    create_controller(element, column);
-    create_model(element, column);
-    create_table(element, column);
-    create_permissions(element, column);
-    create_route_api(element, column);
-    create_js_lists(element, column);
-    create_js_item(element, column);
+    // create_controller(element, column);
+    // create_model(element, column);
+    // create_table(element, column);
+    // create_permissions(element, column);
+    // create_route_api(element, column);
+    // create_js_lists(element, column);
+    // create_js_item(element, column);
+    create_js_edit_item(element, column);
 
     return 0;
 }

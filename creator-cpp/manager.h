@@ -179,10 +179,10 @@ void create_permissions(Element element, Column column[20])
         {
             string fill = "";
             fill = fill + "// Role " + element.model + "\n";
-            fill = fill + "'Read" + element.model + "'=>'Read " + element.table + "', \n";
-            fill = fill + "'Create" + element.model + "'=>'Create " + element.table + "', \n";
-            fill = fill + "'Edit" + element.model + "'=>'Edit " + element.table + "', \n";
-            fill = fill + "'Delete" + element.model + "'=>'Delete " + element.table + "', \n\n\n\n";
+            fill = fill + "'Read" + element.model + "'=>'مشاهدة ال" + element.arabic + "', \n";
+            fill = fill + "'Create" + element.model + "'=>'إضافة " + element.arabicSingle + "', \n";
+            fill = fill + "'Edit" + element.model + "'=>'تعديل " + element.arabicSingle + "', \n";
+            fill = fill + "'Delete" + element.model + "'=>'حذف " + element.arabicSingle + "', \n\n\n\n";
             fill = fill + "//xpermissions \n";
             data.replace(data.find("//xpermissions"), 14, fill);
         }
@@ -475,6 +475,7 @@ void create_js_lists(Element element, Column column[20])
             string fill = "";
             fill = fill + "import " + element.models + " from '../pages/" + element.models + "/" + element.models + ".vue';\n";
             fill = fill + "import " + element.model + " from '../pages/" + element.models + "/" + element.model + "/" + element.model + ".vue';\n";
+            fill = fill + "import Edit" + element.model + " from '../pages/" + element.models + "/Edit" + element.model + "/Edit" + element.model + ".vue';\n";
             fill = fill + "\n\n\n //ximport";
 
             data6.replace(data6.find("//ximport"), 9, fill);
@@ -487,9 +488,13 @@ void create_js_lists(Element element, Column column[20])
             fill = fill + "path: 'admin/" + element.single + "', \n";
             fill = fill + "component: " + element.models + " \n";
             fill = fill + "}, \n";
-                        fill = fill + "{ \n";
+            fill = fill + "{ \n";
             fill = fill + "path: 'admin/" + element.single + "/:id', \n";
             fill = fill + "component: " + element.model + " \n";
+            fill = fill + "}, \n";
+            fill = fill + "{ \n";
+            fill = fill + "path: 'admin/" + element.single + "/:id/edit', \n";
+            fill = fill + "component: Edit" + element.model + " \n";
             fill = fill + "}, \n";
             fill = fill + "\n\n\n //xroute";
 
@@ -582,7 +587,7 @@ void create_js_item(Element element, Column column[20])
                     fill = fill + column[i].arabic;
                     fill = fill + "\n</div>\n";
                     fill = fill + "<div class='h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base'>\n";
-                    fill = fill + "{{ mainItem."+column[i].name+" }}\n";
+                    fill = fill + "{{ mainItem." + column[i].name + " }}\n";
                     fill = fill + "</div>\n";
                     fill = fill + "</div>";
                     fill = fill + " <!-- End Item -->\n\n";
@@ -590,7 +595,6 @@ void create_js_item(Element element, Column column[20])
             }
             data3.replace(data3.find("//xcolumn"), 9, fill);
         }
-
 
         if (data3.find("//xcontentcolumn") != std::string::npos)
         {
@@ -608,6 +612,172 @@ void create_js_item(Element element, Column column[20])
     destinationFile3 << sourceFile3.rdbuf();
     sourceFile3.close();
     destinationFile3.close();
+}
+
+void create_js_edit_item(Element element, Column column[20])
+{
+
+    // Copy Vue File
+    std::string sourcePath = "Files/Edit/Edit.vue";
+    std::string destinationPath = "../resources/js/admin/pages/" + element.models + "/Edit" + element.model + "/Edit" + element.model + ".vue";
+    std::ifstream sourceFile(sourcePath, std::ios::binary);
+    std::ofstream destinationFile(destinationPath, std::ios::binary);
+    std::string data;
+    while (std::getline(sourceFile, data))
+    {
+        if (data.find("xfile") != std::string::npos)
+            data.replace(data.find("xfile"), 5, element.model);
+        destinationFile << data << "\n";
+    }
+    destinationFile << sourceFile.rdbuf();
+
+    sourceFile.close();
+    destinationFile.close();
+
+    // Copy Js File
+    std::string sourcePath2 = "Files/Edit/Edit.js";
+    std::string destinationPath2 = "../resources/js/admin/pages/" + element.models + "/Edit" + element.model + "/Edit" + element.model + ".js";
+    std::ifstream sourceFile2(sourcePath2, std::ios::binary);
+    std::ofstream destinationFile2(destinationPath2, std::ios::binary);
+    std::string data2;
+    while (std::getline(sourceFile2, data2))
+    {
+        if (data2.find("xmodel") != std::string::npos)
+            data2.replace(data2.find("xmodel"), 6, element.model);
+        if (data2.find("xsinglearabic") != std::string::npos)
+            data2.replace(data2.find("xsinglearabic"), 13, element.arabicSingle);
+
+        //
+        if (data2.find("//xvalidatecolumn") != std::string::npos)
+        {
+            string fill = "";
+            for (int i = 0; i < element.columnCount; i++)
+            {
+                string swap=column[i].name;
+                swap[0] = std::toupper(swap[0]);
+                fill = fill + "validate"+swap+": function() {return 1;},\n";
+            }
+            data2.replace(data2.find("//xvalidatecolumn"), 17, fill);
+        }
+
+        //
+        if (data2.find("//xcheckvalidatecolumn") != std::string::npos)
+        {
+            string fill = "";
+            for (int i = 0; i < element.columnCount; i++)
+            {
+                string swap=column[i].name;
+                swap[0] = std::toupper(swap[0]);
+                fill = fill + "this.validate"+swap+"();\n if (this.formValidate."+column[i].name+" != '') return 0;\n";
+            }
+            data2.replace(data2.find("//xcheckvalidatecolumn"), 22, fill);
+        }
+        //
+        if (data2.find("//xcolumn") != std::string::npos)
+        {
+            string fill = "";
+            for (int i = 0; i < element.columnCount; i++)
+            {
+                if (column[i].type == "string")
+                {
+                    fill = fill + column[i].name + ": '',\n";
+                }
+                else if (column[i].type == "integer")
+                {
+                    fill = fill + column[i].name + ": 0,\n";
+                }
+                else if (column[i].type == "json")
+                {
+                    fill = fill + column[i].name + ": [],\n";
+                }
+            }
+            data2.replace(data2.find("//xcolumn"), 9, fill);
+        }
+
+        //
+        if (data2.find("//xvalidate") != std::string::npos)
+        {
+            string fill = "";
+            for (int i = 0; i < element.columnCount; i++)
+            {
+                fill = fill + column[i].name + ": '',\n";
+            }
+            data2.replace(data2.find("//xvalidate"), 11, fill);
+        }
+
+        //
+        if (data2.find("//xsetcolumn") != std::string::npos)
+        {
+            string fill = "";
+            for (int i = 0; i < element.columnCount; i++)
+            {
+                fill = fill + "this.formData." + column[i].name + "=response.data.data." + column[i].name + ";\n";
+            }
+            data2.replace(data2.find("//xsetcolumn"), 12, fill);
+        }
 
 
+        //
+        destinationFile2 << data2 << "\n";
+    }
+
+    destinationFile2 << sourceFile2.rdbuf();
+    sourceFile2.close();
+    destinationFile2.close();
+
+    // Copy HTML File
+    // std::string sourcePath3 = "Files/Edit/Edit.html";
+    // std::string destinationPath3 = "../resources/js/admin/pages/" + element.models + "/Edit" + element.model + "/Edit" + element.model + ".html";
+    // std::ifstream sourceFile3(sourcePath3, std::ios::binary);
+    // std::ofstream destinationFile3(destinationPath3, std::ios::binary);
+    // std::string data3;
+    // while (std::getline(sourceFile3, data3))
+    // {
+    //     if (data3.find("xsinglearabic") != std::string::npos)
+    //         data3.replace(data3.find("xsinglearabic"), 13, element.arabicSingle);
+    //     if (data3.find("xmodel") != std::string::npos)
+    //         data3.replace(data3.find("xmodel"), 6, element.model);
+    //     if (data3.find("xsingle") != std::string::npos)
+    //         data3.replace(data3.find("xsingle"), 7, element.single);
+    //     if (data3.find("xarabic") != std::string::npos)
+    //         data3.replace(data3.find("xarabic"), 7, element.arabic);
+
+    //     if (data3.find("//xcolumn") != std::string::npos)
+    //     {
+    //         string fill = "";
+    //         for (int i = 0; i < element.columnCount; i++)
+    //         {
+    //             if (column[i].search == "y" || column[i].search == "Y")
+    //             {
+    //                 fill = fill + " <!-- Item -->\n";
+    //                 fill = fill + "<div class='w-full px-4 py-4'>\n";
+    //                 fill = fill + "<div class='h-9 flex items-center text-gray-500 mr-2 text-sm'>\n";
+    //                 fill = fill + column[i].arabic;
+    //                 fill = fill + "\n</div>\n";
+    //                 fill = fill + "<div class='h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base'>\n";
+    //                 fill = fill + "{{ mainItem." + column[i].name + " }}\n";
+    //                 fill = fill + "</div>\n";
+    //                 fill = fill + "</div>";
+    //                 fill = fill + " <!-- End Item -->\n\n";
+    //             }
+    //         }
+    //         data3.replace(data3.find("//xcolumn"), 9, fill);
+    //     }
+
+    //     if (data3.find("//xcontentcolumn") != std::string::npos)
+    //     {
+    //         string fill = "";
+    //         for (int i = 0; i < element.columnCount; i++)
+    //         {
+    //             if (column[i].showInList == "y" || column[i].showInList == "Y")
+    //                 fill = fill + "<td class='table-cell'> {{item." + column[i].name + "}}</td>";
+    //         }
+    //         data3.replace(data3.find("//xcontentcolumn"), 16, fill);
+    //     }
+
+    //     destinationFile3 << data3 << "\n";
+    // }
+    // destinationFile3 << sourceFile3.rdbuf();
+    // sourceFile3.close();
+    // destinationFile3.close();
 }

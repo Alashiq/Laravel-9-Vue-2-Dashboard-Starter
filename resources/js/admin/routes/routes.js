@@ -14,9 +14,6 @@ import EditAdminRole from "../pages/Admins/EditAdminRole/EditAdminRole.vue";
 
 
 
-
-
-
  //ximport
 
 
@@ -84,7 +81,6 @@ export const routes = [
                 path: "admin/role/:id/edit",
                 component: EditRole
             },
-
 
 
 

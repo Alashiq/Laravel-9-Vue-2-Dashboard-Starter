@@ -7,21 +7,35 @@
             v-if="loaded==200"
         >
             <!-- Table Header -->
-            <Single-Page-Header title="بيانات الxsinglearabic" url="/admin/xsingle/" urlLabel="قائمة الxarabic"></Single-Page-Header>
+            <Single-Page-Header title="تعديل الدور" url="/admin/role/" urlLabel="أدوار المشرفين"></Single-Page-Header>
             <!-- End Table Header -->
 
 
             <!-- Grid -->
-            <div class="bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2 JF-Flat">
+            <div class="bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2">
+                <!-- Item -->
+                <div class="w-full px-4 py-4  JF-Flat">
+                    <div
+                        class="h-9 flex items-center text-gray-500 mr-2 text-sm"
+                    >
+                        إسم الدور
+                    </div>
+                    <input type="text" v-model="formData.name"
+                    v-on:change="validateName"
+                    class="h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base">
+                    <div class="h-8 text-xs text-red-400 mr-2 flex items-center ">
+                        {{ formValidate.name }}
+                    </div>
+                </div>
+                <!-- Item -->
+
+
 
                 
-                //xcolumn
 
-            
                 
             </div>
             <!-- Grid -->
-
 
 
 
@@ -30,24 +44,14 @@
                 class="w-full lg:h-20 mt-12 lg:flex items-center justify-start text-sm cairo"
             >
 
-                <router-link
-                    v-show="$parent.checkPermission('Editxmodel') == true"
-                    :to="'/admin/xsingle/' + $route.params.id + '/edit'"
-                    class="h-12 px-6 mx-4 bg-gray-400 hover:bg-gray-500 flex items-center justify-center text-white shadow-lg rounded cursor-pointer"
-                >
-                    <i class="fa-solid fa-pen-to-square ml-2"></i>
-                    تعديل 
-                </router-link>
-
 
 
                 <div
-                v-show="$parent.checkPermission('Deletexmodel') == true"
-                @click="deleteMainItem"
+                @click="editMainItem"
                 class="h-12 px-6 mx-4 my-2 bg-red-400 hover:bg-red-500 flex items-center justify-center text-white shadow-lg rounded cursor-pointer"
             >
-                <i class="far fa-trash-alt ml-2"></i>
-                حذف الxsinglearabic
+                <i class="fa-solid fa-check ml-2"></i>
+                حفظ
             </div>
 
 
@@ -59,10 +63,10 @@
             v-if="loaded == 204"
             message="لا يوجد دور بهذا الرقم"
         ></Empty-Box>
+
         <Bad-Request v-if="loaded==400" :reload="reload" :message="errorMessage"></Bad-Request>
         <No-Permission v-if="loaded==403" :message="errorMessage"></No-Permission>
         <No-Internet v-if="loaded==404" :reload="reload"></No-Internet>
-
-
+    
         <!-- End Inside Page -->
     </div>

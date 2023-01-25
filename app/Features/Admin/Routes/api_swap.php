@@ -10,12 +10,7 @@ use App\Features\Admin\Controllers\AuthController;
 use App\Features\Admin\Controllers\AdminController;
 
 
- use App\Features\Admin\Controllers\TeacherController; 
-
-
-
-
- use App\Features\Admin\Controllers\SchoolController; 
+use App\Features\Admin\Controllers\MemberController; 
 
 
  //ximport
@@ -83,220 +78,25 @@ Route::middleware(['auth:sanctum', 'type.admin'])->group(function () {
     # # # # # # # # # # # # # # # # # End Admin Permissions  # # # # # # # # # # # # # # # 
 
 
-    
 
- 
-# # # # # # # # # # # # # # # # #  teachers  # # # # # # # # # # # # # # # # #
-Route::controller(TeacherController::class)->prefix('teacher')->group( 
+
+
+
+    # # # # # # # # # # # # # # # # #  members  # # # # # # # # # # # # # # # # #
+Route::controller(MemberController::class)->prefix('member')->group( 
 function () { 
-Route::get('/', [TeacherController::class, 'index'])->middleware('check.role:ReadTeacher'); 
-Route::delete('/{id}', [TeacherController::class, 'delete'])->middleware('check.role:DeleteTeacher'); 
-Route::get('/{id}', [TeacherController::class, 'show'])->middleware('check.role:ReadTeacher'); 
-Route::put('/{id}', [TeacherController::class, 'edit'])->middleware('check.role:EditTeacher'); 
-Route::post('/', [TeacherController::class, 'create'])->middleware('check.role:CreateTeacher'); 
+Route::get('/', [MemberController::class, 'index'])->middleware('check.role:ReadMember'); 
+Route::delete('/{id}', [MemberController::class, 'delete'])->middleware('check.role:DeleteMember'); 
+Route::get('/{id}', [MemberController::class, 'show'])->middleware('check.role:ReadMember'); 
+Route::put('/{id}', [MemberController::class, 'edit'])->middleware('check.role:EditMember'); 
+Route::post('/', [MemberController::class, 'create'])->middleware('check.role:CreateMember'); 
 } 
 ); 
-# # # # # # # # # # # # # # # # # End teachers  # # # # # # # # # # # # # # #  
- 
-# # # # # # # # # # # # # # # # #  teachers  # # # # # # # # # # # # # # # # #
-Route::controller(TeacherController::class)->prefix('teacher')->group( 
-function () { 
-Route::get('/', [TeacherController::class, 'index'])->middleware('check.role:ReadTeacher'); 
-Route::delete('/{id}', [TeacherController::class, 'delete'])->middleware('check.role:DeleteTeacher'); 
-Route::get('/{id}', [TeacherController::class, 'show'])->middleware('check.role:ReadTeacher'); 
-Route::put('/{id}', [TeacherController::class, 'edit'])->middleware('check.role:EditTeacher'); 
-Route::post('/', [TeacherController::class, 'create'])->middleware('check.role:CreateTeacher'); 
-} 
-); 
-# # # # # # # # # # # # # # # # # End teachers  # # # # # # # # # # # # # # #  
- 
-# # # # # # # # # # # # # # # # #  teachers  # # # # # # # # # # # # # # # # #
-Route::controller(TeacherController::class)->prefix('teacher')->group( 
-function () { 
-Route::get('/', [TeacherController::class, 'index'])->middleware('check.role:ReadTeacher'); 
-Route::delete('/{id}', [TeacherController::class, 'delete'])->middleware('check.role:DeleteTeacher'); 
-Route::get('/{id}', [TeacherController::class, 'show'])->middleware('check.role:ReadTeacher'); 
-Route::put('/{id}', [TeacherController::class, 'edit'])->middleware('check.role:EditTeacher'); 
-Route::post('/', [TeacherController::class, 'create'])->middleware('check.role:CreateTeacher'); 
-} 
-); 
-# # # # # # # # # # # # # # # # # End teachers  # # # # # # # # # # # # # # #  
- 
-# # # # # # # # # # # # # # # # #  teachers  # # # # # # # # # # # # # # # # #
-Route::controller(TeacherController::class)->prefix('teacher')->group( 
-function () { 
-Route::get('/', [TeacherController::class, 'index'])->middleware('check.role:ReadTeacher'); 
-Route::delete('/{id}', [TeacherController::class, 'delete'])->middleware('check.role:DeleteTeacher'); 
-Route::get('/{id}', [TeacherController::class, 'show'])->middleware('check.role:ReadTeacher'); 
-Route::put('/{id}', [TeacherController::class, 'edit'])->middleware('check.role:EditTeacher'); 
-Route::post('/', [TeacherController::class, 'create'])->middleware('check.role:CreateTeacher'); 
-} 
-); 
-# # # # # # # # # # # # # # # # # End teachers  # # # # # # # # # # # # # # #  
- 
-# # # # # # # # # # # # # # # # #  teachers  # # # # # # # # # # # # # # # # #
-Route::controller(TeacherController::class)->prefix('teacher')->group( 
-function () { 
-Route::get('/', [TeacherController::class, 'index'])->middleware('check.role:ReadTeacher'); 
-Route::delete('/{id}', [TeacherController::class, 'delete'])->middleware('check.role:DeleteTeacher'); 
-Route::get('/{id}', [TeacherController::class, 'show'])->middleware('check.role:ReadTeacher'); 
-Route::put('/{id}', [TeacherController::class, 'edit'])->middleware('check.role:EditTeacher'); 
-Route::post('/', [TeacherController::class, 'create'])->middleware('check.role:CreateTeacher'); 
-} 
-); 
-# # # # # # # # # # # # # # # # # End teachers  # # # # # # # # # # # # # # #  
- 
-# # # # # # # # # # # # # # # # #  teachers  # # # # # # # # # # # # # # # # #
-Route::controller(TeacherController::class)->prefix('teacher')->group( 
-function () { 
-Route::get('/', [TeacherController::class, 'index'])->middleware('check.role:ReadTeacher'); 
-Route::delete('/{id}', [TeacherController::class, 'delete'])->middleware('check.role:DeleteTeacher'); 
-Route::get('/{id}', [TeacherController::class, 'show'])->middleware('check.role:ReadTeacher'); 
-Route::put('/{id}', [TeacherController::class, 'edit'])->middleware('check.role:EditTeacher'); 
-Route::post('/', [TeacherController::class, 'create'])->middleware('check.role:CreateTeacher'); 
-} 
-); 
-# # # # # # # # # # # # # # # # # End teachers  # # # # # # # # # # # # # # #  
- 
-# # # # # # # # # # # # # # # # #  teachers  # # # # # # # # # # # # # # # # #
-Route::controller(TeacherController::class)->prefix('teacher')->group( 
-function () { 
-Route::get('/', [TeacherController::class, 'index'])->middleware('check.role:ReadTeacher'); 
-Route::delete('/{id}', [TeacherController::class, 'delete'])->middleware('check.role:DeleteTeacher'); 
-Route::get('/{id}', [TeacherController::class, 'show'])->middleware('check.role:ReadTeacher'); 
-Route::put('/{id}', [TeacherController::class, 'edit'])->middleware('check.role:EditTeacher'); 
-Route::post('/', [TeacherController::class, 'create'])->middleware('check.role:CreateTeacher'); 
-} 
-); 
-# # # # # # # # # # # # # # # # # End teachers  # # # # # # # # # # # # # # #  
- 
-# # # # # # # # # # # # # # # # #  teachers  # # # # # # # # # # # # # # # # #
-Route::controller(TeacherController::class)->prefix('teacher')->group( 
-function () { 
-Route::get('/', [TeacherController::class, 'index'])->middleware('check.role:ReadTeacher'); 
-Route::delete('/{id}', [TeacherController::class, 'delete'])->middleware('check.role:DeleteTeacher'); 
-Route::get('/{id}', [TeacherController::class, 'show'])->middleware('check.role:ReadTeacher'); 
-Route::put('/{id}', [TeacherController::class, 'edit'])->middleware('check.role:EditTeacher'); 
-Route::post('/', [TeacherController::class, 'create'])->middleware('check.role:CreateTeacher'); 
-} 
-); 
-# # # # # # # # # # # # # # # # # End teachers  # # # # # # # # # # # # # # #  
- 
-# # # # # # # # # # # # # # # # #  teachers  # # # # # # # # # # # # # # # # #
-Route::controller(TeacherController::class)->prefix('teacher')->group( 
-function () { 
-Route::get('/', [TeacherController::class, 'index'])->middleware('check.role:ReadTeacher'); 
-Route::delete('/{id}', [TeacherController::class, 'delete'])->middleware('check.role:DeleteTeacher'); 
-Route::get('/{id}', [TeacherController::class, 'show'])->middleware('check.role:ReadTeacher'); 
-Route::put('/{id}', [TeacherController::class, 'edit'])->middleware('check.role:EditTeacher'); 
-Route::post('/', [TeacherController::class, 'create'])->middleware('check.role:CreateTeacher'); 
-} 
-); 
-# # # # # # # # # # # # # # # # # End teachers  # # # # # # # # # # # # # # #  
- 
-# # # # # # # # # # # # # # # # #  teachers  # # # # # # # # # # # # # # # # #
-Route::controller(TeacherController::class)->prefix('teacher')->group( 
-function () { 
-Route::get('/', [TeacherController::class, 'index'])->middleware('check.role:ReadTeacher'); 
-Route::delete('/{id}', [TeacherController::class, 'delete'])->middleware('check.role:DeleteTeacher'); 
-Route::get('/{id}', [TeacherController::class, 'show'])->middleware('check.role:ReadTeacher'); 
-Route::put('/{id}', [TeacherController::class, 'edit'])->middleware('check.role:EditTeacher'); 
-Route::post('/', [TeacherController::class, 'create'])->middleware('check.role:CreateTeacher'); 
-} 
-); 
-# # # # # # # # # # # # # # # # # End teachers  # # # # # # # # # # # # # # #  
- 
-# # # # # # # # # # # # # # # # #  teachers  # # # # # # # # # # # # # # # # #
-Route::controller(TeacherController::class)->prefix('teacher')->group( 
-function () { 
-Route::get('/', [TeacherController::class, 'index'])->middleware('check.role:ReadTeacher'); 
-Route::delete('/{id}', [TeacherController::class, 'delete'])->middleware('check.role:DeleteTeacher'); 
-Route::get('/{id}', [TeacherController::class, 'show'])->middleware('check.role:ReadTeacher'); 
-Route::put('/{id}', [TeacherController::class, 'edit'])->middleware('check.role:EditTeacher'); 
-Route::post('/', [TeacherController::class, 'create'])->middleware('check.role:CreateTeacher'); 
-} 
-); 
-# # # # # # # # # # # # # # # # # End teachers  # # # # # # # # # # # # # # #  
- 
-# # # # # # # # # # # # # # # # #  teachers  # # # # # # # # # # # # # # # # #
-Route::controller(TeacherController::class)->prefix('teacher')->group( 
-function () { 
-Route::get('/', [TeacherController::class, 'index'])->middleware('check.role:ReadTeacher'); 
-Route::delete('/{id}', [TeacherController::class, 'delete'])->middleware('check.role:DeleteTeacher'); 
-Route::get('/{id}', [TeacherController::class, 'show'])->middleware('check.role:ReadTeacher'); 
-Route::put('/{id}', [TeacherController::class, 'edit'])->middleware('check.role:EditTeacher'); 
-Route::post('/', [TeacherController::class, 'create'])->middleware('check.role:CreateTeacher'); 
-} 
-); 
-# # # # # # # # # # # # # # # # # End teachers  # # # # # # # # # # # # # # #  
- 
-# # # # # # # # # # # # # # # # #  teachers  # # # # # # # # # # # # # # # # #
-Route::controller(TeacherController::class)->prefix('teacher')->group( 
-function () { 
-Route::get('/', [TeacherController::class, 'index'])->middleware('check.role:ReadTeacher'); 
-Route::delete('/{id}', [TeacherController::class, 'delete'])->middleware('check.role:DeleteTeacher'); 
-Route::get('/{id}', [TeacherController::class, 'show'])->middleware('check.role:ReadTeacher'); 
-Route::put('/{id}', [TeacherController::class, 'edit'])->middleware('check.role:EditTeacher'); 
-Route::post('/', [TeacherController::class, 'create'])->middleware('check.role:CreateTeacher'); 
-} 
-); 
-# # # # # # # # # # # # # # # # # End teachers  # # # # # # # # # # # # # # #  
- 
-# # # # # # # # # # # # # # # # #  teachers  # # # # # # # # # # # # # # # # #
-Route::controller(TeacherController::class)->prefix('teacher')->group( 
-function () { 
-Route::get('/', [TeacherController::class, 'index'])->middleware('check.role:ReadTeacher'); 
-Route::delete('/{id}', [TeacherController::class, 'delete'])->middleware('check.role:DeleteTeacher'); 
-Route::get('/{id}', [TeacherController::class, 'show'])->middleware('check.role:ReadTeacher'); 
-Route::put('/{id}', [TeacherController::class, 'edit'])->middleware('check.role:EditTeacher'); 
-Route::post('/', [TeacherController::class, 'create'])->middleware('check.role:CreateTeacher'); 
-} 
-); 
-# # # # # # # # # # # # # # # # # End teachers  # # # # # # # # # # # # # # #  
- 
-# # # # # # # # # # # # # # # # #  teachers  # # # # # # # # # # # # # # # # #
-Route::controller(TeacherController::class)->prefix('teacher')->group( 
-function () { 
-Route::get('/', [TeacherController::class, 'index'])->middleware('check.role:ReadTeacher'); 
-Route::delete('/{id}', [TeacherController::class, 'delete'])->middleware('check.role:DeleteTeacher'); 
-Route::get('/{id}', [TeacherController::class, 'show'])->middleware('check.role:ReadTeacher'); 
-Route::put('/{id}', [TeacherController::class, 'edit'])->middleware('check.role:EditTeacher'); 
-Route::post('/', [TeacherController::class, 'create'])->middleware('check.role:CreateTeacher'); 
-} 
-); 
-# # # # # # # # # # # # # # # # # End teachers  # # # # # # # # # # # # # # #  
- 
-# # # # # # # # # # # # # # # # #  schools  # # # # # # # # # # # # # # # # #
-Route::controller(SchoolController::class)->prefix('school')->group( 
-function () { 
-Route::get('/', [SchoolController::class, 'index'])->middleware('check.role:ReadSchool'); 
-Route::delete('/{id}', [SchoolController::class, 'delete'])->middleware('check.role:DeleteSchool'); 
-Route::get('/{id}', [SchoolController::class, 'show'])->middleware('check.role:ReadSchool'); 
-Route::put('/{id}', [SchoolController::class, 'edit'])->middleware('check.role:EditSchool'); 
-Route::post('/', [SchoolController::class, 'create'])->middleware('check.role:CreateSchool'); 
-} 
-); 
-# # # # # # # # # # # # # # # # # End schools  # # # # # # # # # # # # # # #  
+# # # # # # # # # # # # # # # # # End members  # # # # # # # # # # # # # # #  
  
 #xRoute 
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
 
 
 });

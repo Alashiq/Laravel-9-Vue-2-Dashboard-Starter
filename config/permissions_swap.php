@@ -23,211 +23,40 @@ return [
         'DeleteRole' => 'حذف دور',
 
 
-
-
-
-
-// Role Teacher
-'ReadTeacher'=>'Read teachers', 
-'CreateTeacher'=>'Create teachers', 
-'EditTeacher'=>'Edit teachers', 
-'DeleteTeacher'=>'Delete teachers', 
-
-
-
-// Role Teacher
-'ReadTeacher'=>'Read teachers', 
-'CreateTeacher'=>'Create teachers', 
-'EditTeacher'=>'Edit teachers', 
-'DeleteTeacher'=>'Delete teachers', 
-
-
-
-// Role Teacher
-'ReadTeacher'=>'Read teachers', 
-'CreateTeacher'=>'Create teachers', 
-'EditTeacher'=>'Edit teachers', 
-'DeleteTeacher'=>'Delete teachers', 
-
-
-
-// Role Teacher
-'ReadTeacher'=>'Read teachers', 
-'CreateTeacher'=>'Create teachers', 
-'EditTeacher'=>'Edit teachers', 
-'DeleteTeacher'=>'Delete teachers', 
-
-
-
-// Role Teacher
-'ReadTeacher'=>'Read teachers', 
-'CreateTeacher'=>'Create teachers', 
-'EditTeacher'=>'Edit teachers', 
-'DeleteTeacher'=>'Delete teachers', 
-
-
-
-// Role Teacher
-'ReadTeacher'=>'Read teachers', 
-'CreateTeacher'=>'Create teachers', 
-'EditTeacher'=>'Edit teachers', 
-'DeleteTeacher'=>'Delete teachers', 
-
-
-
-// Role Teacher
-'ReadTeacher'=>'Read teachers', 
-'CreateTeacher'=>'Create teachers', 
-'EditTeacher'=>'Edit teachers', 
-'DeleteTeacher'=>'Delete teachers', 
-
-
-
-// Role Teacher
-'ReadTeacher'=>'Read teachers', 
-'CreateTeacher'=>'Create teachers', 
-'EditTeacher'=>'Edit teachers', 
-'DeleteTeacher'=>'Delete teachers', 
-
-
-
-// Role Teacher
-'ReadTeacher'=>'Read teachers', 
-'CreateTeacher'=>'Create teachers', 
-'EditTeacher'=>'Edit teachers', 
-'DeleteTeacher'=>'Delete teachers', 
-
-
-
-// Role Teacher
-'ReadTeacher'=>'Read teachers', 
-'CreateTeacher'=>'Create teachers', 
-'EditTeacher'=>'Edit teachers', 
-'DeleteTeacher'=>'Delete teachers', 
-
-
-
-// Role Teacher
-'ReadTeacher'=>'Read teachers', 
-'CreateTeacher'=>'Create teachers', 
-'EditTeacher'=>'Edit teachers', 
-'DeleteTeacher'=>'Delete teachers', 
-
-
-
-// Role Teacher
-'ReadTeacher'=>'Read teachers', 
-'CreateTeacher'=>'Create teachers', 
-'EditTeacher'=>'Edit teachers', 
-'DeleteTeacher'=>'Delete teachers', 
-
-
-
-// Role Teacher
-'ReadTeacher'=>'Read teachers', 
-'CreateTeacher'=>'Create teachers', 
-'EditTeacher'=>'Edit teachers', 
-'DeleteTeacher'=>'Delete teachers', 
-
-
-
-// Role Teacher
-'ReadTeacher'=>'Read teachers', 
-'CreateTeacher'=>'Create teachers', 
-'EditTeacher'=>'Edit teachers', 
-'DeleteTeacher'=>'Delete teachers', 
-
-
-
-// Role Teacher
-'ReadTeacher'=>'Read teachers', 
-'CreateTeacher'=>'Create teachers', 
-'EditTeacher'=>'Edit teachers', 
-'DeleteTeacher'=>'Delete teachers', 
-
-
-
-// Role Teacher
-'ReadTeacher'=>'Read teachers', 
-'CreateTeacher'=>'Create teachers', 
-'EditTeacher'=>'Edit teachers', 
-'DeleteTeacher'=>'Delete teachers', 
-
-
-
-// Role Teacher
-'ReadTeacher'=>'Read teachers', 
-'CreateTeacher'=>'Create teachers', 
-'EditTeacher'=>'Edit teachers', 
-'DeleteTeacher'=>'Delete teachers', 
-
-
-
-// Role Teacher
-'ReadTeacher'=>'Read teachers', 
-'CreateTeacher'=>'Create teachers', 
-'EditTeacher'=>'Edit teachers', 
-'DeleteTeacher'=>'Delete teachers', 
-
-
-
-// Role Teacher
-'ReadTeacher'=>'Read teachers', 
-'CreateTeacher'=>'Create teachers', 
-'EditTeacher'=>'Edit teachers', 
-'DeleteTeacher'=>'Delete teachers', 
-
-
-
-// Role Teacher
-'ReadTeacher'=>'Read teachers', 
-'CreateTeacher'=>'Create teachers', 
-'EditTeacher'=>'Edit teachers', 
-'DeleteTeacher'=>'Delete teachers', 
-
-
-
-// Role Teacher
-'ReadTeacher'=>'Read teachers', 
-'CreateTeacher'=>'Create teachers', 
-'EditTeacher'=>'Edit teachers', 
-'DeleteTeacher'=>'Delete teachers', 
-
-
-
-// Role School
-'ReadSchool'=>'Read schools', 
-'CreateSchool'=>'Create schools', 
-'EditSchool'=>'Edit schools', 
-'DeleteSchool'=>'Delete schools', 
+        // Role Member
+'ReadMember'=>'Read members', 
+'CreateMember'=>'Create members', 
+'EditMember'=>'Edit members', 
+'DeleteMember'=>'Delete members', 
 
 
 
 //xpermissions 
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     ]

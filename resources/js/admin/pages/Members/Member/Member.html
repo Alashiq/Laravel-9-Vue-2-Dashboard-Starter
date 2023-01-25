@@ -7,7 +7,7 @@
             v-if="loaded==200"
         >
             <!-- Table Header -->
-            <Single-Page-Header title="بيانات الxsinglearabic" url="/admin/xsingle/" urlLabel="قائمة الxarabic"></Single-Page-Header>
+            <Single-Page-Header title="بيانات العضو" url="/admin/member/" urlLabel="قائمة الأعضاء"></Single-Page-Header>
             <!-- End Table Header -->
 
 
@@ -15,7 +15,37 @@
             <div class="bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2 JF-Flat">
 
                 
-                //xcolumn
+                 <!-- Item -->
+<div class='w-full px-4 py-4'>
+<div class='h-9 flex items-center text-gray-500 mr-2 text-sm'>
+الإسم
+</div>
+<div class='h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base'>
+{{ mainItem.first_name }}
+</div>
+</div> <!-- End Item -->
+
+ <!-- Item -->
+<div class='w-full px-4 py-4'>
+<div class='h-9 flex items-center text-gray-500 mr-2 text-sm'>
+اللقب
+</div>
+<div class='h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base'>
+{{ mainItem.last_name }}
+</div>
+</div> <!-- End Item -->
+
+ <!-- Item -->
+<div class='w-full px-4 py-4'>
+<div class='h-9 flex items-center text-gray-500 mr-2 text-sm'>
+العمر
+</div>
+<div class='h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base'>
+{{ mainItem.age }}
+</div>
+</div> <!-- End Item -->
+
+
 
             
                 
@@ -31,8 +61,8 @@
             >
 
                 <router-link
-                    v-show="$parent.checkPermission('Editxmodel') == true"
-                    :to="'/admin/xsingle/' + $route.params.id + '/edit'"
+                    v-show="$parent.checkPermission('EditMember') == true"
+                    :to="'/admin/member/' + $route.params.id + '/edit'"
                     class="h-12 px-6 mx-4 bg-gray-400 hover:bg-gray-500 flex items-center justify-center text-white shadow-lg rounded cursor-pointer"
                 >
                     <i class="fa-solid fa-pen-to-square ml-2"></i>
@@ -42,12 +72,12 @@
 
 
                 <div
-                v-show="$parent.checkPermission('Deletexmodel') == true"
+                v-show="$parent.checkPermission('DeleteMember') == true"
                 @click="deleteMainItem"
                 class="h-12 px-6 mx-4 my-2 bg-red-400 hover:bg-red-500 flex items-center justify-center text-white shadow-lg rounded cursor-pointer"
             >
                 <i class="far fa-trash-alt ml-2"></i>
-                حذف الxsinglearabic
+                حذف العضو
             </div>
 
 

@@ -12,22 +12,18 @@ import EditRole from "../pages/Roles/EditRole/EditRole.vue";
 import EditAdminRole from "../pages/Admins/EditAdminRole/EditAdminRole.vue";
 
 
-import Teachers from '../pages/Teachers/Teachers.vue';
-
-import Teacher from '../pages/Teachers/Teacher/Teacher.vue';
-
-
-import Schools from '../pages/Schools/Schools.vue';
-import School from '../pages/Schools/School/School.vue';
 
 
 
- import Schools from '../pages/Schools/Schools.vue';
-import School from '../pages/Schools/School/School.vue';
+
+
+import Members from '../pages/Members/Members.vue';
+import Member from '../pages/Members/Member/Member.vue';
+import EditMember from '../pages/Members/EditMember/EditMember.vue';
 
 
 
- //ximport
+//ximport
 
 
 import store from "../store/index";
@@ -94,44 +90,22 @@ export const routes = [
                 path: "admin/role/:id/edit",
                 component: EditRole
             },
-
-
-
             {
-                path: 'admin/teacher',
-                component: Teachers
+                path: 'admin/member',
+                component: Members
+            },
+            {
+                path: 'admin/member/:id',
+                component: Member
             },
 
             {
-                path: 'admin/teacher/:id',
-                component: Teacher
+                path: 'admin/member/:id/edit',
+                component: EditMember
             },
 
 
-
-            { 
-path: 'admin/school', 
-component: Schools 
-}, 
-{ 
-path: 'admin/school/:id', 
-component: School 
-}, 
-
-
-
- { 
-path: 'admin/school', 
-component: Schools 
-}, 
-{ 
-path: 'admin/school/:id', 
-component: School 
-}, 
-
-
-
- //xroute
+            //xroute
 
         ]
     },

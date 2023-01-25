@@ -84,123 +84,22 @@ export default {
 
 
 
-
- // ============== Teacher Part =======================
-GetAllTeachers(page,countPerPage,full_name,class_type) { 
-return axios.get('/admin/api/teahcer?page=' + page + '&count=' + countPerPage+ '&full_name=' + full_name+ '&class_type=' + class_type);
+ // ============== Member Part =======================
+GetAllMembers(page,countPerPage,first_name,last_name,age) { 
+return axios.get('/admin/api/member?page=' + page + '&count=' + countPerPage+ '&first_name=' + first_name+ '&last_name=' + last_name+ '&age=' + age);
 }, 
 
-DeleteTeacher(id){
-return axios.delete('/admin/api/teahcer/' + id);
+DeleteMember(id){
+return axios.delete('/admin/api/member/' + id);
 }, 
-GetTeacherById(id){
-return axios.get('/admin/api/teahcer/' + id);
+GetMemberById(id){
+return axios.get('/admin/api/member/' + id);
 }, 
-PostNewTeacher(formData){
-return axios.post('/admin/api/teahcer' + formData);
+PostNewMember(formData){
+return axios.post('/admin/api/member' + formData);
 }, 
-EditTeacher(id,formData){
-return axios.put('/admin/api/teahcer/' + id , formData);
-}, 
-
-
-
- // ============== Teacher Part =======================
-GetAllTeacher(page,countPerPage,name) { 
-return axios.get('/admin/api/teacher?page=' + page + '&count=' + countPerPage+ '&name=' + name);
-}, 
-
-DeleteTeacher(id){
-return axios.delete('/admin/api/teacher/' + id);
-}, 
-GetTeacherById(id){
-return axios.get('/admin/api/teacher/' + id);
-}, 
-PostNewTeacher(formData){
-return axios.post('/admin/api/teacher' + formData);
-}, 
-EditTeacher(id,formData){
-return axios.put('/admin/api/teacher/' + id , formData);
-}, 
-
-
-
- // ============== Teacher Part =======================
-GetAllTeachers(page,countPerPage,f_name) { 
-return axios.get('/admin/api/teacher?page=' + page + '&count=' + countPerPage+ '&f_name=' + f_name);
-}, 
-
-DeleteTeacher(id){
-return axios.delete('/admin/api/teacher/' + id);
-}, 
-GetTeacherById(id){
-return axios.get('/admin/api/teacher/' + id);
-}, 
-PostNewTeacher(formData){
-return axios.post('/admin/api/teacher' + formData);
-}, 
-EditTeacher(id,formData){
-return axios.put('/admin/api/teacher/' + id , formData);
-}, 
-
-
-
- // ============== Teacher Part =======================
-GetAllTeachers(page,countPerPage,name,school) { 
-return axios.get('/admin/api/teacher?page=' + page + '&count=' + countPerPage+ '&name=' + name+ '&school=' + school);
-}, 
-
-DeleteTeacher(id){
-return axios.delete('/admin/api/teacher/' + id);
-}, 
-GetTeacherById(id){
-return axios.get('/admin/api/teacher/' + id);
-}, 
-PostNewTeacher(formData){
-return axios.post('/admin/api/teacher' + formData);
-}, 
-EditTeacher(id,formData){
-return axios.put('/admin/api/teacher/' + id , formData);
-}, 
-
-
-
- // ============== School Part =======================
-GetAllSchools(page,countPerPage,name,city) { 
-return axios.get('/admin/api/school?page=' + page + '&count=' + countPerPage+ '&name=' + name+ '&city=' + city);
-}, 
-
-DeleteSchool(id){
-return axios.delete('/admin/api/school/' + id);
-}, 
-GetSchoolById(id){
-return axios.get('/admin/api/school/' + id);
-}, 
-PostNewSchool(formData){
-return axios.post('/admin/api/school' + formData);
-}, 
-EditSchool(id,formData){
-return axios.put('/admin/api/school/' + id , formData);
-}, 
-
-
-
- // ============== School Part =======================
-GetAllSchools(page,countPerPage,name,city) { 
-return axios.get('/admin/api/school?page=' + page + '&count=' + countPerPage+ '&name=' + name+ '&city=' + city);
-}, 
-
-DeleteSchool(id){
-return axios.delete('/admin/api/school/' + id);
-}, 
-GetSchoolById(id){
-return axios.get('/admin/api/school/' + id);
-}, 
-PostNewSchool(formData){
-return axios.post('/admin/api/school' + formData);
-}, 
-EditSchool(id,formData){
-return axios.put('/admin/api/school/' + id , formData);
+EditMember(id,formData){
+return axios.put('/admin/api/member/' + id , formData);
 }, 
 
 

@@ -10,7 +10,10 @@ use App\Features\Admin\Controllers\AuthController;
 use App\Features\Admin\Controllers\AdminController;
 
 
-//ximport
+use App\Features\Admin\Controllers\MemberController; 
+
+
+ //ximport
 
 # # # # # # # # # # # # # # # Admin Not Auth # # # # # # # # # # # # # # # 
 Route::controller(AuthController::class)->group(function () {
@@ -79,7 +82,20 @@ Route::middleware(['auth:sanctum', 'type.admin'])->group(function () {
 
 
 
-    #xRoute 
+    # # # # # # # # # # # # # # # # #  members  # # # # # # # # # # # # # # # # #
+Route::controller(MemberController::class)->prefix('member')->group( 
+function () { 
+Route::get('/', [MemberController::class, 'index'])->middleware('check.role:ReadMember'); 
+Route::delete('/{id}', [MemberController::class, 'delete'])->middleware('check.role:DeleteMember'); 
+Route::get('/{id}', [MemberController::class, 'show'])->middleware('check.role:ReadMember'); 
+Route::put('/{id}', [MemberController::class, 'edit'])->middleware('check.role:EditMember'); 
+Route::post('/', [MemberController::class, 'create'])->middleware('check.role:CreateMember'); 
+} 
+); 
+# # # # # # # # # # # # # # # # # End members  # # # # # # # # # # # # # # #  
+ 
+#xRoute 
+ 
 
 
 

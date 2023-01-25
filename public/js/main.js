@@ -7195,6 +7195,22 @@ __webpack_require__.r(__webpack_exports__);
   },
   EditRole: function EditRole(role, formData) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default().put("/admin/api/permission/" + role, formData);
+  },
+  // ============== Member Part =======================
+  GetAllMembers: function GetAllMembers(page, countPerPage, first_name, last_name, age) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/admin/api/member?page=' + page + '&count=' + countPerPage + '&first_name=' + first_name + '&last_name=' + last_name + '&age=' + age);
+  },
+  DeleteMember: function DeleteMember(id) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/admin/api/member/' + id);
+  },
+  GetMemberById: function GetMemberById(id) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/admin/api/member/' + id);
+  },
+  PostNewMember: function PostNewMember(formData) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/admin/api/member' + formData);
+  },
+  EditMember: function EditMember(id, formData) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/admin/api/member/' + id, formData);
   } //xapi
 });
 
