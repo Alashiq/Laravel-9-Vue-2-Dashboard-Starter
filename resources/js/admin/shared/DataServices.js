@@ -83,25 +83,6 @@ export default {
 
 
 
- // ============== Plan Part =======================
-GetAllPlans(page,countPerPage,name,qouta,price) { 
-return axios.get('/admin/api/plan?page=' + page + '&count=' + countPerPage+ '&name=' + name+ '&qouta=' + qouta+ '&price=' + price);
-}, 
-
-DeletePlan(id){
-return axios.delete('/admin/api/plan/' + id);
-}, 
-GetPlanById(id){
-return axios.get('/admin/api/plan/' + id);
-}, 
-PostNewPlan(formData){
-return axios.post('/admin/api/plan' , formData);
-}, 
-EditPlan(id,formData){
-return axios.put('/admin/api/plan/' + id , formData);
-}, 
-
-
 
  //xapi
 

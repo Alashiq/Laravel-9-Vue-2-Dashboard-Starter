@@ -531,7 +531,14 @@ void create_js_edit_item(Element element, Column column[20])
             {
                 string swap = column[i].name;
                 swap[0] = std::toupper(swap[0]);
-                fill = fill + "validate" + swap + ": function() {return 1;},\n";
+                fill = fill + "validate" + swap + ": function() { \n";
+                fill = fill + "this.formValidate." + column[i].name + " = "
+                                                                      "; \n";
+                fill = fill + "if (this.formData." + column[i].name + ".trim() == "
+                                                                      ") { \n";
+                fill = fill + "this.formValidate." + column[i].name + " = 'لا يمكن ترك هذا الحقل فارغ'; \n";
+                fill = fill + "return 1; \n";
+                fill = fill + "},\n";
             }
             data2.replace(data2.find("//xvalidatecolumn"), 17, fill);
         }
@@ -692,7 +699,14 @@ void create_js_new_item(Element element, Column column[20])
             {
                 string swap = column[i].name;
                 swap[0] = std::toupper(swap[0]);
-                fill = fill + "validate" + swap + ": function() {return 1;},\n";
+                fill = fill + "validate" + swap + ": function() { \n";
+                fill = fill + "this.formValidate." + column[i].name + " = "
+                                                                      "; \n";
+                fill = fill + "if (this.formData." + column[i].name + ".trim() == "
+                                                                      ") { \n";
+                fill = fill + "this.formValidate." + column[i].name + " = 'لا يمكن ترك هذا الحقل فارغ'; \n";
+                fill = fill + "return 1; \n";
+                fill = fill + "},\n";
             }
             data2.replace(data2.find("//xvalidatecolumn"), 17, fill);
         }

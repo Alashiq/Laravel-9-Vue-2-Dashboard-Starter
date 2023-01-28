@@ -15,13 +15,6 @@ import EditAdminRole from "../pages/Admins/EditAdminRole/EditAdminRole.vue";
 
 
 
- import Plans from '../pages/Plans/Plans.vue';
-import Plan from '../pages/Plans/Plan/Plan.vue';
-import EditPlan from '../pages/Plans/EditPlan/EditPlan.vue';
-import NewPlan from '../pages/Plans/NewPlan/NewPlan.vue';
-
-
-
  //ximport
 
 
@@ -90,28 +83,6 @@ export const routes = [
                 component: EditRole
             },
             
-
-
-
-
-
- { 
-path: 'admin/plan/new', 
-component: NewPlan 
-}, 
-{ 
-path: 'admin/plan', 
-component: Plans 
-}, 
-{ 
-path: 'admin/plan/:id', 
-component: Plan 
-}, 
-{ 
-path: 'admin/plan/:id/edit', 
-component: EditPlan 
-}, 
-
 
 
  //xroute
