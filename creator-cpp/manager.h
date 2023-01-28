@@ -24,6 +24,7 @@ struct Element
     std::string arabicSingle;
     std::string arabic;
     int columnCount;
+    std::string pageId;
 };
 
 string to_lower(string s)
@@ -285,6 +286,8 @@ void create_js_lists(Element element, Column column[20])
             data2.replace(data2.find("xmodel"), 6, element.model);
         if (data2.find("xsingleArabic") != std::string::npos)
             data2.replace(data2.find("xsingleArabic"), 13, element.arabicSingle);
+        if (data2.find("xpageid") != std::string::npos)
+            data2.replace(data2.find("xpageid"), 7, element.pageId);
 
         if (data2.find("//xcolumn") != std::string::npos)
         {
@@ -388,134 +391,6 @@ void create_js_lists(Element element, Column column[20])
     destinationFile3 << sourceFile3.rdbuf();
     sourceFile3.close();
     destinationFile3.close();
-
-    // Add APIs to DataServices
-    std::string sourcePath4 = "../resources/js/admin/shared/DataServices.js";
-    std::string destinationPath4 = "../resources/js/admin/shared/DataServices_swap.js";
-    std::ifstream sourceFile4(sourcePath4, std::ios::binary);
-    std::ofstream destinationFile4(destinationPath4, std::ios::binary);
-    std::string data4;
-
-    while (std::getline(sourceFile4, data4))
-    {
-        if (data4.find("//xapi") != std::string::npos)
-        {
-            string fill = "";
-            fill = fill + "// ============== " + element.model + " Part =======================\n";
-            fill = fill + "GetAll" + element.models + "(page,countPerPage";
-            for (int i = 0; i < element.columnCount; i++)
-            {
-                if (column[i].search == "y" || column[i].search == "Y")
-                {
-                    fill = fill + "," + column[i].name;
-                }
-            }
-            fill = fill + ") { \n";
-            fill = fill + "return axios.get('/admin/api/" + element.single + "?page=' + page + '&count=' + countPerPage";
-
-            for (int i = 0; i < element.columnCount; i++)
-            {
-                if (column[i].search == "y" || column[i].search == "Y")
-                {
-                    fill = fill + "+ '&" + column[i].name + "=' + " + column[i].name;
-                }
-            }
-            fill = fill + ");";
-            fill = fill + "\n}, \n\n";
-            // Delete
-            fill = fill + "Delete" + element.model + "(id){\n";
-            fill = fill + "return axios.delete('/admin/api/" + element.single + "/' + id);\n";
-            fill = fill + "}, \n";
-            // Get By Id
-            fill = fill + "Get" + element.model + "ById(id){\n";
-            fill = fill + "return axios.get('/admin/api/" + element.single + "/' + id);\n";
-            fill = fill + "}, \n";
-
-            //  Post New
-            fill = fill + "PostNew" + element.model + "(formData){\n";
-            fill = fill + "return axios.post('/admin/api/" + element.single + "' + formData);\n";
-            fill = fill + "}, \n";
-            //  Edit
-            fill = fill + "Edit" + element.model + "(id,formData){\n";
-            fill = fill + "return axios.put('/admin/api/" + element.single + "/' + id , formData);\n";
-            fill = fill + "}, \n";
-
-            fill = fill + "\n\n\n //xapi";
-
-            data4.replace(data4.find("//xapi"), 6, fill);
-        }
-        destinationFile4 << data4 << "\n";
-    }
-
-    destinationFile4 << sourceFile4.rdbuf();
-    sourceFile4.close();
-    destinationFile4.close();
-
-    // Swap
-    std::string sourcePath5 = "../resources/js/admin/shared/DataServices_swap.js";
-    std::string destinationPath5 = "../resources/js/admin/shared/DataServices.js";
-    std::ifstream sourceFile5(sourcePath5, std::ios::binary);
-    std::ofstream destinationFile5(destinationPath5, std::ios::binary);
-    std::string data5;
-    destinationFile5 << sourceFile5.rdbuf();
-    sourceFile5.close();
-    destinationFile5.close();
-
-    // Add To RouteJs File
-    std::string sourcePath6 = "../resources/js/admin/routes/routes.js";
-    std::string destinationPath6 = "../resources/js/admin/routes/routes_swap.js";
-    std::ifstream sourceFile6(sourcePath6, std::ios::binary);
-    std::ofstream destinationFile6(destinationPath6, std::ios::binary);
-    std::string data6;
-
-    while (std::getline(sourceFile6, data6))
-    {
-        if (data6.find("//ximport") != std::string::npos)
-        {
-            string fill = "";
-            fill = fill + "import " + element.models + " from '../pages/" + element.models + "/" + element.models + ".vue';\n";
-            fill = fill + "import " + element.model + " from '../pages/" + element.models + "/" + element.model + "/" + element.model + ".vue';\n";
-            fill = fill + "import Edit" + element.model + " from '../pages/" + element.models + "/Edit" + element.model + "/Edit" + element.model + ".vue';\n";
-            fill = fill + "\n\n\n //ximport";
-
-            data6.replace(data6.find("//ximport"), 9, fill);
-        }
-
-        if (data6.find("//xroute") != std::string::npos)
-        {
-            string fill = "";
-            fill = fill + "{ \n";
-            fill = fill + "path: 'admin/" + element.single + "', \n";
-            fill = fill + "component: " + element.models + " \n";
-            fill = fill + "}, \n";
-            fill = fill + "{ \n";
-            fill = fill + "path: 'admin/" + element.single + "/:id', \n";
-            fill = fill + "component: " + element.model + " \n";
-            fill = fill + "}, \n";
-            fill = fill + "{ \n";
-            fill = fill + "path: 'admin/" + element.single + "/:id/edit', \n";
-            fill = fill + "component: Edit" + element.model + " \n";
-            fill = fill + "}, \n";
-            fill = fill + "\n\n\n //xroute";
-
-            data6.replace(data6.find("//xroute"), 8, fill);
-        }
-        destinationFile6 << data6 << "\n";
-    }
-
-    destinationFile6 << sourceFile6.rdbuf();
-    sourceFile6.close();
-    destinationFile6.close();
-
-    // Swap
-    std::string sourcePath7 = "../resources/js/admin/routes/routes_swap.js";
-    std::string destinationPath7 = "../resources/js/admin/routes/routes.js";
-    std::ifstream sourceFile7(sourcePath7, std::ios::binary);
-    std::ofstream destinationFile7(destinationPath7, std::ios::binary);
-    std::string data7;
-    destinationFile7 << sourceFile7.rdbuf();
-    sourceFile7.close();
-    destinationFile7.close();
 }
 
 void create_js_item(Element element, Column column[20])
@@ -550,6 +425,8 @@ void create_js_item(Element element, Column column[20])
             data2.replace(data2.find("xmodel"), 6, element.model);
         if (data2.find("xsingleArabic") != std::string::npos)
             data2.replace(data2.find("xsingleArabic"), 13, element.arabicSingle);
+        if (data2.find("xpageid") != std::string::npos)
+            data2.replace(data2.find("xpageid"), 7, element.pageId);
 
         destinationFile2 << data2 << "\n";
     }
@@ -579,19 +456,17 @@ void create_js_item(Element element, Column column[20])
             string fill = "";
             for (int i = 0; i < element.columnCount; i++)
             {
-                if (column[i].search == "y" || column[i].search == "Y")
-                {
-                    fill = fill + " <!-- Item -->\n";
-                    fill = fill + "<div class='w-full px-4 py-4'>\n";
-                    fill = fill + "<div class='h-9 flex items-center text-gray-500 mr-2 text-sm'>\n";
-                    fill = fill + column[i].arabic;
-                    fill = fill + "\n</div>\n";
-                    fill = fill + "<div class='h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base'>\n";
-                    fill = fill + "{{ mainItem." + column[i].name + " }}\n";
-                    fill = fill + "</div>\n";
-                    fill = fill + "</div>";
-                    fill = fill + " <!-- End Item -->\n\n";
-                }
+
+                fill = fill + " <!-- Item -->\n";
+                fill = fill + "<div class='w-full px-4 py-4'>\n";
+                fill = fill + "<div class='h-9 flex items-center text-gray-500 mr-2 text-sm'>\n";
+                fill = fill + column[i].arabic;
+                fill = fill + "\n</div>\n";
+                fill = fill + "<div class='h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base'>\n";
+                fill = fill + "{{ mainItem." + column[i].name + " }}\n";
+                fill = fill + "</div>\n";
+                fill = fill + "</div>";
+                fill = fill + " <!-- End Item -->\n\n";
             }
             data3.replace(data3.find("//xcolumn"), 9, fill);
         }
@@ -646,16 +521,17 @@ void create_js_edit_item(Element element, Column column[20])
             data2.replace(data2.find("xmodel"), 6, element.model);
         if (data2.find("xsinglearabic") != std::string::npos)
             data2.replace(data2.find("xsinglearabic"), 13, element.arabicSingle);
-
+        if (data2.find("xpageid") != std::string::npos)
+            data2.replace(data2.find("xpageid"), 7, element.pageId);
         //
         if (data2.find("//xvalidatecolumn") != std::string::npos)
         {
             string fill = "";
             for (int i = 0; i < element.columnCount; i++)
             {
-                string swap=column[i].name;
+                string swap = column[i].name;
                 swap[0] = std::toupper(swap[0]);
-                fill = fill + "validate"+swap+": function() {return 1;},\n";
+                fill = fill + "validate" + swap + ": function() {return 1;},\n";
             }
             data2.replace(data2.find("//xvalidatecolumn"), 17, fill);
         }
@@ -666,9 +542,9 @@ void create_js_edit_item(Element element, Column column[20])
             string fill = "";
             for (int i = 0; i < element.columnCount; i++)
             {
-                string swap=column[i].name;
+                string swap = column[i].name;
                 swap[0] = std::toupper(swap[0]);
-                fill = fill + "this.validate"+swap+"();\n if (this.formValidate."+column[i].name+" != '') return 0;\n";
+                fill = fill + "this.validate" + swap + "();\n if (this.formValidate." + column[i].name + " != '') return 0;\n";
             }
             data2.replace(data2.find("//xcheckvalidatecolumn"), 22, fill);
         }
@@ -716,6 +592,166 @@ void create_js_edit_item(Element element, Column column[20])
             data2.replace(data2.find("//xsetcolumn"), 12, fill);
         }
 
+        //
+        destinationFile2 << data2 << "\n";
+    }
+
+    destinationFile2 << sourceFile2.rdbuf();
+    sourceFile2.close();
+    destinationFile2.close();
+
+    // Copy HTML File
+    std::string sourcePath3 = "Files/Edit/Edit.html";
+    std::string destinationPath3 = "../resources/js/admin/pages/" + element.models + "/Edit" + element.model + "/Edit" + element.model + ".html";
+    std::ifstream sourceFile3(sourcePath3, std::ios::binary);
+    std::ofstream destinationFile3(destinationPath3, std::ios::binary);
+    std::string data3;
+    while (std::getline(sourceFile3, data3))
+    {
+        if (data3.find("xsinglearabic") != std::string::npos)
+            data3.replace(data3.find("xsinglearabic"), 13, element.arabicSingle);
+        if (data3.find("xmodel") != std::string::npos)
+            data3.replace(data3.find("xmodel"), 6, element.model);
+        if (data3.find("xsingle") != std::string::npos)
+            data3.replace(data3.find("xsingle"), 7, element.single);
+        if (data3.find("xarabic") != std::string::npos)
+            data3.replace(data3.find("xarabic"), 7, element.arabic);
+
+        if (data3.find("//xcolumn") != std::string::npos)
+        {
+            string fill = "";
+            for (int i = 0; i < element.columnCount; i++)
+            {
+                fill = fill + " <!-- Item -->\n";
+                fill = fill + " <div class='w-full px-4 py-4  JF-Flat'>\n";
+                fill = fill + "<div class='h-9 flex items-center text-gray-500 mr-2 text-sm'>\n";
+                fill = fill + column[i].arabic;
+                fill = fill + "\n</div>\n";
+
+                string swap = column[i].name;
+                swap[0] = std::toupper(swap[0]);
+
+                fill = fill + "\n<input type='text' v-model='formData." + column[i].name + "' v-on:change='validate" + swap + "' class='h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base'>\n";
+
+                fill = fill + "<div class='h-8 text-xs text-red-400 mr-2 flex items-center'>\n";
+                fill = fill + "{{ formValidate." + column[i].name + " }}\n";
+                fill = fill + "</div>\n";
+                fill = fill + "</div>\n";
+                fill = fill + " <!-- End Item -->\n\n";
+            }
+            data3.replace(data3.find("//xcolumn"), 9, fill);
+        }
+
+        destinationFile3 << data3 << "\n";
+    }
+    destinationFile3 << sourceFile3.rdbuf();
+    sourceFile3.close();
+    destinationFile3.close();
+}
+
+void create_js_new_item(Element element, Column column[20])
+{
+
+    // Copy Vue File
+    std::string sourcePath = "Files/New/New.vue";
+    std::string destinationPath = "../resources/js/admin/pages/" + element.models + "/New" + element.model + "/New" + element.model + ".vue";
+    std::ifstream sourceFile(sourcePath, std::ios::binary);
+    std::ofstream destinationFile(destinationPath, std::ios::binary);
+    std::string data;
+    while (std::getline(sourceFile, data))
+    {
+        if (data.find("xfile") != std::string::npos)
+            data.replace(data.find("xfile"), 5, element.model);
+        destinationFile << data << "\n";
+    }
+    destinationFile << sourceFile.rdbuf();
+
+    sourceFile.close();
+    destinationFile.close();
+
+    // Copy Js File
+    std::string sourcePath2 = "Files/New/New.js";
+    std::string destinationPath2 = "../resources/js/admin/pages/" + element.models + "/New" + element.model + "/New" + element.model + ".js";
+    std::ifstream sourceFile2(sourcePath2, std::ios::binary);
+    std::ofstream destinationFile2(destinationPath2, std::ios::binary);
+    std::string data2;
+    while (std::getline(sourceFile2, data2))
+    {
+        if (data2.find("xmodel") != std::string::npos)
+            data2.replace(data2.find("xmodel"), 6, element.model);
+        if (data2.find("xsinglearabic") != std::string::npos)
+            data2.replace(data2.find("xsinglearabic"), 13, element.arabicSingle);
+        if (data2.find("xpageid") != std::string::npos)
+            data2.replace(data2.find("xpageid"), 7, element.pageId);
+
+        //
+        if (data2.find("//xvalidatecolumn") != std::string::npos)
+        {
+            string fill = "";
+            for (int i = 0; i < element.columnCount; i++)
+            {
+                string swap = column[i].name;
+                swap[0] = std::toupper(swap[0]);
+                fill = fill + "validate" + swap + ": function() {return 1;},\n";
+            }
+            data2.replace(data2.find("//xvalidatecolumn"), 17, fill);
+        }
+
+        //
+        if (data2.find("//xcheckvalidatecolumn") != std::string::npos)
+        {
+            string fill = "";
+            for (int i = 0; i < element.columnCount; i++)
+            {
+                string swap = column[i].name;
+                swap[0] = std::toupper(swap[0]);
+                fill = fill + "this.validate" + swap + "();\n if (this.formValidate." + column[i].name + " != '') return 0;\n";
+            }
+            data2.replace(data2.find("//xcheckvalidatecolumn"), 22, fill);
+        }
+        //
+        if (data2.find("//xcolumn") != std::string::npos)
+        {
+            string fill = "";
+            for (int i = 0; i < element.columnCount; i++)
+            {
+                if (column[i].type == "string")
+                {
+                    fill = fill + column[i].name + ": '',\n";
+                }
+                else if (column[i].type == "integer")
+                {
+                    fill = fill + column[i].name + ": null,\n";
+                }
+                else if (column[i].type == "json")
+                {
+                    fill = fill + column[i].name + ": [],\n";
+                }
+            }
+            data2.replace(data2.find("//xcolumn"), 9, fill);
+        }
+
+        //
+        if (data2.find("//xvalidate") != std::string::npos)
+        {
+            string fill = "";
+            for (int i = 0; i < element.columnCount; i++)
+            {
+                fill = fill + column[i].name + ": '',\n";
+            }
+            data2.replace(data2.find("//xvalidate"), 11, fill);
+        }
+
+        //
+        if (data2.find("//xsetcolumn") != std::string::npos)
+        {
+            string fill = "";
+            for (int i = 0; i < element.columnCount; i++)
+            {
+                fill = fill + "//this.formData." + column[i].name + "=response.data.data." + column[i].name + ";\n";
+            }
+            data2.replace(data2.find("//xsetcolumn"), 12, fill);
+        }
 
         //
         destinationFile2 << data2 << "\n";
@@ -726,58 +762,245 @@ void create_js_edit_item(Element element, Column column[20])
     destinationFile2.close();
 
     // Copy HTML File
-    // std::string sourcePath3 = "Files/Edit/Edit.html";
-    // std::string destinationPath3 = "../resources/js/admin/pages/" + element.models + "/Edit" + element.model + "/Edit" + element.model + ".html";
-    // std::ifstream sourceFile3(sourcePath3, std::ios::binary);
-    // std::ofstream destinationFile3(destinationPath3, std::ios::binary);
-    // std::string data3;
-    // while (std::getline(sourceFile3, data3))
-    // {
-    //     if (data3.find("xsinglearabic") != std::string::npos)
-    //         data3.replace(data3.find("xsinglearabic"), 13, element.arabicSingle);
-    //     if (data3.find("xmodel") != std::string::npos)
-    //         data3.replace(data3.find("xmodel"), 6, element.model);
-    //     if (data3.find("xsingle") != std::string::npos)
-    //         data3.replace(data3.find("xsingle"), 7, element.single);
-    //     if (data3.find("xarabic") != std::string::npos)
-    //         data3.replace(data3.find("xarabic"), 7, element.arabic);
+    std::string sourcePath3 = "Files/New/New.html";
+    std::string destinationPath3 = "../resources/js/admin/pages/" + element.models + "/New" + element.model + "/New" + element.model + ".html";
+    std::ifstream sourceFile3(sourcePath3, std::ios::binary);
+    std::ofstream destinationFile3(destinationPath3, std::ios::binary);
+    std::string data3;
+    while (std::getline(sourceFile3, data3))
+    {
+        if (data3.find("xsinglearabic") != std::string::npos)
+            data3.replace(data3.find("xsinglearabic"), 13, element.arabicSingle);
+        if (data3.find("xmodel") != std::string::npos)
+            data3.replace(data3.find("xmodel"), 6, element.model);
+        if (data3.find("xsingle") != std::string::npos)
+            data3.replace(data3.find("xsingle"), 7, element.single);
+        if (data3.find("xarabic") != std::string::npos)
+            data3.replace(data3.find("xarabic"), 7, element.arabic);
 
-    //     if (data3.find("//xcolumn") != std::string::npos)
-    //     {
-    //         string fill = "";
-    //         for (int i = 0; i < element.columnCount; i++)
-    //         {
-    //             if (column[i].search == "y" || column[i].search == "Y")
-    //             {
-    //                 fill = fill + " <!-- Item -->\n";
-    //                 fill = fill + "<div class='w-full px-4 py-4'>\n";
-    //                 fill = fill + "<div class='h-9 flex items-center text-gray-500 mr-2 text-sm'>\n";
-    //                 fill = fill + column[i].arabic;
-    //                 fill = fill + "\n</div>\n";
-    //                 fill = fill + "<div class='h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base'>\n";
-    //                 fill = fill + "{{ mainItem." + column[i].name + " }}\n";
-    //                 fill = fill + "</div>\n";
-    //                 fill = fill + "</div>";
-    //                 fill = fill + " <!-- End Item -->\n\n";
-    //             }
-    //         }
-    //         data3.replace(data3.find("//xcolumn"), 9, fill);
-    //     }
+        if (data3.find("//xcolumn") != std::string::npos)
+        {
+            string fill = "";
+            for (int i = 0; i < element.columnCount; i++)
+            {
+                fill = fill + " <!-- Item -->\n";
+                fill = fill + " <div class='w-full px-4 py-4  JF-Flat'>\n";
+                fill = fill + "<div class='h-9 flex items-center text-gray-500 mr-2 text-sm'>\n";
+                fill = fill + column[i].arabic;
+                fill = fill + "\n</div>\n";
 
-    //     if (data3.find("//xcontentcolumn") != std::string::npos)
-    //     {
-    //         string fill = "";
-    //         for (int i = 0; i < element.columnCount; i++)
-    //         {
-    //             if (column[i].showInList == "y" || column[i].showInList == "Y")
-    //                 fill = fill + "<td class='table-cell'> {{item." + column[i].name + "}}</td>";
-    //         }
-    //         data3.replace(data3.find("//xcontentcolumn"), 16, fill);
-    //     }
+                string swap = column[i].name;
+                swap[0] = std::toupper(swap[0]);
 
-    //     destinationFile3 << data3 << "\n";
-    // }
-    // destinationFile3 << sourceFile3.rdbuf();
-    // sourceFile3.close();
-    // destinationFile3.close();
+                fill = fill + "\n<input type='text' v-model='formData." + column[i].name + "' v-on:change='validate" + swap + "' class='h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base'>\n";
+
+                fill = fill + "<div class='h-8 text-xs text-red-400 mr-2 flex items-center'>\n";
+                fill = fill + "{{ formValidate." + column[i].name + " }}\n";
+                fill = fill + "</div>\n";
+                fill = fill + "</div>\n";
+                fill = fill + " <!-- End Item -->\n\n";
+            }
+            data3.replace(data3.find("//xcolumn"), 9, fill);
+        }
+
+        destinationFile3 << data3 << "\n";
+    }
+    destinationFile3 << sourceFile3.rdbuf();
+    sourceFile3.close();
+    destinationFile3.close();
+}
+
+void create_js_route_dataservices(Element element, Column column[20])
+{
+
+    // Add APIs to DataServices
+    std::string sourcePath4 = "../resources/js/admin/shared/DataServices.js";
+    std::string destinationPath4 = "../resources/js/admin/shared/DataServices_swap.js";
+    std::ifstream sourceFile4(sourcePath4, std::ios::binary);
+    std::ofstream destinationFile4(destinationPath4, std::ios::binary);
+    std::string data4;
+
+    while (std::getline(sourceFile4, data4))
+    {
+        if (data4.find("//xapi") != std::string::npos)
+        {
+            string fill = "";
+            fill = fill + "// ============== " + element.model + " Part =======================\n";
+            fill = fill + "GetAll" + element.models + "(page,countPerPage";
+            for (int i = 0; i < element.columnCount; i++)
+            {
+                if (column[i].search == "y" || column[i].search == "Y")
+                {
+                    fill = fill + "," + column[i].name;
+                }
+            }
+            fill = fill + ") { \n";
+            fill = fill + "return axios.get('/admin/api/" + element.single + "?page=' + page + '&count=' + countPerPage";
+
+            for (int i = 0; i < element.columnCount; i++)
+            {
+                if (column[i].search == "y" || column[i].search == "Y")
+                {
+                    fill = fill + "+ '&" + column[i].name + "=' + " + column[i].name;
+                }
+            }
+            fill = fill + ");";
+            fill = fill + "\n}, \n\n";
+            // Delete
+            fill = fill + "Delete" + element.model + "(id){\n";
+            fill = fill + "return axios.delete('/admin/api/" + element.single + "/' + id);\n";
+            fill = fill + "}, \n";
+            // Get By Id
+            fill = fill + "Get" + element.model + "ById(id){\n";
+            fill = fill + "return axios.get('/admin/api/" + element.single + "/' + id);\n";
+            fill = fill + "}, \n";
+
+            //  Post New
+            fill = fill + "PostNew" + element.model + "(formData){\n";
+            fill = fill + "return axios.post('/admin/api/" + element.single + "' , formData);\n";
+            fill = fill + "}, \n";
+            //  Edit
+            fill = fill + "Edit" + element.model + "(id,formData){\n";
+            fill = fill + "return axios.put('/admin/api/" + element.single + "/' + id , formData);\n";
+            fill = fill + "}, \n";
+
+            fill = fill + "\n\n\n //xapi";
+
+            data4.replace(data4.find("//xapi"), 6, fill);
+        }
+        destinationFile4 << data4 << "\n";
+    }
+
+    destinationFile4 << sourceFile4.rdbuf();
+    sourceFile4.close();
+    destinationFile4.close();
+
+    // Swap
+    std::string sourcePath5 = "../resources/js/admin/shared/DataServices_swap.js";
+    std::string destinationPath5 = "../resources/js/admin/shared/DataServices.js";
+    std::ifstream sourceFile5(sourcePath5, std::ios::binary);
+    std::ofstream destinationFile5(destinationPath5, std::ios::binary);
+    std::string data5;
+    destinationFile5 << sourceFile5.rdbuf();
+    sourceFile5.close();
+    destinationFile5.close();
+
+    // Add To RouteJs File
+    std::string sourcePath6 = "../resources/js/admin/routes/routes.js";
+    std::string destinationPath6 = "../resources/js/admin/routes/routes_swap.js";
+    std::ifstream sourceFile6(sourcePath6, std::ios::binary);
+    std::ofstream destinationFile6(destinationPath6, std::ios::binary);
+    std::string data6;
+
+    while (std::getline(sourceFile6, data6))
+    {
+        if (data6.find("//ximport") != std::string::npos)
+        {
+            string fill = "";
+            fill = fill + "import " + element.models + " from '../pages/" + element.models + "/" + element.models + ".vue';\n";
+            fill = fill + "import " + element.model + " from '../pages/" + element.models + "/" + element.model + "/" + element.model + ".vue';\n";
+            fill = fill + "import Edit" + element.model + " from '../pages/" + element.models + "/Edit" + element.model + "/Edit" + element.model + ".vue';\n";
+            fill = fill + "import New" + element.model + " from '../pages/" + element.models + "/New" + element.model + "/New" + element.model + ".vue';\n";
+            fill = fill + "\n\n\n //ximport";
+
+            data6.replace(data6.find("//ximport"), 9, fill);
+        }
+
+        if (data6.find("//xroute") != std::string::npos)
+        {
+            string fill = "";
+            fill = fill + "{ \n";
+            fill = fill + "path: 'admin/" + element.single + "/new', \n";
+            fill = fill + "component: New" + element.model + " \n";
+            fill = fill + "}, \n";
+            fill = fill + "{ \n";
+            fill = fill + "path: 'admin/" + element.single + "', \n";
+            fill = fill + "component: " + element.models + " \n";
+            fill = fill + "}, \n";
+            fill = fill + "{ \n";
+            fill = fill + "path: 'admin/" + element.single + "/:id', \n";
+            fill = fill + "component: " + element.model + " \n";
+            fill = fill + "}, \n";
+            fill = fill + "{ \n";
+            fill = fill + "path: 'admin/" + element.single + "/:id/edit', \n";
+            fill = fill + "component: Edit" + element.model + " \n";
+            fill = fill + "}, \n";
+            fill = fill + "\n\n\n //xroute";
+
+            data6.replace(data6.find("//xroute"), 8, fill);
+        }
+        destinationFile6 << data6 << "\n";
+    }
+
+    destinationFile6 << sourceFile6.rdbuf();
+    sourceFile6.close();
+    destinationFile6.close();
+
+    // Swap
+    std::string sourcePath9 = "../resources/js/admin/routes/routes_swap.js";
+    std::string destinationPath9 = "../resources/js/admin/routes/routes.js";
+    std::ifstream sourceFile9(sourcePath9, std::ios::binary);
+    std::ofstream destinationFile9(destinationPath9, std::ios::binary);
+    std::string data9;
+    destinationFile9 << sourceFile9.rdbuf();
+    sourceFile9.close();
+    destinationFile9.close();
+
+    // Add To VueX Pages File
+    std::string sourcePath7 = "../resources/js/admin/store/index.js";
+    std::string destinationPath7 = "../resources/js/admin/store/index_swap.js";
+    std::ifstream sourceFile7(sourcePath7, std::ios::binary);
+    std::ofstream destinationFile7(destinationPath7, std::ios::binary);
+    std::string data7;
+
+    while (std::getline(sourceFile7, data7))
+    {
+        if (data7.find("//xlink") != std::string::npos)
+        {
+            string fill = "";
+            fill = fill + "{ \n";
+            fill = fill + "id: " + element.pageId + ",  \n";
+            fill = fill + "target: 1,  \n";
+            fill = fill + " name: 'ال" + element.arabic + "', \n";
+            fill = fill + "nameEn: '" + element.models + "', \n";
+            fill = fill + "role: 'RolePermissionsList', \n";
+            fill = fill + "url: '/" + element.single + "', \n";
+            fill = fill + "icon: 'fas fa-user-shield', \n";
+            fill = fill + "list: [ \n";
+            fill = fill + "{ \n";
+            fill = fill + "id: 1, \n";
+            fill = fill + "name: 'قائمة ال" + element.arabic + "', \n";
+            fill = fill + "nameEn: '" + element.models + " List', \n";
+            fill = fill + "role: 'Read" + element.model + "', \n";
+            fill = fill + "url: '/admin/" + element.single + "', \n";
+            fill = fill + "}, \n";
+            fill = fill + "{ \n";
+            fill = fill + "id: 1, \n";
+            fill = fill + "name: 'أضف " + element.arabicSingle + "', \n";
+            fill = fill + "nameEn: 'New " + element.models + "', \n";
+            fill = fill + "role: 'Create" + element.model + "', \n";
+            fill = fill + "url: '/admin/" + element.single + "/new', \n";
+            fill = fill + "}, \n";
+            fill = fill + "], \n";
+            fill = fill + "}, \n";
+            fill = fill + "\n\n //xlink";
+
+            data7.replace(data7.find("//xlink"), 7, fill);
+        }
+        destinationFile7 << data7 << "\n";
+    }
+
+    destinationFile7 << sourceFile7.rdbuf();
+    sourceFile7.close();
+    destinationFile7.close();
+
+    // Swap
+    std::string sourcePath8 = "../resources/js/admin/store/index_swap.js";
+    std::string destinationPath8 = "../resources/js/admin/store/index.js";
+    std::ifstream sourceFile8(sourcePath8, std::ios::binary);
+    std::ofstream destinationFile8(destinationPath8, std::ios::binary);
+    std::string data8;
+    destinationFile8 << sourceFile8.rdbuf();
+    sourceFile8.close();
+    destinationFile8.close();
 }

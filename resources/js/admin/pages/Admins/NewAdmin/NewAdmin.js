@@ -134,14 +134,14 @@ export default {
                 this.formValidate.phone = "لا يمكن ترك هذا الحقل فارغ";
                 return 1;
             }
-            if (this.formData.phone.trim().length < 5) {
+            if (this.formData.phone.trim().length < 9) {
                 this.formValidate.phone =
-                    "يجب ان يكون إسم الدخول 5 أحرف أو اكثر";
+                    "يجب ان يكون رقم الهاتف 9 أرقام أو اكثر";
                 return 1;
             }
             if (this.formData.phone.trim().length > 16) {
                 this.formValidate.phone =
-                    "يجب ان يكون إسم الدخول أقل من 16 حرف";
+                    "يجب ان يكون رقم الهاتف أقل من 16 رقم";
                 return 1;
             }
         },

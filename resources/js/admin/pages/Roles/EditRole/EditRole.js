@@ -23,7 +23,7 @@ export default {
         };
     },
     methods: {
-        reload:function () {
+        reload:function() {
             this.loadData();
         },
         loadData:function(){

@@ -1,0 +1,45 @@
+
+    <div class="w-auto md:p-8 p-4">
+        <!-- Inside Page -->
+
+        <div
+            class="w-full md:px-4 px-0 pb-8 pt-2 bg-white shadow-2 rounded-lg text-lg text-gray-600 font-medium"
+            v-if="loaded==200"
+        >
+            <!-- Table Header -->
+            <Single-Page-Header title="أضف xsinglearabic" url="/admin/xsingle/" urlLabel="قائمة الxarabic"></Single-Page-Header>
+            <!-- End Table Header -->
+
+
+            <!-- Grid -->
+            <div class="bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2">
+
+
+                //xcolumn
+        
+                
+            </div>
+            <!-- Grid -->
+
+
+
+
+                    <!-- Action Part -->
+        <div class="flex items-center h-20 mx-4">
+            <Btn-Submit-New-Item label="إضافة" :submit="addNewItem"></Btn-Submit-New-Item>
+        </div>
+        <!-- End Action Part -->
+            
+        </div>
+
+        <Empty-Box
+            v-if="loaded == 204"
+            message="لا يوجد xsinglearabic بهذا الرقم"
+        ></Empty-Box>
+
+        <Bad-Request v-if="loaded==400" :reload="reload" :message="errorMessage"></Bad-Request>
+        <No-Permission v-if="loaded==403" :message="errorMessage"></No-Permission>
+        <No-Internet v-if="loaded==404" :reload="reload"></No-Internet>
+    
+        <!-- End Inside Page -->
+    </div>

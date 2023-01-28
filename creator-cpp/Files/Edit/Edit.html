@@ -7,14 +7,14 @@
             v-if="loaded==200"
         >
             <!-- Table Header -->
-            <Single-Page-Header title="تعديل الدور" url="/admin/role/" urlLabel="أدوار المشرفين"></Single-Page-Header>
+            <Single-Page-Header title="تعديل بيانات الxsinglearabic" url="/admin/xsingle/" urlLabel="قائمة الxarabic"></Single-Page-Header>
             <!-- End Table Header -->
 
 
             <!-- Grid -->
             <div class="bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2">
                 <!-- Item -->
-                <div class="w-full px-4 py-4  JF-Flat">
+                <!-- <div class="w-full px-4 py-4  JF-Flat">
                     <div
                         class="h-9 flex items-center text-gray-500 mr-2 text-sm"
                     >
@@ -26,13 +26,14 @@
                     <div class="h-8 text-xs text-red-400 mr-2 flex items-center ">
                         {{ formValidate.name }}
                     </div>
-                </div>
+                </div> -->
                 <!-- Item -->
 
+                //xcolumn
 
 
-                
 
+        
                 
             </div>
             <!-- Grid -->
@@ -61,7 +62,7 @@
 
         <Empty-Box
             v-if="loaded == 204"
-            message="لا يوجد دور بهذا الرقم"
+            message="لا يوجد xsinglearabic بهذا الرقم"
         ></Empty-Box>
 
         <Bad-Request v-if="loaded==400" :reload="reload" :message="errorMessage"></Bad-Request>

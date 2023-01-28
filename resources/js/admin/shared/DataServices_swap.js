@@ -83,23 +83,22 @@ export default {
 
 
 
-
- // ============== Member Part =======================
-GetAllMembers(page,countPerPage,first_name,last_name,age) { 
-return axios.get('/admin/api/member?page=' + page + '&count=' + countPerPage+ '&first_name=' + first_name+ '&last_name=' + last_name+ '&age=' + age);
+ // ============== Plan Part =======================
+GetAllPlans(page,countPerPage,name,qouta,price) { 
+return axios.get('/admin/api/plan?page=' + page + '&count=' + countPerPage+ '&name=' + name+ '&qouta=' + qouta+ '&price=' + price);
 }, 
 
-DeleteMember(id){
-return axios.delete('/admin/api/member/' + id);
+DeletePlan(id){
+return axios.delete('/admin/api/plan/' + id);
 }, 
-GetMemberById(id){
-return axios.get('/admin/api/member/' + id);
+GetPlanById(id){
+return axios.get('/admin/api/plan/' + id);
 }, 
-PostNewMember(formData){
-return axios.post('/admin/api/member' + formData);
+PostNewPlan(formData){
+return axios.post('/admin/api/plan' , formData);
 }, 
-EditMember(id,formData){
-return axios.put('/admin/api/member/' + id , formData);
+EditPlan(id,formData){
+return axios.put('/admin/api/plan/' + id , formData);
 }, 
 
 

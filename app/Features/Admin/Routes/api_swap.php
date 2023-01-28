@@ -10,7 +10,7 @@ use App\Features\Admin\Controllers\AuthController;
 use App\Features\Admin\Controllers\AdminController;
 
 
-use App\Features\Admin\Controllers\MemberController; 
+use App\Features\Admin\Controllers\PlanController; 
 
 
  //ximport
@@ -79,23 +79,23 @@ Route::middleware(['auth:sanctum', 'type.admin'])->group(function () {
 
 
 
-
-
-
-    # # # # # # # # # # # # # # # # #  members  # # # # # # # # # # # # # # # # #
-Route::controller(MemberController::class)->prefix('member')->group( 
+    # # # # # # # # # # # # # # # # #  plans  # # # # # # # # # # # # # # # # #
+Route::controller(PlanController::class)->prefix('plan')->group( 
 function () { 
-Route::get('/', [MemberController::class, 'index'])->middleware('check.role:ReadMember'); 
-Route::delete('/{id}', [MemberController::class, 'delete'])->middleware('check.role:DeleteMember'); 
-Route::get('/{id}', [MemberController::class, 'show'])->middleware('check.role:ReadMember'); 
-Route::put('/{id}', [MemberController::class, 'edit'])->middleware('check.role:EditMember'); 
-Route::post('/', [MemberController::class, 'create'])->middleware('check.role:CreateMember'); 
+Route::get('/', [PlanController::class, 'index'])->middleware('check.role:ReadPlan'); 
+Route::delete('/{id}', [PlanController::class, 'delete'])->middleware('check.role:DeletePlan'); 
+Route::get('/{id}', [PlanController::class, 'show'])->middleware('check.role:ReadPlan'); 
+Route::put('/{id}', [PlanController::class, 'edit'])->middleware('check.role:EditPlan'); 
+Route::post('/', [PlanController::class, 'create'])->middleware('check.role:CreatePlan'); 
 } 
 ); 
-# # # # # # # # # # # # # # # # # End members  # # # # # # # # # # # # # # #  
+# # # # # # # # # # # # # # # # # End plans  # # # # # # # # # # # # # # #  
  
 #xRoute 
  
+
+
+
 
 
 

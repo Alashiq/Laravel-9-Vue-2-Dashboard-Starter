@@ -4,13 +4,15 @@ export default {
         return {
             mainItem: [],
             formData: {
-                first_name: '',
-                last_name: '',
+                name: '',
+qouta: '',
+price: '',
 
             },
             formValidate: {
-                first_name: '',
-                last_name: '',
+                name: '',
+qouta: '',
+price: '',
 
             },
             loaded: 0,
@@ -24,84 +26,87 @@ export default {
         };
     },
     methods: {
-        reload: function () {
+        reload:function () {
             this.loadData();
         },
-        loadData: function () {
+        loadData:function(){
             this.$loading.Start();
             this.$http
-                .GetMemberById(this.$route.params.id)
+                .GetPlanById(this.$route.params.id)
                 .then(response => {
                     this.$loading.Stop();
                     if (response.status == 200) {
                         this.mainItem = response.data.data;
-                        this.formData.first_name = response.data.data.first_name;
-                        this.formData.last_name = response.data.data.last_name;
+                        this.formData.name=response.data.data.name;
+this.formData.qouta=response.data.data.qouta;
+this.formData.price=response.data.data.price;
 
                         this.loaded = 200;
                         this.$alert.Success(response.data.message);
                     } else if (response.status == 204) {
                         this.loaded = 204;
-                        this.$alert.Empty("هذه الاستاذ غير متوفر");
+                        this.$alert.Empty("هذه الباقة غير متوفر");
                     }
                 })
                 .catch(error => {
                     this.$loading.Stop();
                     if (error.response.status == 400) {
-                        this.errorMessage = error.response.data.message;
+                        this.errorMessage=error.response.data.message;
                         this.loaded = 400;
                         this.$alert.BadRequest(error.response.data.message);
                     } else if (error.response.status == 403) {
-                        this.errorMessage = error.response.data.message;
+                        this.errorMessage=error.response.data.message;
                         this.loaded = 403;
                         this.$alert.BadRequest(error.response.data.message);
                     } else if (error.response.status == 401) {
                         this.$alert.NotAuth();
                     } else {
-                        this.errorMessage = "حدث خطأ ما";
+                        this.errorMessage="حدث خطأ ما";
                         this.loaded = 404;
                         this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
                     }
                 });
         },
         editMainItem: function (id) {
-            this.validateFirst_name();
-            if (this.formValidate.first_name != '') return 0;
-            this.validateLast_name();
-            if (this.formValidate.last_name != '') return 0;
+            this.validateName();
+ if (this.formValidate.name != '') return 0;
+this.validateQouta();
+ if (this.formValidate.qouta != '') return 0;
+this.validatePrice();
+ if (this.formValidate.price != '') return 0;
 
             // this.validateName();
             // if (this.formValidate.name != "") return 0;
 
-            this.$loading.Start();
+        this.$loading.Start();
             this.$http
-                .EditMember(this.$route.params.id, this.formData)
-                .then(response => {
-                    this.$loading.Stop();
-                    if (response.status == 200) {
-                        this.$alert.Success(response.data.message);
-                    } else if (response.status == 204) {
-                        this.mainItem = [];
-                        this.loaded = 204;
-                        this.$alert.Empty(
-                            "لم يعد هذا الاستاذ متوفرة, قد يكون شخص أخر قام بحذفه"
-                        );
-                    }
-                    else if (response.status == 400) {
-                        this.mainItem = [];
-                        this.loaded = 204;
-                        this.$alert.Empty(
-                            response.data.messageresponse.data.message
-                        );
-                    }
-                })
-                .catch(error => {
-                    this.$loading.Stop();
-                    this.$alert.BadRequest(error.response.data.message);
-                });
+            .EditPlan(this.$route.params.id,this.formData)
+            .then(response => {
+                this.$loading.Stop();
+                if (response.status == 200) {
+                    this.$alert.Success(response.data.message);
+                } else if (response.status == 204) {
+                    this.mainItem = [];
+                    this.loaded = 204;
+                    this.$alert.Empty(
+                        "لم يعد هذا الباقة متوفرة, قد يكون شخص أخر قام بحذفه"
+                    );
+                }
+                else if (response.status == 400) {
+                    this.mainItem = [];
+                    this.loaded = 204;
+                    this.$alert.Empty(
+                        response.data.messageresponse.data.message
+                    );
+                }
+            })
+            .catch(error => {
+                this.$loading.Stop();
+                this.$alert.BadRequest(error.response.data.message);
+            });
 
         },
-        validateName: function () {
+        validateName: function() {
             this.formValidate.name = "";
             if (this.formData.name.trim() == "") {
                 this.formValidate.name = "لا يمكن ترك هذا الحقل فارغ";
@@ -116,8 +121,9 @@ export default {
                 return 1;
             }
         },
-        validateFirst_name: function () { return 1; },
-        validateLast_name: function () { return 1; },
+        validateName: function() {return 1;},
+validateQouta: function() {return 1;},
+validatePrice: function() {return 1;},
 
     },
     mounted() {

@@ -4129,6 +4129,660 @@ render._withStripped = true;
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Plans/EditPlan/EditPlan.html?vue&type=template&id=2273e571&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Plans/EditPlan/EditPlan.html?vue&type=template&id=2273e571&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "w-auto md:p-8 p-4"
+  }, [_vm.loaded == 200 ? _c("div", {
+    staticClass: "w-full md:px-4 px-0 pb-8 pt-2 bg-white shadow-2 rounded-lg text-lg text-gray-600 font-medium"
+  }, [_c("Single-Page-Header", {
+    attrs: {
+      title: "تعديل بيانات الباقة",
+      url: "/admin/plan/",
+      urlLabel: "قائمة الباقات"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2"
+  }, [_c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nإسمـالباقة\n")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.name,
+      expression: "formData.name"
+    }],
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.formData.name
+    },
+    on: {
+      change: _vm.validateName,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.formData, "name", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n" + _vm._s(_vm.formValidate.name) + "\n")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nالكوتة\n")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.qouta,
+      expression: "formData.qouta"
+    }],
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.formData.qouta
+    },
+    on: {
+      change: _vm.validateQouta,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.formData, "qouta", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n" + _vm._s(_vm.formValidate.qouta) + "\n")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nالسعر\n")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.price,
+      expression: "formData.price"
+    }],
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.formData.price
+    },
+    on: {
+      change: _vm.validatePrice,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.formData, "price", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n" + _vm._s(_vm.formValidate.price) + "\n")])])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full lg:h-20 mt-12 lg:flex items-center justify-start text-sm cairo"
+  }, [_c("div", {
+    staticClass: "h-12 px-6 mx-4 my-2 bg-red-400 hover:bg-red-500 flex items-center justify-center text-white shadow-lg rounded cursor-pointer",
+    on: {
+      click: _vm.editMainItem
+    }
+  }, [_c("i", {
+    staticClass: "fa-solid fa-check ml-2"
+  }), _vm._v("\n                حفظ\n            ")])])], 1) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box", {
+    attrs: {
+      message: "لا يوجد باقة بهذا الرقم"
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload,
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 403 ? _c("No-Permission", {
+    attrs: {
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("No-Internet", {
+    attrs: {
+      reload: _vm.reload
+    }
+  }) : _vm._e()], 1);
+};
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Plans/NewPlan/NewPlan.html?vue&type=template&id=381848e5&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Plans/NewPlan/NewPlan.html?vue&type=template&id=381848e5&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "w-auto md:p-8 p-4"
+  }, [_vm.loaded == 200 ? _c("div", {
+    staticClass: "w-full md:px-4 px-0 pb-8 pt-2 bg-white shadow-2 rounded-lg text-lg text-gray-600 font-medium"
+  }, [_c("Single-Page-Header", {
+    attrs: {
+      title: "أضف باقة",
+      url: "/admin/plan/",
+      urlLabel: "قائمة الباقات"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2"
+  }, [_c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nإسمـالباقة\n")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.name,
+      expression: "formData.name"
+    }],
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.formData.name
+    },
+    on: {
+      change: _vm.validateName,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.formData, "name", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n" + _vm._s(_vm.formValidate.name) + "\n")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nالكوتة\n")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.qouta,
+      expression: "formData.qouta"
+    }],
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.formData.qouta
+    },
+    on: {
+      change: _vm.validateQouta,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.formData, "qouta", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n" + _vm._s(_vm.formValidate.qouta) + "\n")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nالسعر\n")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.price,
+      expression: "formData.price"
+    }],
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.formData.price
+    },
+    on: {
+      change: _vm.validatePrice,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.formData, "price", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n" + _vm._s(_vm.formValidate.price) + "\n")])])]), _vm._v(" "), _c("div", {
+    staticClass: "flex items-center h-20 mx-4"
+  }, [_c("Btn-Submit-New-Item", {
+    attrs: {
+      label: "إضافة",
+      submit: _vm.addNewItem
+    }
+  })], 1)], 1) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box", {
+    attrs: {
+      message: "لا يوجد باقة بهذا الرقم"
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload,
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 403 ? _c("No-Permission", {
+    attrs: {
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("No-Internet", {
+    attrs: {
+      reload: _vm.reload
+    }
+  }) : _vm._e()], 1);
+};
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Plans/Plan/Plan.html?vue&type=template&id=85d9999e&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Plans/Plan/Plan.html?vue&type=template&id=85d9999e&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "w-auto md:p-8 p-4"
+  }, [_vm.loaded == 200 ? _c("div", {
+    staticClass: "w-full md:px-4 px-0 pb-8 pt-2 bg-white shadow-2 rounded-lg text-lg text-gray-600 font-medium"
+  }, [_c("Single-Page-Header", {
+    attrs: {
+      title: "بيانات الباقة",
+      url: "/admin/plan/",
+      urlLabel: "قائمة الباقات"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2 JF-Flat"
+  }, [_c("div", {
+    staticClass: "w-full px-4 py-4"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nإسمـالباقة\n")]), _vm._v(" "), _c("div", {
+    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
+  }, [_vm._v("\n" + _vm._s(_vm.mainItem.name) + "\n")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nالكوتة\n")]), _vm._v(" "), _c("div", {
+    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
+  }, [_vm._v("\n" + _vm._s(_vm.mainItem.qouta) + "\n")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nالسعر\n")]), _vm._v(" "), _c("div", {
+    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
+  }, [_vm._v("\n" + _vm._s(_vm.mainItem.price) + "\n")])])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full lg:h-20 mt-12 lg:flex items-center justify-start text-sm cairo"
+  }, [_c("router-link", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.$parent.checkPermission("EditPlan") == true,
+      expression: "$parent.checkPermission('EditPlan') == true"
+    }],
+    staticClass: "h-12 px-6 mx-4 bg-gray-400 hover:bg-gray-500 flex items-center justify-center text-white shadow-lg rounded cursor-pointer",
+    attrs: {
+      to: "/admin/plan/" + _vm.$route.params.id + "/edit"
+    }
+  }, [_c("i", {
+    staticClass: "fa-solid fa-pen-to-square ml-2"
+  }), _vm._v("\n                    تعديل \n                ")]), _vm._v(" "), _c("div", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.$parent.checkPermission("DeletePlan") == true,
+      expression: "$parent.checkPermission('DeletePlan') == true"
+    }],
+    staticClass: "h-12 px-6 mx-4 my-2 bg-red-400 hover:bg-red-500 flex items-center justify-center text-white shadow-lg rounded cursor-pointer",
+    on: {
+      click: _vm.deleteMainItem
+    }
+  }, [_c("i", {
+    staticClass: "far fa-trash-alt ml-2"
+  }), _vm._v("\n                حذف الباقة\n            ")])], 1)], 1) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box", {
+    attrs: {
+      message: "لا يوجد دور بهذا الرقم"
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload,
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 403 ? _c("No-Permission", {
+    attrs: {
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("No-Internet", {
+    attrs: {
+      reload: _vm.reload
+    }
+  }) : _vm._e()], 1);
+};
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Plans/Plans.html?vue&type=template&id=10a4b2a8&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Plans/Plans.html?vue&type=template&id=10a4b2a8&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "w-auto md:p-8 p-4",
+    attrs: {
+      id: "0"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.openOptions($event);
+      }
+    }
+  }, [_c("div", {
+    staticClass: "flex justify-between w-full h-16 items-center"
+  }, [_c("div", {
+    staticClass: "text-2xl font-semibold cairo text-gray-600"
+  }, [_vm._v("\n            قائمة الباقات\n        ")]), _vm._v(" "), _c("router-link", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.$parent.checkPermission("CreatePlan") == true,
+      expression: "$parent.checkPermission('CreatePlan') == true"
+    }],
+    staticClass: "rounded px-4 flex items-center cairo font-medium add-btn",
+    attrs: {
+      to: "/admin/plan/new"
+    }
+  }, [_c("span", {
+    staticClass: "h-12 flex items-center"
+  }, [_c("i", {
+    staticClass: "fas fa-plus text-xl"
+  }), _vm._v(" "), _c("p", {
+    staticClass: "mr-3 md:block hidden"
+  }, [_vm._v("\n                 أضف باقة\n             ")])])])], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "flex flex-wrap pb-5 px-4 bg-white border rounded"
+  }, [_c("div", {
+    staticClass: "xl:w-1/4 lg:w-1/3 md:w-1/2 w-full px-2 mt-4"
+  }, [_c("div", {
+    staticClass: "text-gray-400 text-sm cairo h-8 flex items-center mr-2"
+  }, [_vm._v("إسمـالباقة")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.nameSrh,
+      expression: "nameSrh"
+    }],
+    staticClass: "w-full h-12 border border-gray-300 rounded outline-green-600 cairo placeholder:text-sm px-4",
+    attrs: {
+      type: "text",
+      placeholder: "إسمـالباقة"
+    },
+    domProps: {
+      value: _vm.nameSrh
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.nameSrh = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "xl:w-1/4 lg:w-1/3 md:w-1/2 w-full px-2 mt-4"
+  }, [_c("div", {
+    staticClass: "text-gray-400 text-sm cairo h-8 flex items-center mr-2"
+  }, [_vm._v("الكوتة")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.qoutaSrh,
+      expression: "qoutaSrh"
+    }],
+    staticClass: "w-full h-12 border border-gray-300 rounded outline-green-600 cairo placeholder:text-sm px-4",
+    attrs: {
+      type: "text",
+      placeholder: "الكوتة"
+    },
+    domProps: {
+      value: _vm.qoutaSrh
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.qoutaSrh = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "xl:w-1/4 lg:w-1/3 md:w-1/2 w-full px-2 mt-4"
+  }, [_c("div", {
+    staticClass: "text-gray-400 text-sm cairo h-8 flex items-center mr-2"
+  }, [_vm._v("السعر")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.priceSrh,
+      expression: "priceSrh"
+    }],
+    staticClass: "w-full h-12 border border-gray-300 rounded outline-green-600 cairo placeholder:text-sm px-4",
+    attrs: {
+      type: "text",
+      placeholder: "السعر"
+    },
+    domProps: {
+      value: _vm.priceSrh
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.priceSrh = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "xl:w-1/4 lg:w-1/3 md:w-1/2 px-2 mt-4 flex items-center justify-center"
+  }, [_c("div", {
+    staticClass: "h-10 mt-8 shadow rounded w-28 add-btn flex items-center justify-center text-white cairo",
+    on: {
+      click: function click($event) {
+        return _vm.loadData(1);
+      }
+    }
+  }, [_vm._v("\n                بحث\n            ")]), _vm._v(" "), _c("div", {
+    staticClass: "h-10 mt-8 shadow-lg rounded w-24 bg-gray-400 mr-3 text-white cairo flex items-center justify-center",
+    on: {
+      click: function click($event) {
+        return _vm.clearSearch();
+      }
+    }
+  }, [_vm._v("\n                تصفير\n            ")])])]), _vm._v(" "), _vm.loaded == 200 ? _c("div", [_c("table", {
+    staticClass: "w-full"
+  }, [_vm._m(1), _vm._v(" "), _vm._l(_vm.mainList, function (item, index) {
+    return _c("tr", {
+      key: index,
+      staticClass: "h-24 bg-white shadow-2 rounded-lg text-base JF-Flat text-gray-500 font-medium hover:bg-gray-50"
+    }, [_c("td", {
+      staticClass: "w-12 text-center rounded-r-lg"
+    }, [_vm._v(_vm._s(item.id))]), _vm._v(" "), _c("td", {
+      staticClass: "table-cell"
+    }, [_vm._v(" " + _vm._s(item.name))]), _c("td", {
+      staticClass: "table-cell"
+    }, [_vm._v(" " + _vm._s(item.qouta))]), _c("td", {
+      staticClass: "table-cell"
+    }, [_vm._v(" " + _vm._s(item.price))]), _vm._v(" "), _c("td", {
+      staticClass: "rounded-l-lg h-20 flex items-center justify-center"
+    }, [_c("div", {
+      staticClass: "flex items-start justify-center mx-auto"
+    }, [_c("i", {
+      staticClass: "fas fa-ellipsis-v text-gray-500 text-xl px-4 flex pt-2 justify-center",
+      attrs: {
+        id: item.id
+      },
+      on: {
+        click: function click($event) {
+          return _vm.openOptions($event);
+        }
+      }
+    }), _vm._v(" "), item.id == _vm.optionId ? _c("div", {
+      staticClass: "py-2 px-2 w-32 bg-white rounded-lg absolute text-gray-600 text-sm cairo",
+      staticStyle: {
+        "box-shadow": "rgb(145 158 171 / 24%) 0px 0px 2px 0px, rgb(145 158 171 / 24%) -20px 20px 40px -4px"
+      }
+    }, [_c("router-link", {
+      attrs: {
+        to: "/admin/plan/" + item.id
+      }
+    }, [_c("div", {
+      staticClass: "h-8 w-auto px-2 rounded-lg hover:bg-gray-100 flex items-center justify-start"
+    }, [_c("i", {
+      staticClass: "fas fa-eye"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "mr-2"
+    }, [_vm._v("\n                                        عرض\n                                    ")]), _vm._v(" "), _c("div")])]), _vm._v(" "), _c("router-link", {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: _vm.$parent.checkPermission("EditPlan") == true,
+        expression: "$parent.checkPermission('EditPlan') == true"
+      }],
+      attrs: {
+        to: "/admin/plan/" + item.id + "/edit"
+      }
+    }, [_c("div", {
+      staticClass: "h-8 w-auto px-2 rounded-lg hover:bg-gray-100 flex items-center justify-start"
+    }, [_c("i", {
+      staticClass: "fas fa-edit"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "mr-2"
+    }, [_vm._v("\n                                        تعديل\n                                    ")]), _vm._v(" "), _c("div")])]), _vm._v(" "), _c("div", {
+      staticClass: "h-px border border-dashed border-gray-200 w-full my-1"
+    }), _vm._v(" "), _c("div", {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: _vm.$parent.checkPermission("DeletePlan") == true,
+        expression: "$parent.checkPermission('DeletePlan') == true"
+      }],
+      staticClass: "h-8 w-auto px-2 rounded-lg hover:bg-gray-100 flex items-center justify-start text-red-500",
+      on: {
+        click: function click($event) {
+          return _vm.deleteMainItem(item.id);
+        }
+      }
+    }, [_c("i", {
+      staticClass: "far fa-trash-alt"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "mr-2"
+    }, [_vm._v("\n                                    حذف\n                                ")]), _vm._v(" "), _c("div")])], 1) : _vm._e()])])]);
+  })], 2), _vm._v(" "), _c("Pagination-Bar", {
+    attrs: {
+      itemTo: _vm.itemTo,
+      itemFrom: _vm.itemFrom,
+      totalRows: _vm.totalRows,
+      pageId: _vm.pageId,
+      lastPage: _vm.lastPage,
+      moveToNext: _vm.moveToNext,
+      moveToPrevius: _vm.moveToPrevius,
+      changePerPage: _vm.changePerPage
+    }
+  })], 1) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box") : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload,
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 403 ? _c("No-Permission", {
+    attrs: {
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("No-Internet", {
+    attrs: {
+      reload: _vm.reload
+    }
+  }) : _vm._e()], 1);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "flex justify-between my-8"
+  }, [_c("div", {
+    staticClass: "border rounded font-semibold cairo flex bg-center text-gray-700"
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("tr", {
+    staticClass: "h-12 text-lg cairo font-semibold text-gray-600"
+  }, [_c("td", {
+    staticClass: "w-12 text-center"
+  }, [_vm._v("#")]), _vm._v(" "), _c("td", {
+    staticClass: "table-cell"
+  }, [_vm._v("إسمـالباقة")]), _c("td", {
+    staticClass: "table-cell"
+  }, [_vm._v("الكوتة")]), _c("td", {
+    staticClass: "table-cell"
+  }, [_vm._v("السعر")]), _vm._v(" "), _c("td", {
+    staticClass: "rounded-l-lg text-center"
+  }, [_vm._v("الإجراءات")])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Profile/Profile.html?vue&type=template&id=1feb04ea&":
 /*!************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Profile/Profile.html?vue&type=template&id=1feb04ea& ***!
@@ -5833,12 +6487,12 @@ __webpack_require__.r(__webpack_exports__);
         this.formValidate.phone = "لا يمكن ترك هذا الحقل فارغ";
         return 1;
       }
-      if (this.formData.phone.trim().length < 5) {
-        this.formValidate.phone = "يجب ان يكون إسم الدخول 5 أحرف أو اكثر";
+      if (this.formData.phone.trim().length < 9) {
+        this.formValidate.phone = "يجب ان يكون رقم الهاتف 9 أرقام أو اكثر";
         return 1;
       }
       if (this.formData.phone.trim().length > 16) {
-        this.formValidate.phone = "يجب ان يكون إسم الدخول أقل من 16 حرف";
+        this.formValidate.phone = "يجب ان يكون رقم الهاتف أقل من 16 رقم";
         return 1;
       }
     },
@@ -6217,6 +6871,551 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       });
     }
   },
+  created: function created() {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Plans/EditPlan/EditPlan.js?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Plans/EditPlan/EditPlan.js?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+var _methods;
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      mainItem: [],
+      formData: {
+        name: '',
+        qouta: '',
+        price: ''
+      },
+      formValidate: {
+        name: '',
+        qouta: '',
+        price: ''
+      },
+      loaded: 0,
+      // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+      // Side Menu
+      sideMenuPage: {
+        main: 5,
+        sub: 3
+      },
+      errorMessage: "حدث خطأ ما"
+    };
+  },
+  methods: (_methods = {
+    reload: function reload() {
+      this.loadData();
+    },
+    loadData: function loadData() {
+      var _this = this;
+      this.$loading.Start();
+      this.$http.GetPlanById(this.$route.params.id).then(function (response) {
+        _this.$loading.Stop();
+        if (response.status == 200) {
+          _this.mainItem = response.data.data;
+          _this.formData.name = response.data.data.name;
+          _this.formData.qouta = response.data.data.qouta;
+          _this.formData.price = response.data.data.price;
+          _this.loaded = 200;
+          _this.$alert.Success(response.data.message);
+        } else if (response.status == 204) {
+          _this.loaded = 204;
+          _this.$alert.Empty("هذه الباقة غير متوفر");
+        }
+      })["catch"](function (error) {
+        _this.$loading.Stop();
+        if (error.response.status == 400) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 400;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 403) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 403;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 401) {
+          _this.$alert.NotAuth();
+        } else {
+          _this.errorMessage = "حدث خطأ ما";
+          _this.loaded = 404;
+          _this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+        }
+      });
+    },
+    editMainItem: function editMainItem(id) {
+      var _this2 = this;
+      this.validateName();
+      if (this.formValidate.name != '') return 0;
+      this.validateQouta();
+      if (this.formValidate.qouta != '') return 0;
+      this.validatePrice();
+      if (this.formValidate.price != '') return 0;
+
+      // this.validateName();
+      // if (this.formValidate.name != "") return 0;
+
+      this.$loading.Start();
+      this.$http.EditPlan(this.$route.params.id, this.formData).then(function (response) {
+        _this2.$loading.Stop();
+        if (response.status == 200) {
+          _this2.$alert.Success(response.data.message);
+        } else if (response.status == 204) {
+          _this2.mainItem = [];
+          _this2.loaded = 204;
+          _this2.$alert.Empty("لم يعد هذا الباقة متوفرة, قد يكون شخص أخر قام بحذفه");
+        } else if (response.status == 400) {
+          _this2.mainItem = [];
+          _this2.loaded = 204;
+          _this2.$alert.Empty(response.data.messageresponse.data.message);
+        }
+      })["catch"](function (error) {
+        _this2.$loading.Stop();
+        _this2.$alert.BadRequest(error.response.data.message);
+      });
+    },
+    validateName: function validateName() {
+      this.formValidate.name = "";
+      if (this.formData.name.trim() == "") {
+        this.formValidate.name = "لا يمكن ترك هذا الحقل فارغ";
+        return 1;
+      }
+      if (this.formData.name.trim().length < 5) {
+        this.formValidate.name = "يجب ان يكون الحقل 5 أحرف أو اكثر";
+        return 1;
+      }
+      if (this.formData.name.trim().length > 16) {
+        this.formValidate.name = "يجب ان يكون الحقل أقل من 16 حرف";
+        return 1;
+      }
+    }
+  }, _defineProperty(_methods, "validateName", function validateName() {
+    return 1;
+  }), _defineProperty(_methods, "validateQouta", function validateQouta() {
+    return 1;
+  }), _defineProperty(_methods, "validatePrice", function validatePrice() {
+    return 1;
+  }), _methods),
+  mounted: function mounted() {
+    this.$store.commit("activePage", this.sideMenuPage);
+    this.loadData();
+  },
+  computed: {},
+  created: function created() {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Plans/NewPlan/NewPlan.js?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Plans/NewPlan/NewPlan.js?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      mainItem: [],
+      formData: {
+        name: '',
+        qouta: '',
+        price: ''
+      },
+      formValidate: {
+        name: '',
+        qouta: '',
+        price: ''
+      },
+      loaded: 0,
+      // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+      // Side Menu
+      sideMenuPage: {
+        main: 5,
+        sub: 3
+      },
+      errorMessage: "حدث خطأ ما"
+    };
+  },
+  methods: {
+    reload: function reload() {
+      this.loadData();
+    },
+    loadData: function loadData() {
+      this.$loading.Start();
+      this.loaded = 200;
+      this.$loading.Stop();
+      // this.$http
+      //     .GetPlanNeeds()
+      //     .then(response => {
+      //         this.$loading.Stop();
+      //         if (response.status == 200) {
+      //             this.mainItem = response.data.data;
+      //             //this.formData.name=response.data.data.name;
+      //this.formData.qouta=response.data.data.qouta;
+      //this.formData.price=response.data.data.price;
+
+      //             this.loaded = 200;
+      //             this.$alert.Success(response.data.message);
+      //         } else if (response.status == 204) {
+      //             this.loaded = 204;
+      //             this.$alert.Empty("هذه الباقة غير متوفر");
+      //         }
+      //     })
+      //     .catch(error => {
+      //         this.$loading.Stop();
+      //         if (error.response.status == 400) {
+      //             this.errorMessage=error.response.data.message;
+      //             this.loaded = 400;
+      //             this.$alert.BadRequest(error.response.data.message);
+      //         } else if (error.response.status == 403) {
+      //             this.errorMessage=error.response.data.message;
+      //             this.loaded = 403;
+      //             this.$alert.BadRequest(error.response.data.message);
+      //         } else if (error.response.status == 401) {
+      //             this.$alert.NotAuth();
+      //         } else {
+      //             this.errorMessage="حدث خطأ ما";
+      //             this.loaded = 404;
+      //             this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+      //         }
+      //     });
+    },
+
+    addNewItem: function addNewItem() {
+      var _this = this;
+      this.validateName();
+      if (this.formValidate.name != '') return 0;
+      this.validateQouta();
+      if (this.formValidate.qouta != '') return 0;
+      this.validatePrice();
+      if (this.formValidate.price != '') return 0;
+      this.$loading.Start();
+      this.$http.PostNewPlan(this.formData).then(function (response) {
+        _this.$loading.Stop();
+        if (response.status == 200) {
+          _this.$alert.Success(response.data.message);
+        } else if (response.status == 204) {
+          _this.mainItem = [];
+          _this.loaded = 204;
+          _this.$alert.Empty("لم يعد هذا الباقة متوفرة, قد يكون شخص أخر قام بحذفه");
+        } else if (response.status == 400) {
+          _this.mainItem = [];
+          _this.loaded = 204;
+          _this.$alert.Empty(response.data.messageresponse.data.message);
+        }
+      })["catch"](function (error) {
+        _this.$loading.Stop();
+        _this.$alert.BadRequest(error.response.data.message);
+      });
+    },
+    validateName: function validateName() {
+      return 1;
+    },
+    validateQouta: function validateQouta() {
+      return 1;
+    },
+    validatePrice: function validatePrice() {
+      return 1;
+    }
+  },
+  mounted: function mounted() {
+    this.$store.commit("activePage", this.sideMenuPage);
+    this.loadData();
+  },
+  computed: {},
+  created: function created() {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Plans/Plan/Plan.js?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Plans/Plan/Plan.js?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      mainItem: [],
+      loaded: 0,
+      // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+      // Side Menu
+      sideMenuPage: {
+        main: 5,
+        sub: 3
+      },
+      errorMessage: "حدث خطأ ما"
+    };
+  },
+  methods: {
+    reload: function reload() {
+      this.loadData();
+    },
+    loadData: function loadData() {
+      var _this = this;
+      this.$loading.Start();
+      this.$http.GetPlanById(this.$route.params.id).then(function (response) {
+        _this.$loading.Stop();
+        if (response.status == 200) {
+          _this.mainItem = response.data.data;
+          _this.loaded = 200;
+          _this.$alert.Success(response.data.message);
+        } else if (response.status == 204) {
+          _this.loaded = 204;
+          _this.$alert.Empty("هذه الباقة غير متوفر");
+        }
+      })["catch"](function (error) {
+        _this.$loading.Stop();
+        if (error.response.status == 400) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 400;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 403) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 403;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 401) {
+          _this.$alert.NotAuth();
+        } else {
+          _this.errorMessage = "حدث خطأ ما";
+          _this.loaded = 404;
+          _this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+        }
+      });
+    },
+    deleteMainItem: function deleteMainItem(id) {
+      var _this2 = this;
+      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+        title: "هل أنت متأكد",
+        text: "هل أنت متأكد من أنك تريد حذف هذا الباقة !",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#16a085",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "نعم حذف",
+        cancelButtonText: "إلغاء"
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          _this2.$loading.Start();
+          _this2.$http.DeletePlan(_this2.$route.params.id).then(function (response) {
+            _this2.$loading.Stop();
+            if (response.status == 200) {
+              _this2.mainItem = [];
+              _this2.loaded = 204;
+              _this2.$alert.Success(response.data.message);
+            } else if (response.status == 204) {
+              _this2.mainItem = [];
+              _this2.loaded = 204;
+              _this2.$alert.Empty("لم يعد هذا الباقة متوفرة, قد يكون شخص أخر قام بحذفه");
+            } else if (response.status == 400) {
+              _this2.mainItem = [];
+              _this2.loaded = 204;
+              _this2.$alert.Empty(response.data.messageresponse.data.message);
+            }
+          })["catch"](function (error) {
+            _this2.$loading.Stop();
+            _this2.$alert.BadRequest(error.response.data.message);
+          });
+        }
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.$store.commit("activePage", this.sideMenuPage);
+    this.loadData();
+  },
+  computed: {},
+  created: function created() {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Plans/Plans.js?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Plans/Plans.js?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      mainList: [],
+      loaded: 0,
+      // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+      tagId: null,
+      //null =>All ,  1 => Active , 0 =>Not Active , 2=>Banned 
+      pageId: 1,
+      countPerPage: 5,
+      lastPage: 0,
+      totalRows: 0,
+      itemFrom: 0,
+      itemTo: 0,
+      // Search 
+      nameSrh: '',
+      qoutaSrh: '',
+      priceSrh: '',
+      // UI
+      optionId: 0,
+      // Side Menu
+      sideMenuPage: {
+        main: 5,
+        sub: 3
+      },
+      errorMessage: "حدث خطأ ما"
+    };
+  },
+  methods: {
+    reload: function reload() {
+      this.loadData(this.pageId);
+    },
+    loadData: function loadData(page) {
+      var _this = this;
+      this.pageId = page;
+      this.$loading.Start();
+      this.$http.GetAllPlans(this.pageId, this.countPerPage, this.nameSrh, this.qoutaSrh, this.priceSrh).then(function (response) {
+        _this.$loading.Stop();
+        if (response.status == 200) {
+          _this.mainList = response.data.data.data;
+          _this.lastPage = response.data.data.last_page;
+          _this.totalRows = response.data.data.total;
+          _this.itemFrom = response.data.data.from;
+          _this.itemTo = response.data.data.to;
+          _this.$alert.Success(response.data.message);
+          _this.loaded = 200;
+        } else if (response.status == 204) {
+          _this.loaded = 204;
+          _this.$alert.Empty("تنبيه لا يوجد اي ادوار");
+        } else {
+          _this.loaded = 400;
+          alert("400");
+        }
+      })["catch"](function (error) {
+        _this.$loading.Stop();
+        if (error.response.status == 400) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 400;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 403) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 403;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 401) {
+          _this.$alert.NotAuth();
+        } else {
+          _this.errorMessage = "حدث خطأ ما";
+          _this.loaded = 404;
+          _this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+        }
+      });
+    },
+    changePerPage: function changePerPage(event) {
+      this.countPerPage = event.target.value;
+      this.pageId = 1;
+      this.loadData(this.pageId);
+    },
+    clearSearch: function clearSearch() {
+      this.nameSrh = '', this.qoutaSrh = '', this.priceSrh = '', this.loadData(this.pageId);
+    },
+    moveToNext: function moveToNext() {
+      this.pageId++;
+      this.loadData(this.pageId);
+    },
+    moveToPrevius: function moveToPrevius() {
+      this.pageId--;
+      this.loadData(this.pageId);
+    },
+    openOptions: function openOptions(event) {
+      if (event.target.id == 0) {
+        this.optionId = 0;
+        console.log(event.target.id);
+      } else {
+        this.optionId = event.target.id;
+        console.log(event.target.id);
+      }
+    },
+    deleteMainItem: function deleteMainItem(id) {
+      var _this2 = this;
+      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+        title: "هل أنت متأكد",
+        text: "هل أنت متأكد من أنك تريد حذف هذا الباقة !",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#16a085",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "نعم حذف",
+        cancelButtonText: "إلغاء"
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          _this2.$loading.Start();
+          _this2.$http.DeletePlan(id).then(function (response) {
+            _this2.$loading.Stop();
+            if (response.status == 200) {
+              _this2.mainList.splice(_this2.mainList.findIndex(function (m) {
+                return m.id === id;
+              }), 1);
+              _this2.$alert.Success(response.data.message);
+            } else if (response.status == 204) {
+              _this2.mainList.splice(_this2.mainList.findIndex(function (m) {
+                return m.id === id;
+              }), 1);
+              _this2.$alert.Empty("لم يعد هذا الباقة متوفر, قد يكون شخص أخر قام بحذفه");
+            } else if (response.status == 400) {
+              _this2.$alert.Empty(response.data.message);
+            }
+          })["catch"](function (error) {
+            _this2.$loading.Stop();
+            _this2.$alert.BadRequest(error.response.data.message);
+          });
+        }
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.$store.commit("activePage", this.sideMenuPage);
+    this.$loading.Start();
+    this.loadData(this.pageId);
+  },
+  computed: {},
   created: function created() {}
 });
 
@@ -6977,7 +8176,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Roles_Role_Role_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../pages/Roles/Role/Role.vue */ "./resources/js/admin/pages/Roles/Role/Role.vue");
 /* harmony import */ var _pages_Roles_EditRole_EditRole_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../pages/Roles/EditRole/EditRole.vue */ "./resources/js/admin/pages/Roles/EditRole/EditRole.vue");
 /* harmony import */ var _pages_Admins_EditAdminRole_EditAdminRole_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../pages/Admins/EditAdminRole/EditAdminRole.vue */ "./resources/js/admin/pages/Admins/EditAdminRole/EditAdminRole.vue");
-/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../store/index */ "./resources/js/admin/store/index.js");
+/* harmony import */ var _pages_Plans_Plans_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../pages/Plans/Plans.vue */ "./resources/js/admin/pages/Plans/Plans.vue");
+/* harmony import */ var _pages_Plans_Plan_Plan_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../pages/Plans/Plan/Plan.vue */ "./resources/js/admin/pages/Plans/Plan/Plan.vue");
+/* harmony import */ var _pages_Plans_EditPlan_EditPlan_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../pages/Plans/EditPlan/EditPlan.vue */ "./resources/js/admin/pages/Plans/EditPlan/EditPlan.vue");
+/* harmony import */ var _pages_Plans_NewPlan_NewPlan_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../pages/Plans/NewPlan/NewPlan.vue */ "./resources/js/admin/pages/Plans/NewPlan/NewPlan.vue");
+/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../store/index */ "./resources/js/admin/store/index.js");
+
+
+
+
 
 
 
@@ -6995,14 +8202,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ifAuth = function ifAuth(to, from, next) {
-  if (_store_index__WEBPACK_IMPORTED_MODULE_12__["default"].state.auth == true) {
+  if (_store_index__WEBPACK_IMPORTED_MODULE_16__["default"].state.auth == true) {
     next();
     return;
   }
   next("/admin/login");
 };
 var ifNotAuth = function ifNotAuth(to, from, next) {
-  if (_store_index__WEBPACK_IMPORTED_MODULE_12__["default"].state.auth != true) {
+  if (_store_index__WEBPACK_IMPORTED_MODULE_16__["default"].state.auth != true) {
     next();
     return;
   }
@@ -7042,6 +8249,18 @@ var routes = [{
   }, {
     path: "admin/role/:id/edit",
     component: _pages_Roles_EditRole_EditRole_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
+  }, {
+    path: 'admin/plan/new',
+    component: _pages_Plans_NewPlan_NewPlan_vue__WEBPACK_IMPORTED_MODULE_15__["default"]
+  }, {
+    path: 'admin/plan',
+    component: _pages_Plans_Plans_vue__WEBPACK_IMPORTED_MODULE_12__["default"]
+  }, {
+    path: 'admin/plan/:id',
+    component: _pages_Plans_Plan_Plan_vue__WEBPACK_IMPORTED_MODULE_13__["default"]
+  }, {
+    path: 'admin/plan/:id/edit',
+    component: _pages_Plans_EditPlan_EditPlan_vue__WEBPACK_IMPORTED_MODULE_14__["default"]
   }
 
   //xroute
@@ -7196,21 +8415,21 @@ __webpack_require__.r(__webpack_exports__);
   EditRole: function EditRole(role, formData) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default().put("/admin/api/permission/" + role, formData);
   },
-  // ============== Member Part =======================
-  GetAllMembers: function GetAllMembers(page, countPerPage, first_name, last_name, age) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/admin/api/member?page=' + page + '&count=' + countPerPage + '&first_name=' + first_name + '&last_name=' + last_name + '&age=' + age);
+  // ============== Plan Part =======================
+  GetAllPlans: function GetAllPlans(page, countPerPage, name, qouta, price) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/admin/api/plan?page=' + page + '&count=' + countPerPage + '&name=' + name + '&qouta=' + qouta + '&price=' + price);
   },
-  DeleteMember: function DeleteMember(id) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/admin/api/member/' + id);
+  DeletePlan: function DeletePlan(id) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/admin/api/plan/' + id);
   },
-  GetMemberById: function GetMemberById(id) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/admin/api/member/' + id);
+  GetPlanById: function GetPlanById(id) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/admin/api/plan/' + id);
   },
-  PostNewMember: function PostNewMember(formData) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/admin/api/member' + formData);
+  PostNewPlan: function PostNewPlan(formData) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/admin/api/plan', formData);
   },
-  EditMember: function EditMember(id, formData) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/admin/api/member/' + id, formData);
+  EditPlan: function EditPlan(id, formData) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/admin/api/plan/' + id, formData);
   } //xapi
 });
 
@@ -7352,7 +8571,11 @@ __webpack_require__.r(__webpack_exports__);
         url: "/admin",
         icon: "fas fa-user-shield",
         list: []
-      }],
+      }
+
+      //xlink
+      ],
+
       pageActive: 4,
       subPageActive: 1,
       openPageList: 4,
@@ -29882,6 +31105,162 @@ component.options.__file = "resources/js/admin/pages/Login/Login.vue"
 
 /***/ }),
 
+/***/ "./resources/js/admin/pages/Plans/EditPlan/EditPlan.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/admin/pages/Plans/EditPlan/EditPlan.vue ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _EditPlan_html_vue_type_template_id_2273e571_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditPlan.html?vue&type=template&id=2273e571&scoped=true& */ "./resources/js/admin/pages/Plans/EditPlan/EditPlan.html?vue&type=template&id=2273e571&scoped=true&");
+/* harmony import */ var _EditPlan_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditPlan.js?vue&type=script&lang=js& */ "./resources/js/admin/pages/Plans/EditPlan/EditPlan.js?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _EditPlan_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditPlan_html_vue_type_template_id_2273e571_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _EditPlan_html_vue_type_template_id_2273e571_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "2273e571",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/pages/Plans/EditPlan/EditPlan.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Plans/NewPlan/NewPlan.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/admin/pages/Plans/NewPlan/NewPlan.vue ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _NewPlan_html_vue_type_template_id_381848e5_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NewPlan.html?vue&type=template&id=381848e5&scoped=true& */ "./resources/js/admin/pages/Plans/NewPlan/NewPlan.html?vue&type=template&id=381848e5&scoped=true&");
+/* harmony import */ var _NewPlan_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NewPlan.js?vue&type=script&lang=js& */ "./resources/js/admin/pages/Plans/NewPlan/NewPlan.js?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _NewPlan_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _NewPlan_html_vue_type_template_id_381848e5_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _NewPlan_html_vue_type_template_id_381848e5_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "381848e5",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/pages/Plans/NewPlan/NewPlan.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Plans/Plan/Plan.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/admin/pages/Plans/Plan/Plan.vue ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Plan_html_vue_type_template_id_85d9999e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Plan.html?vue&type=template&id=85d9999e&scoped=true& */ "./resources/js/admin/pages/Plans/Plan/Plan.html?vue&type=template&id=85d9999e&scoped=true&");
+/* harmony import */ var _Plan_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Plan.js?vue&type=script&lang=js& */ "./resources/js/admin/pages/Plans/Plan/Plan.js?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Plan_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Plan_html_vue_type_template_id_85d9999e_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Plan_html_vue_type_template_id_85d9999e_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "85d9999e",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/pages/Plans/Plan/Plan.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Plans/Plans.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/admin/pages/Plans/Plans.vue ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Plans_html_vue_type_template_id_10a4b2a8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Plans.html?vue&type=template&id=10a4b2a8&scoped=true& */ "./resources/js/admin/pages/Plans/Plans.html?vue&type=template&id=10a4b2a8&scoped=true&");
+/* harmony import */ var _Plans_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Plans.js?vue&type=script&lang=js& */ "./resources/js/admin/pages/Plans/Plans.js?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Plans_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Plans_html_vue_type_template_id_10a4b2a8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Plans_html_vue_type_template_id_10a4b2a8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "10a4b2a8",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/pages/Plans/Plans.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/admin/pages/Profile/Profile.vue":
 /*!******************************************************!*\
   !*** ./resources/js/admin/pages/Profile/Profile.vue ***!
@@ -30317,6 +31696,70 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/admin/pages/Plans/EditPlan/EditPlan.js?vue&type=script&lang=js&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/admin/pages/Plans/EditPlan/EditPlan.js?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_EditPlan_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./EditPlan.js?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Plans/EditPlan/EditPlan.js?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_EditPlan_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Plans/NewPlan/NewPlan.js?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/admin/pages/Plans/NewPlan/NewPlan.js?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_NewPlan_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./NewPlan.js?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Plans/NewPlan/NewPlan.js?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_NewPlan_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Plans/Plan/Plan.js?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/admin/pages/Plans/Plan/Plan.js?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_Plan_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./Plan.js?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Plans/Plan/Plan.js?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_Plan_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Plans/Plans.js?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/admin/pages/Plans/Plans.js?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_Plans_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./Plans.js?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Plans/Plans.js?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_Plans_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/admin/pages/Profile/Profile.js?vue&type=script&lang=js&":
 /*!******************************************************************************!*\
   !*** ./resources/js/admin/pages/Profile/Profile.js?vue&type=script&lang=js& ***!
@@ -30698,6 +32141,74 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Login_html_vue_type_template_id_4db7732c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Login_html_vue_type_template_id_4db7732c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./Login.html?vue&type=template&id=4db7732c& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Login/Login.html?vue&type=template&id=4db7732c&");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Plans/EditPlan/EditPlan.html?vue&type=template&id=2273e571&scoped=true&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/Plans/EditPlan/EditPlan.html?vue&type=template&id=2273e571&scoped=true& ***!
+  \**********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_EditPlan_html_vue_type_template_id_2273e571_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_EditPlan_html_vue_type_template_id_2273e571_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_EditPlan_html_vue_type_template_id_2273e571_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./EditPlan.html?vue&type=template&id=2273e571&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Plans/EditPlan/EditPlan.html?vue&type=template&id=2273e571&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Plans/NewPlan/NewPlan.html?vue&type=template&id=381848e5&scoped=true&":
+/*!********************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/Plans/NewPlan/NewPlan.html?vue&type=template&id=381848e5&scoped=true& ***!
+  \********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_NewPlan_html_vue_type_template_id_381848e5_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_NewPlan_html_vue_type_template_id_381848e5_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_NewPlan_html_vue_type_template_id_381848e5_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./NewPlan.html?vue&type=template&id=381848e5&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Plans/NewPlan/NewPlan.html?vue&type=template&id=381848e5&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Plans/Plan/Plan.html?vue&type=template&id=85d9999e&scoped=true&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/Plans/Plan/Plan.html?vue&type=template&id=85d9999e&scoped=true& ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Plan_html_vue_type_template_id_85d9999e_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Plan_html_vue_type_template_id_85d9999e_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Plan_html_vue_type_template_id_85d9999e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./Plan.html?vue&type=template&id=85d9999e&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Plans/Plan/Plan.html?vue&type=template&id=85d9999e&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Plans/Plans.html?vue&type=template&id=10a4b2a8&scoped=true&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/admin/pages/Plans/Plans.html?vue&type=template&id=10a4b2a8&scoped=true& ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Plans_html_vue_type_template_id_10a4b2a8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Plans_html_vue_type_template_id_10a4b2a8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Plans_html_vue_type_template_id_10a4b2a8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./Plans.html?vue&type=template&id=10a4b2a8&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Plans/Plans.html?vue&type=template&id=10a4b2a8&scoped=true&");
 
 
 /***/ }),

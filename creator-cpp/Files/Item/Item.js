@@ -8,8 +8,8 @@ export default {
             // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
             // Side Menu
             sideMenuPage: {
-                main: 5,
-                sub: 3,
+                main: xpageid,
+                sub: 1,
             },
             errorMessage: "حدث خطأ ما",
         };

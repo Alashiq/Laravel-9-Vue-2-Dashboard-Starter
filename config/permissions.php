@@ -23,15 +23,14 @@ return [
         'DeleteRole' => 'حذف دور',
 
 
-        // Role Member
-'ReadMember'=>'Read members', 
-'CreateMember'=>'Create members', 
-'EditMember'=>'Edit members', 
-'DeleteMember'=>'Delete members', 
 
 
 
 //xpermissions 
+ 
+ 
+ 
+ 
  
 
 

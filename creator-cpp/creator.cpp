@@ -32,6 +32,9 @@ int main()
     cout << "\nColumn Counts =";
     cin >> element.columnCount;
 
+        cout << "\nPage Id =";
+    cin >> element.pageId;
+
     for (int i = 0; i < element.columnCount; i++)
     {
         cout << "Enter Column " << i + 1 << " Name = ";
@@ -58,14 +61,16 @@ int main()
 
     }
 
-    // create_controller(element, column);
-    // create_model(element, column);
-    // create_table(element, column);
-    // create_permissions(element, column);
-    // create_route_api(element, column);
-    // create_js_lists(element, column);
-    // create_js_item(element, column);
+    create_controller(element, column);
+    create_model(element, column);
+    create_table(element, column);
+    create_permissions(element, column);
+    create_route_api(element, column);
+    create_js_lists(element, column);
+    create_js_item(element, column);
     create_js_edit_item(element, column);
+    create_js_new_item(element, column);
+    create_js_route_dataservices(element, column);
 
     return 0;
 }

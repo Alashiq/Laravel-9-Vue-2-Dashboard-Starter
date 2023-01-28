@@ -18,8 +18,8 @@ export default {
             optionId: 0,
             // Side Menu
             sideMenuPage: {
-                main: 5,
-                sub: 3,
+                main: xpageid,
+                sub: 1,
             },
             errorMessage: "حدث خطأ ما",
         };

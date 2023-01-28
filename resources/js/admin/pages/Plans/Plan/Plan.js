@@ -21,7 +21,7 @@ export default {
         loadData:function(){
             this.$loading.Start();
             this.$http
-            .GetMemberById(this.$route.params.id)
+            .GetPlanById(this.$route.params.id)
             .then(response => {
                 this.$loading.Stop();
                 if (response.status == 200) {
@@ -30,7 +30,7 @@ export default {
                     this.$alert.Success(response.data.message);
                 } else if (response.status == 204) {
                     this.loaded = 204;
-                    this.$alert.Empty("هذه العضو غير متوفر");
+                    this.$alert.Empty("هذه الباقة غير متوفر");
                 }
             })
             .catch(error => {
@@ -55,7 +55,7 @@ export default {
         deleteMainItem: function (id) {
             Swal.fire({
                 title: "هل أنت متأكد",
-                text: "هل أنت متأكد من أنك تريد حذف هذا العضو !",
+                text: "هل أنت متأكد من أنك تريد حذف هذا الباقة !",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#16a085",
@@ -66,7 +66,7 @@ export default {
                 if (result.isConfirmed) {
                     this.$loading.Start();
                     this.$http
-                        .DeleteMember(this.$route.params.id)
+                        .DeletePlan(this.$route.params.id)
                         .then(response => {
                             this.$loading.Stop();
                             if (response.status == 200) {
@@ -77,7 +77,7 @@ export default {
                                 this.mainItem = [];
                                 this.loaded = 204;
                                 this.$alert.Empty(
-                                    "لم يعد هذا العضو متوفرة, قد يكون شخص أخر قام بحذفه"
+                                    "لم يعد هذا الباقة متوفرة, قد يكون شخص أخر قام بحذفه"
                                 );
                             }
                             else if (response.status == 400) {

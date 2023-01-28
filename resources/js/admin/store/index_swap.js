@@ -84,9 +84,26 @@ export default {
                 icon: "fas fa-user-shield",
                 list: [],
             },
+            { 
+target: 1,  
+ name: 'الباقات', 
+nameEn: 'Plans', 
+role: 'RolePermissionsList', 
+url: '/plan', 
+icon: 'fas fa-user-shield', 
+list: [ 
+{ 
+id: 1, 
+name: 'قائمة الباقات', 
+nameEn: 'Plans List', 
+role: 'ReadPlan', 
+url: '/admin/plan', 
+}, 
+], 
+}, 
 
 
-            //xlink
+ //xlink
         ],
         pageActive: 4,
         subPageActive: 1,
@@ -125,23 +142,23 @@ export default {
         toggleMenu(state) {
             state.menu = !state.menu;
         },
-        toggleLanguageMenu(state, val) {
-            if (val == 1)
-                state.languageMenu = !state.languageMenu;
+        toggleLanguageMenu(state,val) {
+            if(val==1)
+            state.languageMenu = !state.languageMenu;
             else
-                state.languageMenu = false;
+            state.languageMenu=false;
         },
-        toggleUserMenu(state, val) {
-            if (val == 1)
-                state.userMenu = !state.userMenu;
+        toggleUserMenu(state,val) {
+            if(val==1)
+            state.userMenu = !state.userMenu;
             else
-                state.userMenu = false;
+            state.userMenu=false;
         },
     },
 
     actions: {
     },
-    modules: {
+    modules:{
         authModule: authModule,
         langModule: langModule
     }

@@ -13,9 +13,9 @@ export default {
             itemFrom: 0,
             itemTo: 0,
             // Search 
-            first_nameSrh:'',
-last_nameSrh:'',
-ageSrh:'',
+            nameSrh:'',
+qoutaSrh:'',
+priceSrh:'',
 
             // UI
             optionId: 0,
@@ -35,8 +35,8 @@ ageSrh:'',
             this.pageId = page;
             this.$loading.Start();
             this.$http
-                .GetAllMembers(this.pageId, this.countPerPage
-                    ,this.first_nameSrh,this.last_nameSrh,this.ageSrh
+                .GetAllPlans(this.pageId, this.countPerPage
+                    ,this.nameSrh,this.qoutaSrh,this.priceSrh
                 )
                 .then(response => {
                     this.$loading.Stop();
@@ -81,9 +81,9 @@ ageSrh:'',
             this.loadData(this.pageId);
         },
         clearSearch: function () {
-            this.first_nameSrh='',
-this.last_nameSrh='',
-this.ageSrh='',
+            this.nameSrh='',
+this.qoutaSrh='',
+this.priceSrh='',
 
             this.loadData(this.pageId);
         },
@@ -108,7 +108,7 @@ this.ageSrh='',
         deleteMainItem: function (id) {
             Swal.fire({
                 title: "هل أنت متأكد",
-                text: "هل أنت متأكد من أنك تريد حذف هذا العضو !",
+                text: "هل أنت متأكد من أنك تريد حذف هذا الباقة !",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#16a085",
@@ -119,7 +119,7 @@ this.ageSrh='',
                 if (result.isConfirmed) {
                     this.$loading.Start();
                     this.$http
-                        .DeleteMember(id)
+                        .DeletePlan(id)
                         .then(response => {
                             this.$loading.Stop();
                             if (response.status == 200) {
@@ -128,7 +128,7 @@ this.ageSrh='',
                             } else if (response.status == 204) {
                                 this.mainList.splice(this.mainList.findIndex(m => m.id === id), 1);
                                 this.$alert.Empty(
-                                    "لم يعد هذا العضو متوفر, قد يكون شخص أخر قام بحذفه"
+                                    "لم يعد هذا الباقة متوفر, قد يكون شخص أخر قام بحذفه"
                                 );
                             }
                             else if (response.status == 400) {

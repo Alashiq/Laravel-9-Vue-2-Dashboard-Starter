@@ -15,15 +15,14 @@ import EditAdminRole from "../pages/Admins/EditAdminRole/EditAdminRole.vue";
 
 
 
+ import Plans from '../pages/Plans/Plans.vue';
+import Plan from '../pages/Plans/Plan/Plan.vue';
+import EditPlan from '../pages/Plans/EditPlan/EditPlan.vue';
+import NewPlan from '../pages/Plans/NewPlan/NewPlan.vue';
 
 
-import Members from '../pages/Members/Members.vue';
-import Member from '../pages/Members/Member/Member.vue';
-import EditMember from '../pages/Members/EditMember/EditMember.vue';
 
-
-
-//ximport
+ //ximport
 
 
 import store from "../store/index";
@@ -90,22 +89,32 @@ export const routes = [
                 path: "admin/role/:id/edit",
                 component: EditRole
             },
-            {
-                path: 'admin/member',
-                component: Members
-            },
-            {
-                path: 'admin/member/:id',
-                component: Member
-            },
-
-            {
-                path: 'admin/member/:id/edit',
-                component: EditMember
-            },
+            
 
 
-            //xroute
+
+
+
+ { 
+path: 'admin/plan/new', 
+component: NewPlan 
+}, 
+{ 
+path: 'admin/plan', 
+component: Plans 
+}, 
+{ 
+path: 'admin/plan/:id', 
+component: Plan 
+}, 
+{ 
+path: 'admin/plan/:id/edit', 
+component: EditPlan 
+}, 
+
+
+
+ //xroute
 
         ]
     },
