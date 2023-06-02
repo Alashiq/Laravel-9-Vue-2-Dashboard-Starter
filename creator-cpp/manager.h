@@ -226,6 +226,7 @@ void create_route_api(Element element, Column column[20])
             fill = fill + "function () { \n";
             fill = fill + "Route::get('/', [" + element.model + "Controller::class, 'index'])->middleware('check.role:Read" + element.model + "'); \n";
             fill = fill + "Route::delete('/{id}', [" + element.model + "Controller::class, 'delete'])->middleware('check.role:Delete" + element.model + "'); \n";
+            fill = fill + "Route::get('/new', [" + element.model + "Controller::class, 'new'])->middleware('check.role:Create" + element.model + "'); \n";
             fill = fill + "Route::get('/{id}', [" + element.model + "Controller::class, 'show'])->middleware('check.role:Read" + element.model + "'); \n";
             fill = fill + "Route::put('/{id}', [" + element.model + "Controller::class, 'edit'])->middleware('check.role:Edit" + element.model + "'); \n";
             fill = fill + "Route::post('/', [" + element.model + "Controller::class, 'create'])->middleware('check.role:Create" + element.model + "'); \n";
@@ -259,7 +260,7 @@ void create_js_lists(Element element, Column column[20])
 
     // Copy Vue File
     std::string sourcePath = "Files/List/List.vue";
-    std::string destinationPath = "../resources/js/admin/pages/" + element.model + "s/" + element.models + ".vue";
+    std::string destinationPath = "../resources/js/admin/pages/" + element.models + "/" + element.models + ".vue";
     std::ifstream sourceFile(sourcePath, std::ios::binary);
     std::ofstream destinationFile(destinationPath, std::ios::binary);
     std::string data;
@@ -282,6 +283,8 @@ void create_js_lists(Element element, Column column[20])
     std::string data2;
     while (std::getline(sourceFile2, data2))
     {
+        if (data2.find("xmodels") != std::string::npos)
+            data2.replace(data2.find("xmodels"), 7, element.models);
         if (data2.find("xmodel") != std::string::npos)
             data2.replace(data2.find("xmodel"), 6, element.model);
         if (data2.find("xsingleArabic") != std::string::npos)
@@ -532,12 +535,14 @@ void create_js_edit_item(Element element, Column column[20])
                 string swap = column[i].name;
                 swap[0] = std::toupper(swap[0]);
                 fill = fill + "validate" + swap + ": function() { \n";
-                fill = fill + "this.formValidate." + column[i].name + " = "
-                                                                      "; \n";
-                fill = fill + "if (this.formData." + column[i].name + ".trim() == "
-                                                                      ") { \n";
+                fill = fill + "this.formValidate." + column[i].name + " = '' \n";
+                if (column[i].type == "string")
+                    fill = fill + "if (this.formData." + column[i].name + ".trim() == '') { \n";
+                else
+                    fill = fill + "if (this.formData." + column[i].name + " == null) { \n";
                 fill = fill + "this.formValidate." + column[i].name + " = 'لا يمكن ترك هذا الحقل فارغ'; \n";
                 fill = fill + "return 1; \n";
+                fill = fill + "}\n";
                 fill = fill + "},\n";
             }
             data2.replace(data2.find("//xvalidatecolumn"), 17, fill);
@@ -700,12 +705,14 @@ void create_js_new_item(Element element, Column column[20])
                 string swap = column[i].name;
                 swap[0] = std::toupper(swap[0]);
                 fill = fill + "validate" + swap + ": function() { \n";
-                fill = fill + "this.formValidate." + column[i].name + " = "
-                                                                      "; \n";
-                fill = fill + "if (this.formData." + column[i].name + ".trim() == "
-                                                                      ") { \n";
+                fill = fill + "this.formValidate." + column[i].name + " = '' \n";
+                if (column[i].type == "string")
+                    fill = fill + "if (this.formData." + column[i].name + ".trim() == '') { \n";
+                else
+                    fill = fill + "if (this.formData." + column[i].name + " == null) { \n";
                 fill = fill + "this.formValidate." + column[i].name + " = 'لا يمكن ترك هذا الحقل فارغ'; \n";
                 fill = fill + "return 1; \n";
+                fill = fill + "}\n";
                 fill = fill + "},\n";
             }
             data2.replace(data2.find("//xvalidatecolumn"), 17, fill);
@@ -878,6 +885,11 @@ void create_js_route_dataservices(Element element, Column column[20])
             fill = fill + "return axios.put('/admin/api/" + element.single + "/' + id , formData);\n";
             fill = fill + "}, \n";
 
+            // Get For New
+            fill = fill + "Get" + element.model + "New(){\n";
+            fill = fill + "return axios.get('/admin/api/" + element.single + "/new');\n";
+            fill = fill + "}, \n";
+
             fill = fill + "\n\n\n //xapi";
 
             data4.replace(data4.find("//xapi"), 6, fill);
@@ -989,7 +1001,7 @@ void create_js_route_dataservices(Element element, Column column[20])
             fill = fill + "url: '/admin/" + element.single + "', \n";
             fill = fill + "}, \n";
             fill = fill + "{ \n";
-            fill = fill + "id: 1, \n";
+            fill = fill + "id: 2, \n";
             fill = fill + "name: 'أضف " + element.arabicSingle + "', \n";
             fill = fill + "nameEn: 'New " + element.models + "', \n";
             fill = fill + "role: 'Create" + element.model + "', \n";

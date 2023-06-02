@@ -84,6 +84,52 @@ export default {
 
 
 
+ // ============== Currency Part =======================
+GetAllCurrencies(page,countPerPage,name,abbreviation) { 
+return axios.get('/admin/api/currency?page=' + page + '&count=' + countPerPage+ '&name=' + name+ '&abbreviation=' + abbreviation);
+}, 
+
+DeleteCurrency(id){
+return axios.delete('/admin/api/currency/' + id);
+}, 
+GetCurrencyById(id){
+return axios.get('/admin/api/currency/' + id);
+}, 
+PostNewCurrency(formData){
+return axios.post('/admin/api/currency' , formData);
+}, 
+EditCurrency(id,formData){
+return axios.put('/admin/api/currency/' + id , formData);
+}, 
+GetCurrencyNew(){
+return axios.get('/admin/api/currency/new');
+}, 
+
+
+
+ // ============== BankAccount Part =======================
+GetAllBankAccounts(page,countPerPage,name,branch,account_number) { 
+return axios.get('/admin/api/bankaccount?page=' + page + '&count=' + countPerPage+ '&name=' + name+ '&branch=' + branch+ '&account_number=' + account_number);
+}, 
+
+DeleteBankAccount(id){
+return axios.delete('/admin/api/bankaccount/' + id);
+}, 
+GetBankAccountById(id){
+return axios.get('/admin/api/bankaccount/' + id);
+}, 
+PostNewBankAccount(formData){
+return axios.post('/admin/api/bankaccount' , formData);
+}, 
+EditBankAccount(id,formData){
+return axios.put('/admin/api/bankaccount/' + id , formData);
+}, 
+GetBankAccountNew(){
+return axios.get('/admin/api/bankaccount/new');
+}, 
+
+
+
  //xapi
 
 

@@ -26,7 +26,25 @@ return [
 
 
 
+// Role Currency
+'ReadCurrency'=>'مشاهدة العملات', 
+'CreateCurrency'=>'إضافة عملة', 
+'EditCurrency'=>'تعديل عملة', 
+'DeleteCurrency'=>'حذف عملة', 
+
+
+
+// Role BankAccount
+'ReadBankAccount'=>'مشاهدة الحسابات', 
+'CreateBankAccount'=>'إضافة حساب', 
+'EditBankAccount'=>'تعديل حساب', 
+'DeleteBankAccount'=>'حذف حساب', 
+
+
+
 //xpermissions 
+ 
+ 
  
  
  

@@ -74,6 +74,11 @@ class xmodelController extends Controller
     }
 
 
+    // Data For New
+    public function new()
+    {
+        return response()->json(['success' => true, 'message' => 'تم جلب البيانات بنجاح'], 200);
+    }
 
 
     // Add New xmodel

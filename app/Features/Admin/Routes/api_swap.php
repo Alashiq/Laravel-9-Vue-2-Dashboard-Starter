@@ -10,7 +10,12 @@ use App\Features\Admin\Controllers\AuthController;
 use App\Features\Admin\Controllers\AdminController;
 
 
-use App\Features\Admin\Controllers\PlanController; 
+
+
+ use App\Features\Admin\Controllers\CurrencyController; 
+
+
+ use App\Features\Admin\Controllers\BankAccountController; 
 
 
  //ximport
@@ -79,24 +84,35 @@ Route::middleware(['auth:sanctum', 'type.admin'])->group(function () {
 
 
 
-    # # # # # # # # # # # # # # # # #  plans  # # # # # # # # # # # # # # # # #
-Route::controller(PlanController::class)->prefix('plan')->group( 
+# # # # # # # # # # # # # # # # #  currencies  # # # # # # # # # # # # # # # # #
+Route::controller(CurrencyController::class)->prefix('currency')->group( 
 function () { 
-Route::get('/', [PlanController::class, 'index'])->middleware('check.role:ReadPlan'); 
-Route::delete('/{id}', [PlanController::class, 'delete'])->middleware('check.role:DeletePlan'); 
-Route::get('/{id}', [PlanController::class, 'show'])->middleware('check.role:ReadPlan'); 
-Route::put('/{id}', [PlanController::class, 'edit'])->middleware('check.role:EditPlan'); 
-Route::post('/', [PlanController::class, 'create'])->middleware('check.role:CreatePlan'); 
+Route::get('/', [CurrencyController::class, 'index'])->middleware('check.role:ReadCurrency'); 
+Route::delete('/{id}', [CurrencyController::class, 'delete'])->middleware('check.role:DeleteCurrency');
+Route::get('/new', [CurrencyController::class, 'new'])->middleware('check.role:CreateCurrency'); 
+Route::get('/{id}', [CurrencyController::class, 'show'])->middleware('check.role:ReadCurrency'); 
+Route::put('/{id}', [CurrencyController::class, 'edit'])->middleware('check.role:EditCurrency'); 
+Route::post('/', [CurrencyController::class, 'create'])->middleware('check.role:CreateCurrency'); 
 } 
 ); 
-# # # # # # # # # # # # # # # # # End plans  # # # # # # # # # # # # # # #  
+# # # # # # # # # # # # # # # # # End currencies  # # # # # # # # # # # # # # #  
+ 
+# # # # # # # # # # # # # # # # #  bank_accounts  # # # # # # # # # # # # # # # # #
+Route::controller(BankAccountController::class)->prefix('bankaccount')->group( 
+function () { 
+Route::get('/', [BankAccountController::class, 'index'])->middleware('check.role:ReadBankAccount'); 
+Route::delete('/{id}', [BankAccountController::class, 'delete'])->middleware('check.role:DeleteBankAccount'); 
+Route::get('/new', [BankAccountController::class, 'new'])->middleware('check.role:CreateBankAccount'); 
+Route::get('/{id}', [BankAccountController::class, 'show'])->middleware('check.role:ReadBankAccount'); 
+Route::put('/{id}', [BankAccountController::class, 'edit'])->middleware('check.role:EditBankAccount'); 
+Route::post('/', [BankAccountController::class, 'create'])->middleware('check.role:CreateBankAccount'); 
+} 
+); 
+# # # # # # # # # # # # # # # # # End bank_accounts  # # # # # # # # # # # # # # #  
  
 #xRoute 
  
-
-
-
-
+ 
 
 
 });

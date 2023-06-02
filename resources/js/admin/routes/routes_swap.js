@@ -15,10 +15,17 @@ import EditAdminRole from "../pages/Admins/EditAdminRole/EditAdminRole.vue";
 
 
 
- import Plans from '../pages/Plans/Plans.vue';
-import Plan from '../pages/Plans/Plan/Plan.vue';
-import EditPlan from '../pages/Plans/EditPlan/EditPlan.vue';
-import NewPlan from '../pages/Plans/NewPlan/NewPlan.vue';
+ import Currencies from '../pages/Currencies/Currencies.vue';
+import Currency from '../pages/Currencies/Currency/Currency.vue';
+import EditCurrency from '../pages/Currencies/EditCurrency/EditCurrency.vue';
+import NewCurrency from '../pages/Currencies/NewCurrency/NewCurrency.vue';
+
+
+
+ import BankAccounts from '../pages/BankAccounts/BankAccounts.vue';
+import BankAccount from '../pages/BankAccounts/BankAccount/BankAccount.vue';
+import EditBankAccount from '../pages/BankAccounts/EditBankAccount/EditBankAccount.vue';
+import NewBankAccount from '../pages/BankAccounts/NewBankAccount/NewBankAccount.vue';
 
 
 
@@ -92,24 +99,40 @@ export const routes = [
             
 
 
+ { 
+path: 'admin/currency/new', 
+component: NewCurrency 
+}, 
+{ 
+path: 'admin/currency', 
+component: Currencies 
+}, 
+{ 
+path: 'admin/currency/:id', 
+component: Currency 
+}, 
+{ 
+path: 'admin/currency/:id/edit', 
+component: EditCurrency 
+}, 
 
 
 
  { 
-path: 'admin/plan/new', 
-component: NewPlan 
+path: 'admin/bank_account/new', 
+component: NewBankAccount 
 }, 
 { 
-path: 'admin/plan', 
-component: Plans 
+path: 'admin/bank_account', 
+component: BankAccounts 
 }, 
 { 
-path: 'admin/plan/:id', 
-component: Plan 
+path: 'admin/bank_account/:id', 
+component: BankAccount 
 }, 
 { 
-path: 'admin/plan/:id/edit', 
-component: EditPlan 
+path: 'admin/bank_account/:id/edit', 
+component: EditBankAccount 
 }, 
 
 

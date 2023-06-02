@@ -3623,6 +3623,1350 @@ render._withStripped = true;
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/BankAccounts/BankAccount/BankAccount.html?vue&type=template&id=0de890cf&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/BankAccounts/BankAccount/BankAccount.html?vue&type=template&id=0de890cf&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "w-auto md:p-8 p-4"
+  }, [_vm.loaded == 200 ? _c("div", {
+    staticClass: "w-full md:px-4 px-0 pb-8 pt-2 bg-white shadow-2 rounded-lg text-lg text-gray-600 font-medium"
+  }, [_c("Single-Page-Header", {
+    attrs: {
+      title: "بيانات الحساب",
+      url: "/admin/bank_account/",
+      urlLabel: "قائمة الحسابات"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2 JF-Flat"
+  }, [_c("div", {
+    staticClass: "w-full px-4 py-4"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nإسمـالمصرف\n")]), _vm._v(" "), _c("div", {
+    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
+  }, [_vm._v("\n" + _vm._s(_vm.mainItem.name) + "\n")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nإسمـالفرع\n")]), _vm._v(" "), _c("div", {
+    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
+  }, [_vm._v("\n" + _vm._s(_vm.mainItem.branch) + "\n")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nرقمـالحساب\n")]), _vm._v(" "), _c("div", {
+    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
+  }, [_vm._v("\n" + _vm._s(_vm.mainItem.account_number) + "\n")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nالعملة\n")]), _vm._v(" "), _c("div", {
+    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
+  }, [_vm._v("\n" + _vm._s(_vm.mainItem.currency_id) + "\n")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nمالكـالحساب\n")]), _vm._v(" "), _c("div", {
+    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
+  }, [_vm._v("\n" + _vm._s(_vm.mainItem.name_holder) + "\n")])])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full lg:h-20 mt-12 lg:flex items-center justify-start text-sm cairo"
+  }, [_c("router-link", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.$parent.checkPermission("EditBankAccount") == true,
+      expression: "$parent.checkPermission('EditBankAccount') == true"
+    }],
+    staticClass: "h-12 px-6 mx-4 bg-gray-400 hover:bg-gray-500 flex items-center justify-center text-white shadow-lg rounded cursor-pointer",
+    attrs: {
+      to: "/admin/bank_account/" + _vm.$route.params.id + "/edit"
+    }
+  }, [_c("i", {
+    staticClass: "fa-solid fa-pen-to-square ml-2"
+  }), _vm._v("\n                    تعديل \n                ")]), _vm._v(" "), _c("div", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.$parent.checkPermission("DeleteBankAccount") == true,
+      expression: "$parent.checkPermission('DeleteBankAccount') == true"
+    }],
+    staticClass: "h-12 px-6 mx-4 my-2 bg-red-400 hover:bg-red-500 flex items-center justify-center text-white shadow-lg rounded cursor-pointer",
+    on: {
+      click: _vm.deleteMainItem
+    }
+  }, [_c("i", {
+    staticClass: "far fa-trash-alt ml-2"
+  }), _vm._v("\n                حذف الحساب\n            ")])], 1)], 1) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box", {
+    attrs: {
+      message: "لا يوجد دور بهذا الرقم"
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload,
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 403 ? _c("No-Permission", {
+    attrs: {
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("No-Internet", {
+    attrs: {
+      reload: _vm.reload
+    }
+  }) : _vm._e()], 1);
+};
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/BankAccounts/BankAccounts.html?vue&type=template&id=005c1bd4&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/BankAccounts/BankAccounts.html?vue&type=template&id=005c1bd4&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "w-auto md:p-8 p-4",
+    attrs: {
+      id: "0"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.openOptions($event);
+      }
+    }
+  }, [_c("div", {
+    staticClass: "flex justify-between w-full h-16 items-center"
+  }, [_c("div", {
+    staticClass: "text-2xl font-semibold cairo text-gray-600"
+  }, [_vm._v("\n            قائمة الحسابات\n        ")]), _vm._v(" "), _c("router-link", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.$parent.checkPermission("CreateBankAccount") == true,
+      expression: "$parent.checkPermission('CreateBankAccount') == true"
+    }],
+    staticClass: "rounded px-4 flex items-center cairo font-medium add-btn",
+    attrs: {
+      to: "/admin/bank_account/new"
+    }
+  }, [_c("span", {
+    staticClass: "h-12 flex items-center"
+  }, [_c("i", {
+    staticClass: "fas fa-plus text-xl"
+  }), _vm._v(" "), _c("p", {
+    staticClass: "mr-3 md:block hidden"
+  }, [_vm._v("\n                 أضف حساب\n             ")])])])], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "flex flex-wrap pb-5 px-4 bg-white border rounded"
+  }, [_c("div", {
+    staticClass: "xl:w-1/4 lg:w-1/3 md:w-1/2 w-full px-2 mt-4"
+  }, [_c("div", {
+    staticClass: "text-gray-400 text-sm cairo h-8 flex items-center mr-2"
+  }, [_vm._v("إسمـالمصرف")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.nameSrh,
+      expression: "nameSrh"
+    }],
+    staticClass: "w-full h-12 border border-gray-300 rounded outline-green-600 cairo placeholder:text-sm px-4",
+    attrs: {
+      type: "text",
+      placeholder: "إسمـالمصرف"
+    },
+    domProps: {
+      value: _vm.nameSrh
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.nameSrh = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "xl:w-1/4 lg:w-1/3 md:w-1/2 w-full px-2 mt-4"
+  }, [_c("div", {
+    staticClass: "text-gray-400 text-sm cairo h-8 flex items-center mr-2"
+  }, [_vm._v("إسمـالفرع")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.branchSrh,
+      expression: "branchSrh"
+    }],
+    staticClass: "w-full h-12 border border-gray-300 rounded outline-green-600 cairo placeholder:text-sm px-4",
+    attrs: {
+      type: "text",
+      placeholder: "إسمـالفرع"
+    },
+    domProps: {
+      value: _vm.branchSrh
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.branchSrh = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "xl:w-1/4 lg:w-1/3 md:w-1/2 w-full px-2 mt-4"
+  }, [_c("div", {
+    staticClass: "text-gray-400 text-sm cairo h-8 flex items-center mr-2"
+  }, [_vm._v("رقمـالحساب")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.account_numberSrh,
+      expression: "account_numberSrh"
+    }],
+    staticClass: "w-full h-12 border border-gray-300 rounded outline-green-600 cairo placeholder:text-sm px-4",
+    attrs: {
+      type: "text",
+      placeholder: "رقمـالحساب"
+    },
+    domProps: {
+      value: _vm.account_numberSrh
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.account_numberSrh = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "xl:w-1/4 lg:w-1/3 md:w-1/2 px-2 mt-4 flex items-center justify-center"
+  }, [_c("div", {
+    staticClass: "h-10 mt-8 shadow rounded w-28 add-btn flex items-center justify-center text-white cairo",
+    on: {
+      click: function click($event) {
+        return _vm.loadData(1);
+      }
+    }
+  }, [_vm._v("\n                بحث\n            ")]), _vm._v(" "), _c("div", {
+    staticClass: "h-10 mt-8 shadow-lg rounded w-24 bg-gray-400 mr-3 text-white cairo flex items-center justify-center",
+    on: {
+      click: function click($event) {
+        return _vm.clearSearch();
+      }
+    }
+  }, [_vm._v("\n                تصفير\n            ")])])]), _vm._v(" "), _vm.loaded == 200 ? _c("div", [_c("table", {
+    staticClass: "w-full"
+  }, [_vm._m(1), _vm._v(" "), _vm._l(_vm.mainList, function (item, index) {
+    return _c("tr", {
+      key: index,
+      staticClass: "h-24 bg-white shadow-2 rounded-lg text-base JF-Flat text-gray-500 font-medium hover:bg-gray-50"
+    }, [_c("td", {
+      staticClass: "w-12 text-center rounded-r-lg"
+    }, [_vm._v(_vm._s(item.id))]), _vm._v(" "), _c("td", {
+      staticClass: "table-cell"
+    }, [_vm._v(" " + _vm._s(item.name))]), _c("td", {
+      staticClass: "table-cell"
+    }, [_vm._v(" " + _vm._s(item.branch))]), _c("td", {
+      staticClass: "table-cell"
+    }, [_vm._v(" " + _vm._s(item.account_number))]), _vm._v(" "), _c("td", {
+      staticClass: "rounded-l-lg h-20 flex items-center justify-center"
+    }, [_c("div", {
+      staticClass: "flex items-start justify-center mx-auto"
+    }, [_c("i", {
+      staticClass: "fas fa-ellipsis-v text-gray-500 text-xl px-4 flex pt-2 justify-center",
+      attrs: {
+        id: item.id
+      },
+      on: {
+        click: function click($event) {
+          return _vm.openOptions($event);
+        }
+      }
+    }), _vm._v(" "), item.id == _vm.optionId ? _c("div", {
+      staticClass: "py-2 px-2 w-32 bg-white rounded-lg absolute text-gray-600 text-sm cairo",
+      staticStyle: {
+        "box-shadow": "rgb(145 158 171 / 24%) 0px 0px 2px 0px, rgb(145 158 171 / 24%) -20px 20px 40px -4px"
+      }
+    }, [_c("router-link", {
+      attrs: {
+        to: "/admin/bank_account/" + item.id
+      }
+    }, [_c("div", {
+      staticClass: "h-8 w-auto px-2 rounded-lg hover:bg-gray-100 flex items-center justify-start"
+    }, [_c("i", {
+      staticClass: "fas fa-eye"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "mr-2"
+    }, [_vm._v("\n                                        عرض\n                                    ")]), _vm._v(" "), _c("div")])]), _vm._v(" "), _c("router-link", {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: _vm.$parent.checkPermission("EditBankAccount") == true,
+        expression: "$parent.checkPermission('EditBankAccount') == true"
+      }],
+      attrs: {
+        to: "/admin/bank_account/" + item.id + "/edit"
+      }
+    }, [_c("div", {
+      staticClass: "h-8 w-auto px-2 rounded-lg hover:bg-gray-100 flex items-center justify-start"
+    }, [_c("i", {
+      staticClass: "fas fa-edit"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "mr-2"
+    }, [_vm._v("\n                                        تعديل\n                                    ")]), _vm._v(" "), _c("div")])]), _vm._v(" "), _c("div", {
+      staticClass: "h-px border border-dashed border-gray-200 w-full my-1"
+    }), _vm._v(" "), _c("div", {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: _vm.$parent.checkPermission("DeleteBankAccount") == true,
+        expression: "$parent.checkPermission('DeleteBankAccount') == true"
+      }],
+      staticClass: "h-8 w-auto px-2 rounded-lg hover:bg-gray-100 flex items-center justify-start text-red-500",
+      on: {
+        click: function click($event) {
+          return _vm.deleteMainItem(item.id);
+        }
+      }
+    }, [_c("i", {
+      staticClass: "far fa-trash-alt"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "mr-2"
+    }, [_vm._v("\n                                    حذف\n                                ")]), _vm._v(" "), _c("div")])], 1) : _vm._e()])])]);
+  })], 2), _vm._v(" "), _c("Pagination-Bar", {
+    attrs: {
+      itemTo: _vm.itemTo,
+      itemFrom: _vm.itemFrom,
+      totalRows: _vm.totalRows,
+      pageId: _vm.pageId,
+      lastPage: _vm.lastPage,
+      moveToNext: _vm.moveToNext,
+      moveToPrevius: _vm.moveToPrevius,
+      changePerPage: _vm.changePerPage
+    }
+  })], 1) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box") : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload,
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 403 ? _c("No-Permission", {
+    attrs: {
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("No-Internet", {
+    attrs: {
+      reload: _vm.reload
+    }
+  }) : _vm._e()], 1);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "flex justify-between my-8"
+  }, [_c("div", {
+    staticClass: "border rounded font-semibold cairo flex bg-center text-gray-700"
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("tr", {
+    staticClass: "h-12 text-lg cairo font-semibold text-gray-600"
+  }, [_c("td", {
+    staticClass: "w-12 text-center"
+  }, [_vm._v("#")]), _vm._v(" "), _c("td", {
+    staticClass: "table-cell"
+  }, [_vm._v("إسمـالمصرف")]), _c("td", {
+    staticClass: "table-cell"
+  }, [_vm._v("إسمـالفرع")]), _c("td", {
+    staticClass: "table-cell"
+  }, [_vm._v("رقمـالحساب")]), _vm._v(" "), _c("td", {
+    staticClass: "rounded-l-lg text-center"
+  }, [_vm._v("الإجراءات")])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/BankAccounts/EditBankAccount/EditBankAccount.html?vue&type=template&id=74d8a8fb&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/BankAccounts/EditBankAccount/EditBankAccount.html?vue&type=template&id=74d8a8fb&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "w-auto md:p-8 p-4"
+  }, [_vm.loaded == 200 ? _c("div", {
+    staticClass: "w-full md:px-4 px-0 pb-8 pt-2 bg-white shadow-2 rounded-lg text-lg text-gray-600 font-medium"
+  }, [_c("Single-Page-Header", {
+    attrs: {
+      title: "تعديل بيانات الحساب",
+      url: "/admin/bank_account/",
+      urlLabel: "قائمة الحسابات"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2"
+  }, [_c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nإسمـالمصرف\n")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.name,
+      expression: "formData.name"
+    }],
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.formData.name
+    },
+    on: {
+      change: _vm.validateName,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.formData, "name", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n" + _vm._s(_vm.formValidate.name) + "\n")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nإسمـالفرع\n")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.branch,
+      expression: "formData.branch"
+    }],
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.formData.branch
+    },
+    on: {
+      change: _vm.validateBranch,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.formData, "branch", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n" + _vm._s(_vm.formValidate.branch) + "\n")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nرقمـالحساب\n")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.account_number,
+      expression: "formData.account_number"
+    }],
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.formData.account_number
+    },
+    on: {
+      change: _vm.validateAccount_number,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.formData, "account_number", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n" + _vm._s(_vm.formValidate.account_number) + "\n")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nالعملة\n")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.currency_id,
+      expression: "formData.currency_id"
+    }],
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.formData.currency_id
+    },
+    on: {
+      change: _vm.validateCurrency_id,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.formData, "currency_id", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n" + _vm._s(_vm.formValidate.currency_id) + "\n")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nمالكـالحساب\n")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.name_holder,
+      expression: "formData.name_holder"
+    }],
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.formData.name_holder
+    },
+    on: {
+      change: _vm.validateName_holder,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.formData, "name_holder", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n" + _vm._s(_vm.formValidate.name_holder) + "\n")])])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full lg:h-20 mt-12 lg:flex items-center justify-start text-sm cairo"
+  }, [_c("div", {
+    staticClass: "h-12 px-6 mx-4 my-2 bg-red-400 hover:bg-red-500 flex items-center justify-center text-white shadow-lg rounded cursor-pointer",
+    on: {
+      click: _vm.editMainItem
+    }
+  }, [_c("i", {
+    staticClass: "fa-solid fa-check ml-2"
+  }), _vm._v("\n                حفظ\n            ")])])], 1) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box", {
+    attrs: {
+      message: "لا يوجد حساب بهذا الرقم"
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload,
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 403 ? _c("No-Permission", {
+    attrs: {
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("No-Internet", {
+    attrs: {
+      reload: _vm.reload
+    }
+  }) : _vm._e()], 1);
+};
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/BankAccounts/NewBankAccount/NewBankAccount.html?vue&type=template&id=e76ad36a&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/BankAccounts/NewBankAccount/NewBankAccount.html?vue&type=template&id=e76ad36a&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "w-auto md:p-8 p-4"
+  }, [_vm.loaded == 200 ? _c("div", {
+    staticClass: "w-full md:px-4 px-0 pb-8 pt-2 bg-white shadow-2 rounded-lg text-lg text-gray-600 font-medium"
+  }, [_c("Single-Page-Header", {
+    attrs: {
+      title: "أضف حساب",
+      url: "/admin/bank_account/",
+      urlLabel: "قائمة الحسابات"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2"
+  }, [_c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nإسمـالمصرف\n")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.name,
+      expression: "formData.name"
+    }],
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.formData.name
+    },
+    on: {
+      change: _vm.validateName,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.formData, "name", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n" + _vm._s(_vm.formValidate.name) + "\n")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nإسمـالفرع\n")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.branch,
+      expression: "formData.branch"
+    }],
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.formData.branch
+    },
+    on: {
+      change: _vm.validateBranch,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.formData, "branch", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n" + _vm._s(_vm.formValidate.branch) + "\n")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nرقمـالحساب\n")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.account_number,
+      expression: "formData.account_number"
+    }],
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.formData.account_number
+    },
+    on: {
+      change: _vm.validateAccount_number,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.formData, "account_number", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n" + _vm._s(_vm.formValidate.account_number) + "\n")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4"
+  }, [_c("div", {
+    staticClass: "h-9 JF-Flat flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\n                    العملة\n                ")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.currency_id,
+      expression: "formData.currency_id"
+    }],
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base JF-Flat",
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.formData, "currency_id", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, _vm.validateCurrency_id]
+    }
+  }, _vm._l(_vm.currenciesList, function (item, index) {
+    return _c("option", {
+      key: index,
+      domProps: {
+        value: item.id
+      }
+    }, [_vm._v(_vm._s(item.name))]);
+  }), 0), _vm._v(" "), _c("div", {
+    staticClass: "h-8 JF-Flat text-sm text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n                    " + _vm._s(_vm.formValidate.currency_id) + "\n                ")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nمالكـالحساب\n")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.name_holder,
+      expression: "formData.name_holder"
+    }],
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.formData.name_holder
+    },
+    on: {
+      change: _vm.validateName_holder,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.formData, "name_holder", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n" + _vm._s(_vm.formValidate.name_holder) + "\n")])])]), _vm._v(" "), _c("div", {
+    staticClass: "flex items-center h-20 mx-4"
+  }, [_c("Btn-Submit-New-Item", {
+    attrs: {
+      label: "إضافة",
+      submit: _vm.addNewItem
+    }
+  })], 1)], 1) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box", {
+    attrs: {
+      message: "لا يوجد حساب بهذا الرقم"
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload,
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 403 ? _c("No-Permission", {
+    attrs: {
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("No-Internet", {
+    attrs: {
+      reload: _vm.reload
+    }
+  }) : _vm._e()], 1);
+};
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Currencies/Currencies.html?vue&type=template&id=517852b6&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Currencies/Currencies.html?vue&type=template&id=517852b6&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "w-auto md:p-8 p-4",
+    attrs: {
+      id: "0"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.openOptions($event);
+      }
+    }
+  }, [_c("div", {
+    staticClass: "flex justify-between w-full h-16 items-center"
+  }, [_c("div", {
+    staticClass: "text-2xl font-semibold cairo text-gray-600"
+  }, [_vm._v("\n            قائمة العملات\n        ")]), _vm._v(" "), _c("router-link", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.$parent.checkPermission("CreateCurrency") == true,
+      expression: "$parent.checkPermission('CreateCurrency') == true"
+    }],
+    staticClass: "rounded px-4 flex items-center cairo font-medium add-btn",
+    attrs: {
+      to: "/admin/currency/new"
+    }
+  }, [_c("span", {
+    staticClass: "h-12 flex items-center"
+  }, [_c("i", {
+    staticClass: "fas fa-plus text-xl"
+  }), _vm._v(" "), _c("p", {
+    staticClass: "mr-3 md:block hidden"
+  }, [_vm._v("\n                 أضف عملة\n             ")])])])], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "flex flex-wrap pb-5 px-4 bg-white border rounded"
+  }, [_c("div", {
+    staticClass: "xl:w-1/4 lg:w-1/3 md:w-1/2 w-full px-2 mt-4"
+  }, [_c("div", {
+    staticClass: "text-gray-400 text-sm cairo h-8 flex items-center mr-2"
+  }, [_vm._v("إسمـالعملة")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.nameSrh,
+      expression: "nameSrh"
+    }],
+    staticClass: "w-full h-12 border border-gray-300 rounded outline-green-600 cairo placeholder:text-sm px-4",
+    attrs: {
+      type: "text",
+      placeholder: "إسمـالعملة"
+    },
+    domProps: {
+      value: _vm.nameSrh
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.nameSrh = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "xl:w-1/4 lg:w-1/3 md:w-1/2 w-full px-2 mt-4"
+  }, [_c("div", {
+    staticClass: "text-gray-400 text-sm cairo h-8 flex items-center mr-2"
+  }, [_vm._v("إختصارـالعملة")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.abbreviationSrh,
+      expression: "abbreviationSrh"
+    }],
+    staticClass: "w-full h-12 border border-gray-300 rounded outline-green-600 cairo placeholder:text-sm px-4",
+    attrs: {
+      type: "text",
+      placeholder: "إختصارـالعملة"
+    },
+    domProps: {
+      value: _vm.abbreviationSrh
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.abbreviationSrh = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "xl:w-1/4 lg:w-1/3 md:w-1/2 px-2 mt-4 flex items-center justify-center"
+  }, [_c("div", {
+    staticClass: "h-10 mt-8 shadow rounded w-28 add-btn flex items-center justify-center text-white cairo",
+    on: {
+      click: function click($event) {
+        return _vm.loadData(1);
+      }
+    }
+  }, [_vm._v("\n                بحث\n            ")]), _vm._v(" "), _c("div", {
+    staticClass: "h-10 mt-8 shadow-lg rounded w-24 bg-gray-400 mr-3 text-white cairo flex items-center justify-center",
+    on: {
+      click: function click($event) {
+        return _vm.clearSearch();
+      }
+    }
+  }, [_vm._v("\n                تصفير\n            ")])])]), _vm._v(" "), _vm.loaded == 200 ? _c("div", [_c("table", {
+    staticClass: "w-full"
+  }, [_vm._m(1), _vm._v(" "), _vm._l(_vm.mainList, function (item, index) {
+    return _c("tr", {
+      key: index,
+      staticClass: "h-24 bg-white shadow-2 rounded-lg text-base JF-Flat text-gray-500 font-medium hover:bg-gray-50"
+    }, [_c("td", {
+      staticClass: "w-12 text-center rounded-r-lg"
+    }, [_vm._v(_vm._s(item.id))]), _vm._v(" "), _c("td", {
+      staticClass: "table-cell"
+    }, [_vm._v(" " + _vm._s(item.name))]), _c("td", {
+      staticClass: "table-cell"
+    }, [_vm._v(" " + _vm._s(item.abbreviation))]), _vm._v(" "), _c("td", {
+      staticClass: "rounded-l-lg h-20 flex items-center justify-center"
+    }, [_c("div", {
+      staticClass: "flex items-start justify-center mx-auto"
+    }, [_c("i", {
+      staticClass: "fas fa-ellipsis-v text-gray-500 text-xl px-4 flex pt-2 justify-center",
+      attrs: {
+        id: item.id
+      },
+      on: {
+        click: function click($event) {
+          return _vm.openOptions($event);
+        }
+      }
+    }), _vm._v(" "), item.id == _vm.optionId ? _c("div", {
+      staticClass: "py-2 px-2 w-32 bg-white rounded-lg absolute text-gray-600 text-sm cairo",
+      staticStyle: {
+        "box-shadow": "rgb(145 158 171 / 24%) 0px 0px 2px 0px, rgb(145 158 171 / 24%) -20px 20px 40px -4px"
+      }
+    }, [_c("router-link", {
+      attrs: {
+        to: "/admin/currency/" + item.id
+      }
+    }, [_c("div", {
+      staticClass: "h-8 w-auto px-2 rounded-lg hover:bg-gray-100 flex items-center justify-start"
+    }, [_c("i", {
+      staticClass: "fas fa-eye"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "mr-2"
+    }, [_vm._v("\n                                        عرض\n                                    ")]), _vm._v(" "), _c("div")])]), _vm._v(" "), _c("router-link", {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: _vm.$parent.checkPermission("EditCurrency") == true,
+        expression: "$parent.checkPermission('EditCurrency') == true"
+      }],
+      attrs: {
+        to: "/admin/currency/" + item.id + "/edit"
+      }
+    }, [_c("div", {
+      staticClass: "h-8 w-auto px-2 rounded-lg hover:bg-gray-100 flex items-center justify-start"
+    }, [_c("i", {
+      staticClass: "fas fa-edit"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "mr-2"
+    }, [_vm._v("\n                                        تعديل\n                                    ")]), _vm._v(" "), _c("div")])]), _vm._v(" "), _c("div", {
+      staticClass: "h-px border border-dashed border-gray-200 w-full my-1"
+    }), _vm._v(" "), _c("div", {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: _vm.$parent.checkPermission("DeleteCurrency") == true,
+        expression: "$parent.checkPermission('DeleteCurrency') == true"
+      }],
+      staticClass: "h-8 w-auto px-2 rounded-lg hover:bg-gray-100 flex items-center justify-start text-red-500",
+      on: {
+        click: function click($event) {
+          return _vm.deleteMainItem(item.id);
+        }
+      }
+    }, [_c("i", {
+      staticClass: "far fa-trash-alt"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "mr-2"
+    }, [_vm._v("\n                                    حذف\n                                ")]), _vm._v(" "), _c("div")])], 1) : _vm._e()])])]);
+  })], 2), _vm._v(" "), _c("Pagination-Bar", {
+    attrs: {
+      itemTo: _vm.itemTo,
+      itemFrom: _vm.itemFrom,
+      totalRows: _vm.totalRows,
+      pageId: _vm.pageId,
+      lastPage: _vm.lastPage,
+      moveToNext: _vm.moveToNext,
+      moveToPrevius: _vm.moveToPrevius,
+      changePerPage: _vm.changePerPage
+    }
+  })], 1) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box") : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload,
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 403 ? _c("No-Permission", {
+    attrs: {
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("No-Internet", {
+    attrs: {
+      reload: _vm.reload
+    }
+  }) : _vm._e()], 1);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "flex justify-between my-8"
+  }, [_c("div", {
+    staticClass: "border rounded font-semibold cairo flex bg-center text-gray-700"
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("tr", {
+    staticClass: "h-12 text-lg cairo font-semibold text-gray-600"
+  }, [_c("td", {
+    staticClass: "w-12 text-center"
+  }, [_vm._v("#")]), _vm._v(" "), _c("td", {
+    staticClass: "table-cell"
+  }, [_vm._v("إسمـالعملة")]), _c("td", {
+    staticClass: "table-cell"
+  }, [_vm._v("إختصارـالعملة")]), _vm._v(" "), _c("td", {
+    staticClass: "rounded-l-lg text-center"
+  }, [_vm._v("الإجراءات")])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Currencies/Currency/Currency.html?vue&type=template&id=16ff1978&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Currencies/Currency/Currency.html?vue&type=template&id=16ff1978&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "w-auto md:p-8 p-4"
+  }, [_vm.loaded == 200 ? _c("div", {
+    staticClass: "w-full md:px-4 px-0 pb-8 pt-2 bg-white shadow-2 rounded-lg text-lg text-gray-600 font-medium"
+  }, [_c("Single-Page-Header", {
+    attrs: {
+      title: "بيانات العملة",
+      url: "/admin/currency/",
+      urlLabel: "قائمة العملات"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2 JF-Flat"
+  }, [_c("div", {
+    staticClass: "w-full px-4 py-4"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nإسمـالعملة\n")]), _vm._v(" "), _c("div", {
+    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
+  }, [_vm._v("\n" + _vm._s(_vm.mainItem.name) + "\n")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nإختصارـالعملة\n")]), _vm._v(" "), _c("div", {
+    staticClass: "h-12 rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base"
+  }, [_vm._v("\n" + _vm._s(_vm.mainItem.abbreviation) + "\n")])])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full lg:h-20 mt-12 lg:flex items-center justify-start text-sm cairo"
+  }, [_c("router-link", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.$parent.checkPermission("EditCurrency") == true,
+      expression: "$parent.checkPermission('EditCurrency') == true"
+    }],
+    staticClass: "h-12 px-6 mx-4 bg-gray-400 hover:bg-gray-500 flex items-center justify-center text-white shadow-lg rounded cursor-pointer",
+    attrs: {
+      to: "/admin/currency/" + _vm.$route.params.id + "/edit"
+    }
+  }, [_c("i", {
+    staticClass: "fa-solid fa-pen-to-square ml-2"
+  }), _vm._v("\n                    تعديل \n                ")]), _vm._v(" "), _c("div", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.$parent.checkPermission("DeleteCurrency") == true,
+      expression: "$parent.checkPermission('DeleteCurrency') == true"
+    }],
+    staticClass: "h-12 px-6 mx-4 my-2 bg-red-400 hover:bg-red-500 flex items-center justify-center text-white shadow-lg rounded cursor-pointer",
+    on: {
+      click: _vm.deleteMainItem
+    }
+  }, [_c("i", {
+    staticClass: "far fa-trash-alt ml-2"
+  }), _vm._v("\n                حذف العملة\n            ")])], 1)], 1) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box", {
+    attrs: {
+      message: "لا يوجد دور بهذا الرقم"
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload,
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 403 ? _c("No-Permission", {
+    attrs: {
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("No-Internet", {
+    attrs: {
+      reload: _vm.reload
+    }
+  }) : _vm._e()], 1);
+};
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Currencies/EditCurrency/EditCurrency.html?vue&type=template&id=d412a490&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Currencies/EditCurrency/EditCurrency.html?vue&type=template&id=d412a490&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "w-auto md:p-8 p-4"
+  }, [_vm.loaded == 200 ? _c("div", {
+    staticClass: "w-full md:px-4 px-0 pb-8 pt-2 bg-white shadow-2 rounded-lg text-lg text-gray-600 font-medium"
+  }, [_c("Single-Page-Header", {
+    attrs: {
+      title: "تعديل بيانات العملة",
+      url: "/admin/currency/",
+      urlLabel: "قائمة العملات"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2"
+  }, [_c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nإسمـالعملة\n")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.name,
+      expression: "formData.name"
+    }],
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.formData.name
+    },
+    on: {
+      change: _vm.validateName,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.formData, "name", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n" + _vm._s(_vm.formValidate.name) + "\n")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\nإختصارـالعملة\n")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.abbreviation,
+      expression: "formData.abbreviation"
+    }],
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.formData.abbreviation
+    },
+    on: {
+      change: _vm.validateAbbreviation,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.formData, "abbreviation", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n" + _vm._s(_vm.formValidate.abbreviation) + "\n")])])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full lg:h-20 mt-12 lg:flex items-center justify-start text-sm cairo"
+  }, [_c("div", {
+    staticClass: "h-12 px-6 mx-4 my-2 bg-red-400 hover:bg-red-500 flex items-center justify-center text-white shadow-lg rounded cursor-pointer",
+    on: {
+      click: _vm.editMainItem
+    }
+  }, [_c("i", {
+    staticClass: "fa-solid fa-check ml-2"
+  }), _vm._v("\n                حفظ\n            ")])])], 1) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box", {
+    attrs: {
+      message: "لا يوجد عملة بهذا الرقم"
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload,
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 403 ? _c("No-Permission", {
+    attrs: {
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("No-Internet", {
+    attrs: {
+      reload: _vm.reload
+    }
+  }) : _vm._e()], 1);
+};
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Currencies/NewCurrency/NewCurrency.html?vue&type=template&id=6d47c4bc&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Currencies/NewCurrency/NewCurrency.html?vue&type=template&id=6d47c4bc&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "w-auto md:p-8 p-4"
+  }, [_vm.loaded == 200 ? _c("div", {
+    staticClass: "w-full md:px-4 px-0 pb-8 pt-2 bg-white shadow-2 rounded-lg text-lg text-gray-600 font-medium"
+  }, [_c("Single-Page-Header", {
+    attrs: {
+      title: "أضف عملة",
+      url: "/admin/currency/",
+      urlLabel: "قائمة العملات"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "bg-blue-600a grid lg:grid-cols-2 md:grid-cols-2"
+  }, [_c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\n                    إسمـالعملة\n                ")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.name,
+      expression: "formData.name"
+    }],
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.formData.name
+    },
+    on: {
+      change: _vm.validateName,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.formData, "name", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n                    " + _vm._s(_vm.formValidate.name) + "\n                ")])]), _vm._v(" "), _c("div", {
+    staticClass: "w-full px-4 py-4 JF-Flat"
+  }, [_c("div", {
+    staticClass: "h-9 flex items-center text-gray-500 mr-2 text-sm"
+  }, [_vm._v("\n                    إختصارـالعملة\n                ")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.abbreviation,
+      expression: "formData.abbreviation"
+    }],
+    staticClass: "h-12 w-full rounded border border-gray-200 bg-gray-50 flex items-center px-4 text-base",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.formData.abbreviation
+    },
+    on: {
+      change: _vm.validateAbbreviation,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.formData, "abbreviation", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "h-8 text-xs text-red-400 mr-2 flex items-center"
+  }, [_vm._v("\n                    " + _vm._s(_vm.formValidate.abbreviation) + "\n                ")])])]), _vm._v(" "), _c("div", {
+    staticClass: "flex items-center h-20 mx-4"
+  }, [_c("Btn-Submit-New-Item", {
+    attrs: {
+      label: "إضافة",
+      submit: _vm.addNewItem
+    }
+  })], 1)], 1) : _vm._e(), _vm._v(" "), _vm.loaded == 204 ? _c("Empty-Box", {
+    attrs: {
+      message: "لا يوجد عملة بهذا الرقم"
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 400 ? _c("Bad-Request", {
+    attrs: {
+      reload: _vm.reload,
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 403 ? _c("No-Permission", {
+    attrs: {
+      message: _vm.errorMessage
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.loaded == 404 ? _c("No-Internet", {
+    attrs: {
+      reload: _vm.reload
+    }
+  }) : _vm._e()], 1);
+};
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Home/Home.html?vue&type=template&id=42ce5736&":
 /*!******************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Home/Home.html?vue&type=template&id=42ce5736& ***!
@@ -5886,6 +7230,1150 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/BankAccounts/BankAccount/BankAccount.js?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/BankAccounts/BankAccount/BankAccount.js?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      mainItem: [],
+      loaded: 0,
+      // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+      // Side Menu
+      sideMenuPage: {
+        main: 12,
+        sub: 1
+      },
+      errorMessage: "حدث خطأ ما"
+    };
+  },
+  methods: {
+    reload: function reload() {
+      this.loadData();
+    },
+    loadData: function loadData() {
+      var _this = this;
+      this.$loading.Start();
+      this.$http.GetBankAccountById(this.$route.params.id).then(function (response) {
+        _this.$loading.Stop();
+        if (response.status == 200) {
+          _this.mainItem = response.data.data;
+          _this.loaded = 200;
+          _this.$alert.Success(response.data.message);
+        } else if (response.status == 204) {
+          _this.loaded = 204;
+          _this.$alert.Empty("هذه الحساب غير متوفر");
+        }
+      })["catch"](function (error) {
+        _this.$loading.Stop();
+        if (error.response.status == 400) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 400;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 403) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 403;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 401) {
+          _this.$alert.NotAuth();
+        } else {
+          _this.errorMessage = "حدث خطأ ما";
+          _this.loaded = 404;
+          _this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+        }
+      });
+    },
+    deleteMainItem: function deleteMainItem(id) {
+      var _this2 = this;
+      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+        title: "هل أنت متأكد",
+        text: "هل أنت متأكد من أنك تريد حذف هذا الحساب !",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#16a085",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "نعم حذف",
+        cancelButtonText: "إلغاء"
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          _this2.$loading.Start();
+          _this2.$http.DeleteBankAccount(_this2.$route.params.id).then(function (response) {
+            _this2.$loading.Stop();
+            if (response.status == 200) {
+              _this2.mainItem = [];
+              _this2.loaded = 204;
+              _this2.$alert.Success(response.data.message);
+            } else if (response.status == 204) {
+              _this2.mainItem = [];
+              _this2.loaded = 204;
+              _this2.$alert.Empty("لم يعد هذا الحساب متوفرة, قد يكون شخص أخر قام بحذفه");
+            } else if (response.status == 400) {
+              _this2.mainItem = [];
+              _this2.loaded = 204;
+              _this2.$alert.Empty(response.data.messageresponse.data.message);
+            }
+          })["catch"](function (error) {
+            _this2.$loading.Stop();
+            _this2.$alert.BadRequest(error.response.data.message);
+          });
+        }
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.$store.commit("activePage", this.sideMenuPage);
+    this.loadData();
+  },
+  computed: {},
+  created: function created() {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/BankAccounts/BankAccounts.js?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/BankAccounts/BankAccounts.js?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      mainList: [],
+      loaded: 0,
+      // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+      tagId: null,
+      //null =>All ,  1 => Active , 0 =>Not Active , 2=>Banned 
+      pageId: 1,
+      countPerPage: 5,
+      lastPage: 0,
+      totalRows: 0,
+      itemFrom: 0,
+      itemTo: 0,
+      // Search 
+      nameSrh: '',
+      branchSrh: '',
+      account_numberSrh: '',
+      // UI
+      optionId: 0,
+      // Side Menu
+      sideMenuPage: {
+        main: 12,
+        sub: 1
+      },
+      errorMessage: "حدث خطأ ما"
+    };
+  },
+  methods: {
+    reload: function reload() {
+      this.loadData(this.pageId);
+    },
+    loadData: function loadData(page) {
+      var _this = this;
+      this.pageId = page;
+      this.$loading.Start();
+      this.$http.GetAllBankAccounts(this.pageId, this.countPerPage, this.nameSrh, this.branchSrh, this.account_numberSrh).then(function (response) {
+        _this.$loading.Stop();
+        if (response.status == 200) {
+          _this.mainList = response.data.data.data;
+          _this.lastPage = response.data.data.last_page;
+          _this.totalRows = response.data.data.total;
+          _this.itemFrom = response.data.data.from;
+          _this.itemTo = response.data.data.to;
+          _this.$alert.Success(response.data.message);
+          _this.loaded = 200;
+        } else if (response.status == 204) {
+          _this.loaded = 204;
+          _this.$alert.Empty("تنبيه لا يوجد اي ادوار");
+        } else {
+          _this.loaded = 400;
+          alert("400");
+        }
+      })["catch"](function (error) {
+        _this.$loading.Stop();
+        if (error.response.status == 400) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 400;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 403) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 403;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 401) {
+          _this.$alert.NotAuth();
+        } else {
+          _this.errorMessage = "حدث خطأ ما";
+          _this.loaded = 404;
+          _this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+        }
+      });
+    },
+    changePerPage: function changePerPage(event) {
+      this.countPerPage = event.target.value;
+      this.pageId = 1;
+      this.loadData(this.pageId);
+    },
+    clearSearch: function clearSearch() {
+      this.nameSrh = '', this.branchSrh = '', this.account_numberSrh = '', this.loadData(this.pageId);
+    },
+    moveToNext: function moveToNext() {
+      this.pageId++;
+      this.loadData(this.pageId);
+    },
+    moveToPrevius: function moveToPrevius() {
+      this.pageId--;
+      this.loadData(this.pageId);
+    },
+    openOptions: function openOptions(event) {
+      if (event.target.id == 0) {
+        this.optionId = 0;
+        console.log(event.target.id);
+      } else {
+        this.optionId = event.target.id;
+        console.log(event.target.id);
+      }
+    },
+    deleteMainItem: function deleteMainItem(id) {
+      var _this2 = this;
+      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+        title: "هل أنت متأكد",
+        text: "هل أنت متأكد من أنك تريد حذف هذا الحساب !",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#16a085",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "نعم حذف",
+        cancelButtonText: "إلغاء"
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          _this2.$loading.Start();
+          _this2.$http.DeleteBankAccount(id).then(function (response) {
+            _this2.$loading.Stop();
+            if (response.status == 200) {
+              _this2.mainList.splice(_this2.mainList.findIndex(function (m) {
+                return m.id === id;
+              }), 1);
+              _this2.$alert.Success(response.data.message);
+            } else if (response.status == 204) {
+              _this2.mainList.splice(_this2.mainList.findIndex(function (m) {
+                return m.id === id;
+              }), 1);
+              _this2.$alert.Empty("لم يعد هذا الحساب متوفر, قد يكون شخص أخر قام بحذفه");
+            } else if (response.status == 400) {
+              _this2.$alert.Empty(response.data.message);
+            }
+          })["catch"](function (error) {
+            _this2.$loading.Stop();
+            _this2.$alert.BadRequest(error.response.data.message);
+          });
+        }
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.$store.commit("activePage", this.sideMenuPage);
+    this.$loading.Start();
+    this.loadData(this.pageId);
+  },
+  computed: {},
+  created: function created() {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/BankAccounts/EditBankAccount/EditBankAccount.js?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/BankAccounts/EditBankAccount/EditBankAccount.js?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+var _methods;
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      mainItem: [],
+      formData: {
+        name: '',
+        branch: '',
+        account_number: '',
+        currency_id: 0,
+        name_holder: ''
+      },
+      formValidate: {
+        name: '',
+        branch: '',
+        account_number: '',
+        currency_id: '',
+        name_holder: ''
+      },
+      loaded: 0,
+      // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+      // Side Menu
+      sideMenuPage: {
+        main: 12,
+        sub: 1
+      },
+      errorMessage: "حدث خطأ ما"
+    };
+  },
+  methods: (_methods = {
+    reload: function reload() {
+      this.loadData();
+    },
+    loadData: function loadData() {
+      var _this = this;
+      this.$loading.Start();
+      this.$http.GetBankAccountById(this.$route.params.id).then(function (response) {
+        _this.$loading.Stop();
+        if (response.status == 200) {
+          _this.mainItem = response.data.data;
+          _this.formData.name = response.data.data.name;
+          _this.formData.branch = response.data.data.branch;
+          _this.formData.account_number = response.data.data.account_number;
+          _this.formData.currency_id = response.data.data.currency_id;
+          _this.formData.name_holder = response.data.data.name_holder;
+          _this.loaded = 200;
+          _this.$alert.Success(response.data.message);
+        } else if (response.status == 204) {
+          _this.loaded = 204;
+          _this.$alert.Empty("هذه الحساب غير متوفر");
+        }
+      })["catch"](function (error) {
+        _this.$loading.Stop();
+        if (error.response.status == 400) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 400;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 403) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 403;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 401) {
+          _this.$alert.NotAuth();
+        } else {
+          _this.errorMessage = "حدث خطأ ما";
+          _this.loaded = 404;
+          _this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+        }
+      });
+    },
+    editMainItem: function editMainItem(id) {
+      var _this2 = this;
+      this.validateName();
+      if (this.formValidate.name != '') return 0;
+      this.validateBranch();
+      if (this.formValidate.branch != '') return 0;
+      this.validateAccount_number();
+      if (this.formValidate.account_number != '') return 0;
+      this.validateCurrency_id();
+      if (this.formValidate.currency_id != '') return 0;
+      this.validateName_holder();
+      if (this.formValidate.name_holder != '') return 0;
+
+      // this.validateName();
+      // if (this.formValidate.name != "") return 0;
+
+      this.$loading.Start();
+      this.$http.EditBankAccount(this.$route.params.id, this.formData).then(function (response) {
+        _this2.$loading.Stop();
+        if (response.status == 200) {
+          _this2.$alert.Success(response.data.message);
+        } else if (response.status == 204) {
+          _this2.mainItem = [];
+          _this2.loaded = 204;
+          _this2.$alert.Empty("لم يعد هذا الحساب متوفرة, قد يكون شخص أخر قام بحذفه");
+        } else if (response.status == 400) {
+          _this2.mainItem = [];
+          _this2.loaded = 204;
+          _this2.$alert.Empty(response.data.messageresponse.data.message);
+        }
+      })["catch"](function (error) {
+        _this2.$loading.Stop();
+        _this2.$alert.BadRequest(error.response.data.message);
+      });
+    },
+    validateName: function validateName() {
+      this.formValidate.name = "";
+      if (this.formData.name.trim() == "") {
+        this.formValidate.name = "لا يمكن ترك هذا الحقل فارغ";
+        return 1;
+      }
+      if (this.formData.name.trim().length < 5) {
+        this.formValidate.name = "يجب ان يكون الحقل 5 أحرف أو اكثر";
+        return 1;
+      }
+      if (this.formData.name.trim().length > 16) {
+        this.formValidate.name = "يجب ان يكون الحقل أقل من 16 حرف";
+        return 1;
+      }
+    }
+  }, _defineProperty(_methods, "validateName", function validateName() {
+    this.formValidate.name = '';
+    if (this.formData.name.trim() == '') {
+      this.formValidate.name = 'لا يمكن ترك هذا الحقل فارغ';
+      return 1;
+    }
+  }), _defineProperty(_methods, "validateBranch", function validateBranch() {
+    this.formValidate.branch = '';
+    if (this.formData.branch.trim() == '') {
+      this.formValidate.branch = 'لا يمكن ترك هذا الحقل فارغ';
+      return 1;
+    }
+  }), _defineProperty(_methods, "validateAccount_number", function validateAccount_number() {
+    this.formValidate.account_number = '';
+    if (this.formData.account_number.trim() == '') {
+      this.formValidate.account_number = 'لا يمكن ترك هذا الحقل فارغ';
+      return 1;
+    }
+  }), _defineProperty(_methods, "validateCurrency_id", function validateCurrency_id() {
+    this.formValidate.currency_id = '';
+    if (this.formData.currency_id == null) {
+      this.formValidate.currency_id = 'لا يمكن ترك هذا الحقل فارغ';
+      return 1;
+    }
+  }), _defineProperty(_methods, "validateName_holder", function validateName_holder() {
+    this.formValidate.name_holder = '';
+    if (this.formData.name_holder.trim() == '') {
+      this.formValidate.name_holder = 'لا يمكن ترك هذا الحقل فارغ';
+      return 1;
+    }
+  }), _methods),
+  mounted: function mounted() {
+    this.$store.commit("activePage", this.sideMenuPage);
+    this.loadData();
+  },
+  computed: {},
+  created: function created() {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/BankAccounts/NewBankAccount/NewBankAccount.js?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/BankAccounts/NewBankAccount/NewBankAccount.js?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      mainItem: [],
+      currenciesList: [],
+      formData: {
+        name: '',
+        branch: '',
+        account_number: '',
+        currency_id: null,
+        name_holder: ''
+      },
+      formValidate: {
+        name: '',
+        branch: '',
+        account_number: '',
+        currency_id: '',
+        name_holder: ''
+      },
+      loaded: 0,
+      // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+      // Side Menu
+      sideMenuPage: {
+        main: 12,
+        sub: 2
+      },
+      errorMessage: "حدث خطأ ما"
+    };
+  },
+  methods: {
+    reload: function reload() {
+      this.loadData();
+    },
+    loadData: function loadData() {
+      var _this = this;
+      this.$loading.Start();
+      this.$http.GetBankAccountNew().then(function (response) {
+        _this.$loading.Stop();
+        if (response.status == 200) {
+          _this.mainItem = response.data.data;
+          _this.currenciesList = response.data.currencies;
+          _this.loaded = 200;
+          _this.$alert.Success(response.data.message);
+        } else if (response.status == 204) {
+          _this.loaded = 204;
+          _this.$alert.Empty("هذه الحساب غير متوفر");
+        }
+      })["catch"](function (error) {
+        _this.$loading.Stop();
+        if (error.response.status == 400) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 400;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 403) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 403;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 401) {
+          _this.$alert.NotAuth();
+        } else {
+          _this.errorMessage = "حدث خطأ ما";
+          _this.loaded = 404;
+          _this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+        }
+      });
+    },
+    addNewItem: function addNewItem() {
+      var _this2 = this;
+      this.validateName();
+      if (this.formValidate.name != '') return 0;
+      this.validateBranch();
+      if (this.formValidate.branch != '') return 0;
+      this.validateAccount_number();
+      if (this.formValidate.account_number != '') return 0;
+      this.validateCurrency_id();
+      if (this.formValidate.currency_id != '') return 0;
+      this.validateName_holder();
+      if (this.formValidate.name_holder != '') return 0;
+      this.$loading.Start();
+      this.$http.PostNewBankAccount(this.formData).then(function (response) {
+        _this2.$loading.Stop();
+        if (response.status == 200) {
+          _this2.$alert.Success(response.data.message);
+        } else if (response.status == 204) {
+          _this2.mainItem = [];
+          _this2.loaded = 204;
+          _this2.$alert.Empty("لم يعد هذا الحساب متوفرة, قد يكون شخص أخر قام بحذفه");
+        } else if (response.status == 400) {
+          _this2.mainItem = [];
+          _this2.loaded = 204;
+          _this2.$alert.Empty(response.data.messageresponse.data.message);
+        }
+      })["catch"](function (error) {
+        _this2.$loading.Stop();
+        _this2.$alert.BadRequest(error.response.data.message);
+      });
+    },
+    validateName: function validateName() {
+      this.formValidate.name = '';
+      if (this.formData.name.trim() == '') {
+        this.formValidate.name = 'لا يمكن ترك هذا الحقل فارغ';
+        return 1;
+      }
+    },
+    validateBranch: function validateBranch() {
+      this.formValidate.branch = '';
+      if (this.formData.branch.trim() == '') {
+        this.formValidate.branch = 'لا يمكن ترك هذا الحقل فارغ';
+        return 1;
+      }
+    },
+    validateAccount_number: function validateAccount_number() {
+      this.formValidate.account_number = '';
+      if (this.formData.account_number.trim() == '') {
+        this.formValidate.account_number = 'لا يمكن ترك هذا الحقل فارغ';
+        return 1;
+      }
+    },
+    validateCurrency_id: function validateCurrency_id() {
+      this.formValidate.currency_id = '';
+      if (this.formData.currency_id == null) {
+        this.formValidate.currency_id = 'لا يمكن ترك هذا الحقل فارغ';
+        return 1;
+      }
+    },
+    validateName_holder: function validateName_holder() {
+      this.formValidate.name_holder = '';
+      if (this.formData.name_holder.trim() == '') {
+        this.formValidate.name_holder = 'لا يمكن ترك هذا الحقل فارغ';
+        return 1;
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.$store.commit("activePage", this.sideMenuPage);
+    this.loadData();
+  },
+  computed: {},
+  created: function created() {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Currencies/Currencies.js?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Currencies/Currencies.js?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      mainList: [],
+      loaded: 0,
+      // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+      tagId: null,
+      //null =>All ,  1 => Active , 0 =>Not Active , 2=>Banned 
+      pageId: 1,
+      countPerPage: 5,
+      lastPage: 0,
+      totalRows: 0,
+      itemFrom: 0,
+      itemTo: 0,
+      // Search 
+      nameSrh: '',
+      abbreviationSrh: '',
+      // UI
+      optionId: 0,
+      // Side Menu
+      sideMenuPage: {
+        main: 10,
+        sub: 1
+      },
+      errorMessage: "حدث خطأ ما"
+    };
+  },
+  methods: {
+    reload: function reload() {
+      this.loadData(this.pageId);
+    },
+    loadData: function loadData(page) {
+      var _this = this;
+      this.pageId = page;
+      this.$loading.Start();
+      this.$http.GetAllCurrencies(this.pageId, this.countPerPage, this.nameSrh, this.abbreviationSrh).then(function (response) {
+        _this.$loading.Stop();
+        if (response.status == 200) {
+          _this.mainList = response.data.data.data;
+          _this.lastPage = response.data.data.last_page;
+          _this.totalRows = response.data.data.total;
+          _this.itemFrom = response.data.data.from;
+          _this.itemTo = response.data.data.to;
+          _this.$alert.Success(response.data.message);
+          _this.loaded = 200;
+        } else if (response.status == 204) {
+          _this.loaded = 204;
+          _this.$alert.Empty("تنبيه لا يوجد اي ادوار");
+        } else {
+          _this.loaded = 400;
+          alert("400");
+        }
+      })["catch"](function (error) {
+        _this.$loading.Stop();
+        if (error.response.status == 400) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 400;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 403) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 403;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 401) {
+          _this.$alert.NotAuth();
+        } else {
+          _this.errorMessage = "حدث خطأ ما";
+          _this.loaded = 404;
+          _this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+        }
+      });
+    },
+    changePerPage: function changePerPage(event) {
+      this.countPerPage = event.target.value;
+      this.pageId = 1;
+      this.loadData(this.pageId);
+    },
+    clearSearch: function clearSearch() {
+      this.nameSrh = '', this.abbreviationSrh = '', this.loadData(this.pageId);
+    },
+    moveToNext: function moveToNext() {
+      this.pageId++;
+      this.loadData(this.pageId);
+    },
+    moveToPrevius: function moveToPrevius() {
+      this.pageId--;
+      this.loadData(this.pageId);
+    },
+    openOptions: function openOptions(event) {
+      if (event.target.id == 0) {
+        this.optionId = 0;
+        console.log(event.target.id);
+      } else {
+        this.optionId = event.target.id;
+        console.log(event.target.id);
+      }
+    },
+    deleteMainItem: function deleteMainItem(id) {
+      var _this2 = this;
+      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+        title: "هل أنت متأكد",
+        text: "هل أنت متأكد من أنك تريد حذف هذا العملة !",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#16a085",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "نعم حذف",
+        cancelButtonText: "إلغاء"
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          _this2.$loading.Start();
+          _this2.$http.DeleteCurrency(id).then(function (response) {
+            _this2.$loading.Stop();
+            if (response.status == 200) {
+              _this2.mainList.splice(_this2.mainList.findIndex(function (m) {
+                return m.id === id;
+              }), 1);
+              _this2.$alert.Success(response.data.message);
+            } else if (response.status == 204) {
+              _this2.mainList.splice(_this2.mainList.findIndex(function (m) {
+                return m.id === id;
+              }), 1);
+              _this2.$alert.Empty("لم يعد هذا العملة متوفر, قد يكون شخص أخر قام بحذفه");
+            } else if (response.status == 400) {
+              _this2.$alert.Empty(response.data.message);
+            }
+          })["catch"](function (error) {
+            _this2.$loading.Stop();
+            _this2.$alert.BadRequest(error.response.data.message);
+          });
+        }
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.$store.commit("activePage", this.sideMenuPage);
+    this.$loading.Start();
+    this.loadData(this.pageId);
+  },
+  computed: {},
+  created: function created() {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Currencies/Currency/Currency.js?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Currencies/Currency/Currency.js?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      mainItem: [],
+      loaded: 0,
+      // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+      // Side Menu
+      sideMenuPage: {
+        main: 10,
+        sub: 1
+      },
+      errorMessage: "حدث خطأ ما"
+    };
+  },
+  methods: {
+    reload: function reload() {
+      this.loadData();
+    },
+    loadData: function loadData() {
+      var _this = this;
+      this.$loading.Start();
+      this.$http.GetCurrencyById(this.$route.params.id).then(function (response) {
+        _this.$loading.Stop();
+        if (response.status == 200) {
+          _this.mainItem = response.data.data;
+          _this.loaded = 200;
+          _this.$alert.Success(response.data.message);
+        } else if (response.status == 204) {
+          _this.loaded = 204;
+          _this.$alert.Empty("هذه العملة غير متوفر");
+        }
+      })["catch"](function (error) {
+        _this.$loading.Stop();
+        if (error.response.status == 400) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 400;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 403) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 403;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 401) {
+          _this.$alert.NotAuth();
+        } else {
+          _this.errorMessage = "حدث خطأ ما";
+          _this.loaded = 404;
+          _this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+        }
+      });
+    },
+    deleteMainItem: function deleteMainItem(id) {
+      var _this2 = this;
+      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+        title: "هل أنت متأكد",
+        text: "هل أنت متأكد من أنك تريد حذف هذا العملة !",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#16a085",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "نعم حذف",
+        cancelButtonText: "إلغاء"
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          _this2.$loading.Start();
+          _this2.$http.DeleteCurrency(_this2.$route.params.id).then(function (response) {
+            _this2.$loading.Stop();
+            if (response.status == 200) {
+              _this2.mainItem = [];
+              _this2.loaded = 204;
+              _this2.$alert.Success(response.data.message);
+            } else if (response.status == 204) {
+              _this2.mainItem = [];
+              _this2.loaded = 204;
+              _this2.$alert.Empty("لم يعد هذا العملة متوفرة, قد يكون شخص أخر قام بحذفه");
+            } else if (response.status == 400) {
+              _this2.mainItem = [];
+              _this2.loaded = 204;
+              _this2.$alert.Empty(response.data.messageresponse.data.message);
+            }
+          })["catch"](function (error) {
+            _this2.$loading.Stop();
+            _this2.$alert.BadRequest(error.response.data.message);
+          });
+        }
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.$store.commit("activePage", this.sideMenuPage);
+    this.loadData();
+  },
+  computed: {},
+  created: function created() {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Currencies/EditCurrency/EditCurrency.js?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Currencies/EditCurrency/EditCurrency.js?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+var _methods;
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      mainItem: [],
+      formData: {
+        name: '',
+        abbreviation: ''
+      },
+      formValidate: {
+        name: '',
+        abbreviation: ''
+      },
+      loaded: 0,
+      // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+      // Side Menu
+      sideMenuPage: {
+        main: 10,
+        sub: 1
+      },
+      errorMessage: "حدث خطأ ما"
+    };
+  },
+  methods: (_methods = {
+    reload: function reload() {
+      this.loadData();
+    },
+    loadData: function loadData() {
+      var _this = this;
+      this.$loading.Start();
+      this.$http.GetCurrencyById(this.$route.params.id).then(function (response) {
+        _this.$loading.Stop();
+        if (response.status == 200) {
+          _this.mainItem = response.data.data;
+          _this.formData.name = response.data.data.name;
+          _this.formData.abbreviation = response.data.data.abbreviation;
+          _this.loaded = 200;
+          _this.$alert.Success(response.data.message);
+        } else if (response.status == 204) {
+          _this.loaded = 204;
+          _this.$alert.Empty("هذه العملة غير متوفر");
+        }
+      })["catch"](function (error) {
+        _this.$loading.Stop();
+        if (error.response.status == 400) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 400;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 403) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 403;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 401) {
+          _this.$alert.NotAuth();
+        } else {
+          _this.errorMessage = "حدث خطأ ما";
+          _this.loaded = 404;
+          _this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+        }
+      });
+    },
+    editMainItem: function editMainItem(id) {
+      var _this2 = this;
+      this.validateName();
+      if (this.formValidate.name != '') return 0;
+      this.validateAbbreviation();
+      if (this.formValidate.abbreviation != '') return 0;
+
+      // this.validateName();
+      // if (this.formValidate.name != "") return 0;
+
+      this.$loading.Start();
+      this.$http.EditCurrency(this.$route.params.id, this.formData).then(function (response) {
+        _this2.$loading.Stop();
+        if (response.status == 200) {
+          _this2.$alert.Success(response.data.message);
+        } else if (response.status == 204) {
+          _this2.mainItem = [];
+          _this2.loaded = 204;
+          _this2.$alert.Empty("لم يعد هذا العملة متوفرة, قد يكون شخص أخر قام بحذفه");
+        } else if (response.status == 400) {
+          _this2.mainItem = [];
+          _this2.loaded = 204;
+          _this2.$alert.Empty(response.data.messageresponse.data.message);
+        }
+      })["catch"](function (error) {
+        _this2.$loading.Stop();
+        _this2.$alert.BadRequest(error.response.data.message);
+      });
+    },
+    validateName: function validateName() {
+      this.formValidate.name = "";
+      if (this.formData.name.trim() == "") {
+        this.formValidate.name = "لا يمكن ترك هذا الحقل فارغ";
+        return 1;
+      }
+      if (this.formData.name.trim().length < 5) {
+        this.formValidate.name = "يجب ان يكون الحقل 5 أحرف أو اكثر";
+        return 1;
+      }
+      if (this.formData.name.trim().length > 16) {
+        this.formValidate.name = "يجب ان يكون الحقل أقل من 16 حرف";
+        return 1;
+      }
+    }
+  }, _defineProperty(_methods, "validateName", function validateName() {
+    this.formValidate.name = '';
+    if (this.formData.name.trim() == '') {
+      this.formValidate.name = 'لا يمكن ترك هذا الحقل فارغ';
+      return 1;
+    }
+  }), _defineProperty(_methods, "validateAbbreviation", function validateAbbreviation() {
+    this.formValidate.abbreviation = '';
+    if (this.formData.abbreviation.trim() == '') {
+      this.formValidate.abbreviation = 'لا يمكن ترك هذا الحقل فارغ';
+      return 1;
+    }
+  }), _methods),
+  mounted: function mounted() {
+    this.$store.commit("activePage", this.sideMenuPage);
+    this.loadData();
+  },
+  computed: {},
+  created: function created() {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Currencies/NewCurrency/NewCurrency.js?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Currencies/NewCurrency/NewCurrency.js?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      mainItem: [],
+      formData: {
+        name: '',
+        abbreviation: ''
+      },
+      formValidate: {
+        name: '',
+        abbreviation: ''
+      },
+      loaded: 0,
+      // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
+      // Side Menu
+      sideMenuPage: {
+        main: 10,
+        sub: 2
+      },
+      errorMessage: "حدث خطأ ما"
+    };
+  },
+  methods: {
+    reload: function reload() {
+      this.loadData();
+    },
+    loadData: function loadData() {
+      var _this = this;
+      this.$loading.Start();
+      this.$http.GetCurrencyNew().then(function (response) {
+        _this.$loading.Stop();
+        // this.loaded = 200;
+        if (response.status == 200) {
+          _this.mainItem = response.data.data;
+          _this.loaded = 200;
+          _this.$alert.Success(response.data.message);
+        } else if (response.status == 204) {
+          _this.loaded = 204;
+          _this.$alert.Empty("هذه العملة غير متوفر");
+        }
+      })["catch"](function (error) {
+        _this.$loading.Stop();
+        if (error.response.status == 400) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 400;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 403) {
+          _this.errorMessage = error.response.data.message;
+          _this.loaded = 403;
+          _this.$alert.BadRequest(error.response.data.message);
+        } else if (error.response.status == 401) {
+          _this.$alert.NotAuth();
+        } else {
+          _this.errorMessage = "حدث خطأ ما";
+          _this.loaded = 404;
+          _this.$alert.BadRequest("حدث خطأ ما, الرجاء إعادة المحاولة");
+        }
+      });
+    },
+    addNewItem: function addNewItem() {
+      var _this2 = this;
+      this.validateName();
+      if (this.formValidate.name != '') return 0;
+      this.validateAbbreviation();
+      if (this.formValidate.abbreviation != '') return 0;
+      this.$loading.Start();
+      this.$http.PostNewCurrency(this.formData).then(function (response) {
+        _this2.$loading.Stop();
+        if (response.status == 200) {
+          _this2.$alert.Success(response.data.message);
+        } else if (response.status == 204) {
+          _this2.mainItem = [];
+          _this2.loaded = 204;
+          _this2.$alert.Empty("لم يعد هذا العملة متوفرة, قد يكون شخص أخر قام بحذفه");
+        } else if (response.status == 400) {
+          _this2.mainItem = [];
+          _this2.loaded = 204;
+          _this2.$alert.Empty(response.data.messageresponse.data.message);
+        }
+      })["catch"](function (error) {
+        _this2.$loading.Stop();
+        _this2.$alert.BadRequest(error.response.data.message);
+      });
+    },
+    validateName: function validateName() {
+      this.formValidate.name = '';
+      if (this.formData.name.trim() == '') {
+        this.formValidate.name = 'لا يمكن ترك هذا الحقل فارغ';
+        return 1;
+      }
+    },
+    validateAbbreviation: function validateAbbreviation() {
+      this.formValidate.abbreviation = '';
+      if (this.formData.abbreviation.trim() == '') {
+        this.formValidate.abbreviation = 'لا يمكن ترك هذا الحقل فارغ';
+        return 1;
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.$store.commit("activePage", this.sideMenuPage);
+    this.loadData();
+  },
+  computed: {},
+  created: function created() {}
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Home/Home.js?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Home/Home.js?vue&type=script&lang=js& ***!
@@ -6977,7 +9465,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Roles_Role_Role_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../pages/Roles/Role/Role.vue */ "./resources/js/admin/pages/Roles/Role/Role.vue");
 /* harmony import */ var _pages_Roles_EditRole_EditRole_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../pages/Roles/EditRole/EditRole.vue */ "./resources/js/admin/pages/Roles/EditRole/EditRole.vue");
 /* harmony import */ var _pages_Admins_EditAdminRole_EditAdminRole_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../pages/Admins/EditAdminRole/EditAdminRole.vue */ "./resources/js/admin/pages/Admins/EditAdminRole/EditAdminRole.vue");
-/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../store/index */ "./resources/js/admin/store/index.js");
+/* harmony import */ var _pages_Currencies_Currencies_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../pages/Currencies/Currencies.vue */ "./resources/js/admin/pages/Currencies/Currencies.vue");
+/* harmony import */ var _pages_Currencies_Currency_Currency_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../pages/Currencies/Currency/Currency.vue */ "./resources/js/admin/pages/Currencies/Currency/Currency.vue");
+/* harmony import */ var _pages_Currencies_EditCurrency_EditCurrency_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../pages/Currencies/EditCurrency/EditCurrency.vue */ "./resources/js/admin/pages/Currencies/EditCurrency/EditCurrency.vue");
+/* harmony import */ var _pages_Currencies_NewCurrency_NewCurrency_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../pages/Currencies/NewCurrency/NewCurrency.vue */ "./resources/js/admin/pages/Currencies/NewCurrency/NewCurrency.vue");
+/* harmony import */ var _pages_BankAccounts_BankAccounts_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../pages/BankAccounts/BankAccounts.vue */ "./resources/js/admin/pages/BankAccounts/BankAccounts.vue");
+/* harmony import */ var _pages_BankAccounts_BankAccount_BankAccount_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../pages/BankAccounts/BankAccount/BankAccount.vue */ "./resources/js/admin/pages/BankAccounts/BankAccount/BankAccount.vue");
+/* harmony import */ var _pages_BankAccounts_EditBankAccount_EditBankAccount_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../pages/BankAccounts/EditBankAccount/EditBankAccount.vue */ "./resources/js/admin/pages/BankAccounts/EditBankAccount/EditBankAccount.vue");
+/* harmony import */ var _pages_BankAccounts_NewBankAccount_NewBankAccount_vue__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../pages/BankAccounts/NewBankAccount/NewBankAccount.vue */ "./resources/js/admin/pages/BankAccounts/NewBankAccount/NewBankAccount.vue");
+/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../store/index */ "./resources/js/admin/store/index.js");
+
+
+
+
+
+
+
+
 
 
 
@@ -6995,14 +9499,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ifAuth = function ifAuth(to, from, next) {
-  if (_store_index__WEBPACK_IMPORTED_MODULE_12__["default"].state.auth == true) {
+  if (_store_index__WEBPACK_IMPORTED_MODULE_20__["default"].state.auth == true) {
     next();
     return;
   }
   next("/admin/login");
 };
 var ifNotAuth = function ifNotAuth(to, from, next) {
-  if (_store_index__WEBPACK_IMPORTED_MODULE_12__["default"].state.auth != true) {
+  if (_store_index__WEBPACK_IMPORTED_MODULE_20__["default"].state.auth != true) {
     next();
     return;
   }
@@ -7042,6 +9546,30 @@ var routes = [{
   }, {
     path: "admin/role/:id/edit",
     component: _pages_Roles_EditRole_EditRole_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
+  }, {
+    path: 'admin/currency/new',
+    component: _pages_Currencies_NewCurrency_NewCurrency_vue__WEBPACK_IMPORTED_MODULE_15__["default"]
+  }, {
+    path: 'admin/currency',
+    component: _pages_Currencies_Currencies_vue__WEBPACK_IMPORTED_MODULE_12__["default"]
+  }, {
+    path: 'admin/currency/:id',
+    component: _pages_Currencies_Currency_Currency_vue__WEBPACK_IMPORTED_MODULE_13__["default"]
+  }, {
+    path: 'admin/currency/:id/edit',
+    component: _pages_Currencies_EditCurrency_EditCurrency_vue__WEBPACK_IMPORTED_MODULE_14__["default"]
+  }, {
+    path: 'admin/bank_account/new',
+    component: _pages_BankAccounts_NewBankAccount_NewBankAccount_vue__WEBPACK_IMPORTED_MODULE_19__["default"]
+  }, {
+    path: 'admin/bank_account',
+    component: _pages_BankAccounts_BankAccounts_vue__WEBPACK_IMPORTED_MODULE_16__["default"]
+  }, {
+    path: 'admin/bank_account/:id',
+    component: _pages_BankAccounts_BankAccount_BankAccount_vue__WEBPACK_IMPORTED_MODULE_17__["default"]
+  }, {
+    path: 'admin/bank_account/:id/edit',
+    component: _pages_BankAccounts_EditBankAccount_EditBankAccount_vue__WEBPACK_IMPORTED_MODULE_18__["default"]
   }
 
   //xroute
@@ -7195,6 +9723,44 @@ __webpack_require__.r(__webpack_exports__);
   },
   EditRole: function EditRole(role, formData) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default().put("/admin/api/permission/" + role, formData);
+  },
+  // ============== Currency Part =======================
+  GetAllCurrencies: function GetAllCurrencies(page, countPerPage, name, abbreviation) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/admin/api/currency?page=' + page + '&count=' + countPerPage + '&name=' + name + '&abbreviation=' + abbreviation);
+  },
+  DeleteCurrency: function DeleteCurrency(id) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/admin/api/currency/' + id);
+  },
+  GetCurrencyById: function GetCurrencyById(id) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/admin/api/currency/' + id);
+  },
+  PostNewCurrency: function PostNewCurrency(formData) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/admin/api/currency', formData);
+  },
+  EditCurrency: function EditCurrency(id, formData) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/admin/api/currency/' + id, formData);
+  },
+  GetCurrencyNew: function GetCurrencyNew() {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/admin/api/currency/new');
+  },
+  // ============== BankAccount Part =======================
+  GetAllBankAccounts: function GetAllBankAccounts(page, countPerPage, name, branch, account_number) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/admin/api/bankaccount?page=' + page + '&count=' + countPerPage + '&name=' + name + '&branch=' + branch + '&account_number=' + account_number);
+  },
+  DeleteBankAccount: function DeleteBankAccount(id) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/admin/api/bankaccount/' + id);
+  },
+  GetBankAccountById: function GetBankAccountById(id) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/admin/api/bankaccount/' + id);
+  },
+  PostNewBankAccount: function PostNewBankAccount(formData) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/admin/api/bankaccount', formData);
+  },
+  EditBankAccount: function EditBankAccount(id, formData) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/admin/api/bankaccount/' + id, formData);
+  },
+  GetBankAccountNew: function GetBankAccountNew() {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/admin/api/bankaccount/new');
   } //xapi
 });
 
@@ -7283,6 +9849,58 @@ __webpack_require__.r(__webpack_exports__);
         icon: "fa-sharp fa-solid fa-house",
         list: []
       }, {
+        id: 4,
+        target: 0,
+        // 0 label - 1 page
+        name: "العمليات",
+        nameEn: "Settings",
+        role: "SettingLabel",
+        url: "/admin",
+        icon: "fas fa-home",
+        list: []
+      }, {
+        id: 10,
+        target: 1,
+        name: 'العملات',
+        nameEn: 'Currencies',
+        role: 'RolePermissionsList',
+        url: '/currency',
+        icon: 'fas fa-user-shield',
+        list: [{
+          id: 1,
+          name: 'قائمة العملات',
+          nameEn: 'Currencies List',
+          role: 'ReadCurrency',
+          url: '/admin/currency'
+        }, {
+          id: 2,
+          name: 'أضف عملة',
+          nameEn: 'New Currencies',
+          role: 'CreateCurrency',
+          url: '/admin/currency/new'
+        }]
+      }, {
+        id: 12,
+        target: 1,
+        name: 'الحسابات',
+        nameEn: 'BankAccounts',
+        role: 'RolePermissionsList',
+        url: '/bank_account',
+        icon: 'fas fa-user-shield',
+        list: [{
+          id: 1,
+          name: 'قائمة الحسابات',
+          nameEn: 'BankAccounts List',
+          role: 'ReadBankAccount',
+          url: '/admin/bank_account'
+        }, {
+          id: 2,
+          name: 'أضف حساب',
+          nameEn: 'New BankAccounts',
+          role: 'CreateBankAccount',
+          url: '/admin/bank_account/new'
+        }]
+      }, {
         id: 3,
         target: 0,
         // 0 label - 1 page
@@ -7326,16 +9944,6 @@ __webpack_require__.r(__webpack_exports__);
           role: "CreateRole",
           url: "/admin/role/new"
         }]
-      }, {
-        id: 6,
-        target: 1,
-        // 0 label - 1 page
-        name: "قائمة المشرفين",
-        nameEn: "Admins List",
-        role: "ReadAdmin",
-        url: "/admin",
-        icon: "fas fa-user-shield",
-        list: []
       }
 
       //xlink
@@ -29671,6 +32279,318 @@ component.options.__file = "resources/js/admin/pages/Admins/NewAdmin/NewAdmin.vu
 
 /***/ }),
 
+/***/ "./resources/js/admin/pages/BankAccounts/BankAccount/BankAccount.vue":
+/*!***************************************************************************!*\
+  !*** ./resources/js/admin/pages/BankAccounts/BankAccount/BankAccount.vue ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _BankAccount_html_vue_type_template_id_0de890cf_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BankAccount.html?vue&type=template&id=0de890cf&scoped=true& */ "./resources/js/admin/pages/BankAccounts/BankAccount/BankAccount.html?vue&type=template&id=0de890cf&scoped=true&");
+/* harmony import */ var _BankAccount_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BankAccount.js?vue&type=script&lang=js& */ "./resources/js/admin/pages/BankAccounts/BankAccount/BankAccount.js?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _BankAccount_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _BankAccount_html_vue_type_template_id_0de890cf_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _BankAccount_html_vue_type_template_id_0de890cf_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "0de890cf",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/pages/BankAccounts/BankAccount/BankAccount.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/BankAccounts/BankAccounts.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/admin/pages/BankAccounts/BankAccounts.vue ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _BankAccounts_html_vue_type_template_id_005c1bd4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BankAccounts.html?vue&type=template&id=005c1bd4&scoped=true& */ "./resources/js/admin/pages/BankAccounts/BankAccounts.html?vue&type=template&id=005c1bd4&scoped=true&");
+/* harmony import */ var _BankAccounts_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BankAccounts.js?vue&type=script&lang=js& */ "./resources/js/admin/pages/BankAccounts/BankAccounts.js?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _BankAccounts_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _BankAccounts_html_vue_type_template_id_005c1bd4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _BankAccounts_html_vue_type_template_id_005c1bd4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "005c1bd4",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/pages/BankAccounts/BankAccounts.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/BankAccounts/EditBankAccount/EditBankAccount.vue":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/admin/pages/BankAccounts/EditBankAccount/EditBankAccount.vue ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _EditBankAccount_html_vue_type_template_id_74d8a8fb_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditBankAccount.html?vue&type=template&id=74d8a8fb&scoped=true& */ "./resources/js/admin/pages/BankAccounts/EditBankAccount/EditBankAccount.html?vue&type=template&id=74d8a8fb&scoped=true&");
+/* harmony import */ var _EditBankAccount_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditBankAccount.js?vue&type=script&lang=js& */ "./resources/js/admin/pages/BankAccounts/EditBankAccount/EditBankAccount.js?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _EditBankAccount_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditBankAccount_html_vue_type_template_id_74d8a8fb_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _EditBankAccount_html_vue_type_template_id_74d8a8fb_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "74d8a8fb",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/pages/BankAccounts/EditBankAccount/EditBankAccount.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/BankAccounts/NewBankAccount/NewBankAccount.vue":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/admin/pages/BankAccounts/NewBankAccount/NewBankAccount.vue ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _NewBankAccount_html_vue_type_template_id_e76ad36a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NewBankAccount.html?vue&type=template&id=e76ad36a&scoped=true& */ "./resources/js/admin/pages/BankAccounts/NewBankAccount/NewBankAccount.html?vue&type=template&id=e76ad36a&scoped=true&");
+/* harmony import */ var _NewBankAccount_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NewBankAccount.js?vue&type=script&lang=js& */ "./resources/js/admin/pages/BankAccounts/NewBankAccount/NewBankAccount.js?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _NewBankAccount_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _NewBankAccount_html_vue_type_template_id_e76ad36a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _NewBankAccount_html_vue_type_template_id_e76ad36a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "e76ad36a",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/pages/BankAccounts/NewBankAccount/NewBankAccount.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Currencies/Currencies.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/admin/pages/Currencies/Currencies.vue ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Currencies_html_vue_type_template_id_517852b6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Currencies.html?vue&type=template&id=517852b6&scoped=true& */ "./resources/js/admin/pages/Currencies/Currencies.html?vue&type=template&id=517852b6&scoped=true&");
+/* harmony import */ var _Currencies_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Currencies.js?vue&type=script&lang=js& */ "./resources/js/admin/pages/Currencies/Currencies.js?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Currencies_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Currencies_html_vue_type_template_id_517852b6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Currencies_html_vue_type_template_id_517852b6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "517852b6",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/pages/Currencies/Currencies.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Currencies/Currency/Currency.vue":
+/*!*******************************************************************!*\
+  !*** ./resources/js/admin/pages/Currencies/Currency/Currency.vue ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Currency_html_vue_type_template_id_16ff1978_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Currency.html?vue&type=template&id=16ff1978&scoped=true& */ "./resources/js/admin/pages/Currencies/Currency/Currency.html?vue&type=template&id=16ff1978&scoped=true&");
+/* harmony import */ var _Currency_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Currency.js?vue&type=script&lang=js& */ "./resources/js/admin/pages/Currencies/Currency/Currency.js?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Currency_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Currency_html_vue_type_template_id_16ff1978_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Currency_html_vue_type_template_id_16ff1978_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "16ff1978",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/pages/Currencies/Currency/Currency.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Currencies/EditCurrency/EditCurrency.vue":
+/*!***************************************************************************!*\
+  !*** ./resources/js/admin/pages/Currencies/EditCurrency/EditCurrency.vue ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _EditCurrency_html_vue_type_template_id_d412a490_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditCurrency.html?vue&type=template&id=d412a490&scoped=true& */ "./resources/js/admin/pages/Currencies/EditCurrency/EditCurrency.html?vue&type=template&id=d412a490&scoped=true&");
+/* harmony import */ var _EditCurrency_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditCurrency.js?vue&type=script&lang=js& */ "./resources/js/admin/pages/Currencies/EditCurrency/EditCurrency.js?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _EditCurrency_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditCurrency_html_vue_type_template_id_d412a490_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _EditCurrency_html_vue_type_template_id_d412a490_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "d412a490",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/pages/Currencies/EditCurrency/EditCurrency.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Currencies/NewCurrency/NewCurrency.vue":
+/*!*************************************************************************!*\
+  !*** ./resources/js/admin/pages/Currencies/NewCurrency/NewCurrency.vue ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _NewCurrency_html_vue_type_template_id_6d47c4bc_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NewCurrency.html?vue&type=template&id=6d47c4bc&scoped=true& */ "./resources/js/admin/pages/Currencies/NewCurrency/NewCurrency.html?vue&type=template&id=6d47c4bc&scoped=true&");
+/* harmony import */ var _NewCurrency_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NewCurrency.js?vue&type=script&lang=js& */ "./resources/js/admin/pages/Currencies/NewCurrency/NewCurrency.js?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _NewCurrency_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _NewCurrency_html_vue_type_template_id_6d47c4bc_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _NewCurrency_html_vue_type_template_id_6d47c4bc_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "6d47c4bc",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/pages/Currencies/NewCurrency/NewCurrency.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/admin/pages/Home/Home.vue":
 /*!************************************************!*\
   !*** ./resources/js/admin/pages/Home/Home.vue ***!
@@ -30241,6 +33161,134 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/admin/pages/BankAccounts/BankAccount/BankAccount.js?vue&type=script&lang=js&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/BankAccounts/BankAccount/BankAccount.js?vue&type=script&lang=js& ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_BankAccount_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./BankAccount.js?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/BankAccounts/BankAccount/BankAccount.js?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_BankAccount_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/BankAccounts/BankAccounts.js?vue&type=script&lang=js&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/admin/pages/BankAccounts/BankAccounts.js?vue&type=script&lang=js& ***!
+  \****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_BankAccounts_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./BankAccounts.js?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/BankAccounts/BankAccounts.js?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_BankAccounts_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/BankAccounts/EditBankAccount/EditBankAccount.js?vue&type=script&lang=js&":
+/*!***********************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/BankAccounts/EditBankAccount/EditBankAccount.js?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_EditBankAccount_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./EditBankAccount.js?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/BankAccounts/EditBankAccount/EditBankAccount.js?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_EditBankAccount_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/BankAccounts/NewBankAccount/NewBankAccount.js?vue&type=script&lang=js&":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/BankAccounts/NewBankAccount/NewBankAccount.js?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_NewBankAccount_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./NewBankAccount.js?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/BankAccounts/NewBankAccount/NewBankAccount.js?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_NewBankAccount_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Currencies/Currencies.js?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/admin/pages/Currencies/Currencies.js?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_Currencies_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./Currencies.js?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Currencies/Currencies.js?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_Currencies_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Currencies/Currency/Currency.js?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/admin/pages/Currencies/Currency/Currency.js?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_Currency_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./Currency.js?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Currencies/Currency/Currency.js?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_Currency_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Currencies/EditCurrency/EditCurrency.js?vue&type=script&lang=js&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/Currencies/EditCurrency/EditCurrency.js?vue&type=script&lang=js& ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_EditCurrency_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./EditCurrency.js?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Currencies/EditCurrency/EditCurrency.js?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_EditCurrency_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Currencies/NewCurrency/NewCurrency.js?vue&type=script&lang=js&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/Currencies/NewCurrency/NewCurrency.js?vue&type=script&lang=js& ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_NewCurrency_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./NewCurrency.js?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/admin/pages/Currencies/NewCurrency/NewCurrency.js?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_NewCurrency_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/admin/pages/Home/Home.js?vue&type=script&lang=js&":
 /*!************************************************************************!*\
   !*** ./resources/js/admin/pages/Home/Home.js?vue&type=script&lang=js& ***!
@@ -30618,6 +33666,142 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_NewAdmin_html_vue_type_template_id_0bc3bee6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_NewAdmin_html_vue_type_template_id_0bc3bee6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./NewAdmin.html?vue&type=template&id=0bc3bee6&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Admins/NewAdmin/NewAdmin.html?vue&type=template&id=0bc3bee6&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/BankAccounts/BankAccount/BankAccount.html?vue&type=template&id=0de890cf&scoped=true&":
+/*!***********************************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/BankAccounts/BankAccount/BankAccount.html?vue&type=template&id=0de890cf&scoped=true& ***!
+  \***********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_BankAccount_html_vue_type_template_id_0de890cf_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_BankAccount_html_vue_type_template_id_0de890cf_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_BankAccount_html_vue_type_template_id_0de890cf_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./BankAccount.html?vue&type=template&id=0de890cf&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/BankAccounts/BankAccount/BankAccount.html?vue&type=template&id=0de890cf&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/BankAccounts/BankAccounts.html?vue&type=template&id=005c1bd4&scoped=true&":
+/*!************************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/BankAccounts/BankAccounts.html?vue&type=template&id=005c1bd4&scoped=true& ***!
+  \************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_BankAccounts_html_vue_type_template_id_005c1bd4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_BankAccounts_html_vue_type_template_id_005c1bd4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_BankAccounts_html_vue_type_template_id_005c1bd4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./BankAccounts.html?vue&type=template&id=005c1bd4&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/BankAccounts/BankAccounts.html?vue&type=template&id=005c1bd4&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/BankAccounts/EditBankAccount/EditBankAccount.html?vue&type=template&id=74d8a8fb&scoped=true&":
+/*!*******************************************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/BankAccounts/EditBankAccount/EditBankAccount.html?vue&type=template&id=74d8a8fb&scoped=true& ***!
+  \*******************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_EditBankAccount_html_vue_type_template_id_74d8a8fb_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_EditBankAccount_html_vue_type_template_id_74d8a8fb_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_EditBankAccount_html_vue_type_template_id_74d8a8fb_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./EditBankAccount.html?vue&type=template&id=74d8a8fb&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/BankAccounts/EditBankAccount/EditBankAccount.html?vue&type=template&id=74d8a8fb&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/BankAccounts/NewBankAccount/NewBankAccount.html?vue&type=template&id=e76ad36a&scoped=true&":
+/*!*****************************************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/BankAccounts/NewBankAccount/NewBankAccount.html?vue&type=template&id=e76ad36a&scoped=true& ***!
+  \*****************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_NewBankAccount_html_vue_type_template_id_e76ad36a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_NewBankAccount_html_vue_type_template_id_e76ad36a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_NewBankAccount_html_vue_type_template_id_e76ad36a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./NewBankAccount.html?vue&type=template&id=e76ad36a&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/BankAccounts/NewBankAccount/NewBankAccount.html?vue&type=template&id=e76ad36a&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Currencies/Currencies.html?vue&type=template&id=517852b6&scoped=true&":
+/*!********************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/Currencies/Currencies.html?vue&type=template&id=517852b6&scoped=true& ***!
+  \********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Currencies_html_vue_type_template_id_517852b6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Currencies_html_vue_type_template_id_517852b6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Currencies_html_vue_type_template_id_517852b6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./Currencies.html?vue&type=template&id=517852b6&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Currencies/Currencies.html?vue&type=template&id=517852b6&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Currencies/Currency/Currency.html?vue&type=template&id=16ff1978&scoped=true&":
+/*!***************************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/Currencies/Currency/Currency.html?vue&type=template&id=16ff1978&scoped=true& ***!
+  \***************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Currency_html_vue_type_template_id_16ff1978_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Currency_html_vue_type_template_id_16ff1978_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_Currency_html_vue_type_template_id_16ff1978_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./Currency.html?vue&type=template&id=16ff1978&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Currencies/Currency/Currency.html?vue&type=template&id=16ff1978&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Currencies/EditCurrency/EditCurrency.html?vue&type=template&id=d412a490&scoped=true&":
+/*!***********************************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/Currencies/EditCurrency/EditCurrency.html?vue&type=template&id=d412a490&scoped=true& ***!
+  \***********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_EditCurrency_html_vue_type_template_id_d412a490_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_EditCurrency_html_vue_type_template_id_d412a490_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_EditCurrency_html_vue_type_template_id_d412a490_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./EditCurrency.html?vue&type=template&id=d412a490&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Currencies/EditCurrency/EditCurrency.html?vue&type=template&id=d412a490&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/pages/Currencies/NewCurrency/NewCurrency.html?vue&type=template&id=6d47c4bc&scoped=true&":
+/*!*********************************************************************************************************************!*\
+  !*** ./resources/js/admin/pages/Currencies/NewCurrency/NewCurrency.html?vue&type=template&id=6d47c4bc&scoped=true& ***!
+  \*********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_NewCurrency_html_vue_type_template_id_6d47c4bc_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_NewCurrency_html_vue_type_template_id_6d47c4bc_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_NewCurrency_html_vue_type_template_id_6d47c4bc_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./NewCurrency.html?vue&type=template&id=6d47c4bc&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./resources/js/admin/pages/Currencies/NewCurrency/NewCurrency.html?vue&type=template&id=6d47c4bc&scoped=true&");
 
 
 /***/ }),

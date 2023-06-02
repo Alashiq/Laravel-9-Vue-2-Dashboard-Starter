@@ -4,16 +4,20 @@ export default {
         return {
             mainItem: [],
             formData: {
-                //xcolumn
+                name: '',
+abbreviation: '',
+
             },
             formValidate: {
-                //xvalidate
+                name: '',
+abbreviation: '',
+
             },
             loaded: 0,
             // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
             // Side Menu
             sideMenuPage: {
-                main: xpageid,
+                main: 10,
                 sub: 2,
             },
             errorMessage: "حدث خطأ ما",
@@ -26,16 +30,17 @@ export default {
         loadData:function(){
             this.$loading.Start();
             this.$http
-                .GetxmodelNew()
+                .GetCurrencyNew()
                 .then(response => {
                     this.$loading.Stop();
+                    // this.loaded = 200;
                     if (response.status == 200) {
                         this.mainItem = response.data.data;
                         this.loaded = 200;
                         this.$alert.Success(response.data.message);
                     } else if (response.status == 204) {
                         this.loaded = 204;
-                        this.$alert.Empty("هذه الxsinglearabic غير متوفر");
+                        this.$alert.Empty("هذه العملة غير متوفر");
                     }
                 })
                 .catch(error => {
@@ -58,11 +63,15 @@ export default {
                 });
         },
         addNewItem: function () {
-            //xcheckvalidatecolumn
+            this.validateName();
+ if (this.formValidate.name != '') return 0;
+this.validateAbbreviation();
+ if (this.formValidate.abbreviation != '') return 0;
+
 
         this.$loading.Start();
             this.$http
-            .PostNewxmodel(this.formData)
+            .PostNewCurrency(this.formData)
             .then(response => {
                 this.$loading.Stop();
                 if (response.status == 200) {
@@ -71,7 +80,7 @@ export default {
                     this.mainItem = [];
                     this.loaded = 204;
                     this.$alert.Empty(
-                        "لم يعد هذا الxsinglearabic متوفرة, قد يكون شخص أخر قام بحذفه"
+                        "لم يعد هذا العملة متوفرة, قد يكون شخص أخر قام بحذفه"
                     );
                 }
                 else if (response.status == 400) {
@@ -89,7 +98,21 @@ export default {
 
         },
 
-        //xvalidatecolumn
+        validateName: function() { 
+this.formValidate.name = '' 
+if (this.formData.name.trim() == '') { 
+this.formValidate.name = 'لا يمكن ترك هذا الحقل فارغ'; 
+return 1; 
+}
+},
+validateAbbreviation: function() { 
+this.formValidate.abbreviation = '' 
+if (this.formData.abbreviation.trim() == '') { 
+this.formValidate.abbreviation = 'لا يمكن ترك هذا الحقل فارغ'; 
+return 1; 
+}
+},
+
     },
     mounted() {
         this.$store.commit("activePage", this.sideMenuPage);

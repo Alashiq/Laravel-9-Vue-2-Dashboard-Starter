@@ -4,17 +4,21 @@ export default {
         return {
             mainItem: [],
             formData: {
-                //xcolumn
+                name: '',
+abbreviation: '',
+
             },
             formValidate: {
-                //xvalidate
+                name: '',
+abbreviation: '',
+
             },
             loaded: 0,
             // 0 not Loaded - 200 Load Success - 204 Empty - 400 Bad Request - 404 No Internet 
             // Side Menu
             sideMenuPage: {
-                main: xpageid,
-                sub: 2,
+                main: 10,
+                sub: 1,
             },
             errorMessage: "حدث خطأ ما",
         };
@@ -26,16 +30,19 @@ export default {
         loadData:function(){
             this.$loading.Start();
             this.$http
-                .GetxmodelNew()
+                .GetCurrencyById(this.$route.params.id)
                 .then(response => {
                     this.$loading.Stop();
                     if (response.status == 200) {
                         this.mainItem = response.data.data;
+                        this.formData.name=response.data.data.name;
+this.formData.abbreviation=response.data.data.abbreviation;
+
                         this.loaded = 200;
                         this.$alert.Success(response.data.message);
                     } else if (response.status == 204) {
                         this.loaded = 204;
-                        this.$alert.Empty("هذه الxsinglearabic غير متوفر");
+                        this.$alert.Empty("هذه العملة غير متوفر");
                     }
                 })
                 .catch(error => {
@@ -57,12 +64,18 @@ export default {
                     }
                 });
         },
-        addNewItem: function () {
-            //xcheckvalidatecolumn
+        editMainItem: function (id) {
+            this.validateName();
+ if (this.formValidate.name != '') return 0;
+this.validateAbbreviation();
+ if (this.formValidate.abbreviation != '') return 0;
+
+            // this.validateName();
+            // if (this.formValidate.name != "") return 0;
 
         this.$loading.Start();
             this.$http
-            .PostNewxmodel(this.formData)
+            .EditCurrency(this.$route.params.id,this.formData)
             .then(response => {
                 this.$loading.Stop();
                 if (response.status == 200) {
@@ -71,7 +84,7 @@ export default {
                     this.mainItem = [];
                     this.loaded = 204;
                     this.$alert.Empty(
-                        "لم يعد هذا الxsinglearabic متوفرة, قد يكون شخص أخر قام بحذفه"
+                        "لم يعد هذا العملة متوفرة, قد يكون شخص أخر قام بحذفه"
                     );
                 }
                 else if (response.status == 400) {
@@ -88,8 +101,36 @@ export default {
             });
 
         },
+        validateName: function() {
+            this.formValidate.name = "";
+            if (this.formData.name.trim() == "") {
+                this.formValidate.name = "لا يمكن ترك هذا الحقل فارغ";
+                return 1;
+            }
+            if (this.formData.name.trim().length < 5) {
+                this.formValidate.name = "يجب ان يكون الحقل 5 أحرف أو اكثر";
+                return 1;
+            }
+            if (this.formData.name.trim().length > 16) {
+                this.formValidate.name = "يجب ان يكون الحقل أقل من 16 حرف";
+                return 1;
+            }
+        },
+        validateName: function() { 
+this.formValidate.name = '' 
+if (this.formData.name.trim() == '') { 
+this.formValidate.name = 'لا يمكن ترك هذا الحقل فارغ'; 
+return 1; 
+}
+},
+validateAbbreviation: function() { 
+this.formValidate.abbreviation = '' 
+if (this.formData.abbreviation.trim() == '') { 
+this.formValidate.abbreviation = 'لا يمكن ترك هذا الحقل فارغ'; 
+return 1; 
+}
+},
 
-        //xvalidatecolumn
     },
     mounted() {
         this.$store.commit("activePage", this.sideMenuPage);

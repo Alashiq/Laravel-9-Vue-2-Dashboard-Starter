@@ -83,22 +83,49 @@ export default {
 
 
 
- // ============== Plan Part =======================
-GetAllPlans(page,countPerPage,name,qouta,price) { 
-return axios.get('/admin/api/plan?page=' + page + '&count=' + countPerPage+ '&name=' + name+ '&qouta=' + qouta+ '&price=' + price);
+
+ // ============== Currency Part =======================
+GetAllCurrencies(page,countPerPage,name,abbreviation) { 
+return axios.get('/admin/api/currency?page=' + page + '&count=' + countPerPage+ '&name=' + name+ '&abbreviation=' + abbreviation);
 }, 
 
-DeletePlan(id){
-return axios.delete('/admin/api/plan/' + id);
+DeleteCurrency(id){
+return axios.delete('/admin/api/currency/' + id);
 }, 
-GetPlanById(id){
-return axios.get('/admin/api/plan/' + id);
+GetCurrencyById(id){
+return axios.get('/admin/api/currency/' + id);
 }, 
-PostNewPlan(formData){
-return axios.post('/admin/api/plan' , formData);
+PostNewCurrency(formData){
+return axios.post('/admin/api/currency' , formData);
 }, 
-EditPlan(id,formData){
-return axios.put('/admin/api/plan/' + id , formData);
+EditCurrency(id,formData){
+return axios.put('/admin/api/currency/' + id , formData);
+}, 
+GetCurrencyNew(){
+return axios.get('/admin/api/currency/new');
+}, 
+
+
+
+ // ============== BankAccount Part =======================
+GetAllBankAccounts(page,countPerPage,name,branch,account_number) { 
+return axios.get('/admin/api/bank_account?page=' + page + '&count=' + countPerPage+ '&name=' + name+ '&branch=' + branch+ '&account_number=' + account_number);
+}, 
+
+DeleteBankAccount(id){
+return axios.delete('/admin/api/bank_account/' + id);
+}, 
+GetBankAccountById(id){
+return axios.get('/admin/api/bank_account/' + id);
+}, 
+PostNewBankAccount(formData){
+return axios.post('/admin/api/bank_account' , formData);
+}, 
+EditBankAccount(id,formData){
+return axios.put('/admin/api/bank_account/' + id , formData);
+}, 
+GetBankAccountNew(){
+return axios.get('/admin/api/bank_account/new');
 }, 
 
 

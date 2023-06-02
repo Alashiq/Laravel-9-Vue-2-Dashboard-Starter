@@ -15,6 +15,20 @@ import EditAdminRole from "../pages/Admins/EditAdminRole/EditAdminRole.vue";
 
 
 
+ import Currencies from '../pages/Currencies/Currencies.vue';
+import Currency from '../pages/Currencies/Currency/Currency.vue';
+import EditCurrency from '../pages/Currencies/EditCurrency/EditCurrency.vue';
+import NewCurrency from '../pages/Currencies/NewCurrency/NewCurrency.vue';
+
+
+
+ import BankAccounts from '../pages/BankAccounts/BankAccounts.vue';
+import BankAccount from '../pages/BankAccounts/BankAccount/BankAccount.vue';
+import EditBankAccount from '../pages/BankAccounts/EditBankAccount/EditBankAccount.vue';
+import NewBankAccount from '../pages/BankAccounts/NewBankAccount/NewBankAccount.vue';
+
+
+
  //ximport
 
 
@@ -83,6 +97,44 @@ export const routes = [
                 component: EditRole
             },
             
+
+
+ { 
+path: 'admin/currency/new', 
+component: NewCurrency 
+}, 
+{ 
+path: 'admin/currency', 
+component: Currencies 
+}, 
+{ 
+path: 'admin/currency/:id', 
+component: Currency 
+}, 
+{ 
+path: 'admin/currency/:id/edit', 
+component: EditCurrency 
+}, 
+
+
+
+ { 
+path: 'admin/bank_account/new', 
+component: NewBankAccount 
+}, 
+{ 
+path: 'admin/bank_account', 
+component: BankAccounts 
+}, 
+{ 
+path: 'admin/bank_account/:id', 
+component: BankAccount 
+}, 
+{ 
+path: 'admin/bank_account/:id/edit', 
+component: EditBankAccount 
+}, 
+
 
 
  //xroute
